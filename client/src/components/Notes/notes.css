@@ -1,0 +1,9 @@
+#NoteHeader {
+    font-size: large;
+    color:red;
+    
+}
+
+.NoteBox {
+    min-height: 200px;
+}
