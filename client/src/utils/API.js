@@ -7,9 +7,6 @@ export default {
     const BASEURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=imperial&appid=${APIKey}`;
     return axios.get(BASEURL);
   },
-};
-
-export default {
   // Gets all To Dos
   getToDos: function () {
     return axios.get("/api/todo");
