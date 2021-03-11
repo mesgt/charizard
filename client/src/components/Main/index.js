@@ -9,17 +9,17 @@ import Weather from "../Weather"
 function Main() {
     return (
         <>
-            <div class="grid-x">
-                <div class="cell radius bordered shadow card grid-margin-x"><Nav /></div>
+            <div className="grid-x">
+                <div className="cell radius bordered shadow card grid-margin-x"><Nav /></div>
             </div>
-            <div class="grid-x">
-                <div class="cell small-3">
-                    <div class="grid-x radius bordered shadow card padding-3"><ToDo /></div>
-                    <div class="grid-x radius bordered shadow card padding-3"><Weather /></div>
+            <div className="grid-x">
+                <div className="cell small-3">
+                    <div className="grid-x radius bordered shadow card padding-3"><ToDo /></div>
+                    <div className="grid-x radius bordered shadow card padding-3"><Weather /></div>
                 </div>
-                <div class="cell small-8">
-                    <div class="grid-x radius bordered shadow card"><Calendar /></div>
-                    <div class="grid-x radius bordered shadow card "><Notes /></div>
+                <div className="cell small-8">
+                    <div className="grid-x radius bordered shadow card"><Calendar /></div>
+                    <div className="grid-x radius bordered shadow card "><Notes /></div>
                 </div>
             </div>
         </>

@@ -3,8 +3,7 @@ const Schema = mongoose.Schema;
 
 
 const usersSchema = new Schema({
-    user:
-    { //login schema:
+ //login schema:
       email: { 
         type: String,
         unique: true,
@@ -29,14 +28,14 @@ const usersSchema = new Schema({
       }, 
 
       // note schema
-      note: {
+      note: [{
         title: { 
           type: String, 
           required: true },
         body: { 
           type: String, 
           required: true },
-      },
+      }],
       todo: [
         {
           title: { 
@@ -54,9 +53,8 @@ const usersSchema = new Schema({
         }
       ]
     }
-  }
 )
 
-const Users = mongoose.model("Users", usersSchema);
+const User = mongoose.model("User", usersSchema);
 
-module.exports = Users;
+module.exports = User;
