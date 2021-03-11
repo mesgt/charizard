@@ -1,7 +1,7 @@
 import React from "react";
 import "./login.css";
 
-function Login (){
+function LoginForm (){
     return (
         <div class="log-in-form">
             <div class="text-center">
@@ -14,4 +14,4 @@ function Login (){
     )
 }
 
-export default Login;
+export default LoginForm;
