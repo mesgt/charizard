@@ -3,8 +3,8 @@ import "./nav.css";
 
 function Nav (){
     return (
-        <div class="holy-grail-grid">
-        <div class="holy-grail-header">
+        <div className="holy-grail-grid">
+        <div className="holy-grail-header">
           <h3>Header</h3>
         </div>
         </div>
