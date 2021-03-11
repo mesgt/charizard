@@ -5,7 +5,7 @@ const toDoSchema = new Schema({
   title: { type: String, required: true },
   dueDate: { type: Date, default: Date.now },
   body: String,
-  complete: false
+  complete: false //set as default
 });
 
 const ToDo = mongoose.model("ToDo", toDoSchema);
