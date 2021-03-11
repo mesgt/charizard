@@ -1,7 +1,7 @@
 import React, { useEffect, useState }  from "react";
 import { List, ListItem } from "./ToDoList";
 import { Link } from "react-router-dom";
-// import DeleteBtn from "../DeleteBtn"
+import DeleteBtn from "../DeleteBtn"
 import API from "../../utils/API";
 import "./todo.css";
 
@@ -22,11 +22,11 @@ function ToDos() {
     };
 
     //Delete To Do task using _id and reload list
-    // function deleteToDo() {
-    //     API.deleteToDo(id)
-    //     .then(res => loadToDos())
-    //     .catch(error => console.log(error));
-    // };
+    function deleteToDo(id) {
+        API.deleteToDo(id)
+        .then(res => loadToDos())
+        .catch(error => console.log(error));
+    };
 
     //Handles updating component state from user input
     // function handleInputChange(event) {
@@ -64,12 +64,12 @@ function ToDos() {
                                         {todo.title} due {todo.dueDate}
                                     </strong>
                                 </Link>
-                                {/* <DeleteBtn onClick={() => deleteToDo(todo._id)} /> */}
+                                <DeleteBtn onClick={() => deleteToDo(todo._id)} />
                             </ListItem>
                         ))}
                     </List>
                 ) : (
-                    <h5>No tasks listed</h5>
+                    <h6>No tasks listed for today</h6>
                 )}
 
                 {/* <ul>
