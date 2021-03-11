@@ -31,7 +31,7 @@ const localizer = momentLocalizer(moment)
 // ]
 
 const MyCalendar = props => (
-  <div class="padding-3">
+  <div className="padding-3">
     <Calendar
       localizer={localizer}
       events={[]}
