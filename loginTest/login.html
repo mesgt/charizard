@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./login.css"></script>
+    <link rel="stylesheet" href="./login.css"></link>
     <!-- Compressed CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
 
@@ -12,17 +12,16 @@
 <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="grid-x grid-margin-x">
+    <div class="grid-x">
         <div class="cell small-4"></div>
-        <div class="cell small-4">
-           <div class="grid-x radius bordered shadow card padding-3">
+        <div class="cell small-4 logincontainer">
                 <div class="log-in-form">
-                    <div class="text-center">
-                        <h4>Log in to Everything</h4>
-                        <input type="email" placeholder="somebody@example.com" />
-                        <input type="password" placeholder="Password" />
-                        <p><input type="submit" class="button expanded" value="Log in"></input></p>
-                    </div>
+                    <h4 class="text-center">Log in to Everything</h4>
+                    <input type="text" class="log-in-form-firstname" name="firstName" placeholder="First Name" />
+                    <input type="text" class="log-in-form-lastname" name="lastName" placeholder="Last Name" />
+                    <input type="email" class="log-in-form-email" name="email" placeholder="Email" />
+                    <input type="password" class="log-in-form-password" name="password" placeholder="Password" />
+                    <p><input type="submit" class="button expanded log-in-form-button" value="Log in"></input></p>
                 </div>
             </div>
         </div>

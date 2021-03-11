@@ -1,7 +1,23 @@
 .log-in-form {
     border: 1px solid #cacaca;
     padding: 1rem;
-    border-radius: 0;
+    border-radius: .5rem;
   }
+
+.logincontainer {
+  position: absolute;
+  top: 32%;
+  left: 32%;
+}
+
+/* .log-in-form-firstname,
+.log-in-form-lastname,
+.log-in-form-email,
+.log-in-form-password {
+  border-radius: 30px;
+  border: none;
+  opacity: .1;
+  transition: all ease .4s;
+} */
 
   
