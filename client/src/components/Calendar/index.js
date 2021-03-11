@@ -21,6 +21,14 @@ import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 
 const localizer = momentLocalizer(moment)
+// const MyEventsList = [
+//   {
+//     title: "Gwennie's birthday party",
+//     start: "date",
+//     end: "date",
+//     allDay?: false,
+//   }
+// ]
 
 const MyCalendar = props => (
   <div className="padding-3">
