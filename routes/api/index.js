@@ -10,8 +10,5 @@ router.use("/todo", toDoRoutes);
 // Note routes
 
 
-// Weather routes
-
-
 
 module.exports = router;
