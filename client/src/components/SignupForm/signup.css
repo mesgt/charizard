@@ -2,17 +2,15 @@
     border: 1px solid #cacaca;
     padding: 1rem;
     border-radius: .5rem;
+    height: 100%;
   }
-
-.signupcontainer {
-  /* position: absolute;
-  top: 50%;
-  left: 50%; */
-  /* display: inline-block;
-  vertical-align: top; */
-}
 
 .sign-up-googleBtn {
   margin-left: 33%;
   margin-right: 33%;
+  width: 40%;
+}
+
+.createHeading {
+  padding: 10%;
 }

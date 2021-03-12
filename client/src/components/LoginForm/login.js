@@ -12,8 +12,8 @@ function LoginForm() {
     return (
         <>
         <div class="grid-x">
-            <div class="cell small-4" />
-            <div class="cell small-4 logincontainer">
+            <div/>
+            <div class="logincontainer">
                 <div class="log-in-form">
                     <h4 class="text-center">Login with Everything</h4>
                     <input type="email" class="log-in-form-email" name="email" placeholder="Email" />

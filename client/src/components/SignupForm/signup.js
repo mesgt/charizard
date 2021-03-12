@@ -12,10 +12,10 @@ function SignupForm() {
     return (
         <>
         <div class="grid-x">
-            <div class="cell small-4" />
-            <div class="cell small-4 signupcontainer">
+            <div/>
+            <div class="signupcontainer">
                 <div class="sign-up-form">
-                    <h4 class="text-center">Create an account with Everything</h4>
+                    <h4 class="text-center createHeading">Create an account with Everything</h4>
                     <div class="sign-up-googleBtn">
                         <GoogleLogin
                             clientId="49214406530-t4ofc8gge6vgfdchf8k6v3e28b883er9.apps.googleusercontent.com"
