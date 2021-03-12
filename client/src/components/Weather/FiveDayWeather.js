@@ -1,7 +1,7 @@
 import React from "react";
 
-const FiveDayWeather = (props) => {
-  console.log(props);
+const FiveDayWeather = (weather) => {
+  console.log(weather);
   return <>Hello</>;
 };
 

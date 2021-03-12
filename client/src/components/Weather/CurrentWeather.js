@@ -1,35 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-import API from "../../utils/API";
-import FiveDayWeather from "./FiveDayWeather";
-
-export function CurrentWeather() {
-  const [weather, setWeather] = useState({});
-
-  useEffect(() => {
-    function getLocation() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            console.log(position);
-            API.weather(
-              position.coords.latitude,
-              position.coords.longitude
-            ).then((res) => {
-              console.log(res.data);
-              setWeather(res.data);
-            });
-          },
-          (err) => {
-            console.log("User denied permission");
-          }
-        );
-      } else {
-        alert("Geolocation is not supported by this browswer");
-      }
-    }
-    getLocation();
-  }, []);
+export function CurrentWeather({ weather }) {
+  console.log(weather);
   let inputStyle =
     weather.current?.uvi >= 8
       ? { backgroundColor: "red", borderRadius: "5px", color: "white" }
@@ -42,7 +14,6 @@ export function CurrentWeather() {
           border: "1px solid black",
         }
       : { backgroundColor: "green", borderRadius: "5px", color: "white" };
-
   return (
     <div>
       <div className="card" style={{ backgroundColor: "#89a8ede0" }}>
@@ -80,7 +51,6 @@ export function CurrentWeather() {
           5 Day
         </a>
       </div>
-      <FiveDayWeather forecast={weather} />
     </div>
   );
 }
