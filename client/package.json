@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3001/",
-  "security": false,
   "dependencies": {
     "axios": "^0.18.0",
     "react": "^16.13.1",
@@ -14,15 +13,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
-    "client": "cd client && npm run start",
     "seed": "node scripts/seedDB.js",
-    "install": "npm install",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
+    "test": "react-scripts test --env=jsdom"
   },
   "browserslist": [
     ">0.2%",
