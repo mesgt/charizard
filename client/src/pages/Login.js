@@ -1,9 +1,9 @@
 import React from "react";
-import LoginForm from "../components/LoginForm/login";
+import FormContainer from "../components/FormContainer/formpage";
 
 function Login() {
     return (
-        <LoginForm />
+        <FormContainer />
     )
 } 
 

@@ -3,6 +3,7 @@ import axios from "axios";
 const APIKey = "3a623ea6ade278ada9b6b26990b8755d";
 
 export default {
+  //Recall weather
   weather: function (lat, lon) {
     const BASEURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=imperial&appid=${APIKey}`;
     return axios.get(BASEURL);

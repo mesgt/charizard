@@ -8,12 +8,9 @@
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
-    "seed": "node scripts/seedDB.js",
+    "seed": "node scripts/index.js",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "build:ui": "cd ../react-front && npm install && npm run build",
-    "deploy": "git push heroku master",
-    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && npm run deploy",
     "heroku-postbuild": "npm run build"
   },
   "author": "",
@@ -29,6 +26,7 @@
     "moment": "^2.29.1",
     "mongoose": "^5.3.16",
     "react-big-calendar": "^0.33.2",
+    "react-foundation-modal": "^0.1.5",
     "react-google-login": "^5.2.2"
   }
 }
