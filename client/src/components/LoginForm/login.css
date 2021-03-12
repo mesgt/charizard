@@ -1,0 +1,52 @@
+.log-in-form {
+    border: 1px solid #cacaca;
+    padding: 1rem;
+    border-radius: .5rem;
+  }
+
+.logincontainer {
+  position: absolute;
+  top: 32%;
+  left: 32%;
+}
+
+.googleBtn {
+  margin-left: 33%;
+  margin-right: 33%;
+}
+
+.log-in-form-firstname,
+.log-in-form-lastname,
+.log-in-form-email,
+.log-in-form-password {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.log-in-form-button {
+  width: 30%;
+  margin-left: 35%;
+}
+
+/* .signupcontainer {
+  position: absolute;
+  top: 32%;
+  left: 65.4%;
+}
+
+.sign-up-form {
+  border: 1px solid #cacaca;
+  border-radius: .5rem;
+  padding: 15%;
+  width: 250px;
+  height: 400px;
+}
+
+.sign-up-stuff {
+  position: absolute;
+  top: 40%;
+  left: 17%;
+} */
+  
+  
+  
