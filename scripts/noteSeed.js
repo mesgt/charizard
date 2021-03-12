@@ -30,7 +30,7 @@ const noteSeed = [
 db.Note
     .remove({})
     .then(() =>
-        Note.collection.insertMany(noteSeed))
+        db.Note.collection.insertMany(noteSeed))
     .then(data => {
         console.log(data.result.n + " records inserted!");
         process.exit(0);
