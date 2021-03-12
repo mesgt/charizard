@@ -12,7 +12,6 @@ function SignupForm() {
     return (
         <>
         <div class="grid-x">
-            <div/>
             <div class="signupcontainer">
                 <div class="sign-up-form">
                     <h4 class="text-center createHeading">Create an account with Everything</h4>
@@ -25,6 +24,8 @@ function SignupForm() {
                             onFailure={responseGoogle}
                             cookiePolicy={'single_host_origin'}
                             scope="https://www.googleapis.com/auth/calendar.events"
+                            redirectUri="http://localhost:3000/dash"
+                            uxMode="redirect"
                         />
                     </div>
                 </div>
