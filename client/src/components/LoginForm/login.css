@@ -1,12 +1,12 @@
 .log-in-form {
     border: 1px solid #cacaca;
-    padding: 1rem;
+    padding: 3rem;
     border-radius: .5rem;
   }
 
 .googleBtn {
-  margin-left: 33%;
-  margin-right: 33%;
+  margin-left: 20%;
+  width: 60%;
 }
 
 .log-in-form-email,
@@ -18,6 +18,10 @@
 .log-in-form-button {
   width: 30%;
   margin-left: 35%;
+}
+
+.loginHeading {
+  padding: 5%;
 }
 
   

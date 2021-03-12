@@ -15,14 +15,14 @@ function LoginForm() {
             <div/>
             <div class="logincontainer">
                 <div class="log-in-form">
-                    <h4 class="text-center">Login with Everything</h4>
+                    <h4 class="text-center loginHeading">Login with Everything</h4>
                     <input type="email" class="log-in-form-email" name="email" placeholder="Email" />
                     <input type="password" class="log-in-form-password" name="password" placeholder="Password" />
                     <input type="submit" class="button log-in-form-button" value="Login" />
                     <div class="googleBtn">
                         <GoogleLogin
                             clientId="49214406530-t4ofc8gge6vgfdchf8k6v3e28b883er9.apps.googleusercontent.com"
-                            buttonText="Sign Up with Google"
+                            buttonText="Login with Google"
                             onSuccess={responseGoogle}
                             isSignedIn={false}
                             onFailure={responseGoogle}
