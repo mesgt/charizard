@@ -15,7 +15,7 @@
     "start": "react-scripts start",
     "seed": "node scripts/seedDB.js",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test --env=jsdom"
   },
   "browserslist": [
     ">0.2%",
