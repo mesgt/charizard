@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const user = require("../models/index");
+const user = require("../models");
 
 
 mongoose.connect(
