@@ -6,8 +6,8 @@ import "./formpage.css";
 function FormContainer () {
     return (
         <div class="grid-x form-container">
-        <LoginForm class="cell medium-6 login"/>
-        <SignupForm class="cell medium-6 signup"/>
+        <LoginForm class="login"/>
+        <SignupForm class="signup"/>
         </div>
     )
 }
