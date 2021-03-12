@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import API from "../../utils/API";
+import FiveDayWeather from "./FiveDayWeather";
 
 export function CurrentWeather() {
   const [weather, setWeather] = useState({});
@@ -44,7 +45,7 @@ export function CurrentWeather() {
 
   return (
     <div>
-      <div className="card">
+      <div className="card" style={{ backgroundColor: "#89a8ede0" }}>
         <div className="card-section">
           <img
             src={`https://openweathermap.org/img/wn/${weather.current?.weather[0].icon}@2x.png`}
@@ -52,22 +53,26 @@ export function CurrentWeather() {
           />
         </div>
         <div className="card-section">
-          <h5 className="">
+          <h5 style={{ color: "white" }} className="">
             <span>{`${weather.current?.temp.toFixed(0)}° F`}</span>
           </h5>
-          <h6 className="" style={{ textTransform: "capitalize" }}>
+          <h6
+            className=""
+            style={{ textTransform: "capitalize", color: "white" }}
+          >
             {weather.current?.weather[0].description}
           </h6>
-          <p className="" style={{ lineHeight: "40%" }}>
+          <p className="" style={{ lineHeight: "40%", color: "white" }}>
             Humidity {weather.current?.humidity}%
           </p>
           <p className="" style={{ lineHeight: "40%" }}>
-            UV Index <span style={inputStyle}>{weather.current?.uvi}</span>
+            <span style={{ color: "white" }}>UV Index </span>
+            <span style={inputStyle}>{weather.current?.uvi}</span>
           </p>
-          <p className="" style={{ lineHeight: "40%" }}>
+          <p className="" style={{ lineHeight: "40%", color: "white" }}>
             Wind{" "}
-            <span style={{ lineHeight: "40%" }}>
-              {weather.current?.wind_speed}MPH
+            <span style={{ lineHeight: "40%", color: "white" }}>
+              {weather.current?.wind_speed} MPH
             </span>
           </p>
         </div>
@@ -75,6 +80,7 @@ export function CurrentWeather() {
           5 Day
         </a>
       </div>
+      <FiveDayWeather forecast={weather} />
     </div>
   );
 }
