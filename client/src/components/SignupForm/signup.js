@@ -1,8 +1,8 @@
 import React from "react";
 import { GoogleLogin } from 'react-google-login';
-import "./login.css";
+import "./signup.css";
 
-function LoginForm() {
+function SignupForm() {
 
     const responseGoogle = (response) => {
         console.log(response);
@@ -48,4 +48,4 @@ function LoginForm() {
     )
 }
 
-export default LoginForm;
+export default SignupForm;
