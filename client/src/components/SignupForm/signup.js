@@ -18,7 +18,7 @@ function SignupForm() {
                     <div class="sign-up-googleBtn">
                         <GoogleLogin
                             clientId="49214406530-t4ofc8gge6vgfdchf8k6v3e28b883er9.apps.googleusercontent.com"
-                            buttonText="Sign Up with Google"
+                            buttonText="Sign Up"
                             onSuccess={responseGoogle}
                             isSignedIn={false}
                             onFailure={responseGoogle}
