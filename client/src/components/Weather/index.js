@@ -17,7 +17,6 @@ function Weather() {
               position.coords.latitude,
               position.coords.longitude
             ).then((res) => {
-              console.log(res.data);
               setWeather(res.data);
             });
           },
@@ -34,7 +33,7 @@ function Weather() {
   return (
     <>
       <CurrentWeather weather={weather} />
-      <FiveDayWeather weather={weather} />
+      <FiveDayWeather weather1={weather} />
     </>
   );
 }
