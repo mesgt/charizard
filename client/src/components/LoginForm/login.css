@@ -5,9 +5,12 @@
   }
 
 .logincontainer {
-  position: absolute;
-  top: 32%;
-  left: 32%;
+  /* position: absolute;
+  top: 10%;
+  left: 10%; */
+  /* display: inline-block;
+  vertical-align: top; */
+  
 }
 
 .googleBtn {
@@ -26,25 +29,6 @@
   margin-left: 35%;
 }
 
-/* .signupcontainer {
-  position: absolute;
-  top: 32%;
-  left: 65.4%;
-}
-
-.sign-up-form {
-  border: 1px solid #cacaca;
-  border-radius: .5rem;
-  padding: 15%;
-  width: 250px;
-  height: 400px;
-}
-
-.sign-up-stuff {
-  position: absolute;
-  top: 40%;
-  left: 17%;
-} */
   
   
   
