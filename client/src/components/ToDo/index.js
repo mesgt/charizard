@@ -1,6 +1,6 @@
 import React, { useEffect, useState }  from "react";
 import { List, ListItem } from "./ToDoList";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import DeleteBtn from "../DeleteBtn"
 import API from "../../utils/API";
 import "./todo.css";
@@ -59,11 +59,12 @@ function ToDos() {
                     <List>
                         {todos.map(todo => (
                             <ListItem key={todo._id}>
-                                <Link to={"/todo/" + todo._id}> {/* the link may have to be ToDo */}
-                                    <strong>
+                                {/* <Button to={"/todo/" + todo._id}> the link may have to be ToDo change this to a button and connect to a modal.  */}
+                                    {/* <strong> */}
                                         {todo.title} due {todo.dueDate}
-                                    </strong>
-                                </Link>
+                                    {/* </strong> */}
+                                {/* </Button> */}
+                                
                                 <DeleteBtn onClick={() => deleteToDo(todo._id)} />
                             </ListItem>
                         ))}

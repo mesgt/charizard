@@ -1,10 +1,11 @@
 const db = require("../models");
+console.log(db);
 
 // Defining methods for todoController
 module.exports = {
     findAll: function (req, res) {
         db.ToDo
-            .findAll()
+            .find({}) //mongoose function
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
