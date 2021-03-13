@@ -38,7 +38,11 @@ function Weather() {
       <a onClick={() => setModalIsOpen(true)} class="button primary" href="#">
         5 Day
       </a>
-      <FiveDayWeather weather1={weather} />
+      <FiveDayWeather
+        open={modalIsOpen}
+        weather={weather}
+        onClose={() => setModalIsOpen(false)}
+      />
     </>
   );
 }
