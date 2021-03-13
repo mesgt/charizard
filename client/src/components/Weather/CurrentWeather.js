@@ -1,7 +1,7 @@
 import React from "react";
 
 export function CurrentWeather({ weather }) {
-  console.log();
+  // UV INDEX STYLING \\
   let inputStyle =
     weather.current?.uvi >= 8
       ? {
@@ -27,7 +27,12 @@ export function CurrentWeather({ weather }) {
         };
   return (
     <div>
-      <div className="card" style={{ backgroundColor: "#89a8ede0" }}>
+      <div
+        className="card"
+        style={{
+          backgroundImage: `url("https://images.pexels.com/photos/125457/pexels-photo-125457.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")`,
+        }}
+      >
         <div className="card-section">
           <img
             src={`https://openweathermap.org/img/wn/${weather.current?.weather[0].icon}@2x.png`}

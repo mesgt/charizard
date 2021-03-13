@@ -7,9 +7,13 @@ import FiveDayWeather from "./FiveDayWeather";
 Modal.setAppElement("#root");
 
 function Weather() {
+  // STATE FOR WEATHER API \\
   const [weather, setWeather] = useState({});
+
+  // STATE FOR MODAL OPEN/CLOSE \\
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
+  // GET LOCATION AND API REQUEST WHEN PAGE LOADS \\
   useEffect(() => {
     function getLocation() {
       if (navigator.geolocation) {
