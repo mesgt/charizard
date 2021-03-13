@@ -58,9 +58,6 @@ export function CurrentWeather({ weather }) {
             </span>
           </p>
         </div>
-        <a onClick={() => setModalIsOpen(true)} class="button primary" href="#">
-          5 Day
-        </a>
       </div>
     </div>
   );
