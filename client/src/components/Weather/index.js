@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import API from "../../utils/API";
+import Modal from "react-modal";
 import "./weather.css";
 import CurrentWeather from "./CurrentWeather";
 import FiveDayWeather from "./FiveDayWeather";
 
 function Weather() {
   const [weather, setWeather] = useState({});
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   useEffect(() => {
     function getLocation() {

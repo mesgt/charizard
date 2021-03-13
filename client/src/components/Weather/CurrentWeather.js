@@ -1,19 +1,30 @@
 import React from "react";
 
 export function CurrentWeather({ weather }) {
-  console.log(weather);
+  console.log();
   let inputStyle =
     weather.current?.uvi >= 8
-      ? { backgroundColor: "red", borderRadius: "5px", color: "white" }
+      ? {
+          backgroundColor: "red",
+          borderRadius: "5px",
+          color: "white",
+          padding: "3px",
+        }
       : (weather.current?.uvi >= 6) & (weather.current?.uvi < 8)
-      ? { backgroundColor: "orange", borderRadius: "5px" }
+      ? { backgroundColor: "orange", borderRadius: "5px", padding: "3px" }
       : (weather.current?.uvi > 2) & (weather.current?.uvi < 6)
       ? {
           backgroundColor: "yellow",
           borderRadius: "5px",
           border: "1px solid black",
+          padding: "3px",
         }
-      : { backgroundColor: "green", borderRadius: "5px", color: "white" };
+      : {
+          backgroundColor: "green",
+          borderRadius: "5px",
+          color: "white",
+          padding: "3px",
+        };
   return (
     <div>
       <div className="card" style={{ backgroundColor: "#89a8ede0" }}>
@@ -47,7 +58,7 @@ export function CurrentWeather({ weather }) {
             </span>
           </p>
         </div>
-        <a class="button primary" href="#">
+        <a onClick={() => setModalIsOpen(true)} class="button primary" href="#">
           5 Day
         </a>
       </div>
