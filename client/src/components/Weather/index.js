@@ -4,6 +4,7 @@ import Modal from "react-modal";
 import "./weather.css";
 import CurrentWeather from "./CurrentWeather";
 import FiveDayWeather from "./FiveDayWeather";
+Modal.setAppElement("#root");
 
 function Weather() {
   const [weather, setWeather] = useState({});
@@ -39,6 +40,7 @@ function Weather() {
         5 Day
       </a>
       <FiveDayWeather
+        onRequestClose={() => setModalIsOpen(false)}
         open={modalIsOpen}
         weather={weather}
         onClose={() => setModalIsOpen(false)}
