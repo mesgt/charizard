@@ -1,13 +1,13 @@
 import React from "react";
 import Modal from "react-modal";
 
-const FiveDayWeather = ({ props }) => {
-  console.log();
+const FiveDayWeather = ({ weather, open, onClose }) => {
+  console.log(open);
 
   return (
-    <Modal isOpen={false}>
+    <Modal isOpen={open}>
       <h2>Modal Title</h2>
-      <a class="button primary" href="#">
+      <a onClick={() => setModalIsOpen(false)} class="button primary" href="#">
         Close
       </a>
     </Modal>
