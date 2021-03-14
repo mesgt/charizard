@@ -17,12 +17,12 @@ const userSchema = new Schema({
         type: String,
         trim: true,
         required: true
-    },
-    password: {
-        type: String,
-        trim: true,
-        required: "Password is Required", //on submit check is password exists and if not, require password
-        validate: [({ length }) => length >= 6, "Password should be longer."]
+    // },
+    // password: {
+    //     type: String,
+    //     trim: true,
+    //     required: "Password is Required", //on submit check is password exists and if not, require password
+    //     validate: [({ length }) => length >= 6, "Password should be longer."]
     }
 }
 )
