@@ -1,10 +1,13 @@
 const mongoose = require("mongoose");
 const db = require("../models");
 
-mongoose.connect("mongodb://localhost/everythingApp", {
-    useNewUrlParser: true,
-    useFindAndModify: false
-});
+
+mongoose.connect(
+    process.env.MONGODB_URI ||
+    "mongodb://localhost/everythingApp"
+)
+.catch(err => console.log(err));;
+
 
 const userSeed = [
     {
