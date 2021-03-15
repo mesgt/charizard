@@ -29,141 +29,41 @@ const FiveDayWeather = ({ weather, open, onClose, onRequestClose }) => {
   const currentDay = new Date(
     weather.daily?.[0].dt * 1000
   ).toLocaleDateString();
-
+  console.log(weather);
   return (
     <Modal isOpen={open} onRequestClose={onRequestClose} style={customStyles}>
       <div className="flex-container">
         <div class="grid-x grid-margin-x small-up-5 ">
-          {/* 5 DAY DAY 1 */}
-          <div className="cell">
-            <div className="card" style={{ minHeight: "380px" }}>
-              <div className="card-section">
-                <h5>
-                  {new Date(weather.daily?.[1].dt * 1000).toLocaleDateString()}
-                </h5>
-                <img
-                  src={`https://openweathermap.org/img/wn/${weather.daily?.[1].weather[0].icon}@2x.png`}
-                  alt={""}
-                />
-              </div>
-              <div
-                className="card-section"
-                style={{
-                  textTransform: "capitalize",
-                  backgroungColor: "white",
-                }}
-              >
-                <p>{weather.daily?.[1].weather[0].description}</p>
-                <p>Low {weather.daily?.[1].temp.min.toFixed(0)}°</p>
-                <p>High {weather.daily?.[1].temp.max.toFixed(0)}°</p>
-                <p>Humidity {weather.daily?.[1].humidity.toFixed(0)}%</p>
-              </div>
-            </div>
-          </div>
-          {/* 5 DAY DAY 2 */}
-          <div className="cell">
-            <div className="card" style={{ minHeight: "380px" }}>
-              <div className="card-section">
-                <h5>
-                  {new Date(weather.daily?.[2].dt * 1000).toLocaleDateString()}
-                </h5>
-                <img
-                  src={`https://openweathermap.org/img/wn/${weather.daily?.[2].weather[0].icon}@2x.png`}
-                  alt={""}
-                />
-              </div>
-              <div
-                className="card-section"
-                style={{
-                  textTransform: "capitalize",
-                  backgroungColor: "white",
-                }}
-              >
-                <p>{weather.daily?.[2].weather[0].description}</p>
-                <p>Low {weather.daily?.[2].temp.min.toFixed(0)}°</p>
-                <p>High {weather.daily?.[2].temp.max.toFixed(0)}°</p>
-                <p>Humidity {weather.daily?.[2].humidity.toFixed(0)}%</p>
-              </div>
-            </div>
-          </div>
-          {/* 5 DAY DAY 3 */}
-          <div className="cell">
-            <div className="card" style={{ minHeight: "380px" }}>
-              <div className="card-section">
-                <h5>
-                  {new Date(weather.daily?.[3].dt * 1000).toLocaleDateString()}
-                </h5>
-                <img
-                  src={`https://openweathermap.org/img/wn/${weather.daily?.[3].weather[0].icon}@2x.png`}
-                  alt={""}
-                />
-              </div>
-              <div
-                className="card-section"
-                style={{
-                  textTransform: "capitalize",
-                  backgroungColor: "white",
-                }}
-              >
-                <p>{weather.daily?.[3].weather[0].description}</p>
-                <p>Low {weather.daily?.[3].temp.min.toFixed(0)}°</p>
-                <p>High {weather.daily?.[3].temp.max.toFixed(0)}°</p>
-                <p>Humidity {weather.daily?.[3].humidity.toFixed(0)}%</p>
-              </div>
-            </div>
-          </div>
-          {/* 5 DAY DAY 4 */}
-          <div className="cell">
-            <div className="card" style={{ minHeight: "380px" }}>
-              <div className="card-section">
-                <h5>
-                  {new Date(weather.daily?.[4].dt * 1000).toLocaleDateString()}
-                </h5>
-                <img
-                  src={`https://openweathermap.org/img/wn/${weather.daily?.[4].weather[0].icon}@2x.png`}
-                  alt={""}
-                />
-              </div>
-              <div
-                className="card-section"
-                style={{
-                  textTransform: "capitalize",
-                  backgroungColor: "white",
-                }}
-              >
-                <p>{weather.daily?.[4].weather[0].description}</p>
-                <p>Low {weather.daily?.[4].temp.min.toFixed(0)}°</p>
-                <p>High {weather.daily?.[4].temp.max.toFixed(0)}°</p>
-                <p>Humidity {weather.daily?.[4].humidity.toFixed(0)}%</p>
-              </div>
-            </div>
-          </div>
-          {/* 5 DAY DAY 5 */}
-          <div className="cell">
-            <div className="card" style={{ minHeight: "380px" }}>
-              <div className="card-section">
-                <h5>
-                  {new Date(weather.daily?.[5].dt * 1000).toLocaleDateString()}
-                </h5>
-                <img
-                  src={`https://openweathermap.org/img/wn/${weather.daily?.[5].weather[0].icon}@2x.png`}
-                  alt={""}
-                />
-              </div>
-              <div
-                className="card-section"
-                style={{
-                  textTransform: "capitalize",
-                  backgroungColor: "white",
-                }}
-              >
-                <p>{weather.daily?.[5].weather[0].description}</p>
-                <p>Low {weather.daily?.[5].temp.min.toFixed(0)}°</p>
-                <p>High {weather.daily?.[5].temp.max.toFixed(0)}°</p>
-                <p>Humidity {weather.daily?.[5].humidity.toFixed(0)}%</p>
-              </div>
-            </div>
-          </div>
+          {Object.keys(weather).length > 0 &&
+            weather.daily
+              .filter((dayObject, index) => index > 0 && index < 6)
+              .map((dayObject, index) => (
+                <div key={index} className="cell">
+                  <div className="card" style={{ minHeight: "380px" }}>
+                    <div className="card-section">
+                      <h5>
+                        {new Date(dayObject.dt * 1000).toLocaleDateString()}
+                      </h5>
+                      <img
+                        src={`https://openweathermap.org/img/wn/${dayObject.weather[0].icon}@2x.png`}
+                        alt={""}
+                      />
+                    </div>
+                    <div
+                      className="card-section"
+                      style={{
+                        textTransform: "capitalize",
+                        backgroungColor: "white",
+                      }}
+                    >
+                      <p>{dayObject.weather[0].description}</p>
+                      <p>Low {dayObject.temp.min.toFixed(0)}°</p>
+                      <p>High {dayObject.temp.max.toFixed(0)}°</p>
+                      <p>Humidity {dayObject.humidity.toFixed(0)}%</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
         </div>
       </div>
       <a
