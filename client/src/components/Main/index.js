@@ -9,7 +9,9 @@ import { CgSun } from "react-icons/cg";
 import { HiMailOpen, HiMoon } from "react-icons/hi";
 
 const StyledCalendar = styled(Calendar)``;
-const StyledNotes = styled(Notes)``;
+const StyledNotes = styled(Notes)`
+background-color: ${props => props.theme.titleColor};
+color: ${props => props.theme.pageBackground};`;
 const StyledToDo = styled(ToDo)``;
 const StyledWeather = styled(Weather)``;
 const StyledNav = styled(Nav)``

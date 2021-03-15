@@ -1,13 +1,18 @@
 
 .todo {
-      border-radius: 0;
+    border-radius: 0;
     max-width: 300px;
     border: 2px black solid;
 
   }
-  
-  .todo-card .divider {
+
+  .top {
     border-bottom: 2px solid #cacaca;
+
+  }
+  
+  .divider {
+    border-bottom: 1px solid #cacaca;
     background: inherit;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -17,7 +22,7 @@
             justify-content: space-between;
   }
   
-  .todo-list-card .card-divider h3 {
+  .divider {
     margin-bottom: 0;
   }
   
@@ -31,12 +36,11 @@
   }
   
   .todo-list-card ul li {
-    background-color: #e6e6e6;
     margin: 10px 0;
     padding: 10px;
   }
   
-  .todo-list-card ul input[type="checkbox"] {
+  .divider ul input[type="checkbox"] {
     position: absolute;
     visibility: hidden;
     left: -99999px;
