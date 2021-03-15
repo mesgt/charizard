@@ -3,6 +3,9 @@
     border-radius: 0;
     max-width: 300px;
     border: 2px black solid;
+    height: 30vh;
+    overflow-y: scroll;
+    scrollbar-color: black, white;
 
   }
 
