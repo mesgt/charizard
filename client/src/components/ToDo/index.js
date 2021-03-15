@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Modal from "react-modal";
+import ToDoDetails from "./modalDisplay";
 import { List, ListItem } from "./ToDoList";
 // import { Link } from "react-router-dom";
 import DeleteBtn from "../DeleteBtn";
@@ -6,11 +8,15 @@ import EditBtn from "../EditBtn";
 import CheckBtn from "../CheckMark";
 import API from "../../utils/API";
 import "./todo.css";
+Modal.setAppElement("#root");
 
 
 function ToDos() {
     const [todos, setToDos] = useState([])
     // const [formObject, setFormObject] = useState({})
+
+    // State for modal to open/close
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
     //Load all To Do tasks and store them with setToDos
     useEffect(() => {
@@ -35,7 +41,7 @@ function ToDos() {
     function editToDo(id) {
         API.editToDo(id)
             .then(res => console.log(res))
-                // loadToDos())
+            // loadToDos())
             .catch(error => console.log(error));
     }
     //Handles updating component state from user input
@@ -74,16 +80,28 @@ function ToDos() {
                                 </strong>
                                 {/* </Button> */}
                                 <CheckBtn onClick={() => editToDo(todo._id)} /> {/* Update this route! */}
-                                <br/>
+                                <br />
                                 <EditBtn onClick={() => editToDo(todo._id)} />
-                                <br/>
+                                <br />
                                 <DeleteBtn onClick={() => deleteToDo(todo._id)} />
                             </ListItem>
                         ))}
                     </List>
                 ) : (
-                    <h6>No tasks listed for today</h6>
+                    <h6>No tasks to display</h6>
                 )}
+                <a
+                    style={{ border: "1px solid white", fontWeight: "bold" }}
+                    onClick={() => setModalIsOpen(true)}
+                    class="button primary"
+                    href="#/">
+                    Test
+                </a>
+                <ToDoDetails 
+                onRequestClose={() => setModalIsOpen(false)}
+                open={modalIsOpen}
+
+                onClose={() => setModalIsOpen(false)}/>
             </div>
         </div>
 
