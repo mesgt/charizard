@@ -33,15 +33,14 @@ function ToDos() {
     //Delete To Do task using _id and reload list
     function deleteToDo(id) {
         API.deleteToDo(id)
-            .then(res => loadToDos())
+            .then(res => console.log(res), loadToDos())
             .catch(error => console.log(error));
     };
 
     //Edit To Do task using _id and reload list
     function editToDo(id) {
         API.editToDo(id)
-            .then(res => console.log(res))
-            // loadToDos())
+            .then(res => loadToDos())
             .catch(error => console.log(error));
     }
     //Handles updating component state from user input
@@ -74,34 +73,40 @@ function ToDos() {
                     <List>
                         {todos.map(todo => (
                             <ListItem key={todo._id}>
-                                {/* <Button to={"/todo/" + todo._id}> the link may have to be ToDo change this to a button and connect to a modal.  */}
                                 <strong>
-                                    {todo.title} due {todo.dueDate.slice(0, -14)}
+                                    {todo.title} due {todo.dueDate.slice(0, -14)} {/* Date format will be different in mongoDB Atlas. This works for local server. */}
                                 </strong>
-                                {/* </Button> */}
-                                <CheckBtn onClick={() => editToDo(todo._id)} /> {/* Update this route! */}
+                                <CheckBtn onClick={() => editToDo(todo._id)} /> {/* Update this route! It needs to change complete to true. This will put it in a different modal that will display completed tasks. */}
                                 <br />
-                                <EditBtn onClick={() => editToDo(todo._id)} />
-                                <br />
-                                <DeleteBtn onClick={() => deleteToDo(todo._id)} />
+                                <EditBtn 
+                                onClick={() => setModalIsOpen(true)} //needs to trigger 2 functions- open modal and edit task
+                                href="#/">
+                                    {/* Modal to display when click on edit */}
+                                    <ToDoDetails
+                                        onRequestClose={() => setModalIsOpen(false)}
+                                        open={modalIsOpen}
+                                        onClose={() => setModalIsOpen(false)}>
+                                    </ToDoDetails>
+                                </EditBtn>
+                                    <br />
+                                    <DeleteBtn onClick={() => deleteToDo(todo._id)} />
                             </ListItem>
                         ))}
                     </List>
-                ) : (
-                    <h6>No tasks to display</h6>
-                )}
-                <a
-                    style={{ border: "1px solid white", fontWeight: "bold" }}
-                    onClick={() => setModalIsOpen(true)}
-                    class="button primary"
-                    href="#/">
-                    Test
-                </a>
-                <ToDoDetails 
-                onRequestClose={() => setModalIsOpen(false)}
-                open={modalIsOpen}
-
-                onClose={() => setModalIsOpen(false)}/>
+                        ) : (
+                        <h6>No tasks to display</h6>
+                        )}
+                        <a
+                            style={{ border: "1px solid white", fontWeight: "bold" }}
+                            onClick={() => setModalIsOpen(true)}
+                            class="button primary"
+                            href="#/">
+                            Test
+                        </a>
+                        <ToDoDetails
+                            onRequestClose={() => setModalIsOpen(false)}
+                            open={modalIsOpen}
+                            onClose={() => setModalIsOpen(false)} />
             </div>
         </div>
 

@@ -42,7 +42,7 @@ const ToDoDetails = ({open, onClose, onRequestClose}) => {
                     class="button primary"
                     href="#/">
                     Close
-                            </a>
+                </a>
     </Modal>
     );
 };
