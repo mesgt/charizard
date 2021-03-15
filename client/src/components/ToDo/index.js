@@ -1,4 +1,4 @@
-import React, { useEffect, useState }  from "react";
+import React, { useEffect, useState } from "react";
 import { List, ListItem } from "./ToDoList";
 // import { Link } from "react-router-dom";
 import DeleteBtn from "../DeleteBtn"
@@ -17,15 +17,15 @@ function ToDos() {
     //Load and display all To Do tasks
     function loadToDos() {
         API.getToDos()
-        .then(res => setToDos(res.data))
-        .catch(error => console.log(error));
+            .then(res => setToDos(res.data))
+            .catch(error => console.log(error));
     };
 
     //Delete To Do task using _id and reload list
     function deleteToDo(id) {
         API.deleteToDo(id)
-        .then(res => loadToDos())
-        .catch(error => console.log(error));
+            .then(res => loadToDos())
+            .catch(error => console.log(error));
     };
 
     //Handles updating component state from user input
@@ -60,11 +60,11 @@ function ToDos() {
                         {todos.map(todo => (
                             <ListItem key={todo._id}>
                                 {/* <Button to={"/todo/" + todo._id}> the link may have to be ToDo change this to a button and connect to a modal.  */}
-                                    {/* <strong> */}
-                                        {todo.title} due {todo.dueDate}
-                                    {/* </strong> */}
+                                <strong>
+                                    {todo.title} due {todo.dueDate}
+                                </strong>
                                 {/* </Button> */}
-                                
+
                                 <DeleteBtn onClick={() => deleteToDo(todo._id)} />
                             </ListItem>
                         ))}
@@ -72,12 +72,6 @@ function ToDos() {
                 ) : (
                     <h6>No tasks listed for today</h6>
                 )}
-
-                {/* <ul>
-                    <li><input id="item1" type="checkbox"></input><label htmlFor="item1"></label>Item 1</li>
-                    <li><input id="item2" type="checkbox"></input><label htmlFor="item2"></label>Item 2</li>
-                    <li><input id="item3" type="checkbox"></input><label htmlFor="item3"></label>Item 3</li>
-                </ul> */}
             </div>
         </div>
 
