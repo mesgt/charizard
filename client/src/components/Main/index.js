@@ -51,11 +51,13 @@ transition: all .5s ease;
 `;
 
 function Main(props) {
+
+  console.log(props);
   function changeTheme() {
     if (props.theme === "light") {
-      props.setTheme("dark");
+      props.test("dark");
     } else {
-      props.setTheme("light");
+      props.test("light");
     }
   }
 
