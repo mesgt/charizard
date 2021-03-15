@@ -32,7 +32,6 @@ export default {
   // =======================
 
   //creates new user in db
-  // Saves a To Do to the database
   createUser: function (userData) {
     return axios.post("/api/user", userData);
   },

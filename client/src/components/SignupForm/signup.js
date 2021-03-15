@@ -1,12 +1,26 @@
 import React from "react";
 import { GoogleLogin } from 'react-google-login';
 import "./signup.css";
+import { useHistory } from "react-router-dom"
 
 function SignupForm() {
 
-    const responseGoogle = (response) => {
-        console.log(response);
+    const history = useHistory();
+
+    const redirect = (response) => {
         console.log(response.profileObj);
+        //check to see if user exists in database
+        //if yes redirect to dash
+        history.push("/dash")
+        //if no,, alert "please create an account"
+    }
+
+    const checkUser = () => {
+      
+    }
+
+    const failedLogin = () => {
+        alert("Something went wrong, try again.")
     }
 
     return (
@@ -19,10 +33,10 @@ function SignupForm() {
                     <div class="sign-up-googleBtn">
                         <GoogleLogin
                             clientId="49214406530-t4ofc8gge6vgfdchf8k6v3e28b883er9.apps.googleusercontent.com"
-                            buttonText="Sign Up with Google"
-                            onSuccess={responseGoogle}
+                            buttonText="Sign in with Google"
+                            onSuccess={redirect}
                             isSignedIn={false}
-                            onFailure={responseGoogle}
+                            onFailure={failedLogin}
                             cookiePolicy={'single_host_origin'}
                             scope="https://www.googleapis.com/auth/calendar.events"
                         />
