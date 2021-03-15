@@ -8,6 +8,10 @@ export default {
     const BASEURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=imperial&appid=${APIKey}`;
     return axios.get(BASEURL);
   },
+  coordinates: function () {
+    const cityURL = `https://api.openweathermap.org/data/2.5/weather?q=anoka&appid=${APIKey}`;
+    return axios.get(cityURL);
+  },
   // Gets all To Dos
   getToDos: function () {
     return axios.get("/api/todo");

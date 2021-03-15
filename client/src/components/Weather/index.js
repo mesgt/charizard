@@ -17,6 +17,7 @@ function Weather() {
   useEffect(() => {
     function getLocation() {
       if (navigator.geolocation) {
+        console.log(navigator.geolocation);
         navigator.geolocation.getCurrentPosition(
           (position) => {
             console.log(position);
@@ -28,11 +29,13 @@ function Weather() {
             });
           },
           (err) => {
-            console.log("User denied permission");
+            API.weather(44.97997, -93.26384).then((res) => {
+              setWeather(res.data);
+            });
           }
         );
       } else {
-        alert("Geolocation is not supported by this browswer");
+        console.log("not allowed");
       }
     }
     getLocation();
