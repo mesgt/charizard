@@ -4,7 +4,11 @@ body {
   padding: 0;
 }
 .WeatherBox {
-  min-height: 250px;
+  min-height: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 2px black solid;
 }
 
 .DayBox {
