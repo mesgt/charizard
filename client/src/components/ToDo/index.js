@@ -26,15 +26,19 @@ function ToDos() {
     //Load and display all To Do tasks
     function loadToDos() {
         API.getToDos()
+
             .then(res => setToDos(res.data))
             .catch(error => console.log(error));
+
     };
 
     //Delete To Do task using _id and reload list
     function deleteToDo(id) {
         API.deleteToDo(id)
+
             .then(res => console.log(res), loadToDos())
             .catch(error => console.log(error));
+
     };
 
     //Edit To Do task using _id and reload list
@@ -59,16 +63,16 @@ function ToDos() {
     //             complete: false
     //         })
     //         .then(res => loadToDos())
-    //         .catch(error => console.log(error));
+    //         .catch(err => console.log(err));
     //     }
     // }
 
     return (
-        <div data-closable="fade-out" class="todo-list-card card">
-            <div class="card-divider">
+        <div data-closable="fade-out" class="todo">
+            <div class="divider">
                 <h3>To Do List</h3>
             </div>
-            <div class="card-section">
+            <div class="section">
                 {todos.length ? (
                     <List>
                         {todos.map(todo => (

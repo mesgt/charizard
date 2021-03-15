@@ -25,9 +25,13 @@
     "express": "^4.16.3",
     "if-env": "^1.0.4",
     "moment": "^2.29.1",
+    "mongodb": "^3.6.4",
     "mongoose": "^5.3.16",
     "react-big-calendar": "^0.33.2",
     "react-foundation-modal": "^0.1.5",
-    "react-google-login": "^5.2.2"
+    "react-google-login": "^5.2.2",
+    "react-icons": "^4.2.0",
+    "styled-components": "^5.2.1",
+    "react-modal": "^3.12.1"
   }
 }

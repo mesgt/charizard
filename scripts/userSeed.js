@@ -1,30 +1,32 @@
 const mongoose = require("mongoose");
 const db = require("../models");
 
+
 mongoose.connect(
     process.env.MONGODB_URI ||
     "mongodb://localhost/everythingApp"
 )
 .catch(err => console.log(err));;
 
+
 const userSeed = [
     {
         email: "test@test.com",
         firstName: "John",
-        lastName: "Doe",
-        password: "qwer1234",
+        lastName: "Doe"
+        // password: "qwer1234",
     },
     {
         email: "test1@test.com",
         firstName: "Jane",
-        lastName: "Doe",
-        password: "asdf1234",
+        lastName: "Doe"
+        // password: "asdf1234",
     },
     {
         email: "test2@test.com",
         firstName: "Little",
-        lastName: "Doe",
-        password: "zxcv1234",
+        lastName: "Doe"
+        // password: "zxcv1234",
     },
 ];
 

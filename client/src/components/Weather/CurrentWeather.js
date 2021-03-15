@@ -11,14 +11,14 @@ export function CurrentWeather({ weather }) {
           padding: "3px",
           fontWeight: "bold",
         }
-      : (weather.current?.uvi >= 6) & (weather.current?.uvi < 8)
+      : weather.current?.uvi >= 6 && weather.current?.uvi < 8
       ? {
           backgroundColor: "orange",
           borderRadius: "5px",
           padding: "3px",
           fontWeight: "bold",
         }
-      : (weather.current?.uvi > 2) & (weather.current?.uvi < 6)
+      : weather.current?.uvi > 2 && weather.current?.uvi < 6
       ? {
           backgroundColor: "yellow",
           borderRadius: "5px",
@@ -33,12 +33,23 @@ export function CurrentWeather({ weather }) {
           padding: "3px",
           fontWeight: "bold",
         };
+
+  // CURRENT WEATHER BACKGROUND PIC BASED ON DAY OR NIGHT \\
+  const daySky =
+    "https://images.pexels.com/photos/125457/pexels-photo-125457.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+  const nightSky =
+    "https://images.pexels.com/photos/2908971/pexels-photo-2908971.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+  const currentPic =
+    weather.current?.dt > weather.current?.sunrise &&
+    weather.current?.dt < weather.current?.sunset
+      ? daySky
+      : nightSky;
   return (
     <div>
       <div
         className="card"
         style={{
-          backgroundImage: `url("https://images.pexels.com/photos/125457/pexels-photo-125457.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")`,
+          backgroundImage: `url(${currentPic})`,
         }}
       >
         <div className="card-section">
