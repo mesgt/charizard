@@ -1,7 +1,10 @@
 import React from "react";
 import Modal from "react-modal";
 
-const ToDoDetails = ({open, onClose, onRequestClose}) => {
+const ToDoDetails = ({open, onClose, onRequestClose, title, editModalOpen, toggleModal}) => {
+    // console.log(open);
+    // console.log(onClose)
+    // const [modalIsOpen, setModalIsOpen] = useState(false);
     //Modal style
     const customStyles = {
         content: {
@@ -22,12 +25,13 @@ const ToDoDetails = ({open, onClose, onRequestClose}) => {
             backgroundColor: "rgb(72,72,72,.95)",
         },
     };
-
+    console.log(editModalOpen);
+    
     return (
-        <Modal isOpen={open} onRequestClose={onRequestClose} style={customStyles}>
+        <Modal isOpen={editModalOpen} onRequestClose={onRequestClose} style={customStyles}>
             <div className="flex-container">
                 <div class="grid-x grid-margin-x small-up-5 ">
-                    <h5>Test</h5>
+                    <h5>{title}</h5>
                     <div className="cell">
                         <div className="card" style={{ minHeight: "380px" }}>
                             <div className="card-section">
@@ -36,13 +40,15 @@ const ToDoDetails = ({open, onClose, onRequestClose}) => {
                     </div>
                 </div>
             </div>
-                <a
+                <button
                     style={{ border: "1px solid white", fontWeight: "bold" }}
-                    onClick={onClose}
+                    onClick=
+                    // {console.log("Click works!")}
+                    {toggleModal}
                     class="button primary"
                     href="#/">
                     Close
-                </a>
+                </button>
     </Modal>
     );
 };

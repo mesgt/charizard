@@ -31,7 +31,7 @@
     "react-foundation-modal": "^0.1.5",
     "react-google-login": "^5.2.2",
     "react-icons": "^4.2.0",
-    "styled-components": "^5.2.1",
-    "react-modal": "^3.12.1"
+    "react-modal": "^3.12.1",
+    "styled-components": "^5.2.1"
   }
 }

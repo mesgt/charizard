@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Calendar from "../Calendar";
 import Nav from "../Nav";
 import Notes from "../Notes";
@@ -51,6 +51,8 @@ transition: all .5s ease;
 `;
 
 function Main(props) {
+//To do states
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   console.log(props);
   function changeTheme() {
@@ -78,7 +80,10 @@ function Main(props) {
           </div>
           <div class="grid-x">
             <div class="cell small-3">
-              <div class="grid-x radius"><StyledToDo /></div>
+              <div class="grid-x radius"><StyledToDo 
+              editModalOpen={modalIsOpen}
+              toggleModal={() => setModalIsOpen(!modalIsOpen)}
+              /></div>
               <div class="grid-x radius"><StyledWeather /></div>
             </div>
             <div class="cell small-9">
