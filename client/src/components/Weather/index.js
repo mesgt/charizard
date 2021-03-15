@@ -32,7 +32,7 @@ function Weather() {
           }
         );
       } else {
-        alert("Geolocation is not supported by this browswer");
+        alert("Geolocation is not supported by this browser");
       }
     }
     getLocation();

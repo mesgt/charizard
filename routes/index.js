@@ -7,7 +7,7 @@ router.use("/api", apiRoutes);
 
 // If no API routes are hit, send the React app
 router.use(function (req, res) {
-    res.sendFile(path.join(__dirname, "../client/build/index.html")); //is 'build' a correct folder or is it specific for gitHub deployment?
+    res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
 module.exports = router;
