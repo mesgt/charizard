@@ -1,33 +1,33 @@
 const mongoose = require("mongoose");
 const db = require("../models");
 
-mongoose.connect(
-    process.env.MONGODB_URI ||
-    "mongodb://localhost/everythingApp"
-);
+mongoose.connect("mongodb://localhost/everythingApp", {
+    useNewUrlParser: true,
+    useFindAndModify: false
+});
 
 const todoSeed = [
     {
         title: "bakery pickup",
-        dueDate: 2021 - 03 - 15,
+        dueDate: Date.now,
         body: "Pick up birthday cake from bakery.",
         complete: false
     },
     {
         title: "grocery shopping",
-        dueDate: 2021 - 03 - 17,
+        dueDate: Date.now,
         body: "Remember to get bananas, apples, and bread.",
         complete: false
     },
     {
         title: "oil change",
-        dueDate: 2021 - 03 - 20,
+        dueDate: Date.now,
         body: "Use coupon from Groupon for fully synthetic oil change.",
         complete: false
     },
     {
         title: "misc",
-        dueDate: 2021 - 03 - 21,
+        dueDate: Date.now,
         body: "",
         complete: false
     }

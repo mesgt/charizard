@@ -9,28 +9,47 @@ export function CurrentWeather({ weather }) {
           borderRadius: "5px",
           color: "white",
           padding: "3px",
+          fontWeight: "bold",
         }
-      : (weather.current?.uvi >= 6) & (weather.current?.uvi < 8)
-      ? { backgroundColor: "orange", borderRadius: "5px", padding: "3px" }
-      : (weather.current?.uvi > 2) & (weather.current?.uvi < 6)
+      : weather.current?.uvi >= 6 && weather.current?.uvi < 8
+      ? {
+          backgroundColor: "orange",
+          borderRadius: "5px",
+          padding: "3px",
+          fontWeight: "bold",
+        }
+      : weather.current?.uvi > 2 && weather.current?.uvi < 6
       ? {
           backgroundColor: "yellow",
           borderRadius: "5px",
-          border: "1px solid black",
+          border: "1px solid white",
           padding: "3px",
+          fontWeight: "bold",
         }
       : {
           backgroundColor: "green",
           borderRadius: "5px",
           color: "white",
           padding: "3px",
+          fontWeight: "bold",
         };
+
+  // CURRENT WEATHER BACKGROUND PIC BASED ON DAY OR NIGHT \\
+  const daySky =
+    "https://images.pexels.com/photos/125457/pexels-photo-125457.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+  const nightSky =
+    "https://images.pexels.com/photos/2908971/pexels-photo-2908971.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+  const currentPic =
+    weather.current?.dt > weather.current?.sunrise &&
+    weather.current?.dt < weather.current?.sunset
+      ? daySky
+      : nightSky;
   return (
     <div>
       <div
         className="card"
         style={{
-          backgroundImage: `url("https://images.pexels.com/photos/125457/pexels-photo-125457.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")`,
+          backgroundImage: `url(${currentPic})`,
         }}
       >
         <div className="card-section">
@@ -40,25 +59,31 @@ export function CurrentWeather({ weather }) {
           />
         </div>
         <div className="card-section">
-          <h5 style={{ color: "white" }} className="">
+          <h2 style={{ color: "white", fontWeight: "bold" }} className="">
             <span>{`${weather.current?.temp.toFixed(0)}° F`}</span>
-          </h5>
+          </h2>
           <h6
             className=""
-            style={{ textTransform: "capitalize", color: "white" }}
+            style={{
+              textTransform: "capitalize",
+              color: "white",
+              fontWeight: "bold",
+            }}
           >
             {weather.current?.weather[0].description}
           </h6>
-          <p className="" style={{ lineHeight: "40%", color: "white" }}>
+          <p className="" style={{ color: "white", fontWeight: "bold" }}>
             Humidity {weather.current?.humidity}%
           </p>
-          <p className="" style={{ lineHeight: "40%" }}>
-            <span style={{ color: "white" }}>UV Index </span>
+          <p className="" style={{}}>
+            <span style={{ color: "white", fontWeight: "bold" }}>
+              UV Index{" "}
+            </span>
             <span style={inputStyle}>{weather.current?.uvi}</span>
           </p>
-          <p className="" style={{ lineHeight: "40%", color: "white" }}>
+          <p className="" style={{ color: "white", fontWeight: "bold" }}>
             Wind{" "}
-            <span style={{ lineHeight: "40%", color: "white" }}>
+            <span style={{ color: "white" }}>
               {weather.current?.wind_speed} MPH
             </span>
           </p>

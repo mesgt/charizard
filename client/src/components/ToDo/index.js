@@ -18,14 +18,14 @@ function ToDos() {
     function loadToDos() {
         API.getToDos()
         .then(res => setToDos(res.data))
-        .catch(error => console.log(error));
+        .catch(err => console.log(err));
     };
 
     //Delete To Do task using _id and reload list
     function deleteToDo(id) {
         API.deleteToDo(id)
         .then(res => loadToDos())
-        .catch(error => console.log(error));
+        .catch(err => console.log(err));
     };
 
     //Handles updating component state from user input
@@ -44,7 +44,7 @@ function ToDos() {
     //             complete: false
     //         })
     //         .then(res => loadToDos())
-    //         .catch(error => console.log(error));
+    //         .catch(err => console.log(err));
     //     }
     // }
 
