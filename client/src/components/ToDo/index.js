@@ -49,12 +49,12 @@ function ToDos() {
     // }
 
     return (
-        <div data-closable="fade-out" class="todo-list-card card">
-            <div class="card-divider">
+        <div data-closable="fade-out" class="todo">
+            <div class="divider">
                 <h3>To Do List</h3>
                 <button class="close-button" data-close>x</button>
             </div>
-            <div class="card-section">
+            <div class="section">
                 {todos.length ? (
                     <List>
                         {todos.map(todo => (

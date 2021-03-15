@@ -1,11 +1,12 @@
 
-.todo-list-card {
-    background-color: #fefefe;
-    border-radius: 0;
+.todo {
+      border-radius: 0;
     max-width: 300px;
+    border: 2px black solid;
+
   }
   
-  .todo-list-card .card-divider {
+  .todo-card .divider {
     border-bottom: 2px solid #cacaca;
     background: inherit;
     display: -webkit-flex;
