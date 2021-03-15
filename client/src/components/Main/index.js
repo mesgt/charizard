@@ -54,7 +54,6 @@ function Main(props) {
 
   console.log(props);
   function changeTheme() {
-    // props.test("light")
     if (props.theme === "light") {
       props.test("dark");
     } else {

@@ -1,6 +1,5 @@
 import Main from "./index";
 import React from "react";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import {useState} from "react";
 import {ThemeProvider} from "styled-components";
 
@@ -21,20 +20,9 @@ const themes = {
   dark: DarkTheme,
 }
 
-// function App() {
-//   const [theme, setTheme] = useState("dark")
-//   return (
-//     <ThemeProvider theme={themes[theme]}>
-//       <Main theme={theme} setTheme={setTheme} />
-//     </ThemeProvider>
-//   )
-// }
+
 function Theme() {
     const [theme, setTheme] = useState("dark")
-
-//     const test = (theme) => {
-// console.log(theme);
-//     }
 
 function test(theme){
     console.log(theme);
