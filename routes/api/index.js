@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const toDoRoutes = require("./todo");
+const noteRoutes = require("./note");
 
 // To Do routes
 router.use("/todo", toDoRoutes);
@@ -8,7 +9,7 @@ router.use("/todo", toDoRoutes);
 
 
 // Note routes
-
+router.use("/note", noteRoutes);
 
 
 module.exports = router;
