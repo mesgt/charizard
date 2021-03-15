@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from "react";
 import API from "../../utils/API";
+import Modal from "react-modal";
 import "./weather.css";
 import CurrentWeather from "./CurrentWeather";
 import FiveDayWeather from "./FiveDayWeather";
+Modal.setAppElement("#root");
 
 function Weather() {
+  // STATE FOR WEATHER API \\
   const [weather, setWeather] = useState({});
 
+  // STATE FOR MODAL OPEN/CLOSE \\
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  // GET LOCATION AND API REQUEST WHEN PAGE LOADS \\
   useEffect(() => {
     function getLocation() {
       if (navigator.geolocation) {
@@ -33,7 +40,20 @@ function Weather() {
   return (
     <>
       <CurrentWeather weather={weather} />
-      <FiveDayWeather weather1={weather} />
+      <a
+        style={{ border: "1px solid white", fontWeight: "bold" }}
+        onClick={() => setModalIsOpen(true)}
+        class="button primary"
+        href="#/"
+      >
+        5 Day Forecast
+      </a>
+      <FiveDayWeather
+        onRequestClose={() => setModalIsOpen(false)}
+        open={modalIsOpen}
+        weather={weather}
+        onClose={() => setModalIsOpen(false)}
+      />
     </>
   );
 }
