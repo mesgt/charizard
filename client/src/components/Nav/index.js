@@ -4,7 +4,7 @@ import "./nav.css";
 function Nav (){
     return (
         <div className="holy-grail-grid">
-        <div className="holy-grail-header">
+        <div className="header">
           <h3>Header</h3>
         </div>
         </div>
