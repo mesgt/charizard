@@ -1,13 +1,13 @@
 const router = require("express").Router();
 const userController = require("../../controllers/userController")
 
-// Matches with "/api/todo"
+// Matches with "/api/user"
 router.route("/")
     .post(userController.create);
 
 // Matches with "/api/todo/:id"
-// router.route("/:id")
-//     .get(todoController.findById)
+router.route("/:email")
+    .get(userController.findByEmail)
 //     .put(todoController.update)
 //     .delete(todoController.remove);
 

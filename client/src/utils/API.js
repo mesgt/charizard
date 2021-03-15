@@ -36,4 +36,7 @@ export default {
     return axios.post("/api/user", userData);
   },
 
+  findByEmail: function (email) {
+    return axios.get("/api/user/" + email)}
+
 };

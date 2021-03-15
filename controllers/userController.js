@@ -9,12 +9,12 @@ module.exports = {
     //         .then(dbModel => res.json(dbModel))
     //         .catch(err => console.log(err));
     // },
-    // findById: function (req, res) {
-    //     db.ToDo
-    //         .findById(req.params.id)
-    //         .then(dbModel => res.json(dbModel))
-    //         .catch(err => console.log(err));
-    // },
+    findByEmail: function (req, res) {
+        db.User
+            .findOne({email: req.params.email})
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.json(err));
+    },
     create: function (req, res) {
         db.User
             .create(req.body)
