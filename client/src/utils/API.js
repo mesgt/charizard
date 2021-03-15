@@ -17,7 +17,7 @@ export default {
     return axios.get("/api/todo");
   },
   // Gets the To Do with the given id
-  getToDo: function (id) {
+  editToDo: function (id) {
     return axios.get("/api/todo/" + id);
   },
   // Deletes the To Do with the given id
