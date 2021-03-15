@@ -35,11 +35,7 @@ function Weather() {
           }
         );
       } else {
-<<<<<<< HEAD
-        console.log("not allowed");
-=======
         alert("Geolocation is not supported by this browser");
->>>>>>> main
       }
     }
     getLocation();
