@@ -3,8 +3,10 @@ import { List, ListItem } from "./ToDoList";
 // import { Link } from "react-router-dom";
 import DeleteBtn from "../DeleteBtn";
 import EditBtn from "../EditBtn";
+import CheckBtn from "../CheckMark";
 import API from "../../utils/API";
 import "./todo.css";
+
 
 function ToDos() {
     const [todos, setToDos] = useState([])
@@ -68,9 +70,11 @@ function ToDos() {
                             <ListItem key={todo._id}>
                                 {/* <Button to={"/todo/" + todo._id}> the link may have to be ToDo change this to a button and connect to a modal.  */}
                                 <strong>
-                                    {todo.title} due {todo.dueDate}
+                                    {todo.title} due {todo.dueDate.slice(0, -14)}
                                 </strong>
                                 {/* </Button> */}
+                                <CheckBtn onClick={() => editToDo(todo._id)} /> {/* Update this route! */}
+                                <br/>
                                 <EditBtn onClick={() => editToDo(todo._id)} />
                                 <br/>
                                 <DeleteBtn onClick={() => deleteToDo(todo._id)} />
