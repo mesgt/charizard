@@ -24,4 +24,13 @@ export default {
   saveToDo: function (todoData) {
     return axios.post("/api/todo", todoData);
   },
+
+  // =======================
+
+  //creates new user in db
+  // Saves a To Do to the database
+  createUser: function (userData) {
+    return axios.post("/api/user", userData);
+  },
+
 };
