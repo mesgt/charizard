@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { List, ListItem } from "./ToDoList";
 // import { Link } from "react-router-dom";
-import DeleteBtn from "../DeleteBtn"
+import DeleteBtn from "../DeleteBtn";
+import EditBtn from "../EditBtn";
 import API from "../../utils/API";
 import "./todo.css";
 
@@ -28,6 +29,13 @@ function ToDos() {
             .catch(error => console.log(error));
     };
 
+    //Edit To Do task using _id and reload list
+    function editToDo(id) {
+        API.editToDo(id)
+            .then(res => console.log(res))
+                // loadToDos())
+            .catch(error => console.log(error));
+    }
     //Handles updating component state from user input
     // function handleInputChange(event) {
     //     console.log(event);
@@ -52,7 +60,6 @@ function ToDos() {
         <div data-closable="fade-out" class="todo-list-card card">
             <div class="card-divider">
                 <h3>To Do List</h3>
-                <button class="close-button" data-close>x</button>
             </div>
             <div class="card-section">
                 {todos.length ? (
@@ -64,7 +71,8 @@ function ToDos() {
                                     {todo.title} due {todo.dueDate}
                                 </strong>
                                 {/* </Button> */}
-
+                                <EditBtn onClick={() => editToDo(todo._id)} />
+                                <br/>
                                 <DeleteBtn onClick={() => deleteToDo(todo._id)} />
                             </ListItem>
                         ))}
