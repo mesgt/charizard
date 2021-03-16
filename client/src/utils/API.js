@@ -12,6 +12,10 @@ export default {
     const cityURL = `https://api.openweathermap.org/data/2.5/weather?q=anoka&appid=${APIKey}`;
     return axios.get(cityURL);
   },
+
+  //=========================
+  //TO DO ROUTES
+
   // Gets all To Dos
   getToDos: function () {
     return axios.get("/api/todo");
@@ -42,13 +46,18 @@ export default {
   },
 
   // =======================
+  //USER ROUTES
 
   //creates new user in db
   createUser: function (userData) {
     return axios.post("/api/user", userData);
   },
-
+  //find user by email
   findByEmail: function (email) {
-    return axios.get("/api/user/" + email)}
-
+    return axios.get("/api/user/" + email)
+  },
+  //get user
+  // getUser: function (email) {
+  //   return axios.get("/api/user/" + email) 
+  // },
 };
