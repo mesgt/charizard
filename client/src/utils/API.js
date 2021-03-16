@@ -32,10 +32,6 @@ export default {
   getNotes: function () {
     return axios.get("/api/note");
   },
-  // Gets the Note with the given id
-  editNote: function (id) {
-    return axios.get("/api/note/" + id);
-  },
   // Deletes the Note with the given id
   deleteNote: function (id) {
     return axios.delete("/api/note/" + id);
