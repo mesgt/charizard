@@ -3,12 +3,11 @@ import uuid from "react-uuid";
 import "./notes.css";
 import Sidebar from "../NotesSidebar/sidebar";
 import NotesBody from "../NotesBody/notesBody";
-
+import API from "../../utils/API";
 
 function Notes() {
-    const [notes, setNotes] = useState(
-        localStorage.notes ? JSON.parse(localStorage.notes) : []
-    );
+    const [notes, setNotes] = useState([])
+
     const [activeNote, setActiveNote] = useState(false);
 
     useEffect(() => {
