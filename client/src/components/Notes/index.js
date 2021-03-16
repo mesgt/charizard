@@ -3,7 +3,6 @@ import uuid from "react-uuid";
 import "./notes.css";
 import Sidebar from "../NotesSidebar/sidebar";
 import NotesBody from "../NotesBody/notesBody";
-import API from "../../utils/API";
 
 
 function Notes() {
@@ -51,7 +50,6 @@ function Notes() {
 
     return (
         <div className="grid-container fluid NoteBox">
-            <div className="grid-x grid-margin-x">
                 <Sidebar
                     notes={notes}
                     onAddNote={onAddNote}
@@ -60,7 +58,6 @@ function Notes() {
                     setActiveNote={setActiveNote}
                 />
                 <NotesBody activeNote={getActiveNote()} onUpdateNote={onUpdateNote} />
-            </div>
         </div>
     )
 }

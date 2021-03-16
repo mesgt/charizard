@@ -1,4 +1,5 @@
 import ReactMarkdown from "react-markdown";
+import React, { Component } from "react";
 
 const NotesBody = ({ activeNote, onUpdateNote }) => {
     const onEditField = (field, value) => {
