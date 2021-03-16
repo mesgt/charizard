@@ -45,11 +45,17 @@ export function CurrentWeather({ weather }) {
       ? daySky
       : nightSky;
   return (
-    <div>
+    <div
+      style={{
+        width: "100%",
+      }}
+    >
       <div
         className="card"
         style={{
           backgroundImage: `url(${currentPic})`,
+
+          marginTop: "5vh",
         }}
       >
         <div className="card-section">
