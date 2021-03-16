@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import uuid from "react-uuid";
 import "./notes.css";
+import Sidebar from "../NotesSidebar/sidebar";
 import API from "../../utils/API";
 
 
