@@ -39,7 +39,7 @@ const FontToggle = styled.button`
     height: 50px;
     border-radius: 50%;
     border: none;
-    font: ${props => props.theme.fontStayle};
+    font: ${props => props.theme.fontFamily};
     transition: all .5s ease;
 `;
 
@@ -84,15 +84,15 @@ function Nav(props) {
     let currentIndex = 0;
 
     props.fontThemeArray.forEach((font, index) => {
-      if(font === props.theme) {
+      if(font === props.fontTheme) {
         currentIndex = index;
       }
     })
 
     if(currentIndex+1 < props.fontThemeArray.length) {
-      props.test(props.fontThemeArray[currentIndex+1])
+      props.test1(props.fontThemeArray[currentIndex+1])
     } else {
-      props.test(props.fontThemeArray[0])
+      props.test1(props.fontThemeArray[0])
     }
 
   }

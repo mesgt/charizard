@@ -50,6 +50,7 @@ const Container = styled.div`
   background-color: ${(props) => props.theme.pageBackground};
   color: ${(props) => props.theme.titleColor};
   border: ${(props) => props.theme.titleColor};
+  font-family: ${(props) => props.theme.fontFamily};
 
   transition: all 0.5s ease;
 `;
@@ -78,6 +79,8 @@ function Main(props) {
               <Nav
                 theme={props.theme}
                 test={props.test}
+                fontTheme={props.fontTheme}
+                test1={props.test1}
                 colorThemeArray={props.colorThemeArray}
                 fontThemeArray={props.fontThemeArray}
 
