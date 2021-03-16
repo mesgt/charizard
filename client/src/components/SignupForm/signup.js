@@ -9,16 +9,17 @@ function SignupForm() {
     const history = useHistory();
 
     const checkUser = (response) => {
-        console.log(response.profileObj);
+        let email = response.profileObj.email
+        // console.log(response.profileObj);
         //check to see if user exists in database
-        API.findByEmail(response.profileObj.email)
+        API.findByEmail(email)
             .then((res) =>{
-                if (response.profileObj.email) {
-                    history.push("/dash")
+                if (res.data !==null) {
+                    history.push("/dash");
+                    console.log("User exists!", res)
                 } else {
                     alert("please create an account")
                 };
-                console.log("User exists!", res)
             })
             .catch (err => console.log(err));
 }

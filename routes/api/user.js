@@ -5,10 +5,10 @@ const userController = require("../../controllers/userController")
 router.route("/")
     .post(userController.create);
 
-// Matches with "/api/todo/:id"
+// Matches with "/api/user/:email"
 router.route("/:email")
     .get(userController.findByEmail)
-//     .put(todoController.update)
-//     .delete(todoController.remove);
+//     .put(userController.update)
+//     .delete(userController.remove);
 
 module.exports = router;
