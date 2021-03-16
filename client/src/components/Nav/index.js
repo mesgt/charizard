@@ -33,6 +33,15 @@ const ColorToggle = styled.button`
     transition: all .5s ease;
 `;
 
+const FontToggle = styled.button`
+    cursor: pointer;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    font: ${props => props.theme.fontStayle};
+    transition: all .5s ease;
+`;
+
 function Nav(props) {
 
   const failedLogout = () => {
@@ -69,6 +78,23 @@ function Nav(props) {
 
   }
 
+  function changeFontTheme() {
+    let currentIndex = 0;
+
+    props.fontThemeArray.forEach((font, index) => {
+      if(font === props.theme) {
+        currentIndex = index;
+      }
+    })
+
+    if(currentIndex+1 < props.fontThemeArray.length) {
+      props.test(props.fontThemeArray[currentIndex+1])
+    } else {
+      props.test(props.fontThemeArray[0])
+    }
+
+  }
+
   const icon = props.theme === "light" ? <HiMoon size={40} /> : <CgSun size={40} />;
 
   //const Blueicon = props.theme === "blue" ? <HiMoon size={40} /> : <CgSun size={40} />;
@@ -92,6 +118,9 @@ function Nav(props) {
         <ColorToggle  onClick={changeColorTheme}>
                 Color
             </ColorToggle>   
+       <FontToggle  onClick={changeFontTheme}>
+                Font
+            </FontToggle>   
         </div>
       
         </div>

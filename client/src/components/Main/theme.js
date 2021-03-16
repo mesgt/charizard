@@ -45,6 +45,15 @@ const MaroonTheme = {
   tagLineColor: "gold"
 };
 
+const CursiveTheme = {
+  fontStyle: "Bradley Hand, cursive",
+};
+
+const BoldTheme = {
+  fontStyle: "Marker Felt, fantasy"
+};
+
+
 const themes = {
   light: LightTheme,
   dark: DarkTheme,
@@ -52,7 +61,9 @@ const themes = {
   pink: PinkTheme,
   green: GreenTheme,
   orange: OrangeTheme,
-  maroon: MaroonTheme
+  maroon: MaroonTheme,
+  cursive: CursiveTheme,
+  bold: BoldTheme
 }
 
 const colorThemeArray = [
@@ -63,9 +74,15 @@ const colorThemeArray = [
   "maroon"
 ]
 
+const fontThemeArray = [
+  "cursive",
+  "bold"
+
+]
+
 
 function Theme() {
-    const [theme, setTheme] = useState("dark")
+    const [theme, setTheme] = useState("light")
 
 function test(theme){
     console.log(theme);
@@ -73,7 +90,7 @@ function test(theme){
 }
       return (
         <ThemeProvider theme={themes[theme]}>
-          <Main theme={theme} test={test} colorThemeArray={colorThemeArray} />
+          <Main theme={theme} test={test} colorThemeArray={colorThemeArray} fontThemeArray={fontThemeArray}/>
          </ThemeProvider>
       )
 }

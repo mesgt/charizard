@@ -84,6 +84,8 @@ function Main(props) {
                 theme={props.theme}
                 test={props.test}
                 colorThemeArray={props.colorThemeArray}
+                fontThemeArray={props.fontThemeArray}
+
               />
               {/* <div class="cell radius"><Toggle onClick={changeTheme}>
                 {icon}
