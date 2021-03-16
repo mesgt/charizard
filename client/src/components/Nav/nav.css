@@ -1,6 +1,27 @@
 .header {
-    border: 2px black solid;
-    min-width: 797px;
-    min-height: 100px;
+  border: 2px black solid;
+  min-width: 797px;
+  min-height: 100px;
+  margin-top: 25vh;
+}
 
+.colorBTN {
+  position: relative;
+  left: 1050px;
+}
+
+.DarkBTN {
+  position: relative;
+  left: 1000px;
+}
+
+.Username {
+  position: relative;
+  left: 400px;
+  top: 30px;
+}
+
+.LogoutBTN {
+  position: relative;
+  top: 300px;
 }

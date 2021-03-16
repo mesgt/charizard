@@ -113,7 +113,6 @@ function ToDos({ editModalOpen, editToggleModal, viewModalOpen, viewToggleModal 
                                         dueDate={todo.dueDate}
                                         complete={todo.complete}
                                     >
-
                                     </ViewToDo>
                                     <strong>
                                         {todo.title} due {todo.dueDate.slice(0, -14)} {/* Date format will be different in mongoDB Atlas. This works for local server. */}
@@ -146,6 +145,7 @@ function ToDos({ editModalOpen, editToggleModal, viewModalOpen, viewToggleModal 
                 ) : (
                     <h6>No tasks to display</h6>
                 )}
+                
                 {/* <a
                     style={{ border: "1px solid white", fontWeight: "bold" }}
                     onClick={() => setModalIsOpen(true)}
