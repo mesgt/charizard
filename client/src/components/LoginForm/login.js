@@ -1,8 +1,9 @@
-import React from "react";
 import { GoogleLogin } from 'react-google-login';
 import "./login.css";
 import { useHistory } from "react-router-dom"
 import API from "../../utils/API"
+import React, { useState, useEffect } from "react";
+import UserContext from "../../utils/UserContext"
 
 function LoginForm() {
 
@@ -24,18 +25,29 @@ function LoginForm() {
                 console.log("User created!"))
             .catch(err => console.log(err));
     }
-    // const authenticateUser = (response) => {
-    //     //find user in db
-    // }
 
     const failedLogin = () => {
         alert("Something went wrong, try again.")
     }
 
+    const [userState, setUserState] = useState({
+        id: "",
+        firstName: "",
+        email: ""
+      })
+
+    useEffect(() => {
+        // For demonstration purposes, we mock an API call.
+        API.getUser.then((res) => {
+          setUserState(res);
+        });
+      }, []);
+
+    //   <UserContext.Provider value={userState}>
+    //   </UserContext.Provider>
     return (
         <>
             <div class="grid-x">
-                <div />
                 <div class="logincontainer">
                     <div class="log-in-form">
                         <h4 class="text-center loginHeading">Login with Everything</h4>

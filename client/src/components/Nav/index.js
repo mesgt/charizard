@@ -17,7 +17,7 @@ function Nav() {
   return (
     <div className="holy-grail-grid">
       <div className="header">
-        <h3>Header</h3>
+        <h3>Welcome </h3>
         <GoogleLogout
           clientId="49214406530-t4ofc8gge6vgfdchf8k6v3e28b883er9.apps.googleusercontent.com"
           buttonText="Logout"
