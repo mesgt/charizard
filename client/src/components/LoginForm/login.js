@@ -2,6 +2,7 @@ import React from "react";
 import { GoogleLogin } from 'react-google-login';
 import "./login.css";
 import { useHistory } from "react-router-dom"
+import API from "../../utils/API"
 
 function LoginForm() {
 
@@ -9,9 +10,20 @@ function LoginForm() {
 
     const redirect = (response) => {
         console.log(response.profileObj);
+        createUser(response);
         history.push("/dash")
     }
 
+    const createUser = (response) => {
+        API.createUser({
+            email: response.profileObj.email,
+            firstName: response.profileObj.givenName,
+            lastName: response.profileObj.familyName
+        })
+            .then(() =>
+                console.log("User created!"))
+            .catch(err => console.log(err));
+    }
     // const authenticateUser = (response) => {
     //     //find user in db
     // }
@@ -41,7 +53,7 @@ function LoginForm() {
                     </div>
                 </div>
             </div>
-         
+
         </>
     )
 }

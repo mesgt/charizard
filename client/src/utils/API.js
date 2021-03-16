@@ -40,4 +40,15 @@ export default {
   saveNote: function (noteData) {
     return axios.post("/api/note", noteData);
   },
+
+  // =======================
+
+  //creates new user in db
+  createUser: function (userData) {
+    return axios.post("/api/user", userData);
+  },
+
+  findByEmail: function (email) {
+    return axios.get("/api/user/" + email)}
+
 };
