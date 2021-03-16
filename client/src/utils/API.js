@@ -32,6 +32,18 @@ export default {
   saveToDo: function (todoData) {
     return axios.post("/api/todo", todoData);
   },
+  // Gets all Notes
+  getNotes: function () {
+    return axios.get("/api/note");
+  },
+  // Deletes the Note with the given id
+  deleteNote: function (id) {
+    return axios.delete("/api/note/" + id);
+  },
+  // Saves a Note to the database
+  saveNote: function (noteData) {
+    return axios.post("/api/note", noteData);
+  },
 
   // =======================
   //USER ROUTES
