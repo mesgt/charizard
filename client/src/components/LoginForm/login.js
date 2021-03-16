@@ -3,15 +3,9 @@ import "./login.css";
 import { useHistory } from "react-router-dom"
 import API from "../../utils/API"
 import React, { useState, useEffect } from "react";
-import UserContext from "../../utils/UserContext"
+// import UserContext from "../../utils/UserContext"
 
 function LoginForm() {
-    const [userState, setUserState] = useState({
-        id: "",
-        firstName: "",
-        email: ""
-    })
-
     const history = useHistory();
 
     const redirect = (response) => {
@@ -28,10 +22,14 @@ function LoginForm() {
             lastName: response.profileObj.familyName,
             googleId: response.profileObj.googleId
         })
-            .then((response) => {
+            .then((res) => {
 
-                console.log("User created!", response.data._id)
-                setUserState({ ...userState, id: response.data._id, firstName: response.data.firstName, email: response.data.email })
+                console.log("User created!", res.data._id)
+                // setUserState({ ...userState, 
+                //     id: res.data._id, 
+                //     firstName: res.data.firstName, 
+                //     email: res.data.email, 
+                //     googleId:res.data.googleId })
 
             })
             .catch(err => console.log(err));
@@ -41,8 +39,8 @@ function LoginForm() {
         alert("Something went wrong, try again.")
     }
 
-    useEffect(() => {
-        console.log(userState);
+    // useEffect(() => {
+    //     console.log(userState);
 
     //     API.findByEmail(email)
     //         .then((res) => {
@@ -50,13 +48,12 @@ function LoginForm() {
     //             console.log(userState);
     //         })
     //         .catch(err => console.log(err));
-    },[userState]);
+    // },[userState]);
 
 
 
     return (
         <>
-            <UserContext.Provider value={userState}>
                 <div class="grid-x">
                     <div class="logincontainer">
                         <div class="log-in-form">
@@ -77,7 +74,6 @@ function LoginForm() {
                         </div>
                     </div>
                 </div>
-            </UserContext.Provider>
         </>
     )
 }

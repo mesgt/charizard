@@ -7,6 +7,7 @@ import Weather from "../Weather/index";
 import styled from "styled-components";
 import { CgSun } from "react-icons/cg";
 import { HiMailOpen, HiMoon } from "react-icons/hi";
+import UserContext from "../../utils/UserContext"
 
 const StyledCalendar = styled(Calendar)``;
 const StyledNotes = styled(Notes)`
@@ -53,19 +54,16 @@ const Container = styled.div`
 `;
 
 function Main(props) {
-  // console.log(props);
-  // function changeTheme() {
-  //   if (props.theme === "light") {
-  //     props.test("dark");
-  //   } else {
-  //     props.test("light");
-  //   }
-  // }
-
-  // const icon = props.theme === "light" ? <HiMoon size={40} /> : <CgSun size={40} />;
+  const [userState, setUserState] = useState({
+    id: "",
+    firstName: "",
+    email: "",
+    googleId: ""
+  })
 
   return (
     <>
+    <UserContext.Provider value={userState}>
       <Page
         style={{
           overflowY: "auto",
@@ -129,6 +127,7 @@ function Main(props) {
           </div>
         </Container>
       </Page>
+      </UserContext.Provider>
     </>
   );
 }
