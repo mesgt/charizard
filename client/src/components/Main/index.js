@@ -55,11 +55,11 @@ const Container = styled.div`
 `;
 
 function Main(props) {
- const user  = useContext(UserContext)
-console.log(user);
+  const user = useContext(UserContext)
+  console.log(user);
   return (
     <>
-    
+
       <Page
         style={{
           overflowY: "auto",
@@ -123,7 +123,7 @@ console.log(user);
           </div>
         </Container>
       </Page>
-     </>
+    </>
   );
 }
 
