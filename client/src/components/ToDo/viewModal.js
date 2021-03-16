@@ -1,10 +1,9 @@
-import { PromiseProvider } from "mongoose";
 import React, { useState } from "react";
 import Modal from "react-modal";
-import { Link } from "react-router-dom";
+import ViewBtn from "../ViewBtn";
 import "./todo.css";
 
-const ViewToDo = ({ open, onClose, onRequestClose, title, body, dueDate, complete, viewModalOpen, viewToggleModal }) => {
+const ViewToDo = ({ onRequestClose, title, body, dueDate, complete }) => {
     const [isOpen, setIsOpen] = useState(false)
 
     const handleOpen = () => {
@@ -34,15 +33,13 @@ const ViewToDo = ({ open, onClose, onRequestClose, title, body, dueDate, complet
             color: "red"
         }
     };
-    // console.log(viewModalOpen);
 
     return (
         <>
-            <Link //button
+            <ViewBtn
                 data-action="viewLink"
                 onClick={() => handleOpen()}
-            >{title}
-            </Link>
+            />
 
             <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={customStyles}>
                 <div className="flex-container">
@@ -50,11 +47,10 @@ const ViewToDo = ({ open, onClose, onRequestClose, title, body, dueDate, complet
                         <div className="cell">
                             <div className="card todoView" style={{ minHeight: "380px"}}>
                                 <div className="card-section flex-container grid-x">
-                                        <h5 className="text-capitalize cell small-4">Title: {title}</h5>
-                                        <p>Details: {body}</p>
-                                        <p>Due: {dueDate}</p>
-                                    <div class="text-capitalize text-center">
-                                    </div>
+                                        <h5 className="text-capitalize cell">Title: {title}</h5>
+                                        <p className="text-capitalize cell">Details: {body}</p>
+                                        <p className="text-capitalize cell">Due: {dueDate}</p>
+                                        <p className="text-capitalize cell">Status: {complete}</p>
                                 </div>
                             </div>
                         </div>

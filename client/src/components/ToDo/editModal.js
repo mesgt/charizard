@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "react-modal";
+import EditBtn from "../EditBtn";
+import "./todo.css";
 
-const EditToDo = ({open, onClose, onRequestClose, title, editModalOpen, editToggleModal}) => {
+const EditToDo = ({onRequestClose, title, editModalOpen, editToggleModal}) => {
+    const [isOpen, setIsOpen] = useState(false)
 
+    const handleOpen = () => {
+        setIsOpen(!isOpen)
+        console.log(isOpen)
+    }
     //Modal style
     const customStyles = {
         content: {
@@ -22,10 +29,14 @@ const EditToDo = ({open, onClose, onRequestClose, title, editModalOpen, editTogg
             backgroundColor: "rgb(72,72,72,.95)",
         },
     };
-    // console.log(editModalOpen);
 
     return (
-        <Modal isOpen={editModalOpen} onRequestClose={onRequestClose} style={customStyles}>
+        <>
+        <EditBtn
+        data-action="editLink"
+        onClick={() => handleOpen()}
+        />
+        <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={customStyles}>
             <div className="flex-container">
                 <div class="grid-x grid-margin-x small-up-5 ">
                     <h5>{title}</h5>
@@ -39,12 +50,13 @@ const EditToDo = ({open, onClose, onRequestClose, title, editModalOpen, editTogg
             </div>
                 <button
                     style={{ border: "1px solid white", fontWeight: "bold" }}
-                    onClick={editToggleModal}
+                    onClick={() => handleOpen()}
                     class="button primary"
                     href="#/">
                     Close
                 </button>
     </Modal>
+    </>
     );
 };
 

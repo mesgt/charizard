@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import EditToDo from "./editModal";
 import ViewToDo from "./viewModal";
 import { List, ListItem } from "./ToDoList";
+// import ViewBtn from "../ViewBtn";
 import DeleteBtn from "../DeleteBtn";
 import EditBtn from "../EditBtn";
 import CheckBtn from "../CheckMark";
@@ -33,7 +34,6 @@ function ToDos({
     //Load and display all To Do tasks
     function loadToDos() {
         API.getToDos()
-
             .then(res => setToDos(res.data))
             .catch(error => console.log(error));
 
@@ -49,7 +49,6 @@ function ToDos({
     //Delete To Do task using _id and reload list
     function deleteToDo(id) {
         API.deleteToDo(id)
-
             .then(res => console.log(res), loadToDos())
             .catch(error => console.log(error));
 
@@ -97,7 +96,7 @@ function ToDos({
         const action = e.currentTarget.dataset.action
         console.log(action);
         switch (action) {
-            case "viewLink":
+            case "viewBtn":
                 viewToggleModal(!viewModalOpen)
                 console.log(viewModalOpen);
                 return [
@@ -125,9 +124,9 @@ function ToDos({
                         {todos.map(todo => (
                             <ListItem key={todo._id}
                             >
-
+                                {/* <ViewBtn> */}
                                     <ViewToDo
-                                        data-action="viewLink"
+                                        data-action="viewBtn"
                                         modalIsOpen={checkModal}
                                         setModalIsOpen={checkModal}
                                         viewModalOpen={viewModalOpen}
@@ -137,6 +136,7 @@ function ToDos({
                                         complete={todo.complete}
                                     >
                                     </ViewToDo>
+                                {/* </ViewBtn> */}
                                     <strong>
                                         {todo.title} due {todo.dueDate.slice(0, -14)} {/* Date format will be different in mongoDB Atlas. This works for local server. */}
                                     </strong>
@@ -144,10 +144,10 @@ function ToDos({
                                 <CheckBtn action="check" onClick={() => console.log(todo._id)} /> {/* Update this route! It needs to change complete to true. This will put it in a different modal that will display completed tasks. */}
                                 {console.log(todo.data)}
                                 <br />
-                                <EditBtn
+                                {/* <EditBtn
                                     action="editBtn"
                                     onClick={editToggleModal}
-                                >
+                                > */}
                                     {/* Modal to display when click on edit */}
                                     <EditToDo
                                         action="editBtn"
@@ -159,7 +159,7 @@ function ToDos({
                                         complete={todo.complete}
                                     >
                                     </EditToDo>
-                                </EditBtn>
+                                {/* </EditBtn> */}
                                 <br />
                                 <DeleteBtn onClick={() => deleteToDo(todo._id)} />
                             </ListItem>
