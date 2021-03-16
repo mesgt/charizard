@@ -1,32 +1,40 @@
-import React from "react";
 import { GoogleLogin } from 'react-google-login';
 import "./login.css";
 import { useHistory } from "react-router-dom"
 import API from "../../utils/API"
+import React, { useState, useEffect } from "react";
+// import UserContext from "../../utils/UserContext"
 
-function LoginForm() {
-
+function LoginForm(props) {
     const history = useHistory();
 
     const redirect = (response) => {
         console.log(response.profileObj);
-        createUser(response);
         history.push("/dash")
+        props.userInfo(response.profileObj)
+        createUser(response);
     }
 
     const createUser = (response) => {
+        console.log(response);
         API.createUser({
             email: response.profileObj.email,
             firstName: response.profileObj.givenName,
-            lastName: response.profileObj.familyName
+            lastName: response.profileObj.familyName,
+            googleId: response.profileObj.googleId
         })
-            .then(() =>
-                console.log("User created!"))
+            .then((res) => {
+
+                console.log("User created!", res.data._id)
+                // setUserState({ ...userState, 
+                //     id: res.data._id, 
+                //     firstName: res.data.firstName, 
+                //     email: res.data.email, 
+                //     googleId:res.data.googleId })
+
+            })
             .catch(err => console.log(err));
     }
-    // const authenticateUser = (response) => {
-    //     //find user in db
-    // }
 
     const failedLogin = () => {
         alert("Something went wrong, try again.")
@@ -35,7 +43,6 @@ function LoginForm() {
     return (
         <>
             <div class="grid-x">
-                <div />
                 <div class="logincontainer">
                     <div class="log-in-form">
                         <h4 class="text-center loginHeading">Login with Everything</h4>
@@ -53,8 +60,8 @@ function LoginForm() {
                     </div>
                 </div>
             </div>
-
         </>
+
     )
 }
 

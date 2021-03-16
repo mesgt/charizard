@@ -1,9 +1,9 @@
 import React from "react";
 import FormContainer from "../components/FormContainer/formpage";
 
-function Login() {
+function Login(props) {
     return (
-        <FormContainer />
+        <FormContainer userInfo={props.userInfo} />
     )
 } 
 
