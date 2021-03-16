@@ -52,36 +52,40 @@ const Container = styled.div`
   transition: all 0.5s ease;
 `;
 
-function Main(props) {
+function Main(props, { action }) {
 // To Do State for modal to open/close
   const [editModalOpen, editToggleModal] = useState(false);
   const [viewModalOpen, viewToggleModal] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   
-  // function checkModal(props) {
-  //   switch (props.name) {
-  //     case "viewLink":
-  //       return [
-  //         {modalIsOpen = viewModalOpen},
-  //         {setModalIsOpen = viewToggleModal}
-  //       ];
-  //     break;
-  //     case "editBtn":
-  //       return [
-  //         {modalIsOpen = editModalOpen},
-  //         {setModalIsOpen = editToggleModal}
-  //       ];
-  //     break;
-  //     default:
-  //       console.log("modalIsOpen/setModalIsOpen not found.")
-  // console.log(props);
-  // function changeTheme() {
-  //   if (props.theme === "light") {
-  //     props.test("dark");
-  //   } else {
-  //     props.test("light");
+  // function checkModal(action) {
+  // console.log(action);
+  // switch (action) {
+  //   case "viewLink":
+  //     return [
+  //       modalIsOpen = {viewModalOpen},
+  //       setModalIsOpen = {viewToggleModal}
+  //     ];
+  //   break;
+  //   case "editBtn":
+  //     return [
+  //       modalIsOpen = {editModalOpen},
+  //       setModalIsOpen = {editToggleModal}
+  //     ];
+  //   break;
+  //   default:
+  //     console.log("modalIsOpen/setModalIsOpen not found.")
   //   }
-  // }
+  // };
+
+  // console.log(props);
+  function changeTheme() {
+    if (props.theme === "light") {
+      props.test("dark");
+    } else {
+      props.test("light");
+    }
+  }
 
   // const icon = props.theme === "light" ? <HiMoon size={40} /> : <CgSun size={40} />;
 
@@ -116,12 +120,19 @@ function Main(props) {
               <div class="grid-x radius">
                 <StyledToDo 
                 // switch statement
-                // modalIsOpen={checkModal(props)}
-                // setModalIsOpen={checkModal(props)}
+                modalIsOpen={modalIsOpen}
+                setModalIsOpen={setModalIsOpen}
+                // modalIsOpen={checkModal(action)}
+                // setModalIsOpen={checkModal(action)}
               // editModalOpen={modalIsOpen}
               // editToggleModal={() => setModalIsOpen(!modalIsOpen)}
-              viewModalOpen={modalIsOpen}
-              viewToggleModal={() => setModalIsOpen(!modalIsOpen)}/>
+              editModalOpen={editModalOpen}
+              editToggleModal={editToggleModal}
+              // viewModalOpen={modalIsOpen}
+              // viewToggleModal={() => setModalIsOpen(!modalIsOpen)}
+              viewModalOpen={viewModalOpen}
+              viewToggleModal={viewToggleModal}
+              />
               </div>
               <div
                 class="grid-x radius "

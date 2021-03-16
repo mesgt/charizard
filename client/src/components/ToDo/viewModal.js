@@ -1,8 +1,16 @@
-import React from "react";
+import { PromiseProvider } from "mongoose";
+import React, { useState } from "react";
 import Modal from "react-modal";
+import { Link } from "react-router-dom";
+import "./todo.css";
 
 const ViewToDo = ({ open, onClose, onRequestClose, title, body, dueDate, complete, viewModalOpen, viewToggleModal }) => {
+    const [isOpen, setIsOpen] = useState(false)
 
+    const handleOpen = () => {
+        setIsOpen(!isOpen)
+        console.log(isOpen)
+    }
     //Modal style
     const customStyles = {
         content: {
@@ -21,42 +29,54 @@ const ViewToDo = ({ open, onClose, onRequestClose, title, body, dueDate, complet
             zIndex: 1000,
             backgroundColor: "rgb(72,72,72,.95)",
         },
+        card: {
+            width:"100%",
+            color: "red"
+        }
     };
     // console.log(viewModalOpen);
 
     return (
-        <Modal isOpen={viewModalOpen} onRequestClose={onRequestClose} style={customStyles}>
-            <div className="flex-container">
-                <div class="grid-x grid-margin-x small-up-5 ">
+        <>
+            <Link //button
+                data-action="viewLink"
+                // onClick={() => viewToDo(todo._id)}
+                onClick={() => handleOpen()}
+            >{title}
+            </Link>
 
-                    <div className="cell">
-                        <div className="card" style={{ minHeight: "380px" }}>
-                            <div className="card-section flex-container" >
-                                <div className="text-capitalize text-center" width="350px">
-                                    <h5>Title: {title}</h5>
-                                </div>
-                                <div class="text-capitalize text-center">
-                                    <p>Details: {body}</p>
-                                </div>
-                                <div class="text-capitalize text-center">
-                                    <p>Due: {dueDate}</p>
-                                </div>
-                                <div class="text-capitalize text-center">
-                                    {/* <p>Status: {complete}</p> */}
+            <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={customStyles}>
+                <div className="flex-container">
+                    <div class="grid-x grid-margin-x small-up-5 ">
+                        <div className="cell">
+                            <div className="card todoView" style={{ minHeight: "380px"}}>
+                                <div className="card-section flex-container grid-x">
+                                    {/* <div className="text-capitalize cell small-4"> */}
+                                        <h5 className="text-capitalize cell small-4">Title: {title}</h5>
+                                    {/* </div> */}
+                                    {/* <div class="text-capitalize text-center cell small-4"> */}
+                                        <p>Details: {body}</p>
+                                    {/* </div> */}
+                                    {/* <div class="text-capitalize text-center cell small-4"> */}
+                                        <p>Due: {dueDate}</p>
+                                    {/* </div> */}
+                                    <div class="text-capitalize text-center">
+                                        {/* <p>Status: {complete}</p> */}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <a
-                style={{ border: "1px solid white", fontWeight: "bold" }}
-                onClick={viewToggleModal}
-                class="button primary"
-                href="#/">
-                Close
+                <a
+                    style={{ border: "1px solid white", fontWeight: "bold" }}
+                    onClick={() => handleOpen()}
+                    class="button primary"
+                    href="#/">
+                    Close
                 </a>
-        </Modal>
+            </Modal>
+        </>
     );
 };
 

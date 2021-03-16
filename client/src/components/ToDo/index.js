@@ -12,14 +12,18 @@ import "./todo.css";
 Modal.setAppElement("#root");
 
 
-function ToDos({ editModalOpen, editToggleModal, viewModalOpen, viewToggleModal }) {
+function ToDos({ 
+    modalIsOpen, setModalIsOpen, 
+    // editModalOpen, editToggleModal, 
+    // viewModalOpen, viewToggleModal 
+}) {
     const [todos, setToDos] = useState([])
-    const [formObject, setFormObject] = useState({
-
-    })
+    // const [formObject, setFormObject] = useState({    })
+    const [editModalOpen, editToggleModal] = useState(false);
+    const [viewModalOpen, viewToggleModal] = useState(false);
 
     console.log(todos);
-    console.log(formObject);
+    // console.log(formObject);
 
     //Load all To Do tasks and store them with setToDos
     useEffect(() => {
@@ -88,6 +92,28 @@ function ToDos({ editModalOpen, editToggleModal, viewModalOpen, viewToggleModal 
     //     }
     // }
 
+    const checkModal = (e) => {
+        // console.log(e.currentTarget.dataset.action)
+        const action = e.currentTarget.dataset.action
+        console.log(action);
+        switch (action) {
+            case "viewLink":
+                viewToggleModal(!viewModalOpen)
+                console.log(viewModalOpen);
+                return [
+                    modalIsOpen = { viewModalOpen },
+                    setModalIsOpen = { viewToggleModal }
+                ]
+            case "editBtn":
+                return [
+                    modalIsOpen = { editModalOpen },
+                    setModalIsOpen = { editToggleModal }
+                ];
+            default:
+                console.log("modalIsOpen/setModalIsOpen not found.")
+        }
+    }
+
     return (
         <div data-closable="fade-out" class="todo" >
             <div class="divider">
@@ -99,15 +125,12 @@ function ToDos({ editModalOpen, editToggleModal, viewModalOpen, viewToggleModal 
                         {todos.map(todo => (
                             <ListItem key={todo._id}
                             >
-                                <Link
-                                    name="viewLink"
-                                    onClick={() => viewToDo(todo._id)}
-                                    onClick={viewToggleModal}
-                                >
+
                                     <ViewToDo
-                                        name="viewLink"
+                                        data-action="viewLink"
+                                        modalIsOpen={checkModal}
+                                        setModalIsOpen={checkModal}
                                         viewModalOpen={viewModalOpen}
-                                        viewToggleModal={viewToggleModal}
                                         title={todo.title}
                                         body={todo.body}
                                         dueDate={todo.dueDate}
@@ -117,17 +140,17 @@ function ToDos({ editModalOpen, editToggleModal, viewModalOpen, viewToggleModal 
                                     <strong>
                                         {todo.title} due {todo.dueDate.slice(0, -14)} {/* Date format will be different in mongoDB Atlas. This works for local server. */}
                                     </strong>
-                                </Link>
-                                <CheckBtn name="check" onClick={() => console.log(todo._id)} /> {/* Update this route! It needs to change complete to true. This will put it in a different modal that will display completed tasks. */}
+
+                                <CheckBtn action="check" onClick={() => console.log(todo._id)} /> {/* Update this route! It needs to change complete to true. This will put it in a different modal that will display completed tasks. */}
                                 {console.log(todo.data)}
                                 <br />
                                 <EditBtn
-                                    name="editBtn"
+                                    action="editBtn"
                                     onClick={editToggleModal}
                                 >
                                     {/* Modal to display when click on edit */}
                                     <EditToDo
-                                        name="editBtn"
+                                        action="editBtn"
                                         editModalOpen={editModalOpen}
                                         editToggleModal={editToggleModal}
                                         title={todo.title}
@@ -145,7 +168,7 @@ function ToDos({ editModalOpen, editToggleModal, viewModalOpen, viewToggleModal 
                 ) : (
                     <h6>No tasks to display</h6>
                 )}
-                
+
                 {/* <a
                     style={{ border: "1px solid white", fontWeight: "bold" }}
                     onClick={() => setModalIsOpen(true)}
