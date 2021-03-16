@@ -40,7 +40,6 @@ const ViewToDo = ({ open, onClose, onRequestClose, title, body, dueDate, complet
         <>
             <Link //button
                 data-action="viewLink"
-                // onClick={() => viewToDo(todo._id)}
                 onClick={() => handleOpen()}
             >{title}
             </Link>
@@ -51,17 +50,10 @@ const ViewToDo = ({ open, onClose, onRequestClose, title, body, dueDate, complet
                         <div className="cell">
                             <div className="card todoView" style={{ minHeight: "380px"}}>
                                 <div className="card-section flex-container grid-x">
-                                    {/* <div className="text-capitalize cell small-4"> */}
                                         <h5 className="text-capitalize cell small-4">Title: {title}</h5>
-                                    {/* </div> */}
-                                    {/* <div class="text-capitalize text-center cell small-4"> */}
                                         <p>Details: {body}</p>
-                                    {/* </div> */}
-                                    {/* <div class="text-capitalize text-center cell small-4"> */}
                                         <p>Due: {dueDate}</p>
-                                    {/* </div> */}
                                     <div class="text-capitalize text-center">
-                                        {/* <p>Status: {complete}</p> */}
                                     </div>
                                 </div>
                             </div>
