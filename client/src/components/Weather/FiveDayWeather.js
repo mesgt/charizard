@@ -29,7 +29,7 @@ const FiveDayWeather = ({ weather, open, onClose, onRequestClose }) => {
   const currentDay = new Date(
     weather.daily?.[0].dt * 1000
   ).toLocaleDateString();
-  console.log(weather);
+  // console.log(weather);
   return (
     <Modal isOpen={open} onRequestClose={onRequestClose} style={customStyles}>
       <div className="flex-container">

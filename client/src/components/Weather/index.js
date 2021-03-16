@@ -17,10 +17,10 @@ function Weather() {
   useEffect(() => {
     function getLocation() {
       if (navigator.geolocation) {
-        console.log(navigator.geolocation);
+        // console.log(navigator.geolocation);
         navigator.geolocation.getCurrentPosition(
           (position) => {
-            console.log(position);
+            // console.log(position);
             API.weather(
               position.coords.latitude,
               position.coords.longitude

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Calendar from "../Calendar";
 import Nav from "../Nav";
 import Notes from "../Notes";
@@ -7,6 +7,8 @@ import Weather from "../Weather/index";
 import styled from "styled-components";
 import { CgSun } from "react-icons/cg";
 import { HiMailOpen, HiMoon } from "react-icons/hi";
+import UserContext from "../../utils/UserContext"
+
 
 const StyledCalendar = styled(Calendar)``;
 const StyledNotes = styled(Notes)`
@@ -53,19 +55,11 @@ const Container = styled.div`
 `;
 
 function Main(props) {
-  // console.log(props);
-  // function changeTheme() {
-  //   if (props.theme === "light") {
-  //     props.test("dark");
-  //   } else {
-  //     props.test("light");
-  //   }
-  // }
-
-  // const icon = props.theme === "light" ? <HiMoon size={40} /> : <CgSun size={40} />;
-
+  const user = useContext(UserContext)
+  console.log(user);
   return (
     <>
+
       <Page
         style={{
           overflowY: "auto",
@@ -76,6 +70,7 @@ function Main(props) {
           style={{
             overflowY: "auto",
             padding: "10vh 5vh 10vh 5vh",
+            paddingTop: "120vh",
           }}
         >
           <div class="grid-x">

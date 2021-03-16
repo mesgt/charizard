@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./nav.css";
 import { GoogleLogout } from 'react-google-login';
 import { useHistory } from "react-router-dom";
@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { CgSun } from "react-icons/cg";
 import { HiMailOpen, HiMoon } from "react-icons/hi";
+import UserContext from "../../utils/UserContext";
 
 const Toggle = styled.button`
     cursor: pointer;
@@ -43,6 +44,7 @@ const FontToggle = styled.button`
 `;
 
 function Nav(props) {
+  const user = useContext(UserContext)
 
   const failedLogout = () => {
     alert("Something went wrong, try again.")
@@ -103,7 +105,7 @@ function Nav(props) {
   return (
     <div class="grid-x">
       <div class="header cell radius">
-        <h3 class="Username">Welcome, User!</h3>
+        <h3 class="Username">Welcome, {user.firstName}!</h3>
         <GoogleLogout
           clientId="49214406530-t4ofc8gge6vgfdchf8k6v3e28b883er9.apps.googleusercontent.com"
           buttonText="Logout"
