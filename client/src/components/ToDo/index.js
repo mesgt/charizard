@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Modal from "react-modal";
-import ToDoDetails from "./modalDisplay";
+import EditToDo from "./editModal";
+import ViewToDo from "./viewModal";
 import { List, ListItem } from "./ToDoList";
 import DeleteBtn from "../DeleteBtn";
 import EditBtn from "../EditBtn";
@@ -10,13 +12,14 @@ import "./todo.css";
 Modal.setAppElement("#root");
 
 
-function ToDos({editModalOpen, toggleModal}) {
+function ToDos({ editModalOpen, editToggleModal, viewModalOpen, viewToggleModal }) {
     const [todos, setToDos] = useState([])
-    // const [formObject, setFormObject] = useState({})
+    const [formObject, setFormObject] = useState({
 
+    })
 
-    // State for modal to open/close
-    // const [modalIsOpen, setModalIsOpen] = useState(false);
+    console.log(todos);
+    console.log(formObject);
 
     //Load all To Do tasks and store them with setToDos
     useEffect(() => {
@@ -32,6 +35,13 @@ function ToDos({editModalOpen, toggleModal}) {
 
     };
 
+    //Load modal for each task
+    function viewToDo(id) {
+        API.getToDos(id)
+            .then(res => console.log(res))
+            .catch(error => console.log(error));
+    }
+
     //Delete To Do task using _id and reload list
     function deleteToDo(id) {
         API.deleteToDo(id)
@@ -45,13 +55,19 @@ function ToDos({editModalOpen, toggleModal}) {
     function editToDo(id) {
         API.editToDo(id)
             .then(res => loadToDos())
+
             .catch(error => console.log(error));
     }
 
-//     const closeModal = (bool) => {
-// console.log(bool);
-// setModalIsOpen(bool)
-//     }
+    // function handleInputChange(event) {
+    // console.log(formObject.complete)
+    // .catch(error => console.log(error));
+    // };
+
+    //     const closeModal = (bool) => {
+    // console.log(bool);
+    // setModalIsOpen(bool)
+    //     }
     //Handles updating component state from user input
     // function handleInputChange(event) {
     //     console.log(event);
@@ -75,35 +91,49 @@ function ToDos({editModalOpen, toggleModal}) {
     return (
         <div data-closable="fade-out" class="todo" >
             <div class="divider">
-                <h3>To Do List</h3>
+                <h4>To Do List</h4>
             </div>
             <div class="section">
                 {todos.length ? (
                     <List>
                         {todos.map(todo => (
-                            <ListItem key={todo._id}>
-                                <strong>
-                                    {todo.title} due {todo.dueDate.slice(0, -14)} {/* Date format will be different in mongoDB Atlas. This works for local server. */}
-                                </strong>
-                                <CheckBtn onClick={() => editToDo(todo._id)} /> {/* Update this route! It needs to change complete to true. This will put it in a different modal that will display completed tasks. */}
+                            <ListItem key={todo._id}
+                            >
+                                <Link
+                                    name="viewLink"
+                                    onClick={() => viewToDo(todo._id)}
+                                    onClick={viewToggleModal}
+                                >
+                                    <ViewToDo
+                                        name="viewLink"
+                                        viewModalOpen={viewModalOpen}
+                                        viewToggleModal={viewToggleModal}
+                                    // title={todo.title}
+                                    >
+
+                                    </ViewToDo>
+                                    <strong>
+                                        {todo.title} due {todo.dueDate.slice(0, -14)} {/* Date format will be different in mongoDB Atlas. This works for local server. */}
+                                    </strong>
+                                </Link>
+                                <CheckBtn name="check" onClick={() => console.log(todo._id)} /> {/* Update this route! It needs to change complete to true. This will put it in a different modal that will display completed tasks. */}
+                                {console.log(todo.data)}
                                 <br />
                                 <EditBtn
-                                    onClick={toggleModal}
-                                    
-                                    // onClick={() => setModalIsOpen(true)} //needs to trigger 2 functions- open modal and edit task
-                                    // href="#/"
-                                    >
-                                    {/* href comes from a tags. This needs an a tag */}
+                                    name="editBtn"
+                                    onClick={editToggleModal}
+                                >
                                     {/* Modal to display when click on edit */}
-                                    <ToDoDetails
+                                    <EditToDo
+                                        name="editBtn"
                                         editModalOpen={editModalOpen}
-                                        toggleModal={toggleModal}
+                                        editToggleModal={editToggleModal}
                                         title={todo.title}
-                                        // onRequestClose={() => setModalIsOpen(false)}
-                                        // open={modalIsOpen}
-                                        // onClose={() => setModalIsOpen(false)}
-                                        >
-                                    </ToDoDetails>
+                                        body={todo.body}
+                                        dueDate={todo.dueDate}
+                                        complete={todo.complete}
+                                    >
+                                    </EditToDo>
                                 </EditBtn>
                                 <br />
                                 <DeleteBtn onClick={() => deleteToDo(todo._id)} />

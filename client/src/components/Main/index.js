@@ -51,8 +51,29 @@ transition: all .5s ease;
 `;
 
 function Main(props) {
-//To do states
+// To Do State for modal to open/close
+  const [editModalOpen, editToggleModal] = useState(false);
+  const [viewModalOpen, viewToggleModal] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  
+  // function checkModal(props) {
+  //   switch (props.name) {
+  //     case "viewLink":
+  //       return [
+  //         {modalIsOpen = viewModalOpen},
+  //         {setModalIsOpen = viewToggleModal}
+  //       ];
+  //     break;
+  //     case "editBtn":
+  //       return [
+  //         {modalIsOpen = editModalOpen},
+  //         {setModalIsOpen = editToggleModal}
+  //       ];
+  //     break;
+  //     default:
+  //       console.log("modalIsOpen/setModalIsOpen not found.")
+  //   }
+  // }
 
   console.log(props);
   function changeTheme() {
@@ -81,8 +102,13 @@ function Main(props) {
           <div class="grid-x">
             <div class="cell small-3">
               <div class="grid-x radius"><StyledToDo 
-              editModalOpen={modalIsOpen}
-              toggleModal={() => setModalIsOpen(!modalIsOpen)}
+              // switch statement
+                // modalIsOpen={checkModal(props)}
+                // setModalIsOpen={checkModal(props)}
+              // editModalOpen={modalIsOpen}
+              // editToggleModal={() => setModalIsOpen(!modalIsOpen)}
+              viewModalOpen={modalIsOpen}
+              viewToggleModal={() => setModalIsOpen(!modalIsOpen)}
               /></div>
               <div class="grid-x radius"><StyledWeather /></div>
             </div>

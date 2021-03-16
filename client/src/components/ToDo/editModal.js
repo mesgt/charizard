@@ -1,10 +1,8 @@
 import React from "react";
 import Modal from "react-modal";
 
-const ToDoDetails = ({open, onClose, onRequestClose, title, editModalOpen, toggleModal}) => {
-    // console.log(open);
-    // console.log(onClose)
-    // const [modalIsOpen, setModalIsOpen] = useState(false);
+const EditToDo = ({open, onClose, onRequestClose, title, editModalOpen, editToggleModal}) => {
+
     //Modal style
     const customStyles = {
         content: {
@@ -17,7 +15,6 @@ const ToDoDetails = ({open, onClose, onRequestClose, title, editModalOpen, toggl
             transform: "translate(-50%, -50%)",
             maxHeight: "100vh",
             overflowY: "auto",
-            // background: "#fff",
             backgroundImage: `url("https://cdn.pixabay.com/photo/2017/10/15/08/56/neutral-2852878_960_720.jpg")`,
         },
         overlay: {
@@ -25,8 +22,8 @@ const ToDoDetails = ({open, onClose, onRequestClose, title, editModalOpen, toggl
             backgroundColor: "rgb(72,72,72,.95)",
         },
     };
-    console.log(editModalOpen);
-    
+    // console.log(editModalOpen);
+
     return (
         <Modal isOpen={editModalOpen} onRequestClose={onRequestClose} style={customStyles}>
             <div className="flex-container">
@@ -42,9 +39,7 @@ const ToDoDetails = ({open, onClose, onRequestClose, title, editModalOpen, toggl
             </div>
                 <button
                     style={{ border: "1px solid white", fontWeight: "bold" }}
-                    onClick=
-                    // {console.log("Click works!")}
-                    {toggleModal}
+                    onClick={editToggleModal}
                     class="button primary"
                     href="#/">
                     Close
@@ -53,4 +48,4 @@ const ToDoDetails = ({open, onClose, onRequestClose, title, editModalOpen, toggl
     );
 };
 
-export default ToDoDetails;
+export default EditToDo;
