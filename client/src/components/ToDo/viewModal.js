@@ -31,17 +31,17 @@ const ViewToDo = ({ open, onClose, onRequestClose, title, body, dueDate, complet
 
                     <div className="cell">
                         <div className="card" style={{ minHeight: "380px" }}>
-                            <div className="card-section flex-container" width="100%">
-                                <div class="grid-x grid-margin-x small-up-5">
-                                    <h5>Title: The title goes here{title}</h5>
+                            <div className="card-section flex-container" >
+                                <div className="text-capitalize text-center" width="350px">
+                                    <h5>Title: {title}</h5>
                                 </div>
-                                <div class="grid-x grid-margin-x small-up-5">
-                                    <p>Details: bla bla bla bla....{body}</p>
+                                <div class="text-capitalize text-center">
+                                    <p>Details: {body}</p>
                                 </div>
-                                <div class="grid-x grid-margin-x small-up-5">
-                                    <p>Due: ASAP of course{dueDate}</p>
+                                <div class="text-capitalize text-center">
+                                    <p>Due: {dueDate}</p>
                                 </div>
-                                <div class="grid-x grid-margin-x small-up-5">
+                                <div class="text-capitalize text-center">
                                     {/* <p>Status: {complete}</p> */}
                                 </div>
                             </div>

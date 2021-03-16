@@ -108,7 +108,10 @@ function ToDos({ editModalOpen, editToggleModal, viewModalOpen, viewToggleModal 
                                         name="viewLink"
                                         viewModalOpen={viewModalOpen}
                                         viewToggleModal={viewToggleModal}
-                                    // title={todo.title}
+                                        title={todo.title}
+                                        body={todo.body}
+                                        dueDate={todo.dueDate}
+                                        complete={todo.complete}
                                     >
 
                                     </ViewToDo>

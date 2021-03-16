@@ -20,7 +20,7 @@ function Weather() {
         console.log(navigator.geolocation);
         navigator.geolocation.getCurrentPosition(
           (position) => {
-            console.log(position);
+            // console.log(position);
             API.weather(
               position.coords.latitude,
               position.coords.longitude
