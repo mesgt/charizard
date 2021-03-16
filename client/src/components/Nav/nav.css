@@ -4,3 +4,24 @@
   min-height: 100px;
   margin-top: 25vh;
 }
+
+.colorBTN {
+  position: relative;
+  left: 1050px;
+}
+
+.DarkBTN {
+  position: relative;
+  left: 1000px;
+}
+
+.Username {
+  position: relative;
+  left: 400px;
+  top: 30px;
+}
+
+.LogoutBTN {
+  position: relative;
+  top: 300px;
+}
