@@ -15,7 +15,7 @@ export default {
 
   //=========================
   //TO DO ROUTES
-  
+
   // Gets all To Dos
   getToDos: function () {
     return axios.get("/api/todo");
@@ -45,7 +45,7 @@ export default {
     return axios.get("/api/user/" + email)
   },
   //get user
-  getUser: function (email) {
-    return axios.get("/api/user/" + email) 
-  },
+  // getUser: function (email) {
+  //   return axios.get("/api/user/" + email) 
+  // },
 };

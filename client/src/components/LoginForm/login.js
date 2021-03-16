@@ -34,19 +34,22 @@ function LoginForm() {
         id: "",
         firstName: "",
         email: ""
-      })
+    })
 
     useEffect(() => {
-        // For demonstration purposes, we mock an API call.
-        API.getUser.then((res) => {
-          setUserState(res);
-        });
-      }, []);
+        API.findByEmail
+            .then((res) => {
+                setUserState({id:res.data._id, firstName:res.data.firstName, email:res.data.email});
+                console.log(userState);
+            })
+            .catch(err => console.log(err));
+    });
 
-    //   <UserContext.Provider value={userState}>
-    //   </UserContext.Provider>
+      
+     
     return (
         <>
+        <UserContext.Provider value={userState}>
             <div class="grid-x">
                 <div class="logincontainer">
                     <div class="log-in-form">
@@ -67,7 +70,7 @@ function LoginForm() {
                     </div>
                 </div>
             </div>
-
+            </UserContext.Provider>
         </>
     )
 }

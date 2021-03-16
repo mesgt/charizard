@@ -8,10 +8,8 @@ function App() {
   return (
     <Router>
       <div>
-        {/* <UserContext.Provider value={userState}> */}
           <Route exact path="/" component={Login} />
           <Route exact path="/dash" component={Theme} />
-        {/* </UserContext.Provider> */}
       </div>
     </Router>
   );
