@@ -120,21 +120,3 @@ textarea {
   height: 50px;
   font-size: 2rem;
 }
-
-/* Preview */
-/* .app-main-note-preview {
-  border-top: 1px solid #ddd;
-  overflow-y: scroll;
-  background: rgba(0, 0, 0, 0.02);
-}
-
-.preview-title {
-  padding: 25px 25px 0 25px;
-  margin: 0;
-}
-
-.markdown-preview {
-  padding: 0 25px 25px 25px;
-  font-size: 1rem;
-  line-height: 2rem;
-} */
