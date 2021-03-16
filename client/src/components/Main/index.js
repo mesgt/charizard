@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Calendar from "../Calendar";
 import Nav from "../Nav";
 import Notes from "../Notes";
@@ -8,6 +8,7 @@ import styled from "styled-components";
 import { CgSun } from "react-icons/cg";
 import { HiMailOpen, HiMoon } from "react-icons/hi";
 import UserContext from "../../utils/UserContext"
+
 
 const StyledCalendar = styled(Calendar)``;
 const StyledNotes = styled(Notes)`
@@ -54,16 +55,11 @@ const Container = styled.div`
 `;
 
 function Main(props) {
-  const [userState, setUserState] = useState({
-    id: "",
-    firstName: "",
-    email: "",
-    googleId: ""
-  })
-
+ const user  = useContext(UserContext)
+console.log(user);
   return (
     <>
-    <UserContext.Provider value={userState}>
+    
       <Page
         style={{
           overflowY: "auto",
@@ -127,8 +123,7 @@ function Main(props) {
           </div>
         </Container>
       </Page>
-      </UserContext.Provider>
-    </>
+     </>
   );
 }
 

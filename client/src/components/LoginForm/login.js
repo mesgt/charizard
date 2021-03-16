@@ -5,12 +5,13 @@ import API from "../../utils/API"
 import React, { useState, useEffect } from "react";
 // import UserContext from "../../utils/UserContext"
 
-function LoginForm() {
+function LoginForm(props) {
     const history = useHistory();
 
     const redirect = (response) => {
         console.log(response.profileObj);
         history.push("/dash")
+        props.userInfo(response.profileObj)
         createUser(response);
     }
 
@@ -39,19 +40,6 @@ function LoginForm() {
         alert("Something went wrong, try again.")
     }
 
-    // useEffect(() => {
-    //     console.log(userState);
-
-    //     API.findByEmail(email)
-    //         .then((res) => {
-    //             setUserState({id:res.data._id, firstName:res.data.firstName, email:res.data.email});
-    //             console.log(userState);
-    //         })
-    //         .catch(err => console.log(err));
-    // },[userState]);
-
-
-
     return (
         <>
                 <div class="grid-x">
@@ -65,7 +53,7 @@ function LoginForm() {
                                     clientId="49214406530-t4ofc8gge6vgfdchf8k6v3e28b883er9.apps.googleusercontent.com"
                                     buttonText="Login with Google"
                                     onSuccess={redirect}
-                                    isSignedIn={true}
+                                    isSignedIn={false}
                                     onFailure={failedLogin}
                                     cookiePolicy={'single_host_origin'}
                                     scope="https://www.googleapis.com/auth/calendar.events"
