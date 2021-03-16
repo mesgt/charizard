@@ -45,6 +45,8 @@ return (
                             onFailure={failedLogin}
                             cookiePolicy={'single_host_origin'}
                             scope="https://www.googleapis.com/auth/calendar.events"
+                            redirectUri="http://localhost:3000/dash"
+                            uxMode="redirect"
                         />
                     </div>
                 </div>
