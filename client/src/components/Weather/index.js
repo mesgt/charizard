@@ -44,7 +44,10 @@ function Weather() {
     <>
       <CurrentWeather weather={weather} />
       <a
-        style={{ border: "1px solid white", fontWeight: "bold" }}
+        style={{
+          border: "1px solid white",
+          fontWeight: "bold",
+        }}
         onClick={() => setModalIsOpen(true)}
         class="button primary"
         href="#/"
