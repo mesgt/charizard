@@ -76,6 +76,7 @@ function Main(props) {
           style={{
             overflowY: "auto",
             padding: "10vh 5vh 10vh 5vh",
+            paddingTop: "120vh",
           }}
         >
           <div class="grid-x">

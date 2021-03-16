@@ -1,4 +1,4 @@
-// import "./calendar.css";
+import "./calendar.css";
 // import 'react-calendar/dist/Calendar.css';
 
 import React from "react";
@@ -19,6 +19,7 @@ import React from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import { set } from "mongoose";
 
 const localizer = momentLocalizer(moment);
 // const MyEventsList = [
@@ -40,8 +41,9 @@ const MyCalendar = (props) => {
       console.log(pEvent);
       const allEvents = [...events];
       console.log(allEvents);
-      const newEvents = allEvents.filter((title) => title != pEvent.title);
+      const newEvents = allEvents.filter(({ title }) => title != pEvent.title);
       console.log(newEvents);
+      setEvents(newEvents);
     }
   };
   const handleSelect = ({ start, end }) => {
