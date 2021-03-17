@@ -3,10 +3,12 @@ import "./notes.css";
 import Sidebar from "../NotesSidebar/sidebar";
 import NotesBody from "../NotesBody/notesBody";
 import API from "../../utils/API";
+import uuid from "react-uuid";
 
 function Notes() {
     const [notes, setNotes] = useState(
         localStorage.notes ? JSON.parse(localStorage.notes) : []);
+        console.log(notes);
 
     const [activeNote, setActiveNote] = useState(false);
 
@@ -16,6 +18,7 @@ function Notes() {
 
     const onAddNote = () => {
         const newNote = {
+            id: uuid(),
             title: "Untitled Note",
             body: "",
             lastModified: Date.now(),
