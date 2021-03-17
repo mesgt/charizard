@@ -5,14 +5,16 @@ import { Input, TextArea, FormBtn } from "./form";
 import API from "../../utils/API";
 import "./todo.css";
 
-const NewToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, handleNewSubmit }) => {
+const NewToDo = ({ onRequestClose }) => {
     const [isOpen, setIsOpen] = useState(false)
-    const [titleState, setTitle] = useState("")
-    const [bodyState, setBody] = useState("")
-    const [dueDateState, setDueDate] = useState("")
+    // const [titleState, setTitle] = useState("")
+    // const [bodyState, setBody] = useState("")
+    // const [dueDateState, setDueDate] = useState("")
 
     const [formObject, setFormObject] = useState({
-        title, body, dueDate
+        title: "", 
+        body: "", 
+        dueDate: new Date(),
     })
 
     const handleOpen = () => {
@@ -21,8 +23,9 @@ const NewToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, hand
     };
 
     function handleNewSubmit(event) {
+        console.log("creating new")
         event.preventDefault();
-        if (event.title) {
+        if (formObject.title) {
             API.saveToDo({
                 title: formObject.title,
                 dueDate: formObject.dueDate,
@@ -65,29 +68,29 @@ const NewToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, hand
                     <div className="grid-x grid-margin-x small-up-5 ">
                         <form>
                             <Input
-                                onChange={(e)=> setTitle(e.target.value)}
+                                onChange={(e)=> setFormObject({...formObject, title: e.target.value})}
                                 title=""
                                 label="title"
-                                value={titleState}
+                                value={formObject.title}
                                 placeholder="Title (required)"
                             />
                             <Input
-                                onChange={(e)=> setDueDate(e.target.value)}
+                                onChange={(e)=> setFormObject({...formObject, dueDate: e.target.value})}
                                 dueDate=""
                                 label="dueDate"
-                                value={dueDateState}
+                                value={formObject.dueDate}
                                 placeholder="Due Date"
                             />
                             <TextArea
-                                onChange={(e)=> setBody(e.target.value)}
+                                onChange={(e)=> setFormObject({...formObject, body: e.target.value})}
                                 body=""
                                 label="body"
-                                value={bodyState || body}
+                                value={formObject.body}
                                 placeholder="Details"
                             />
                             <FormBtn
                                 // disabled={!(formObject.title)}
-                                onNewClick={handleNewSubmit}
+                                onClick={handleNewSubmit}
                             >
                                 Save
                             </FormBtn>

@@ -219,11 +219,8 @@ function ToDos({
         <div className="cell">
             <NewToDo
                 action="addBtn"
-                modalIsOpen={checkModal}
                 setModalIsOpen={checkModal}
                 newModalOpen={newModalOpen}
-                handleInputChange={handleInputChange}
-                handleNewSubmit={handleNewSubmit}
             // disabled={!(formObject.title)}
             >
             </NewToDo>

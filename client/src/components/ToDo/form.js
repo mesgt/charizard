@@ -26,7 +26,7 @@ export function TextArea(props) {
 
 export function FormBtn(props) {
     return (
-        <button {...props} onClick={props.handleEditSubmit} onNewClick={props.handleNewSubmit} style={{ float: "right", marginBottom: 10 }} className="btn btn-success">
+        <button {...props} onClick={props.onClick} style={{ float: "right", marginBottom: 10 }} className="btn btn-success">
             {props.children}
         </button>
     );
