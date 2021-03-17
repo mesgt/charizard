@@ -33,11 +33,8 @@ function App() {
           <Route exact path="/"
             render={() => <Login userInfo={userInfo} />}
           />
-          {/* <Route exact path="/dash"
-            component={Theme}
-          {...userState.loggedin ? <Theme /> : <Redirect to="/" />}
-          /> */}
-          <PrivateRoute path="/dash" component={Theme} />
+          <Route exact path="/dash"component={Theme}/>
+          {/* <PrivateRoute path="/dash" component={Theme} /> */}
         </UserContext.Provider>
       </div>
     </Router>
