@@ -33,6 +33,7 @@ const localizer = momentLocalizer(moment);
 
 const MyCalendar = (props) => {
   const [events, setEvents] = React.useState([]);
+  
   const onSelectEvent = (pEvent) => {
     const confirm = window.confirm(
       "Are You Sure You Would Like To Remove Event?"

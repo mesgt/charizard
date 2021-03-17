@@ -1,13 +1,13 @@
 import React from "react";
-import LoginForm from "../LoginForm/login";
-import SignupForm from "../SignupForm/signup";
+import CreateAccount from "../LoginForm/createAccount";
+import Login from "../SignupForm/login";
 import "./formpage.css";
 
 function FormContainer (props) {
     return (
-        <div class="grid-x form-container">
-        <LoginForm class="login" userInfo={props.userInfo}/>
-        <SignupForm class="signup"/>
+        <div className="grid-x form-container">
+        <CreateAccount className="login" userInfo={props.userInfo}/>
+        <Login className="signup"/>
         </div>
     )
 }
