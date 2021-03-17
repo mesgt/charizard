@@ -8,7 +8,8 @@ const ViewToDo = ({ onRequestClose, title, body, dueDate, complete }) => {
 
     const handleOpen = () => {
         setIsOpen(!isOpen)
-    }
+    };
+
     //Modal style
     const customStyles = {
         content: {
@@ -42,7 +43,7 @@ const ViewToDo = ({ onRequestClose, title, body, dueDate, complete }) => {
 
             <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={customStyles}>
                 <div className="flex-container">
-                    <div class="grid-x grid-margin-x small-up-5 ">
+                    <div className="grid-x grid-margin-x small-up-5 ">
                         <div className="cell">
                             <div className="card todoView" style={{ minHeight: "380px"}}>
                                 <div className="card-section flex-container grid-x">
@@ -58,7 +59,7 @@ const ViewToDo = ({ onRequestClose, title, body, dueDate, complete }) => {
                 <a
                     style={{ border: "1px solid white", fontWeight: "bold" }}
                     onClick={() => handleOpen()}
-                    class="button primary"
+                    className="button primary"
                     href="#/">
                     Close
                 </a>

@@ -8,7 +8,7 @@ router.route("/")
 
 // Matches with "/api/todo/:id"
 router.route("/:id")
-    // .get(todoController.findById)
+    .get(todoController.findById)
     .put(todoController.update)
     .delete(todoController.remove);
 

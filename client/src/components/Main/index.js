@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import Calendar from "../Calendar";
 import Nav from "../Nav";
 import Notes from "../Notes";
-import ToDo from "../ToDo"; //this is importing the index.js only.
+import ToDo from "../ToDo"; 
 import Weather from "../Weather/index";
 import styled from "styled-components";
 import { CgSun } from "react-icons/cg";
@@ -92,8 +92,8 @@ function Main(props, { action }) {
             paddingTop: "120vh",
           }}
         >
-          <div class="grid-x">
-            <div class="cell radius">
+          <div className="grid-x">
+            <div className="cell radius">
               <Nav
                 theme={props.theme}
                 test={props.test}
@@ -104,9 +104,9 @@ function Main(props, { action }) {
               </Toggle></div> */}
             </div>
           </div>
-          <div class="grid-x">
-            <div class="cell small-3">
-              <div class="grid-x radius">
+          <div className="grid-x">
+            <div className="cell small-3">
+              <div className="grid-x radius">
                 <StyledToDo 
                 // switch between To Do modals
                 modalIsOpen={modalIsOpen}
@@ -115,10 +115,12 @@ function Main(props, { action }) {
                 editToggleModal={editToggleModal}
                 viewModalOpen={viewModalOpen}
                 viewToggleModal={viewToggleModal}
+                newModalOpen={newModalOpen}
+                newToggleModal={newToggleModal}
               />
               </div>
               <div
-                class="grid-x radius "
+                className="grid-x radius "
                 style={{
                   justifyContent: "space-evenly",
                 }}
@@ -126,9 +128,9 @@ function Main(props, { action }) {
                 <StyledWeather />
               </div>
             </div>
-            <div class="cell small-9">
+            <div className="cell small-9">
               <div
-                class="grid-x radius"
+                className="grid-x radius"
                 style={{
                   justifyContent: "space-evenly",
                   padding: "4vh",
@@ -138,7 +140,7 @@ function Main(props, { action }) {
                 <StyledCalendar />
               </div>
               <div
-                class="grid-x radius"
+                className="grid-x radius"
                 style={{
                   justifyContent: "space-evenly",
                   padding: "4vh",

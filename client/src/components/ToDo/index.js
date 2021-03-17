@@ -4,13 +4,13 @@ import Modal from "react-modal";
 import NewToDo from "./newModal";
 import EditToDo from "./editModal";
 import ViewToDo from "./viewModal";
-import ViewCompletedTasks from "./viewCompletedModal";
+// import DoneToDo from "./doneModal";
 import { List, ListItem } from "./ToDoList";
 // import ViewBtn from "../ViewBtn";
 import DeleteBtn from "../DeleteBtn";
-import NewBtn from "../NewBtn";
+// import NewBtn from "../NewBtn";
 import CheckBtn from "../CheckMark";
-import Form from "./form";
+// import Form from "./form";
 import API from "../../utils/API";
 import "./todo.css";
 import CompletedBtn from "../CompletedBtn";
@@ -18,17 +18,22 @@ Modal.setAppElement("#root");
 
 
 function ToDos({
-    modalIsOpen, setModalIsOpen,
+    modalIsOpen, setModalIsOpen, complete
 
 }) {
     const [todos, setToDos] = useState([])
-    const [formObject, setFormObject] = useState({})
+    const [formObject, setFormObject] = useState({
+        title: "",
+        body: "",
+        dueDate: "MMDDYY", // THIS NEEDS TO BE CHANGED TO CORRECT FORMAT.
+        complete: false
+    })
     const [editModalOpen, editToggleModal] = useState(false);
     const [viewModalOpen, viewToggleModal] = useState(false);
     const [newModalOpen, newToggleModal] = useState(false);
 
 
-    console.log(todos);
+    // console.log(todos);
 
     //Load all To Do tasks and store them with setToDos
     useEffect(() => {
@@ -62,23 +67,17 @@ function ToDos({
     function editToDo(id) {
         API.editToDo(id)
             .then(res => loadToDos())
-
             .catch(error => console.log(error));
     }
 
     function handleInputChange(event) {
-        console.log(formObject.complete)
-            .catch(error => console.log(error));
+        // console.log(event)
+        // const { complete }= event.target
+        // setToDos({...todos, [event]: true})
+        // .catch(error => console.log(error));
     };
-
-    //     const closeModal = (bool) => {
-    // console.log(bool);
-    // setModalIsOpen(bool)
-    //     }
-    //Handles updating component state from user input
-    // function handleInputChange(event) {
-    //     console.log(event);
-    // };
+    console.log(todos)
+    console.log(todos.complete)
 
     //When a new task is submitted, use the API.saveToDo and reload To Do tasks
     function handleSubmit(event) {
@@ -90,7 +89,10 @@ function ToDos({
                 body: formObject.body,
                 complete: false
             })
-                .then(res => loadToDos())
+                .then(res => 
+                    console.log(todos)
+                    // loadToDos()
+                )
                 .catch(err => console.log(err));
         }
     }
@@ -111,7 +113,12 @@ function ToDos({
                 return [
                     modalIsOpen = { editModalOpen },
                     setModalIsOpen = { editToggleModal }
-                ];
+                ]
+            case "newBtn":
+                return [
+                    modalIsOpen = { newModalOpen },
+                    setModalIsOpen = { newToggleModal }
+                ]
             default:
                 console.log("modalIsOpen/setModalIsOpen not found.")
         }
@@ -119,18 +126,18 @@ function ToDos({
 
     return (
         <>
-        <div data-closable="fade-out" class="todo" >
-            <div class="divider">
+        <div data-closable="fade-out" className="todo" >
+            <div className="divider">
                 <h4>To Do List</h4>
             </div>
-            <div class="section">
+            <div className="section">
                 {!!todos && todos.length ? (
                     <List>
                         {todos.map(todo => (
                             <ListItem key={todo._id}
                             >
                                 <ViewToDo
-                                    data-action="viewBtn"
+                                    action="viewBtn"
                                     modalIsOpen={checkModal}
                                     setModalIsOpen={checkModal}
                                     viewModalOpen={viewModalOpen}
@@ -144,8 +151,8 @@ function ToDos({
                                     {todo.title} 
                                     {/* due {todo.dueDate.slice(0, -14)} Date format will be different in mongoDB Atlas. This works for local server. */}
                                 </strong>
-                                <CheckBtn action="check" onClick={() => console.log(todo._id)} /> {/* Update this route! It needs to change complete to true. This will put it in a different modal that will display completed tasks. */}
-                                {console.log(todo.data)}
+                                <CheckBtn action="check" onClick={() => editToDo(todo._id)} /> {/* Update this route! It needs to change complete to true. This will put it in a different modal that will display completed tasks. */}
+                                {console.log(todo.complete)}
                                 <br />
                                 {/* Modal to display when click on edit */}
                                 <EditToDo
@@ -155,6 +162,10 @@ function ToDos({
                                     editModalOpen={editModalOpen}
                                     onChange={handleInputChange}
                                     onClick={handleSubmit}
+                                    title={todo.title}
+                                    body={todo.body}
+                                    dueDate={todo.dueDate}
+                                    complete={todo.complete}
                                 // disabled={!(formObject.title)}
                                 >
                                 </EditToDo>
@@ -170,7 +181,7 @@ function ToDos({
                 {/* <a
                     style={{ border: "1px solid white", fontWeight: "bold" }}
                     onClick={() => setModalIsOpen(true)}
-                    class="button primary"
+                    className="button primary"
                     href="#/">
                     Test
                         </a> */}
@@ -188,13 +199,16 @@ function ToDos({
                 action="addBtn"
                 modalIsOpen={checkModal}
                 setModalIsOpen={checkModal}
-                editModalOpen={editModalOpen}
+                newModalOpen={newModalOpen}
                 onChange={handleInputChange}
                 onClick={handleSubmit}
             // disabled={!(formObject.title)}
             >
             </NewToDo>
             <CompletedBtn />
+            {/* <DoneToDo> */}
+                {/* Add props to be pushed down to the modal. */}
+            {/* </DoneToDo> */}
             </div>
 </>
     )

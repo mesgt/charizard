@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import NewBtn from "../NewBtn";
 import { Input, TextArea, FormBtn } from "./form";
+// import API from "../../utils/API";
 import "./todo.css";
 
 const NewToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, handleSubmit, formObject }) => {
@@ -12,6 +13,20 @@ const NewToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, hand
         setIsOpen(!isOpen)
         console.log(isOpen)
     };
+
+    // function handleSubmit(event) {
+    //     event.preventDefault();
+    //     if (event.title) {
+    //         API.saveToDo({
+    //             title: formObject.title,
+    //             dueDate: formObject.dueDate,
+    //             body: formObject.body,
+    //             complete: false
+    //         })
+    //             .then(res => console.log(res))
+    //             .catch(err => console.log(err));
+    //     }
+    // }
 
     //Modal style
     const customStyles = {
@@ -41,7 +56,7 @@ const NewToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, hand
             />
             <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={customStyles}>
                 <div className="flex-container">
-                    <div class="grid-x grid-margin-x small-up-5 ">
+                    <div className="grid-x grid-margin-x small-up-5 ">
                         <form>
                             <Input
                                 onChange={handleInputChange}
@@ -67,7 +82,7 @@ const NewToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, hand
                             <button
                                 style={{ border: "1px solid white", fontWeight: "bold" }}
                                 onClick={() => handleOpen()}
-                                class="button primary"
+                                className="button primary"
                                 href="#/">
                                 Cancel
                             </button>

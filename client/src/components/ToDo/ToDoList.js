@@ -10,5 +10,5 @@ export function List({ children }) {
 }
 
 export function ListItem({ children }) {
-    return <li class="divider">{children}</li>;
+    return <li className="divider">{children}</li>;
 }

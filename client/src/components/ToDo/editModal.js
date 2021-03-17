@@ -10,7 +10,6 @@ const EditToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, han
 
     const handleOpen = () => {
         setIsOpen(!isOpen)
-        console.log(isOpen)
     };
 
     //Modal style
@@ -41,24 +40,26 @@ const EditToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, han
             />
             <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={customStyles}>
                 <div className="flex-container">
-                    <div class="grid-x grid-margin-x small-up-5 ">
+                    <div className="grid-x grid-margin-x small-up-5 todoEdit">
                         <form>
                             <Input
                                 onChange={handleInputChange}
-                                title="Title"
+                                title={title}
                                 placeholder="Title (required)"
                             />
-                            <Input
+                            {/* <Input
                                 onChange={handleInputChange}
-                                dueDate="dueDate"
-                                content
+                                dueDate={dueDate}
                                 placeholder="Task due date"
-                            />
+                            /> */}
                             <TextArea
                                 onChange={handleInputChange}
-                                body="Body"
+                                body={body}
                                 placeholder="Details"
                             />
+
+                            {/* Add checkbox for if the task has been completed. reference it in todo index.js */}
+                            
                             <FormBtn
                                 // disabled={!(formObject.title)}
                                 onClick={handleSubmit}
@@ -68,7 +69,7 @@ const EditToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, han
                             <button
                                 style={{ border: "1px solid white", fontWeight: "bold" }}
                                 onClick={() => handleOpen()}
-                                class="button primary"
+                                className="button primary"
                                 href="#/">
                                 Cancel
                             </button>

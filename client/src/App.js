@@ -13,7 +13,7 @@ function App() {
 
   const userInfo = (user) => {
     console.log(user)
-    setUserState({...userState, firstName:user.givenName, email: user.email, googleId: user.googleId})
+    setUserState({ ...userState, firstName: user.givenName, email: user.email, googleId: user.googleId })
   }
 
 
@@ -22,10 +22,10 @@ function App() {
       <div>
         <UserContext.Provider value={userState}>
           <Route exact path="/"
-          render={() => <Login userInfo={userInfo} />}
-           />
+            render={() => <Login userInfo={userInfo} />}
+          />
           <Route exact path="/dash" component={Theme} />
-          </UserContext.Provider>
+        </UserContext.Provider>
       </div>
     </Router>
   );

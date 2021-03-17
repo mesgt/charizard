@@ -8,7 +8,7 @@ function CompletedBtn(props) {
         <button
             style={{ border: "1px solid white", fontWeight: "bold" }}
             // onClick={() => handleOpen()}
-            class="button primary"
+            className="button primary"
             // href="#/"
             {...props}
         >
