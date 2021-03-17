@@ -13,6 +13,13 @@ export default {
     return axios.get(cityURL);
   },
 
+  //========================
+  //Inspriational quote API
+  quote: function () {
+    const URL = "https://zenquotes.io/api/today";
+    return axios.get(URL)
+  }
+
   //=========================
   //TO DO ROUTES
 

@@ -2,7 +2,7 @@
   border: 2px black solid;
   min-width: 797px;
   min-height: 100px;
-  margin-top: 25vh;
+  /* margin-top: 25vh; */
 }
 
 .colorBTN {
@@ -15,7 +15,7 @@
   left: 1000px;
 }
 
-.Username {
+.Username, h3 {
   position: relative;
   left: 400px;
   top: 30px;
