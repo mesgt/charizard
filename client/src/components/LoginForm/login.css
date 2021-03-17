@@ -2,19 +2,62 @@
     border: 1px solid #cacaca;
     padding: 3rem;
     border-radius: .5rem;
-    height: 100%;
+    height: 200%;
     width: 100%;
   }
 
-.googleBtn {
-  margin-left: 30%;
-  width: 60%;
+.log-in-text {
+  position: relative;
+  top: 32%;
+  line-height: 1.2;
+
 }
 
 .loginHeading {
-  padding: 1%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: normal;
+  font-size: 45px;
+  color: #F7567C;
+  padding: 2%;
 }
 
-  
-  
-  
+.loginHeadingName {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bolder;
+  font-style: italic;
+  font-size: 70px;
+  color: #F7567C;
+  animation: fadeIn ease 5s;
+  -webkit-animation: fadeIn ease 5s;
+}
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+.googleBtn {
+  margin-left: 38%;
+  width: 60%;
+  padding-top: 5%;
+}  

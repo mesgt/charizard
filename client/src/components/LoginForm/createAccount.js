@@ -52,18 +52,20 @@ function CreateAccount(props) {
         <>
             <div class="grid-x">
                 <div class="logincontainer">
-                    <div class="log-in-form">
-                        <h4 class="text-center loginHeading">Create an Account</h4>
+                    <div class="log-in-form radius bordered shadow">
+                        <div class="log-in-text">
+                        <span class="text-center loginHeading">Login to</span><br></br><span class="text-center loginHeadingName">Everything</span>
                         <div class="googleBtn">
                             <GoogleLogin
                                 clientId="49214406530-t4ofc8gge6vgfdchf8k6v3e28b883er9.apps.googleusercontent.com"
-                                buttonText="Login with Google"
+                                buttonText="Login"
                                 onSuccess={redirect}
                                 isSignedIn={false}
                                 onFailure={failedLogin}
                                 cookiePolicy={'single_host_origin'}
                                 scope="https://www.googleapis.com/auth/calendar.events"
                             />
+                        </div>
                         </div>
                     </div>
                 </div>
