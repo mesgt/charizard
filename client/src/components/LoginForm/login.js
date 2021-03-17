@@ -39,7 +39,7 @@ function LoginForm() {
                 <div class="logincontainer">
                     <div class="log-in-form radius bordered shadow">
                         <div class="log-in-text">
-                        <span class="text-center loginHeading">Login with</span><br></br><span class="text-center loginHeadingName">Everything</span>
+                        <span class="text-center loginHeading">Login to</span><br></br><span class="text-center loginHeadingName">Everything</span>
                         <div class="googleBtn">
                             <GoogleLogin
                                 clientId="49214406530-t4ofc8gge6vgfdchf8k6v3e28b883er9.apps.googleusercontent.com"
