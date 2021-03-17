@@ -39,6 +39,8 @@ const FontToggle = styled.button`
     height: 50px;
     border-radius: 50%;
     border: none;
+    background-color: ${props => props.theme.titleColor};
+    color: ${props => props.theme.pageBackground};
     font: ${props => props.theme.fontFamily};
     transition: all .5s ease;
 `;

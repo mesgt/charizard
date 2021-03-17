@@ -62,6 +62,20 @@ const BoldTheme = {
   fontFamily: "Marker Felt, fantasy"
 };
 
+const ChalkTheme = {
+  name: "chalk",
+  fontFamily: "Chalkduster, fantasy"
+};
+
+const JazzTheme = {
+  name: "jazz",
+  fontFamily: "Jazz LET, fantasy"
+};
+
+const ImpactTheme = {
+  name: "impact",
+  fontFamily: "Impact, fantasy"	
+};
 
 const themes = {
   light: LightTheme,
@@ -75,7 +89,10 @@ const themes = {
 
 const fontThemes = {
   cursive: CursiveTheme,
-  bold: BoldTheme
+  bold: BoldTheme,
+  chalk: ChalkTheme,
+  jazz: JazzTheme,
+  impact: ImpactTheme
 }
 
 const colorThemeArray = [
@@ -88,7 +105,10 @@ const colorThemeArray = [
 
 const fontThemeArray = [
   "cursive",
-  "bold"
+  "bold",
+  "chalk",
+  "jazz",
+  "impact"
 
 ]
 
