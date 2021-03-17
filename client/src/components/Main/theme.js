@@ -54,12 +54,12 @@ const MaroonTheme = {
 
 const CursiveTheme = {
   name: "cursive",
-  fontFamily: "Bradley Hand, cursive",
+  fontFamily: "Cedarville Cursive, cursive",
 };
 
 const BoldTheme = {
   name: "bold",
-  fontFamily: "Marker Felt, fantasy"
+  fontFamily: "Caveat Brush, cursive",
 };
 
 const ChalkTheme = {
@@ -69,12 +69,17 @@ const ChalkTheme = {
 
 const JazzTheme = {
   name: "jazz",
-  fontFamily: "Jazz LET, fantasy"
+  fontFamily: "Amatic SC, cursive"
 };
 
 const ImpactTheme = {
   name: "impact",
   fontFamily: "Impact, fantasy"	
+};
+
+const LongFormTheme = {
+  name: "long",
+  fontFamily: "Nothing You Could Do, cursive"	
 };
 
 const themes = {
@@ -85,6 +90,7 @@ const themes = {
   green: GreenTheme,
   orange: OrangeTheme,
   maroon: MaroonTheme,
+  long: LongFormTheme
 }
 
 const fontThemes = {
@@ -92,7 +98,8 @@ const fontThemes = {
   bold: BoldTheme,
   chalk: ChalkTheme,
   jazz: JazzTheme,
-  impact: ImpactTheme
+  impact: ImpactTheme,
+  long: LongFormTheme
 }
 
 const colorThemeArray = [
@@ -108,14 +115,15 @@ const fontThemeArray = [
   "bold",
   "chalk",
   "jazz",
-  "impact"
+  "impact",
+  "long"
 
 ]
 
 
 function Theme() {
     const [theme, setTheme] = useState(themes["light"])
-    const [fontTheme, setFontTheme] = useState(fontThemes["cursive"]);
+    const [fontTheme, setFontTheme] = useState(fontThemes["impact"]);
     const [overallTheme, setOverallTheme] = useState({...theme, ...fontTheme});
 
 function test(newTheme){
