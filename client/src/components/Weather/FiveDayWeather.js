@@ -31,7 +31,12 @@ const FiveDayWeather = ({ weather, open, onClose, onRequestClose }) => {
   ).toLocaleDateString();
   // console.log(weather);
   return (
-    <Modal isOpen={open} onRequestClose={onRequestClose} style={customStyles}>
+    <Modal
+      isOpen={open}
+      onRequestClose={onRequestClose}
+      style={customStyles}
+      closeTimeoutMS={500}
+    >
       <div className="flex-container">
         <div class="grid-x grid-margin-x small-up-5 ">
           {Object.keys(weather).length > 0 &&

@@ -56,6 +56,8 @@ export function CurrentWeather({ weather }) {
           backgroundImage: `url(${currentPic})`,
 
           marginTop: "5vh",
+
+          alignItems: "center",
         }}
       >
         <div className="card-section">
