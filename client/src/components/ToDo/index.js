@@ -68,11 +68,11 @@ function ToDos() {
     // }
 
     return (
-        <div data-closable="fade-out" class="todo">
-            <div class="divider">
+        <div data-closable="fade-out" className="todo">
+            <div className="divider">
                 <h3>To Do List</h3>
             </div>
-            <div class="section">
+            <div className="section">
                 {todos.length ? (
                     <List>
                         {todos.map(todo => (
@@ -103,7 +103,7 @@ function ToDos() {
                         <a
                             style={{ border: "1px solid white", fontWeight: "bold" }}
                             onClick={() => setModalIsOpen(true)}
-                            class="button primary"
+                            className="button primary"
                             href="#/">
                             Test
                         </a>

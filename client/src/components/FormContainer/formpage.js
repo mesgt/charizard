@@ -5,9 +5,9 @@ import "./formpage.css";
 
 function FormContainer (props) {
     return (
-        <div class="grid-x form-container">
-        <CreateAccount class="login" userInfo={props.userInfo}/>
-        <Login class="signup"/>
+        <div className="grid-x form-container">
+        <CreateAccount className="login" userInfo={props.userInfo}/>
+        <Login className="signup"/>
         </div>
     )
 }

@@ -73,25 +73,25 @@ function Main(props) {
             paddingTop: "120vh",
           }}
         >
-          <div class="grid-x">
-            <div class="cell radius">
+          <div className="grid-x">
+            <div className="cell radius">
               <Nav
                 theme={props.theme}
                 test={props.test}
                 colorThemeArray={props.colorThemeArray}
               />
-              {/* <div class="cell radius"><Toggle onClick={changeTheme}>
+              {/* <div className="cell radius"><Toggle onClick={changeTheme}>
                 {icon}
               </Toggle></div> */}
             </div>
           </div>
-          <div class="grid-x">
-            <div class="cell small-3">
-              <div class="grid-x radius">
+          <div className="grid-x">
+            <div className="cell small-3">
+              <div className="grid-x radius">
                 <StyledToDo />
               </div>
               <div
-                class="grid-x radius "
+                className="grid-x radius "
                 style={{
                   justifyContent: "space-evenly",
                 }}
@@ -99,9 +99,9 @@ function Main(props) {
                 <StyledWeather />
               </div>
             </div>
-            <div class="cell small-9">
+            <div className="cell small-9">
               <div
-                class="grid-x radius"
+                className="grid-x radius"
                 style={{
                   justifyContent: "space-evenly",
                   padding: "4vh",
@@ -111,7 +111,7 @@ function Main(props) {
                 <StyledCalendar />
               </div>
               <div
-                class="grid-x radius"
+                className="grid-x radius"
                 style={{
                   justifyContent: "space-evenly",
                   padding: "4vh",
