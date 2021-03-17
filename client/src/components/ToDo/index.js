@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import NewToDo from "./newModal";
 import EditToDo from "./editModal";
 import ViewToDo from "./viewModal";
-// import DoneToDo from "./doneModal";
 import { List, ListItem } from "./ToDoList";
-// import ViewBtn from "../ViewBtn";
 import DeleteBtn from "../DeleteBtn";
-// import NewBtn from "../NewBtn";
 import CheckBtn from "../CheckMark";
-// import Form from "./form";
 import API from "../../utils/API";
 import "./todo.css";
 import CompletedBtn from "../CompletedBtn";
