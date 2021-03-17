@@ -10,7 +10,8 @@ import UserContext from "../../utils/UserContext";
 
 const Toggle = styled.button`
     cursor: pointer;
-    height: 50px;
+    height: 40px;
+    width: 50px;
     border-radius: 50%;
     border: none;
     background-color: ${props => props.theme.titleColor};
@@ -23,7 +24,8 @@ const Toggle = styled.button`
 
 const ColorToggle = styled.button`
     cursor: pointer;
-    height: 50px;
+    height: 40px;
+    width: 50px;
     border-radius: 50%;
     border: none;
     background-color: ${props => props.theme.titleColor};
@@ -36,7 +38,8 @@ const ColorToggle = styled.button`
 
 const FontToggle = styled.button`
     cursor: pointer;
-    height: 50px;
+    height: 40px;
+    width: 50px;
     border-radius: 50%;
     border: none;
     background-color: ${props => props.theme.titleColor};
