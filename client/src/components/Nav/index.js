@@ -34,6 +34,17 @@ const ColorToggle = styled.button`
     transition: all .5s ease;
 `;
 
+const FontToggle = styled.button`
+    cursor: pointer;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: ${props => props.theme.titleColor};
+    color: ${props => props.theme.pageBackground};
+    font: ${props => props.theme.fontFamily};
+    transition: all .5s ease;
+`;
+
 function Nav(props) {
   const user = useContext(UserContext)
 
@@ -43,6 +54,7 @@ function Nav(props) {
 
   const history = useHistory();
   const redirect = () => {
+    //set loggedin state to false or empty object 
     history.push("/")
   }
 
@@ -71,29 +83,49 @@ function Nav(props) {
 
   }
 
+  function changeFontTheme() {
+    let currentIndex = 0;
+
+    props.fontThemeArray.forEach((font, index) => {
+      if(font === props.fontTheme) {
+        currentIndex = index;
+      }
+    })
+
+    if(currentIndex+1 < props.fontThemeArray.length) {
+      props.test1(props.fontThemeArray[currentIndex+1])
+    } else {
+      props.test1(props.fontThemeArray[0])
+    }
+
+  }
+
   const icon = props.theme === "light" ? <HiMoon size={40} /> : <CgSun size={40} />;
 
   //const Blueicon = props.theme === "blue" ? <HiMoon size={40} /> : <CgSun size={40} />;
 
 
   return (
-    <div class="grid-x">
-      <div class="header cell radius">
-        <h3 class="Username">Welcome, {user.firstName}!</h3>
+    <div className="grid-x">
+      <div className="header cell radius">
+        <h3 className="Username">Welcome, {user.firstName}!</h3>
         <GoogleLogout
           clientId="49214406530-t4ofc8gge6vgfdchf8k6v3e28b883er9.apps.googleusercontent.com"
           buttonText="Logout"
           onLogoutSuccess={redirect}
           onFailure={failedLogout}
-          class = "LogoutBTN"
+          className = "LogoutBTN"
         ></GoogleLogout>
-        <div class= "DarkBTN">
+        <div className= "DarkBTN">
         <Toggle onClick={changeTheme}>
                 {icon}
               </Toggle>
         <ColorToggle  onClick={changeColorTheme}>
                 Color
             </ColorToggle>   
+       <FontToggle  onClick={changeFontTheme}>
+                Font
+            </FontToggle>   
         </div>
       
         </div>
