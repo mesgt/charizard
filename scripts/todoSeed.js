@@ -33,6 +33,30 @@ const todoSeed = [
         dueDate: Date.now,
         body: "",
         complete: false
+    },
+    {
+        title: "homework",
+        dueDate: Date.now,
+        body: "Finish Physics homework",
+        complete: false
+    },
+    {
+        title: "feed the cats",
+        dueDate: Date.now,
+        body: "Remember to feed the cats tonight",
+        complete: false
+    },
+    {
+        title: "wash the dishes",
+        dueDate: Date.now,
+        body: "Mom's coming over...don't let her see the mess.",
+        complete: false
+    },
+    {
+        title: "pharmacy",
+        dueDate: Date.now,
+        body: "Buy ibuprofen",
+        complete: false
     }
 ];
 

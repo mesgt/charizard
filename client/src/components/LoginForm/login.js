@@ -9,6 +9,7 @@ function LoginForm(props) {
     const history = useHistory();
 
     const redirect = (response) => {
+        console.log("response", response)
         console.log(response.profileObj);
         history.push("/dash")
         props.userInfo(response.profileObj)

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import EditBtn from "../EditBtn";
+import NewBtn from "../NewBtn";
 import { Input, TextArea, FormBtn } from "./form";
 import "./todo.css";
 
-const EditToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, handleSubmit, formObject }) => {
+const NewToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, handleSubmit, formObject }) => {
     const [isOpen, setIsOpen] = useState(false)
     // const [formObject, setFormObject] = useState({})
 
@@ -35,8 +35,8 @@ const EditToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, han
 
     return (
         <>
-            <EditBtn
-                data-action="editBtn"
+            <NewBtn
+                data-action="addBtn"
                 onClick={() => handleOpen()}
             />
             <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={customStyles}>
@@ -79,4 +79,4 @@ const EditToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, han
     );
 };
 
-export default EditToDo;
+export default NewToDo;

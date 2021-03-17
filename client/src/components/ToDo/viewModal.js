@@ -37,7 +37,7 @@ const ViewToDo = ({ onRequestClose, title, body, dueDate, complete }) => {
     return (
         <>
             <ViewBtn
-                data-action="viewLink"
+                data-action="viewBtn"
                 onClick={() => handleOpen()}
             />
 
