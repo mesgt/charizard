@@ -63,15 +63,15 @@ function Main(props) {
 
       <Page
         style={{
-          overflowY: "auto",
-          paddingBottom: "auto",
+          // overflowY: "auto",
+          // paddingBottom: "auto",
         }}
       >
         <Container
           style={{
-            overflowY: "auto",
-            padding: "10vh 5vh 10vh 5vh",
-            paddingTop: "120vh",
+            // overflowY: "auto",
+            // padding: "10vh 5vh 10vh 5vh",
+            paddingTop: "75vh",
           }}
         >
           <div className="grid-x">

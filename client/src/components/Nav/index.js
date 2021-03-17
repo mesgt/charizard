@@ -134,10 +134,10 @@ function Nav(props) {
     <div className="grid-x">
       <div className="header cell radius">
         <h1 className="Username">Hello {user.firstName}!</h1>
-        <p className="Username">Today is {today.toDateString()}</p>
+        <p className="Username">{today.toDateString()}</p>
         <br />
-        <h3>"{quote.quote}"</h3>
-        <h4>- {quote.author}</h4>
+        <p>"{quote.quote}"</p>
+        <p>- {quote.author}</p>
         <GoogleLogout
           clientId="49214406530-t4ofc8gge6vgfdchf8k6v3e28b883er9.apps.googleusercontent.com"
           buttonText="Logout"
@@ -145,9 +145,9 @@ function Nav(props) {
           onFailure={failedLogout}
           className="LogoutBTN"
         ></GoogleLogout>
-        <div class="dropdown">
+        <div className="dropdown">
           <span> Choose Your Theme</span>
-          <div class="dropdown-content">
+          <div className="dropdown-content">
             <Toggle onClick={changeTheme}>
               {icon}
             </Toggle>

@@ -1,6 +1,6 @@
 .header {
   border: 2px black solid;
-  min-width: 797px;
+  min-width: 100vh;
   min-height: 100px;
   /* margin-top: 25vh; */
 }
@@ -21,13 +21,13 @@
   top: 30px;
 }
 
-.LogoutBTN {
+/* .LogoutBTN {
   position: relative;
   top: 300px;
-}
+} */
 
 .dropdown {
-  position: relative;
+  /* position: relative; */
   display: inline-block;
   background-color: grey;
 }
