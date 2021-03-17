@@ -37,7 +37,7 @@ function LoginForm() {
             <div class="grid-x">
                 <div />
                 <div class="logincontainer">
-                    <div class="log-in-form">
+                    <div class="log-in-form radius bordered shadow">
                         <div class="log-in-text">
                         <span class="text-center loginHeading">Login with</span><br></br><span class="text-center loginHeadingName">Everything</span>
                         <div class="googleBtn">

@@ -34,7 +34,7 @@ return (
         <div class="grid-x">
             <div />
             <div class="signupcontainer">
-                <div class="sign-up-form">
+                <div class="sign-up-form radius bordered shadow">
                     <div class="sign-up-text">
                     <h4 class="text-center signupHeading">Create an account</h4>
                     <div class="sign-up-googleBtn">
