@@ -34,6 +34,7 @@ function App() {
             render={() => <Login userInfo={userInfo} />}
           />
           <Route exact path="/dash"component={Theme}/>
+          {/* {DO NOT DELETE} */}
           {/* <PrivateRoute path="/dash" component={Theme} /> */}
         </UserContext.Provider>
       </div>
