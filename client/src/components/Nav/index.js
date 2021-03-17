@@ -10,7 +10,8 @@ import UserContext from "../../utils/UserContext";
 
 const Toggle = styled.button`
     cursor: pointer;
-    height: 50px;
+    height: 40px;
+    width: 50px;
     border-radius: 50%;
     border: none;
     background-color: ${props => props.theme.titleColor};
@@ -23,7 +24,8 @@ const Toggle = styled.button`
 
 const ColorToggle = styled.button`
     cursor: pointer;
-    height: 50px;
+    height: 40px;
+    width: 50px;
     border-radius: 50%;
     border: none;
     background-color: ${props => props.theme.titleColor};
@@ -36,7 +38,8 @@ const ColorToggle = styled.button`
 
 const FontToggle = styled.button`
     cursor: pointer;
-    height: 50px;
+    height: 40px;
+    width: 50px;
     border-radius: 50%;
     border: none;
     background-color: ${props => props.theme.titleColor};
@@ -72,13 +75,13 @@ function Nav(props) {
     let currentIndex = 0;
 
     props.colorThemeArray.forEach((color, index) => {
-      if(color === props.theme) {
+      if (color === props.theme) {
         currentIndex = index;
       }
     })
 
-    if(currentIndex+1 < props.colorThemeArray.length) {
-      props.test(props.colorThemeArray[currentIndex+1])
+    if (currentIndex + 1 < props.colorThemeArray.length) {
+      props.test(props.colorThemeArray[currentIndex + 1])
     } else {
       props.test(props.colorThemeArray[0])
     }
@@ -89,13 +92,13 @@ function Nav(props) {
     let currentIndex = 0;
 
     props.fontThemeArray.forEach((font, index) => {
-      if(font === props.fontTheme) {
+      if (font === props.fontTheme) {
         currentIndex = index;
       }
     })
 
-    if(currentIndex+1 < props.fontThemeArray.length) {
-      props.test1(props.fontThemeArray[currentIndex+1])
+    if (currentIndex + 1 < props.fontThemeArray.length) {
+      props.test1(props.fontThemeArray[currentIndex + 1])
     } else {
       props.test1(props.fontThemeArray[0])
     }
@@ -131,21 +134,24 @@ function Nav(props) {
           buttonText="Logout"
           onLogoutSuccess={redirect}
           onFailure={failedLogout}
-          className = "LogoutBTN"
+          className="LogoutBTN"
         ></GoogleLogout>
-        <div className= "DarkBTN">
-        <Toggle onClick={changeTheme}>
-                {icon}
-              </Toggle>
-        <ColorToggle  onClick={changeColorTheme}>
-                Color
-            </ColorToggle>   
-       <FontToggle  onClick={changeFontTheme}>
-                Font
-            </FontToggle>   
+        <div class="dropdown">
+          <span> Choose Your Theme</span>
+          <div class="dropdown-content">
+            <Toggle onClick={changeTheme}>
+              {icon}
+            </Toggle>
+            <ColorToggle onClick={changeColorTheme}>
+              Color
+            </ColorToggle>
+            <FontToggle onClick={changeFontTheme}>
+              Font
+            </FontToggle>
+          </div>
         </div>
-      
-        </div>
+
+      </div>
     </div>
   )
 }
