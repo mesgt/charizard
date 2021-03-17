@@ -43,6 +43,7 @@ function Nav(props) {
 
   const history = useHistory();
   const redirect = () => {
+    //set loggedin state to false or empty object 
     history.push("/")
   }
 

@@ -4,16 +4,18 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import UserContext from "./utils/UserContext"
 
+
 function App() {
   const [userState, setUserState] = useState({
     firstName: "",
     email: "",
-    googleId: ""
+    googleId: "",
+    loggedin: false
   })
 
   const userInfo = (user) => {
     console.log(user)
-    setUserState({...userState, firstName:user.givenName, email: user.email, googleId: user.googleId})
+    setUserState({...userState, firstName:user.givenName, email: user.email, googleId: user.googleId, loggedin: true})
   }
 
 
