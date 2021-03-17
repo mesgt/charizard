@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "./nav.css";
 import { GoogleLogout } from 'react-google-login';
 import { useHistory } from "react-router-dom";
-
+import API from "../../utils/API";
 import styled from "styled-components";
 import { CgSun } from "react-icons/cg";
 import { HiMailOpen, HiMoon } from "react-icons/hi";
@@ -113,22 +113,31 @@ function Nav(props) {
   const today = new Date()
 
   //quote state
-  const [quote, setQuote] = useState();
+  const [quote, setQuote] = useState({
+    quote: "",
+    author: ""
+  });
 
   //axios call for insprirational quote
   useEffect(() => {
-    API
-    return () => {
-      cleanup
-    }
-  }, [input])
+    API.quote().then((res) => {
+      const qod = res.data.contents.quotes[0].quote
+      const auth = res.data.contents.quotes[0].author
+      console.log(qod);
+      setQuote({...quote, quote: qod, author: auth})
+    }).catch((err) => {
+      console.error(err);
+    });
+  }, [])
 
   return (
     <div className="grid-x">
       <div className="header cell radius">
         <h1 className="Username">Hello {user.firstName}!</h1>
         <p className="Username">Today is {today.toDateString()}</p>
-        <h3>inspirational quote</h3>
+        <br />
+        <h3>"{quote.quote}"</h3>
+        <h4>- {quote.author}</h4>
         <GoogleLogout
           clientId="49214406530-t4ofc8gge6vgfdchf8k6v3e28b883er9.apps.googleusercontent.com"
           buttonText="Logout"

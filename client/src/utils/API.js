@@ -16,10 +16,12 @@ export default {
   //========================
   //Inspriational quote API
   quote: function () {
-    const URL = "https://zenquotes.io/api/today";
+    const URL = "https://quotes.rest/qod?language=en";
     return axios.get(URL)
-  }
-
+   
+  },
+  
+  
   //=========================
   //TO DO ROUTES
 
