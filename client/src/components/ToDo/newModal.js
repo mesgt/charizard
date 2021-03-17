@@ -5,7 +5,7 @@ import { Input, TextArea, FormBtn } from "./form";
 // import API from "../../utils/API";
 import "./todo.css";
 
-const NewToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, handleSubmit, formObject }) => {
+const NewToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, handleNewSubmit, formObject }) => {
     const [isOpen, setIsOpen] = useState(false)
     // const [formObject, setFormObject] = useState({})
 
@@ -54,7 +54,7 @@ const NewToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, hand
                 data-action="addBtn"
                 onClick={() => handleOpen()}
             />
-            <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={customStyles}>
+            <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={customStyles} closeTimeoutMS={500}>
                 <div className="flex-container">
                     <div className="grid-x grid-margin-x small-up-5 ">
                         <form>
@@ -75,7 +75,7 @@ const NewToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, hand
                             />
                             <FormBtn
                                 // disabled={!(formObject.title)}
-                                onClick={handleSubmit}
+                                onClick={handleNewSubmit}
                             >
                                 Save
                             </FormBtn>

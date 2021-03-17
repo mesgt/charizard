@@ -1,13 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import EditBtn from "../EditBtn";
 import { Input, TextArea, FormBtn } from "./form";
 import "./todo.css";
 
-const EditToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, handleSubmit, formObject }) => {
+const EditToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, handleEditSubmit }) => {
     const [isOpen, setIsOpen] = useState(false)
-    // const [formObject, setFormObject] = useState({})
+    const [titleState, setTitle] = useState("")
+    const [bodyState, setBody] = useState("")
+    const [dueDateState, setDueDate] = useState("")
 
+    const [formObject, setFormObject] = useState({
+        title, body, dueDate
+    })
+
+    useEffect(()=> {
+        // setTitle(title)
+        // setBody(body)
+        // setDueDate(dueDate)
+        // console.log(titleState, bodyState, dueDateState)
+    }) 
     const handleOpen = () => {
         setIsOpen(!isOpen)
     };
@@ -38,13 +50,15 @@ const EditToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, han
                 data-action="editBtn"
                 onClick={() => handleOpen()}
             />
-            <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={customStyles}>
+            <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={customStyles} closeTimeoutMS={500}>
                 <div className="flex-container">
                     <div className="grid-x grid-margin-x small-up-5 todoEdit">
                         <form>
                             <Input
-                                onChange={handleInputChange}
-                                title={title}
+                                handleChange={(e)=> setTitle(e.target.value)}
+                                title=""
+                                label="title"
+                                value={titleState || title}
                                 placeholder="Title (required)"
                             />
                             {/* <Input
@@ -53,8 +67,10 @@ const EditToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, han
                                 placeholder="Task due date"
                             /> */}
                             <TextArea
-                                onChange={handleInputChange}
-                                body={body}
+                                handleChange={(e)=> setBody(e.target.value)}
+                                body=""
+                                label="body"
+                                value={bodyState || body}
                                 placeholder="Details"
                             />
 
@@ -62,7 +78,7 @@ const EditToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, han
                             
                             <FormBtn
                                 // disabled={!(formObject.title)}
-                                onClick={handleSubmit}
+                                onClick={handleEditSubmit}
                             >
                                 Save
                             </FormBtn>

@@ -61,21 +61,50 @@ function ToDos({
     //Edit To Do task using _id and reload list
     function editToDo(id) {
         API.editToDo(id)
-            .then(res => loadToDos())
+            .then(res => console.log(res.data), loadToDos())
+
             .catch(error => console.log(error));
     }
 
-    function handleInputChange(event) {
-        // console.log(event)
+    function handleInputChange(event) { //setting state for the keys
+        console.log(event)
+        setFormObject({...formObject}, formObject)
         // const { complete }= event.target
         // setToDos({...todos, [event]: true})
         // .catch(error => console.log(error));
     };
     console.log(todos)
-    console.log(todos.complete)
+    // console.log(todos.complete)
+
+    function handleEditSubmit(event) {
+        let id="605168f92686b442e08a2e18"
+        console.log(event)
+        console.log("hanldeEditSubmit WORKS")
+        event.preventDefault();
+        setFormObject(formObject, {
+            title: event.target.title,
+            dueDate: event.target.dueDate,
+            body: event.target.body,
+            complete: event.target.complete
+        })
+        console.log(formObject)
+        if (formObject.title) {
+            API.editToDo(id, {
+                title: formObject.title,
+                dueDate: formObject.dueDate,
+                body: formObject.body,
+                complete: false
+            })
+                .then(res => 
+                    console.log(formObject), loadToDos()
+                )
+                .catch(err => console.log(err));
+        }
+    }
+
 
     //When a new task is submitted, use the API.saveToDo and reload To Do tasks
-    function handleSubmit(event) {
+    function handleNewSubmit(event) {
         event.preventDefault();
         if (formObject.title) {
             API.saveToDo({
@@ -85,8 +114,7 @@ function ToDos({
                 complete: false
             })
                 .then(res => 
-                    console.log(todos)
-                    // loadToDos()
+                    console.log(todos), loadToDos()
                 )
                 .catch(err => console.log(err));
         }
@@ -155,8 +183,10 @@ function ToDos({
                                     modalIsOpen={checkModal}
                                     setModalIsOpen={checkModal}
                                     editModalOpen={editModalOpen}
-                                    onChange={handleInputChange}
-                                    onClick={handleSubmit}
+                                    handleInputChange={handleInputChange}
+                                    handleEditSubmit={handleEditSubmit}
+                                    formObject={formObject}
+                                    setFormObject={setFormObject}
                                     title={todo.title}
                                     body={todo.body}
                                     dueDate={todo.dueDate}
@@ -195,8 +225,8 @@ function ToDos({
                 modalIsOpen={checkModal}
                 setModalIsOpen={checkModal}
                 newModalOpen={newModalOpen}
-                onChange={handleInputChange}
-                onClick={handleSubmit}
+                handleInputChange={handleInputChange}
+                handleNewSubmit={handleNewSubmit}
             // disabled={!(formObject.title)}
             >
             </NewToDo>

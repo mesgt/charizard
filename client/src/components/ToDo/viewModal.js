@@ -41,7 +41,7 @@ const ViewToDo = ({ onRequestClose, title, body, dueDate, complete }) => {
                 onClick={() => handleOpen()}
             />
 
-            <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={customStyles}>
+            <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={customStyles} closeTimeoutMS={500}>
                 <div className="flex-container">
                     <div className="grid-x grid-margin-x small-up-5 ">
                         <div className="cell">

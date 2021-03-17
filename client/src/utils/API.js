@@ -20,8 +20,8 @@ export default {
     return axios.get("/api/todo");
   },
 
-  editToDo: function (id) {
-    return axios.get("/api/todo/" + id);
+  editToDo: function (id, data) {
+    return axios.put("/api/todo/" + id, data);
   },
 
   deleteToDo: function (id) {

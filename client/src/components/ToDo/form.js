@@ -1,9 +1,14 @@
 import React from "react";
 
+
 export function Input(props) {
     return (
         <div className="form-group">
-            <input className="form-control" {...props} />
+            <label>
+                {props.label}
+                <input value={props.value} onChange={props.handleChange} className="form-control" {...props} />
+            </label>
+
         </div>
     );
 }
@@ -11,7 +16,10 @@ export function Input(props) {
 export function TextArea(props) {
     return (
         <div className="form-group">
-            <textarea className="form-control" rows="20" {...props} />
+            <label>
+                {props.label}
+                <textarea value={props.value} onChange={props.handleChange} className="form-control" rows="10" {...props} />
+            </label>
         </div>
     );
 }
