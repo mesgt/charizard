@@ -6,6 +6,7 @@ import "./calendar.css";
 import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
 Modal.setAppElement("#root");
+Modal.setAppElement("#root");
 
 const localizer = momentLocalizer(moment);
 // const MyEventsList = [
@@ -39,8 +40,11 @@ const MyCalendar = (props) => {
       backgroundColor: "rgb(72,72,72,.95)",
     },
   };
-  // STATE FOR ADD MODAL OPEN/CLOSE \\
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  // STATE FOR ADD EVENT MODAL OPEN/CLOSE \\
+  const [modalIsOpen1, setModalIsOpen1] = useState(false);
+
+  // STATE FOR DELETE EVENT MODAL OPEN/CLOSE \\
+  const [modalIsOpen2, setModalIsOpen2] = useState(false);
 
   // STATE FOR ARRAY OF ALL EVENTS \\
   const [events, setEvents] = useState([]);
@@ -48,32 +52,36 @@ const MyCalendar = (props) => {
   // STATE FOR NEW EVENT \\
   const [event, setEvent] = useState({});
 
-  // DELETE AN EVENT \\
-  const onSelectEvent = (pEvent) => {
-    const confirm = window.confirm(
-      "Are You Sure You Would Like To Remove Event?"
+  // STATE FOR DELETE EVENT \\
+  const [eventDelete, setEventDelete] = useState([]);
+
+  // DELETE EVENT FROM EVENTDELETE STATE \\
+  const deleteEvent = () => {
+    const allEvents = [...events];
+    const newEvents = allEvents.filter(
+      ({ title }) => title != eventDelete.title
     );
-    if (confirm) {
-      console.log(pEvent);
-      const allEvents = [...events];
-      console.log(allEvents);
-      const newEvents = allEvents.filter(({ title }) => title != pEvent.title);
-      console.log(newEvents);
-      setEvents(newEvents);
-    }
+    setEvents(newEvents);
+    setModalIsOpen2(false);
+  };
+
+  // ADD SELECTED EVENT TO BE DELETED TO EVENTDELETE STATE \\
+  const onSelectEvent = (pEvent) => {
+    setEventDelete(pEvent);
+    setModalIsOpen2(true);
   };
 
   // START ADD/DISPLAY NEW CALENDAR EVENT \\
   const handleSelect = ({ start, end }) => {
     setEvent({ ...event, start, end });
-    setModalIsOpen(true);
+    setModalIsOpen1(true);
   };
 
   // ADD VALUE INPUT FROM FORM AND ADD NEW EVENT TO EVENTS \\
   const saveEvent = () => {
     if (event.title) setEvents([...events, event]);
     setEvent({});
-    setModalIsOpen(false);
+    setModalIsOpen1(false);
   };
   return (
     <>
@@ -92,9 +100,9 @@ const MyCalendar = (props) => {
         />
       </div>
       <Modal
-        isOpen={modalIsOpen}
+        isOpen={modalIsOpen1}
         style={customStyles}
-        onRequestClose={() => setModalIsOpen(false)}
+        onRequestClose={() => setModalIsOpen1(false)}
         closeTimeoutMS={500}
       >
         <div className="flex-container">
@@ -130,6 +138,43 @@ const MyCalendar = (props) => {
                     href="#/"
                   >
                     Submit
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Modal>
+      <Modal
+        isOpen={modalIsOpen2}
+        style={customStyles}
+        onRequestClose={() => setModalIsOpen2(false)}
+        closeTimeoutMS={500}
+      >
+        <div className="flex-container">
+          <div class="grid-x grid-margin-x small-up-5 ">
+            <div
+              className="cell"
+              style={{
+                width: "100%",
+                padding: "10vh",
+                margin: "auto",
+              }}
+            >
+              <div
+                className="card"
+                style={{ minHeight: "200px", width: "100%" }}
+              >
+                <div className="card-section medium-8 cell">
+                  <h4>confirm delete</h4>
+
+                  <a
+                    style={{ border: "1px solid white", fontWeight: "bold" }}
+                    onClick={() => deleteEvent()}
+                    class="button primary"
+                    href="#/"
+                  >
+                    Confirm
                   </a>
                 </div>
               </div>
