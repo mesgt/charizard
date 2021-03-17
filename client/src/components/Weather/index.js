@@ -49,7 +49,7 @@ function Weather() {
           fontWeight: "bold",
         }}
         onClick={() => setModalIsOpen(true)}
-        class="button primary"
+        class="button secondary"
         href="#/"
       >
         5 Day Forecast
