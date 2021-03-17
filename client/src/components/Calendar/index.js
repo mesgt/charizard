@@ -3,9 +3,8 @@ import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { set } from "mongoose";
 import "./calendar.css";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Modal from "react-modal";
-Modal.setAppElement("#root");
 Modal.setAppElement("#root");
 
 const localizer = momentLocalizer(moment);
@@ -20,9 +19,9 @@ const localizer = momentLocalizer(moment);
 
 const MyCalendar = (props) => {
   {
-    /* MODAL STYLES */
+    /* MODAL1 STYLES */
   }
-  const customStyles = {
+  const customStyles1 = {
     content: {
       top: "50%",
       left: "50%",
@@ -34,6 +33,27 @@ const MyCalendar = (props) => {
       maxHeight: "100vh",
       overflowY: "auto",
       background: "#fff",
+    },
+    overlay: {
+      zIndex: 1000,
+      backgroundColor: "rgb(72,72,72,.95)",
+    },
+  };
+  {
+    /* MODAL2 STYLES */
+  }
+  const customStyles2 = {
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      zIndex: 1001,
+      transform: "translate(-50%, -50%)",
+      maxHeight: "100vh",
+      overflowY: "auto",
+      background: "rgba(243, 32, 19,.8)",
     },
     overlay: {
       zIndex: 1000,
@@ -101,7 +121,7 @@ const MyCalendar = (props) => {
       </div>
       <Modal
         isOpen={modalIsOpen1}
-        style={customStyles}
+        style={customStyles1}
         onRequestClose={() => setModalIsOpen1(false)}
         closeTimeoutMS={500}
       >
@@ -147,7 +167,7 @@ const MyCalendar = (props) => {
       </Modal>
       <Modal
         isOpen={modalIsOpen2}
-        style={customStyles}
+        style={customStyles2}
         onRequestClose={() => setModalIsOpen2(false)}
         closeTimeoutMS={500}
       >
@@ -163,19 +183,26 @@ const MyCalendar = (props) => {
             >
               <div
                 className="card"
-                style={{ minHeight: "200px", width: "100%" }}
+                style={{ minHeight: "auto", width: "100%" }}
               >
                 <div className="card-section medium-8 cell">
-                  <h4>confirm delete</h4>
-
-                  <a
-                    style={{ border: "1px solid white", fontWeight: "bold" }}
+                  <h4>Confirm Delete</h4>
+                  <i
                     onClick={() => deleteEvent()}
-                    class="button primary"
-                    href="#/"
-                  >
-                    Confirm
-                  </a>
+                    className="fa fa-check-square"
+                    style={{
+                      fontSize: "5vh",
+                      color: "green",
+                    }}
+                  ></i>
+                  <i
+                    onClick={() => setModalIsOpen2(false)}
+                    className="fa fa-window-close "
+                    style={{
+                      fontSize: "5vh",
+                      color: "red",
+                    }}
+                  ></i>
                 </div>
               </div>
             </div>
