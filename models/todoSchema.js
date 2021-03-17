@@ -14,7 +14,11 @@ const todoSchema = new Schema({
     body: String,
     complete: {
         default: false
-    }
+    },
+    // user_ref: {
+    //     type: String,
+    //     required: true
+    // }
 })
  //model
 const ToDo = mongoose.model("ToDo", todoSchema);

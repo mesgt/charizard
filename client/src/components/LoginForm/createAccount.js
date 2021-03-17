@@ -9,6 +9,7 @@ function CreateAccount(props) {
     const history = useHistory();
 
     const redirect = (response) => {
+        console.log("response", response)
         console.log(response.profileObj);
        
         createUser(response)

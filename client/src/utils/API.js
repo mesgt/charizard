@@ -16,22 +16,25 @@ export default {
   //=========================
   //TO DO ROUTES
 
-  // Gets all To Dos
   getToDos: function () {
     return axios.get("/api/todo");
   },
-  // Gets the To Do with the given id
-  editToDo: function (id) {
-    return axios.get("/api/todo/" + id);
+
+  editToDo: function (id, data) {
+    return axios.put("/api/todo/" + id, data);
   },
-  // Deletes the To Do with the given id
+
   deleteToDo: function (id) {
     return axios.delete("/api/todo/" + id);
   },
-  // Saves a To Do to the database
+
   saveToDo: function (todoData) {
     return axios.post("/api/todo", todoData);
   },
+
+  //===========================
+  //NOTE ROUTES 
+  
   // Gets all Notes
   getNotes: function () {
     return axios.get("/api/note");
