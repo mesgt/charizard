@@ -35,6 +35,7 @@ return (
             <div />
             <div class="signupcontainer">
                 <div class="sign-up-form">
+                    <div class="sign-up-text">
                     <h4 class="text-center signupHeading">Create an account</h4>
                     <div class="sign-up-googleBtn">
                         <GoogleLogin
@@ -48,6 +49,7 @@ return (
                             redirectUri="http://localhost:3000/dash"
                             uxMode="redirect"
                         />
+                    </div>
                     </div>
                 </div>
             </div>

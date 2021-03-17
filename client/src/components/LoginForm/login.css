@@ -2,37 +2,37 @@
     border: 1px solid #cacaca;
     padding: 3rem;
     border-radius: .5rem;
-    height: 150%;
+    height: 200%;
     width: 100%;
   }
 
 .log-in-text {
   position: relative;
   top: 32%;
-}
+  line-height: 1.2;
 
-.googleBtn {
-  margin-left: 37%;
-  width: 60%;
-  padding-top: 5%;
 }
 
 .loginHeading {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: normal;
-  font-size: 40px;
+  font-size: 45px;
   color: #F7567C;
   padding: 2%;
 }
 
 .loginHeadingName {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bolder;
   font-style: italic;
   font-size: 70px;
   color: #F7567C;
 }
 
-  
+.googleBtn {
+  margin-left: 37%;
+  width: 60%;
+  padding-top: 5%;
+}  
   
   
