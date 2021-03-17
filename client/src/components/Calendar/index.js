@@ -85,7 +85,7 @@ const MyCalendar = (props) => {
           events={events}
           startAccessor="start"
           endAccessor="end"
-          style={{ height: 550, width: 800 }}
+          style={{ height: 550 }}
           onSelectEvent={(event) => alert(event.title)}
           onSelectEvent={(event) => onSelectEvent(event)}
           onSelectSlot={handleSelect}
