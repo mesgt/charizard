@@ -2,7 +2,7 @@
     border: 1px solid #cacaca;
     padding: 3rem;
     border-radius: .5rem;
-    height: 250%;
+    height: 150%;
     width: 100%;
   }
 
@@ -13,6 +13,17 @@
 
 .loginHeading {
   padding: 2%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  font-size: 40px;
+  margin-top: 100%;
+}
+
+.loginHeadingName {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  font-style: italic;
+  font-size: 70px;
 }
 
   

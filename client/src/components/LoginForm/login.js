@@ -38,7 +38,7 @@ function LoginForm() {
                 <div />
                 <div class="logincontainer">
                     <div class="log-in-form">
-                        <h4 class="text-center loginHeading">Login with Everything</h4>
+                        <span class="text-center loginHeading">Login with</span><br></br><span class="text-center loginHeadingName">Everything</span>
                         <div class="googleBtn">
                             <GoogleLogin
                                 clientId="49214406530-t4ofc8gge6vgfdchf8k6v3e28b883er9.apps.googleusercontent.com"
