@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import Calendar from "../Calendar";
 import Nav from "../Nav";
 import Notes from "../Notes";
-import ToDo from "../ToDo"; //this is importing the index.js only.
+import ToDo from "../ToDo"; 
 import Weather from "../Weather/index";
 import styled from "styled-components";
 import { CgSun } from "react-icons/cg";
@@ -55,7 +55,26 @@ const Container = styled.div`
   transition: all 0.5s ease;
 `;
 
-function Main(props) {
+function Main(props, { action }) {
+// To do task State for modal to open/close
+  const [editModalOpen, editToggleModal] = useState(false);
+  const [viewModalOpen, viewToggleModal] = useState(false);
+  const [newModalOpen, newToggleModal] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  
+
+  // console.log(props);
+  function changeTheme() {
+    if (props.theme === "light") {
+      props.test("dark");
+    } else {
+      props.test("light");
+    }
+  }
+
+  // const icon = props.theme === "light" ? <HiMoon size={40} /> : <CgSun size={40} />;
+
+// function Main(props) {
   const user = useContext(UserContext)
   console.log(user);
   return (
@@ -93,7 +112,17 @@ function Main(props) {
           <div className="grid-x">
             <div className="cell small-3">
               <div className="grid-x radius">
-                <StyledToDo />
+                <StyledToDo 
+                // switch between To Do modals
+                modalIsOpen={modalIsOpen}
+                setModalIsOpen={setModalIsOpen}
+                editModalOpen={editModalOpen}
+                editToggleModal={editToggleModal}
+                viewModalOpen={viewModalOpen}
+                viewToggleModal={viewToggleModal}
+                newModalOpen={newModalOpen}
+                newToggleModal={newToggleModal}
+              />
               </div>
               <div
                 className="grid-x radius "

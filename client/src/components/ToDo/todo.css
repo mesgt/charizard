@@ -1,3 +1,14 @@
+.todoView {
+  width: 500px;
+  border: 1px black solid;
+  padding: 10px;
+}
+
+form {
+  width: 500px;
+  border: 1px black solid;
+  padding: 10px;
+}
 
 .todo {
     border-radius: 0;

@@ -1,5 +1,4 @@
 const db = require("../models");
-console.log(db);
 
 // Defining methods for todoController
 module.exports = {
