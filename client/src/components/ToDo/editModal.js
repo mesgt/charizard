@@ -62,9 +62,11 @@ const EditToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, han
                                 placeholder="Title (required)"
                             />
                             {/* <Input
-                                onChange={handleInputChange}
-                                dueDate={dueDate}
-                                placeholder="Task due date"
+                                handleChange={(e)=> setBody(e.target.value)}
+                                body=""
+                                label="body"
+                                value={bodyState || body}
+                                placeholder="Details"
                             /> */}
                             <TextArea
                                 handleChange={(e)=> setBody(e.target.value)}
