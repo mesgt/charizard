@@ -34,18 +34,22 @@ function Login() {
             <div class="grid-x">
                 <div />
                 <div class="signupcontainer">
-                    <div class="sign-up-form">
-                        <h4 class="text-center createHeading">Login</h4>
+                    <div class="sign-up-form radius bordered shadow">
+                        <div class="sign-up-text">
+                        <h4 class="text-center signupHeading">Create an account</h4>
                         <div class="sign-up-googleBtn">
                             <GoogleLogin
                                 clientId="49214406530-t4ofc8gge6vgfdchf8k6v3e28b883er9.apps.googleusercontent.com"
-                                buttonText="Sign in with Google"
+                                buttonText="Sign Up"
                                 onSuccess={checkUser}
                                 isSignedIn={false}
                                 onFailure={failedLogin}
                                 cookiePolicy={'single_host_origin'}
                                 scope="https://www.googleapis.com/auth/calendar.events"
+                                redirectUri="http://localhost:3000/dash"
+                                uxMode="redirect"
                             />
+                            </div>
                         </div>
                     </div>
                 </div>
