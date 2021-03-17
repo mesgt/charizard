@@ -8,12 +8,13 @@
 
 .log-in-text {
   position: relative;
-  top: 30%;
+  top: 32%;
 }
 
 .googleBtn {
-  margin-left: 30%;
+  margin-left: 37%;
   width: 60%;
+  padding-top: 5%;
 }
 
 .loginHeading {
