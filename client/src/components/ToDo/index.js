@@ -13,11 +13,12 @@ Modal.setAppElement("#root");
 
 
 function ToDos({
-    modalIsOpen, setModalIsOpen, complete
+    // modalIsOpen, setModalIsOpen, complete
 
 }) {
     const [todos, setToDos] = useState([])
     const [formObject, setFormObject] = useState({
+        id:-1,
         title: "",
         body: "",
         dueDate: "MMDDYY", // THIS NEEDS TO BE CHANGED TO CORRECT FORMAT.
@@ -59,12 +60,12 @@ function ToDos({
     };
 
     //Edit To Do task using _id and reload list
-    function editToDo(id) {
-        API.editToDo(id)
-            .then(res => console.log(res.data), loadToDos())
+    // function editToDo(id) {
+    //     API.editToDo(id)
+    //         .then(res => console.log(res.data), loadToDos())
 
-            .catch(error => console.log(error));
-    }
+    //         .catch(error => console.log(error));
+    // }
 
     function handleInputChange(event) { //setting state for the keys
         console.log(event)
@@ -76,31 +77,31 @@ function ToDos({
     console.log(todos)
     // console.log(todos.complete)
 
-    function handleEditSubmit(event) {
-        let id="605168f92686b442e08a2e18"
-        console.log(event)
-        console.log("hanldeEditSubmit WORKS")
-        event.preventDefault();
-        setFormObject(formObject, {
-            title: event.target.title,
-            dueDate: event.target.dueDate,
-            body: event.target.body,
-            complete: event.target.complete
-        })
-        console.log(formObject)
-        if (formObject.title) {
-            API.editToDo(id, {
-                title: formObject.title,
-                dueDate: formObject.dueDate,
-                body: formObject.body,
-                complete: false
-            })
-                .then(res => 
-                    console.log(formObject), loadToDos()
-                )
-                .catch(err => console.log(err));
-        }
-    }
+    // function handleEditSubmit(event) {
+    //     let id="605168f92686b442e08a2e18"
+    //     console.log(event)
+    //     console.log("hanldeEditSubmit WORKS")
+    //     event.preventDefault();
+    //     setFormObject(formObject, {
+    //         title: event.target.title,
+    //         dueDate: event.target.dueDate,
+    //         body: event.target.body,
+    //         complete: event.target.complete
+    //     })
+    //     console.log(formObject)
+    //     if (formObject.title) {
+    //         API.editToDo(id, {
+    //             title: formObject.title,
+    //             dueDate: formObject.dueDate,
+    //             body: formObject.body,
+    //             complete: false
+    //         })
+    //             .then(res => 
+    //                 console.log(formObject), loadToDos()
+    //             )
+    //             .catch(err => console.log(err));
+    //     }
+    // }
 
 
     //When a new task is submitted, use the API.saveToDo and reload To Do tasks
@@ -128,20 +129,15 @@ function ToDos({
             case "viewBtn":
                 viewToggleModal(!viewModalOpen)
                 console.log(viewModalOpen);
-                return [
-                    modalIsOpen = { viewModalOpen },
-                    setModalIsOpen = { viewToggleModal }
-                ]
+            break
             case "editBtn":
-                return [
-                    modalIsOpen = { editModalOpen },
-                    setModalIsOpen = { editToggleModal }
-                ]
+                editToggleModal(!editModalOpen)
+                console.log(editModalOpen);
+            break
             case "newBtn":
-                return [
-                    modalIsOpen = { newModalOpen },
-                    setModalIsOpen = { newToggleModal }
-                ]
+                newToggleModal(!newModalOpen)
+                console.log(newModalOpen);
+            break
             default:
                 console.log("modalIsOpen/setModalIsOpen not found.")
         }
@@ -170,11 +166,11 @@ function ToDos({
                                     complete={todo.complete}
                                 >
                                 </ViewToDo>
-                                <strong>
+                                <span>
                                     {todo.title} 
                                     {/* due {todo.dueDate.slice(0, -14)} Date format will be different in mongoDB Atlas. This works for local server. */}
-                                </strong>
-                                <CheckBtn action="check" onClick={() => editToDo(todo._id)} /> {/* Update this route! It needs to change complete to true. This will put it in a different modal that will display completed tasks. */}
+                                </span>
+                                <CheckBtn action="check" onClick={() => console.log(todo._id)} /> {/* Update this route! It needs to change complete to true. This will put it in a different modal that will display completed tasks. */}
                                 {console.log(todo.complete)}
                                 <br />
                                 {/* Modal to display when click on edit */}
@@ -184,9 +180,10 @@ function ToDos({
                                     setModalIsOpen={checkModal}
                                     editModalOpen={editModalOpen}
                                     handleInputChange={handleInputChange}
-                                    handleEditSubmit={handleEditSubmit}
-                                    formObject={formObject}
-                                    setFormObject={setFormObject}
+                                    // handleEditSubmit={handleEditSubmit}
+                                    loadToDos={loadToDos}
+                                    // formObject={formObject}
+                                    // setFormObject={setFormObject}
                                     title={todo.title}
                                     body={todo.body}
                                     dueDate={todo.dueDate}

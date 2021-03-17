@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import EditBtn from "../EditBtn";
 import { Input, TextArea, FormBtn } from "./form";
+import API from "../../utils/API";
 import "./todo.css";
 
-const EditToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, handleEditSubmit }) => {
+const EditToDo = ({ title, body, dueDate, onRequestClose, loadToDos }) => {
     const [isOpen, setIsOpen] = useState(false)
     const [titleState, setTitle] = useState("")
     const [bodyState, setBody] = useState("")
@@ -23,6 +24,39 @@ const EditToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, han
     const handleOpen = () => {
         setIsOpen(!isOpen)
     };
+
+    function editToDo(id) {
+        API.editToDo(id)
+            .then(res => console.log(res.data), loadToDos())
+
+            .catch(error => console.log(error));
+    }
+    
+    function handleEditSubmit(event) {
+        let id="605168f92686b442e08a2e18"
+        console.log(event)
+        console.log("handleEditSubmit WORKS")
+        event.preventDefault();
+        setFormObject(formObject, {
+            title: event.target.title,
+            dueDate: event.target.dueDate,
+            body: event.target.body,
+            complete: event.target.complete
+        })
+        console.log(formObject)
+        if (formObject.title) {
+            API.editToDo(id, {
+                title: formObject.title,
+                dueDate: formObject.dueDate,
+                body: formObject.body,
+                complete: false
+            })
+                .then(res => 
+                    console.log(formObject), loadToDos()
+                )
+                .catch(err => console.log(err));
+        }
+    }
 
     //Modal style
     const customStyles = {
@@ -55,21 +89,21 @@ const EditToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, han
                     <div className="grid-x grid-margin-x small-up-5 todoEdit">
                         <form>
                             <Input
-                                handleChange={(e)=> setTitle(e.target.value)}
+                                onChange={(e)=> setTitle(e.target.value)}
                                 title=""
                                 label="title"
                                 value={titleState || title}
                                 placeholder="Title (required)"
                             />
-                            {/* <Input
-                                handleChange={(e)=> setBody(e.target.value)}
-                                body=""
-                                label="body"
-                                value={bodyState || body}
-                                placeholder="Details"
-                            /> */}
+                            <Input
+                                onChange={(e)=> setDueDate(e.target.value)}
+                                dueDate=""
+                                label="dueDate"
+                                value={dueDateState || dueDate}
+                                placeholder="Due Date"
+                            />
                             <TextArea
-                                handleChange={(e)=> setBody(e.target.value)}
+                                onChange={(e)=> setBody(e.target.value)}
                                 body=""
                                 label="body"
                                 value={bodyState || body}
@@ -80,7 +114,7 @@ const EditToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, han
                             
                             <FormBtn
                                 // disabled={!(formObject.title)}
-                                onClick={handleEditSubmit}
+                                handleEditSubmit={handleEditSubmit}
                             >
                                 Save
                             </FormBtn>
