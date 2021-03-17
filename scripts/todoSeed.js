@@ -57,6 +57,18 @@ const todoSeed = [
         dueDate: Date.now,
         body: "Buy ibuprofen",
         complete: false
+    },
+    {
+        title: "water plants",
+        dueDate: Date.now,
+        body: "Don't forget the cactus.",
+        complete: false
+    },
+    {
+        title: "car insurance",
+        dueDate: Date.now,
+        body: "Renew car insurance with Jake from State Farm.",
+        complete: false
     }
 ];
 

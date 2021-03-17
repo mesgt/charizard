@@ -5,9 +5,15 @@ import "./NewBtn.css";
 // That way we don't have to define them all individually
 function NewBtn(props) {
     return (
-        <span className="add-btn" {...props} role="button" tabIndex="0">
-            Add
-        </span>
+            <button
+                style={{ border: "1px solid white", fontWeight: "bold" }}
+                // onClick={() => handleOpen()}
+                class="button primary"
+                // href="#/"
+                {...props}
+            >
+                Add
+            </button>
     );
 }
 

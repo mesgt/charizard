@@ -8,7 +8,6 @@ const ViewToDo = ({ onRequestClose, title, body, dueDate, complete }) => {
 
     const handleOpen = () => {
         setIsOpen(!isOpen)
-        console.log(isOpen)
     }
     //Modal style
     const customStyles = {
@@ -27,11 +26,11 @@ const ViewToDo = ({ onRequestClose, title, body, dueDate, complete }) => {
         overlay: {
             zIndex: 1000,
             backgroundColor: "rgb(72,72,72,.95)",
-        },
-        card: {
-            width:"100%",
-            color: "red"
         }
+        // card: {
+        //     width:"100%",
+        //     color: "red"
+        // }
     };
 
     return (

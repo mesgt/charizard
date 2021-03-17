@@ -55,30 +55,12 @@ const Container = styled.div`
 `;
 
 function Main(props, { action }) {
-// To Do State for modal to open/close
+// To do task State for modal to open/close
   const [editModalOpen, editToggleModal] = useState(false);
   const [viewModalOpen, viewToggleModal] = useState(false);
+  const [newModalOpen, newToggleModal] = useState(false);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   
-  // function checkModal(action) {
-  // console.log(action);
-  // switch (action) {
-  //   case "viewLink":
-  //     return [
-  //       modalIsOpen = {viewModalOpen},
-  //       setModalIsOpen = {viewToggleModal}
-  //     ];
-  //   break;
-  //   case "editBtn":
-  //     return [
-  //       modalIsOpen = {editModalOpen},
-  //       setModalIsOpen = {editToggleModal}
-  //     ];
-  //   break;
-  //   default:
-  //     console.log("modalIsOpen/setModalIsOpen not found.")
-  //   }
-  // };
 
   // console.log(props);
   function changeTheme() {
@@ -126,19 +108,13 @@ function Main(props, { action }) {
             <div class="cell small-3">
               <div class="grid-x radius">
                 <StyledToDo 
-                // switch statement
+                // switch between To Do modals
                 modalIsOpen={modalIsOpen}
                 setModalIsOpen={setModalIsOpen}
-                // modalIsOpen={checkModal(action)}
-                // setModalIsOpen={checkModal(action)}
-              // editModalOpen={modalIsOpen}
-              // editToggleModal={() => setModalIsOpen(!modalIsOpen)}
-              editModalOpen={editModalOpen}
-              editToggleModal={editToggleModal}
-              // viewModalOpen={modalIsOpen}
-              // viewToggleModal={() => setModalIsOpen(!modalIsOpen)}
-              viewModalOpen={viewModalOpen}
-              viewToggleModal={viewToggleModal}
+                editModalOpen={editModalOpen}
+                editToggleModal={editToggleModal}
+                viewModalOpen={viewModalOpen}
+                viewToggleModal={viewToggleModal}
               />
               </div>
               <div

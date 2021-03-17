@@ -51,6 +51,7 @@ const EditToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, han
                             <Input
                                 onChange={handleInputChange}
                                 dueDate="dueDate"
+                                content
                                 placeholder="Task due date"
                             />
                             <TextArea

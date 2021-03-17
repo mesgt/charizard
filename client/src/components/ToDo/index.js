@@ -4,29 +4,31 @@ import Modal from "react-modal";
 import NewToDo from "./newModal";
 import EditToDo from "./editModal";
 import ViewToDo from "./viewModal";
+import ViewCompletedTasks from "./viewCompletedModal";
 import { List, ListItem } from "./ToDoList";
 // import ViewBtn from "../ViewBtn";
 import DeleteBtn from "../DeleteBtn";
-import EditBtn from "../EditBtn";
+import NewBtn from "../NewBtn";
 import CheckBtn from "../CheckMark";
 import Form from "./form";
 import API from "../../utils/API";
 import "./todo.css";
+import CompletedBtn from "../CompletedBtn";
 Modal.setAppElement("#root");
 
 
 function ToDos({
     modalIsOpen, setModalIsOpen,
-    // editModalOpen, editToggleModal, 
-    // viewModalOpen, viewToggleModal 
+
 }) {
     const [todos, setToDos] = useState([])
     const [formObject, setFormObject] = useState({})
     const [editModalOpen, editToggleModal] = useState(false);
     const [viewModalOpen, viewToggleModal] = useState(false);
+    const [newModalOpen, newToggleModal] = useState(false);
+
 
     console.log(todos);
-    // console.log(formObject);
 
     //Load all To Do tasks and store them with setToDos
     useEffect(() => {
@@ -116,6 +118,7 @@ function ToDos({
     }
 
     return (
+        <>
         <div data-closable="fade-out" class="todo" >
             <div class="divider">
                 <h4>To Do List</h4>
@@ -138,7 +141,8 @@ function ToDos({
                                 >
                                 </ViewToDo>
                                 <strong>
-                                    {todo.title} due {todo.dueDate.slice(0, -14)} {/* Date format will be different in mongoDB Atlas. This works for local server. */}
+                                    {todo.title} 
+                                    {/* due {todo.dueDate.slice(0, -14)} Date format will be different in mongoDB Atlas. This works for local server. */}
                                 </strong>
                                 <CheckBtn action="check" onClick={() => console.log(todo._id)} /> {/* Update this route! It needs to change complete to true. This will put it in a different modal that will display completed tasks. */}
                                 {console.log(todo.data)}
@@ -151,7 +155,7 @@ function ToDos({
                                     editModalOpen={editModalOpen}
                                     onChange={handleInputChange}
                                     onClick={handleSubmit}
-                                    // disabled={!(formObject.title)}
+                                // disabled={!(formObject.title)}
                                 >
                                 </EditToDo>
                                 <br />
@@ -169,14 +173,30 @@ function ToDos({
                     class="button primary"
                     href="#/">
                     Test
-                        </a>
-                <ToDoDetails
+                        </a> */}
+                {/* <ToDoDetails
                     onRequestClose={() => setModalIsOpen(false)}
                     open={modalIsOpen}
                     onClose={() => setModalIsOpen(false)} /> */}
             </div>
+            {/* <NewBtn>
+            
+            </NewBtn> */}
         </div>
-
+        <div className="cell">
+            <NewToDo
+                action="addBtn"
+                modalIsOpen={checkModal}
+                setModalIsOpen={checkModal}
+                editModalOpen={editModalOpen}
+                onChange={handleInputChange}
+                onClick={handleSubmit}
+            // disabled={!(formObject.title)}
+            >
+            </NewToDo>
+            <CompletedBtn />
+            </div>
+</>
     )
 }
 
