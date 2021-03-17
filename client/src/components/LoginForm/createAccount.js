@@ -5,35 +5,43 @@ import API from "../../utils/API"
 import React, { useState, useEffect } from "react";
 // import UserContext from "../../utils/UserContext"
 
-function LoginForm(props) {
+function CreateAccount(props) {
     const history = useHistory();
 
     const redirect = (response) => {
         console.log(response.profileObj);
-        history.push("/dash")
-        props.userInfo(response.profileObj)
-        createUser(response);
+       
+        createUser(response)
+        .then(user => {
+            console.log(user);
+            props.userInfo(user)
+        })
     }
 
-    const createUser = (response) => {
+    const createUser = async (response) => {
+        let email = response.profileObj.email
         console.log(response);
-        API.createUser({
-            email: response.profileObj.email,
-            firstName: response.profileObj.givenName,
-            lastName: response.profileObj.familyName,
-            googleId: response.profileObj.googleId
-        })
+        API.findByEmail(email)
             .then((res) => {
-
-                console.log("User created!", res.data._id)
-                // setUserState({ ...userState, 
-                //     id: res.data._id, 
-                //     firstName: res.data.firstName, 
-                //     email: res.data.email, 
-                //     googleId:res.data.googleId })
-
-            })
-            .catch(err => console.log(err));
+                if (res.data !== null) {
+                    history.push("/dash");
+                    console.log("User exists!");
+                    return response.profileObj
+                } else {
+                    API.createUser({
+                        email: response.profileObj.email,
+                        firstName: response.profileObj.givenName,
+                        lastName: response.profileObj.familyName,
+                        googleId: response.profileObj.googleId
+                    })
+                        .then(() => {
+                            history.push("/dash")
+                        })
+                        .catch(err => console.log(err));
+                    };
+                })
+                .catch(err => console.log(err));
+                return response.profileObj
     }
 
     const failedLogin = () => {
@@ -67,4 +75,4 @@ function LoginForm(props) {
     )
 }
 
-export default LoginForm;
+export default CreateAccount;

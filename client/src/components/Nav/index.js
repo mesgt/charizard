@@ -54,6 +54,7 @@ function Nav(props) {
 
   const history = useHistory();
   const redirect = () => {
+    //set loggedin state to false or empty object 
     history.push("/")
   }
 
@@ -105,17 +106,17 @@ function Nav(props) {
 
 
   return (
-    <div class="grid-x">
-      <div class="header cell radius">
-        <h3 class="Username">Welcome, {user.firstName}!</h3>
+    <div className="grid-x">
+      <div className="header cell radius">
+        <h3 className="Username">Welcome, {user.firstName}!</h3>
         <GoogleLogout
           clientId="49214406530-t4ofc8gge6vgfdchf8k6v3e28b883er9.apps.googleusercontent.com"
           buttonText="Logout"
           onLogoutSuccess={redirect}
           onFailure={failedLogout}
-          class = "LogoutBTN"
+          className = "LogoutBTN"
         ></GoogleLogout>
-        <div class= "DarkBTN">
+        <div className= "DarkBTN">
         <Toggle onClick={changeTheme}>
                 {icon}
               </Toggle>
