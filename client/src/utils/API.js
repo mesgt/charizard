@@ -32,6 +32,8 @@ export default {
   saveToDo: function (todoData) {
     return axios.post("/api/todo", todoData);
   },
+  //==========================
+  // NOTES ROUTES
   // Gets all Notes
   getNotes: function () {
     return axios.get("/api/note");
