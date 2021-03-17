@@ -38,6 +38,7 @@ function LoginForm() {
                 <div />
                 <div class="logincontainer">
                     <div class="log-in-form">
+                        <div class="log-in-text">
                         <span class="text-center loginHeading">Login with</span><br></br><span class="text-center loginHeadingName">Everything</span>
                         <div class="googleBtn">
                             <GoogleLogin
@@ -49,6 +50,7 @@ function LoginForm() {
                                 cookiePolicy={'single_host_origin'}
                                 scope="https://www.googleapis.com/auth/calendar.events"
                             />
+                        </div>
                         </div>
                     </div>
                 </div>
