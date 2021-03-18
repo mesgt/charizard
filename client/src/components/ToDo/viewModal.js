@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import ViewBtn from "../ViewBtn";
 import API from "../../utils/API";
 import "./todo.css";
 
 const ViewToDo = ({ onRequestClose, title, body, dueDate, complete }) => {
+
     const [isOpen, setIsOpen] = useState(false)
     const handleOpen = () => {setIsOpen(!isOpen)};
     dueDate = dueDate.slice(0, -14)
