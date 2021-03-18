@@ -1,28 +1,38 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
 import Modal from "react-modal";
 import EditBtn from "../EditBtn";
-import { Input, TextArea, FormBtn } from "./form";
+import { Input, TextArea, FormBtn, CompleteStatus, CompleteSelect } from "./form";
+import API from "../../utils/API";
 import "./todo.css";
 
-const EditToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, handleEditSubmit }) => {
+const EditToDo = ({ id, title, body, dueDate, complete, onRequestClose, loadToDos }) => {
     const [isOpen, setIsOpen] = useState(false)
-    const [titleState, setTitle] = useState("")
-    const [bodyState, setBody] = useState("")
-    const [dueDateState, setDueDate] = useState("")
-
     const [formObject, setFormObject] = useState({
-        title, body, dueDate
+        id, title, body, dueDate, complete
     })
+    const handleOpen = () => { setIsOpen(!isOpen) };
+    const [startDate, setStartDate] = useState(new Date());
 
-    useEffect(()=> {
-        // setTitle(title)
-        // setBody(body)
-        // setDueDate(dueDate)
-        // console.log(titleState, bodyState, dueDateState)
-    }) 
-    const handleOpen = () => {
-        setIsOpen(!isOpen)
-    };
+    const pickDate = (date) => {
+        console.log(date)
+        setFormObject({ ...formObject, dueDate: date })
+        setStartDate(date)
+        
+    }
+
+    function handleEditSubmit(event) {
+        event.preventDefault();
+        API.editToDo(id, {
+            title: formObject.title,
+            dueDate: formObject.dueDate,
+            body: formObject.body,
+            complete: formObject.complete
+        }).then(res =>
+            handleOpen(),
+            loadToDos())
+            .catch(err => console.log(err));
+    }
 
     //Modal style
     const customStyles = {
@@ -55,29 +65,34 @@ const EditToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, han
                     <div className="grid-x grid-margin-x small-up-5 todoEdit">
                         <form>
                             <Input
-                                handleChange={(e)=> setTitle(e.target.value)}
+                                onChange={(e) => setFormObject({ ...formObject, title: e.target.value })}
                                 title=""
-                                label="title"
-                                value={titleState || title}
+                                label="Title:"
+                                value={formObject.title}
                                 placeholder="Title (required)"
                             />
-                            {/* <Input
-                                handleChange={(e)=> setBody(e.target.value)}
-                                body=""
-                                label="body"
-                                value={bodyState || body}
-                                placeholder="Details"
-                            /> */}
-                            <TextArea
-                                handleChange={(e)=> setBody(e.target.value)}
-                                body=""
-                                label="body"
-                                value={bodyState || body}
-                                placeholder="Details"
+                            <DatePicker
+                                selected={startDate}
+                                label="Due date:"
+                                dueDate=""
+                                onChange={date => pickDate(date)}
+                                value={formObject.dueDate.slice(0, -14)}
+                                dateFormat="MMMM eeee d, yyyy"
+                                isClearable
+                                placeholderText="No due date for this one!"
                             />
 
-                            {/* Add checkbox for if the task has been completed. reference it in todo index.js */}
-                            
+                            <TextArea
+                                onChange={(e) => setFormObject({ ...formObject, body: e.target.value })}
+                                body=""
+                                label="Details:"
+                                value={formObject.body}
+                                placeholder="Details"
+                            />
+                            <CompleteStatus complete={complete}>
+                                Status:
+                            </CompleteStatus>
+                            <CompleteSelect />
                             <FormBtn
                                 // disabled={!(formObject.title)}
                                 onClick={handleEditSubmit}

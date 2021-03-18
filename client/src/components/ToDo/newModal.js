@@ -1,32 +1,46 @@
 import React, { useState } from "react";
+import DatePicker from "react-datepicker";
 import Modal from "react-modal";
 import NewBtn from "../NewBtn";
-import { Input, TextArea, FormBtn } from "./form";
-// import API from "../../utils/API";
+import { Input, TextArea, FormBtn, CompleteStatus, CompleteSelect } from "./form";
+import API from "../../utils/API";
 import "./todo.css";
+import "react-datepicker/dist/react-datepicker.css";
 
-const NewToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, handleNewSubmit, formObject }) => {
+const NewToDo = ({ onRequestClose, loadToDos, complete }) => {
     const [isOpen, setIsOpen] = useState(false)
-    // const [formObject, setFormObject] = useState({})
+    const [startDate, setStartDate] = useState(new Date());
+    const [formObject, setFormObject] = useState({
+        title: "",
+        body: "",
+        dueDate: new Date()
+    })
 
     const handleOpen = () => {
         setIsOpen(!isOpen)
         console.log(isOpen)
     };
 
-    // function handleSubmit(event) {
-    //     event.preventDefault();
-    //     if (event.title) {
-    //         API.saveToDo({
-    //             title: formObject.title,
-    //             dueDate: formObject.dueDate,
-    //             body: formObject.body,
-    //             complete: false
-    //         })
-    //             .then(res => console.log(res))
-    //             .catch(err => console.log(err));
-    //     }
-    // }
+    const pickDate = (date) => {
+        console.log(date)
+        setFormObject({ ...formObject, dueDate: date })
+        setStartDate(date)
+    }
+
+    function handleNewSubmit(event) {
+        event.preventDefault();
+        // if (formObject.title) {
+        API.saveToDo({
+            title: formObject.title,
+            dueDate: formObject.dueDate,
+            body: formObject.body,
+            complete: false
+        }).then(res =>
+            handleOpen(),
+            loadToDos())
+            .catch(err => console.log(err));
+        // }
+    }
 
     //Modal style
     const customStyles = {
@@ -59,20 +73,31 @@ const NewToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, hand
                     <div className="grid-x grid-margin-x small-up-5 ">
                         <form>
                             <Input
-                                onChange={handleInputChange}
-                                title="Title"
+                                onChange={(e) => setFormObject({ ...formObject, title: e.target.value })}
+                                title=""
+                                label="Title:"
+                                value={formObject.title}
                                 placeholder="Title (required)"
                             />
-                            <Input
-                                onChange={handleInputChange}
-                                dueDate="dueDate"
-                                placeholder="Task due date"
+                            <DatePicker
+                                selected={startDate}
+                                label="Due date:"
+                                dueDate=""
+                                onChange={date => pickDate(date)}
+                                value={formObject.dueDate}
+                                dateFormat="MMMM eeee d, yyyy"
+                                isClearable
+                                placeholderText="No due date for this one!"
                             />
                             <TextArea
-                                onChange={handleInputChange}
-                                body="Body"
-                                placeholder="Details"
+                                onChange={(e) => setFormObject({ ...formObject, body: e.target.value })}
+                                body=""
+                                label="Details:"
+                                value={formObject.body}
+                                placeholder="Task details"
                             />
+                            <CompleteStatus complete={complete}>Status:</CompleteStatus>
+                            <CompleteSelect />
                             <FormBtn
                                 // disabled={!(formObject.title)}
                                 onClick={handleNewSubmit}

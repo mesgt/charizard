@@ -4,7 +4,7 @@ import "./signup.css";
 import { useHistory } from "react-router-dom"
 import API from "../../utils/API"
 
-function Login() {
+function Login(props) {
 
     const history = useHistory();
 
@@ -15,8 +15,10 @@ function Login() {
         API.findByEmail(email)
             .then((res) => {
                 if (res.data !== null) {
+                    console.log(res.data);
+                    props.userInfo(res.data)
                     history.push("/dash");
-                    console.log("User exists!")
+                    // console.log("User exists!")
                 } else {
                     alert("please create an account")
                 };
@@ -40,7 +42,7 @@ function Login() {
                         <div class="sign-up-googleBtn">
                             <GoogleLogin
                                 clientId="49214406530-t4ofc8gge6vgfdchf8k6v3e28b883er9.apps.googleusercontent.com"
-                                buttonText="Sign Up"
+                                buttonText="Login"
                                 onSuccess={checkUser}
                                 isSignedIn={false}
                                 onFailure={failedLogin}

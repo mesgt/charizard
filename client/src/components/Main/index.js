@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import Calendar from "../Calendar";
 import Nav from "../Nav";
 import Notes from "../Notes";
-import ToDo from "../ToDo"; 
+import ToDo from "../ToDo";
 import Weather from "../Weather/index";
 import styled from "styled-components";
 import { CgSun } from "react-icons/cg";
@@ -56,13 +56,8 @@ const Container = styled.div`
 `;
 
 function Main(props, { action }) {
-// To do task State for modal to open/close
-  const [editModalOpen, editToggleModal] = useState(false);
-  const [viewModalOpen, viewToggleModal] = useState(false);
-  const [newModalOpen, newToggleModal] = useState(false);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  
 
+ 
   // console.log(props);
   function changeTheme() {
     if (props.theme === "light") {
@@ -74,7 +69,7 @@ function Main(props, { action }) {
 
   // const icon = props.theme === "light" ? <HiMoon size={40} /> : <CgSun size={40} />;
 
-// function Main(props) {
+  // function Main(props) {
   const user = useContext(UserContext)
   console.log(user);
   return (
@@ -82,15 +77,15 @@ function Main(props, { action }) {
 
       <Page
         style={{
-          overflowY: "auto",
-          paddingBottom: "auto",
+          // overflowY: "auto",
+          // paddingBottom: "auto",
         }}
       >
         <Container
           style={{
-            overflowY: "auto",
-            padding: "10vh 5vh 10vh 5vh",
-            paddingTop: "120vh",
+            // overflowY: "auto",
+            // padding: "10vh 5vh 10vh 5vh",
+            paddingTop: "75vh",
           }}
         >
           <div className="grid-x">
@@ -112,17 +107,7 @@ function Main(props, { action }) {
           <div className="grid-x">
             <div className="cell small-3">
               <div className="grid-x radius">
-                <StyledToDo 
-                // switch between To Do modals
-                modalIsOpen={modalIsOpen}
-                setModalIsOpen={setModalIsOpen}
-                editModalOpen={editModalOpen}
-                editToggleModal={editToggleModal}
-                viewModalOpen={viewModalOpen}
-                viewToggleModal={viewToggleModal}
-                newModalOpen={newModalOpen}
-                newToggleModal={newToggleModal}
-              />
+                <StyledToDo />
               </div>
               <div
                 className="grid-x radius "

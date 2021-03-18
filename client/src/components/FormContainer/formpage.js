@@ -7,7 +7,7 @@ function FormContainer (props) {
     return (
         <div className="grid-x form-container">
         <CreateAccount className="login" userInfo={props.userInfo}/>
-        <Login className="signup"/>
+        <Login className="signup" userInfo={props.userInfo}/>
         </div>
     )
 }
