@@ -1,46 +1,62 @@
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import { set } from "mongoose";
 import "./calendar.css";
-import React, { useEffect, useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Modal from "react-modal";
+import UserContext from "../../utils/UserContext";
+import API from "../../utils/API";
 Modal.setAppElement("#root");
 
 const localizer = momentLocalizer(moment);
-// const MyEventsList = [
-//   {
-//     title: "Gwennie's birthday party",
-//     start: "date",
-//     end: "date",
-//     allDay?: false,
-//   }
-// ]
 
-const MyCalendar = (props) => {
-  {
-    /* MODAL STYLES */
-  }
-  const customStyles = {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      zIndex: 1001,
-      transform: "translate(-50%, -50%)",
-      maxHeight: "100vh",
-      overflowY: "auto",
-      background: "#fff",
-    },
-    overlay: {
-      zIndex: 1000,
-      backgroundColor: "rgb(72,72,72,.95)",
-    },
-  };
-  // STATE FOR ADD MODAL OPEN/CLOSE \\
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+const customStyles1 = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    zIndex: 1001,
+    transform: "translate(-50%, -50%)",
+    maxHeight: "100vh",
+    overflowY: "auto",
+    background: "#fff",
+  },
+  overlay: {
+    zIndex: 1000,
+    backgroundColor: "rgb(72,72,72,.95)",
+  },
+};
+
+const customStyles2 = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    zIndex: 1001,
+    transform: "translate(-50%, -50%)",
+    maxHeight: "100vh",
+    overflowY: "auto",
+    background: "rgba(243, 32, 19,.8)",
+  },
+  overlay: {
+    zIndex: 1000,
+    backgroundColor: "rgb(72,72,72,.95)",
+  },
+};
+
+function MyCalendar(props) {
+  const user = useContext(UserContext);
+  console.log(user);
+
+  // STATE FOR ADD EVENT MODAL OPEN/CLOSE \\
+  const [modalIsOpen1, setModalIsOpen1] = useState(false);
+
+  // STATE FOR DELETE EVENT MODAL OPEN/CLOSE \\
+  const [modalIsOpen2, setModalIsOpen2] = useState(false);
 
   // STATE FOR ARRAY OF ALL EVENTS \\
   const [events, setEvents] = useState([]);
@@ -48,32 +64,45 @@ const MyCalendar = (props) => {
   // STATE FOR NEW EVENT \\
   const [event, setEvent] = useState({});
 
-  // DELETE AN EVENT \\
-  const onSelectEvent = (pEvent) => {
-    const confirm = window.confirm(
-      "Are You Sure You Would Like To Remove Event?"
+  // STATE FOR DELETE EVENT \\
+  const [eventDelete, setEventDelete] = useState([]);
+
+  // POPULATES CALENDAR WHEN USER LOGS IN \\
+  useEffect(() => {
+    user.events && setEvents(user.events);
+  }, []);
+
+  // DELETE EVENT FROM EVENTDELETE STATE \\
+  const deleteEvent = () => {
+    const allEvents = [...events];
+    const newEvents = allEvents.filter(
+      ({ title }) => title != eventDelete.title
     );
-    if (confirm) {
-      console.log(pEvent);
-      const allEvents = [...events];
-      console.log(allEvents);
-      const newEvents = allEvents.filter(({ title }) => title != pEvent.title);
-      console.log(newEvents);
-      setEvents(newEvents);
-    }
+    setEvents(newEvents);
+    setModalIsOpen2(false);
+  };
+
+  // ADD SELECTED EVENT TO BE DELETED TO EVENTDELETE STATE \\
+  const onSelectEvent = (pEvent) => {
+    setEventDelete(pEvent);
+    setModalIsOpen2(true);
   };
 
   // START ADD/DISPLAY NEW CALENDAR EVENT \\
   const handleSelect = ({ start, end }) => {
     setEvent({ ...event, start, end });
-    setModalIsOpen(true);
+    setModalIsOpen1(true);
   };
 
   // ADD VALUE INPUT FROM FORM AND ADD NEW EVENT TO EVENTS \\
   const saveEvent = () => {
-    if (event.title) setEvents([...events, event]);
+    if (event.title) {
+      API.addEvent({ ...event, googleId: user.googleId });
+      setEvents([...events, event]);
+    }
+
     setEvent({});
-    setModalIsOpen(false);
+    setModalIsOpen1(false);
   };
   return (
     <>
@@ -92,9 +121,9 @@ const MyCalendar = (props) => {
         />
       </div>
       <Modal
-        isOpen={modalIsOpen}
-        style={customStyles}
-        onRequestClose={() => setModalIsOpen(false)}
+        isOpen={modalIsOpen1}
+        style={customStyles1}
+        onRequestClose={() => setModalIsOpen1(false)}
         closeTimeoutMS={500}
       >
         <div className="flex-container">
@@ -137,8 +166,52 @@ const MyCalendar = (props) => {
           </div>
         </div>
       </Modal>
+      <Modal
+        isOpen={modalIsOpen2}
+        style={customStyles2}
+        onRequestClose={() => setModalIsOpen2(false)}
+        closeTimeoutMS={500}
+      >
+        <div className="flex-container">
+          <div class="grid-x grid-margin-x small-up-5 ">
+            <div
+              className="cell"
+              style={{
+                width: "100%",
+                padding: "10vh",
+                margin: "auto",
+              }}
+            >
+              <div
+                className="card"
+                style={{ minHeight: "auto", width: "100%" }}
+              >
+                <div className="card-section medium-8 cell">
+                  <h4>Confirm Delete</h4>
+                  <i
+                    onClick={() => deleteEvent()}
+                    className="fa fa-check-square"
+                    style={{
+                      fontSize: "5vh",
+                      color: "green",
+                    }}
+                  ></i>
+                  <i
+                    onClick={() => setModalIsOpen2(false)}
+                    className="fa fa-window-close "
+                    style={{
+                      fontSize: "5vh",
+                      color: "red",
+                    }}
+                  ></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Modal>
     </>
   );
-};
+}
 
 export default MyCalendar;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import Calendar from "../Calendar";
 import Nav from "../Nav";
 import Notes from "../Notes";
@@ -7,8 +7,7 @@ import Weather from "../Weather/index";
 import styled from "styled-components";
 import { CgSun } from "react-icons/cg";
 import { HiMailOpen, HiMoon } from "react-icons/hi";
-import UserContext from "../../utils/UserContext"
-
+import UserContext from "../../utils/UserContext";
 
 const StyledCalendar = styled(Calendar)``;
 const StyledNotes = styled(Notes)`
@@ -56,8 +55,6 @@ const Container = styled.div`
 `;
 
 function Main(props, { action }) {
-
- 
   // console.log(props);
   function changeTheme() {
     if (props.theme === "light") {
@@ -70,16 +67,17 @@ function Main(props, { action }) {
   // const icon = props.theme === "light" ? <HiMoon size={40} /> : <CgSun size={40} />;
 
   // function Main(props) {
-  const user = useContext(UserContext)
+  const user = useContext(UserContext);
   console.log(user);
   return (
     <>
-
       <Page
-        style={{
-          // overflowY: "auto",
-          // paddingBottom: "auto",
-        }}
+        style={
+          {
+            // overflowY: "auto",
+            // paddingBottom: "auto",
+          }
+        }
       >
         <Container
           style={{
@@ -97,7 +95,6 @@ function Main(props, { action }) {
                 test1={props.test1}
                 colorThemeArray={props.colorThemeArray}
                 fontThemeArray={props.fontThemeArray}
-
               />
               {/* <div className="cell radius"><Toggle onClick={changeTheme}>
                 {icon}

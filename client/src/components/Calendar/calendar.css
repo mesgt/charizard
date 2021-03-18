@@ -9,9 +9,12 @@
   margin-top: -8px;
 } */
 
+/* CALENDAR CURRENT DAY DIGIT DISPLAY COLOR  */
 .rbc-now {
   color: black;
 }
+
+/* MODAL OPEN/CLOSE ANIMATION  */
 .ReactModal__Overlay {
   opacity: 0;
   transform: translateY(-100px);
@@ -26,4 +29,8 @@
 .ReactModal__Overlay--before-close {
   opacity: 0;
   transform: translateY(-100px);
+}
+/* Calendar Agenda Text Color--Not working in dark mode  */
+.rbc-agenda-table {
+  color: black !important;
 }
