@@ -33,8 +33,8 @@ export default {
   },
 
   //===========================
-  //NOTE ROUTES 
-  
+  //NOTE ROUTES
+
   // Gets all Notes
   getNotes: function () {
     return axios.get("/api/note");
@@ -57,10 +57,15 @@ export default {
   },
   //find user by email
   findByEmail: function (email) {
-    return axios.get("/api/user/" + email)
+    return axios.get("/api/user/" + email);
   },
   //get user
   // getUser: function (email) {
-  //   return axios.get("/api/user/" + email) 
+  //   return axios.get("/api/user/" + email)
   // },
+
+  // Events API
+  addEvent: function (eventData) {
+    return axios.post("/api/events", eventData);
+  },
 };

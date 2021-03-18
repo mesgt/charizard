@@ -3,21 +3,15 @@ import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { set } from "mongoose";
 import "./calendar.css";
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import Modal from "react-modal";
+import UserContext from "../../utils/UserContext";
+import API from "../../utils/API";
 Modal.setAppElement("#root");
 
 const localizer = momentLocalizer(moment);
-// const MyEventsList = [
-//   {
-//     title: "Gwennie's birthday party",
-//     start: "date",
-//     end: "date",
-//     allDay?: false,
-//   }
-// ]
 
-const MyCalendar = (props) => {
+function MyCalendar(props) {
   {
     /* MODAL1 STYLES */
   }
@@ -60,6 +54,9 @@ const MyCalendar = (props) => {
       backgroundColor: "rgb(72,72,72,.95)",
     },
   };
+  const user = useContext(UserContext);
+  console.log(user);
+
   // STATE FOR ADD EVENT MODAL OPEN/CLOSE \\
   const [modalIsOpen1, setModalIsOpen1] = useState(false);
 
@@ -74,6 +71,11 @@ const MyCalendar = (props) => {
 
   // STATE FOR DELETE EVENT \\
   const [eventDelete, setEventDelete] = useState([]);
+
+  // POPULATES CALENDAR WHEN USER LOGS IN \\
+  useEffect(() => {
+    user.events && setEvents(user.events);
+  }, []);
 
   // DELETE EVENT FROM EVENTDELETE STATE \\
   const deleteEvent = () => {
@@ -99,7 +101,11 @@ const MyCalendar = (props) => {
 
   // ADD VALUE INPUT FROM FORM AND ADD NEW EVENT TO EVENTS \\
   const saveEvent = () => {
-    if (event.title) setEvents([...events, event]);
+    if (event.title) {
+      API.addEvent({ ...event, googleId: user.googleId });
+      setEvents([...events, event]);
+    }
+
     setEvent({});
     setModalIsOpen1(false);
   };
@@ -211,6 +217,6 @@ const MyCalendar = (props) => {
       </Modal>
     </>
   );
-};
+}
 
 export default MyCalendar;
