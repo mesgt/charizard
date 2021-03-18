@@ -40,10 +40,8 @@ export default {
   saveToDo: function (todoData) {
     return axios.post("/api/todo", todoData);
   },
-
-  //===========================
-  //NOTE ROUTES 
-  
+  //==========================
+  // NOTES ROUTES
   // Gets all Notes
   getNotes: function () {
     return axios.get("/api/note");
@@ -53,10 +51,13 @@ export default {
     return axios.delete("/api/note/" + id);
   },
   // Saves a Note to the database
-  saveNote: function (noteData) {
+  saveNote: function (id, noteData) {
+    return axios.put("/api/note" + id, noteData);
+  },
+  // Add a note to the database
+  addNote: function (noteData) {
     return axios.post("/api/note", noteData);
   },
-
   // =======================
   //USER ROUTES
 
