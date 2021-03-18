@@ -32,7 +32,7 @@ const NotesBody = ({ onUpdateNote, activeNoteData }) => {
             <div className="app-main-note-edit">
             <input
                 type="text"
-                id={activeNoteData.id} //was _id but react didn't like it
+                id={activeNoteData._id} //was _id but react didn't like it
                 placeholder="Note Title"
 
                 value={title || activeNoteData.title}
