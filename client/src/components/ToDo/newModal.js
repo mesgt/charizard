@@ -5,7 +5,7 @@ import { Input, TextArea, FormBtn } from "./form";
 import API from "../../utils/API";
 import "./todo.css";
 
-const NewToDo = ({ onRequestClose }) => {
+const NewToDo = ({ onRequestClose, loadToDos }) => {
     const [isOpen, setIsOpen] = useState(false)
     // const [titleState, setTitle] = useState("")
     // const [bodyState, setBody] = useState("")
@@ -32,7 +32,9 @@ const NewToDo = ({ onRequestClose }) => {
                 body: formObject.body,
                 complete: false
             })
-                .then(res => console.log(res))
+                .then(res => 
+                    handleOpen(),
+                    loadToDos())
                 .catch(err => console.log(err));
         }
     }

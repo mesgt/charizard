@@ -5,22 +5,22 @@ import { Input, TextArea, FormBtn } from "./form";
 import API from "../../utils/API";
 import "./todo.css";
 
-const EditToDo = ({ title, body, dueDate, onRequestClose, loadToDos }) => {
+const EditToDo = ({ id, title, body, dueDate, complete, onRequestClose, loadToDos }) => {
     const [isOpen, setIsOpen] = useState(false)
-    const [titleState, setTitle] = useState("")
-    const [bodyState, setBody] = useState("")
-    const [dueDateState, setDueDate] = useState("")
+    // const [titleState, setTitle] = useState("")
+    // const [bodyState, setBody] = useState("")
+    // const [dueDateState, setDueDate] = useState("")
 
     const [formObject, setFormObject] = useState({
-        title, body, dueDate
+        id, title, body, dueDate, complete
     })
 
-    useEffect(()=> {
+    useEffect(() => {
         // setTitle(title)
         // setBody(body)
         // setDueDate(dueDate)
         // console.log(titleState, bodyState, dueDateState)
-    }) 
+    })
     const handleOpen = () => {
         setIsOpen(!isOpen)
     };
@@ -31,30 +31,24 @@ const EditToDo = ({ title, body, dueDate, onRequestClose, loadToDos }) => {
 
             .catch(error => console.log(error));
     }
-    
+
     function handleEditSubmit(event) {
-        let id="605168f92686b442e08a2e18"
-        console.log(event)
-        console.log("handleEditSubmit WORKS")
         event.preventDefault();
-        setFormObject(formObject, {
-            title: event.target.title,
-            dueDate: event.target.dueDate,
-            body: event.target.body,
-            complete: event.target.complete
-        })
+        // setFormObject(formObject, {
+        //     title: event.target.title,
+        //     dueDate: event.target.dueDate,
+        //     body: event.target.body,
+        //     complete: event.target.complete
+        // })
         console.log(formObject)
         if (formObject.title) {
             API.editToDo(id, {
                 title: formObject.title,
                 dueDate: formObject.dueDate,
                 body: formObject.body,
-                complete: false
-            })
-                .then(res => 
-                    console.log(formObject), loadToDos()
-                )
-                .catch(err => console.log(err));
+                complete: formObject.complete
+            }).then(res => console.log(res)
+            ).catch(err => console.log(err));
         }
     }
 
@@ -89,29 +83,29 @@ const EditToDo = ({ title, body, dueDate, onRequestClose, loadToDos }) => {
                     <div className="grid-x grid-margin-x small-up-5 todoEdit">
                         <form>
                             <Input
-                                onChange={(e)=> setTitle(e.target.value)}
+                                onChange={(e) => setFormObject({...formObject, title: e.target.value})}
                                 title=""
                                 label="title"
-                                value={titleState || title}
+                                value={formObject.title}
                                 placeholder="Title (required)"
                             />
                             <Input
-                                onChange={(e)=> setDueDate(e.target.value)}
+                                onChange={(e) => setFormObject({...formObject, dueDate: e.target.value})}
                                 dueDate=""
                                 label="dueDate"
-                                value={dueDateState || dueDate}
+                                value={formObject.dueDate}
                                 placeholder="Due Date"
                             />
                             <TextArea
-                                onChange={(e)=> setBody(e.target.value)}
+                                onChange={(e) => setFormObject({...formObject, body: e.target.value})}
                                 body=""
                                 label="body"
-                                value={bodyState || body}
+                                value={formObject.body}
                                 placeholder="Details"
                             />
 
                             {/* Add checkbox for if the task has been completed. reference it in todo index.js */}
-                            
+
                             <FormBtn
                                 // disabled={!(formObject.title)}
                                 handleEditSubmit={handleEditSubmit}

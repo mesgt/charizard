@@ -41,7 +41,6 @@ function ToDos({
         API.getToDos()
             .then(res => setToDos(res.data))
             .catch(error => console.log(error));
-
     };
 
     //Load modal for each task
@@ -54,7 +53,7 @@ function ToDos({
     //Delete To Do task using _id and reload list
     function deleteToDo(id) {
         API.deleteToDo(id)
-            .then(res => console.log(res), loadToDos())
+            .then(res => loadToDos())
             .catch(error => console.log(error));
 
     };
@@ -67,13 +66,6 @@ function ToDos({
     //         .catch(error => console.log(error));
     // }
 
-    function handleInputChange(event) { //setting state for the keys
-        console.log(event)
-        setFormObject({...formObject}, formObject)
-        // const { complete }= event.target
-        // setToDos({...todos, [event]: true})
-        // .catch(error => console.log(error));
-    };
     console.log(todos)
     // console.log(todos.complete)
 
@@ -157,7 +149,6 @@ function ToDos({
                             >
                                 <ViewToDo
                                     action="viewBtn"
-                                    modalIsOpen={checkModal}
                                     setModalIsOpen={checkModal}
                                     viewModalOpen={viewModalOpen}
                                     title={todo.title}
@@ -176,14 +167,9 @@ function ToDos({
                                 {/* Modal to display when click on edit */}
                                 <EditToDo
                                     action="editBtn"
-                                    modalIsOpen={checkModal}
                                     setModalIsOpen={checkModal}
                                     editModalOpen={editModalOpen}
-                                    handleInputChange={handleInputChange}
-                                    // handleEditSubmit={handleEditSubmit}
-                                    loadToDos={loadToDos}
-                                    // formObject={formObject}
-                                    // setFormObject={setFormObject}
+                                    id={todo._id}
                                     title={todo.title}
                                     body={todo.body}
                                     dueDate={todo.dueDate}
@@ -221,6 +207,7 @@ function ToDos({
                 action="addBtn"
                 setModalIsOpen={checkModal}
                 newModalOpen={newModalOpen}
+                loadToDos={loadToDos}
             // disabled={!(formObject.title)}
             >
             </NewToDo>
