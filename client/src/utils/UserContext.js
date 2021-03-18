@@ -6,6 +6,7 @@ const UserContext = React.createContext({
   email: "",
   googleId: "",
   events: [],
+  todos: [],
 });
 
 export default UserContext;
