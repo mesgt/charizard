@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import DatePicker from "react-datepicker";
 import Modal from "react-modal";
 import EditBtn from "../EditBtn";
 import { Input, TextArea, FormBtn, CompleteStatus, CompleteSelect } from "./form";
@@ -11,6 +12,13 @@ const EditToDo = ({ id, title, body, dueDate, complete, onRequestClose, loadToDo
         id, title, body, dueDate, complete
     })
     const handleOpen = () => { setIsOpen(!isOpen) };
+    const [startDate, setStartDate] = useState(new Date());
+
+    const pickDate = (date) => {
+        console.log(date)
+        setFormObject({ ...formObject, dueDate: date })
+        setStartDate(date)
+    }
 
     function handleEditSubmit(event) {
         event.preventDefault();
@@ -62,13 +70,24 @@ const EditToDo = ({ id, title, body, dueDate, complete, onRequestClose, loadToDo
                                 value={formObject.title}
                                 placeholder="Title (required)"
                             />
-                            <Input
+                            {/* <Input
                                 onChange={(e) => setFormObject({ ...formObject, dueDate: e.target.value })}
                                 dueDate=""
                                 label="Due date:"
                                 value={formObject.dueDate}
                                 placeholder="Due Date"
+                            /> */}
+
+                            <DatePicker
+                                selected={startDate}
+                                label="Due date:"
+                                dueDate=""
+                                onChange={date => pickDate(date)}
+                                value={formObject.dueDate}
+                                isClearable
+                                placeholderText="No due date for this one!"
                             />
+
                             <TextArea
                                 onChange={(e) => setFormObject({ ...formObject, body: e.target.value })}
                                 body=""
@@ -79,7 +98,7 @@ const EditToDo = ({ id, title, body, dueDate, complete, onRequestClose, loadToDo
                             <CompleteStatus complete={complete}>
                                 Status:
                             </CompleteStatus>
-                            <CompleteSelect/>
+                            <CompleteSelect />
                             <FormBtn
                                 // disabled={!(formObject.title)}
                                 onClick={handleEditSubmit}

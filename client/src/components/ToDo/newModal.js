@@ -1,13 +1,15 @@
 import React, { useState } from "react";
+import DatePicker from "react-datepicker";
 import Modal from "react-modal";
 import NewBtn from "../NewBtn";
 import { Input, TextArea, FormBtn, CompleteStatus, CompleteSelect } from "./form";
 import API from "../../utils/API";
 import "./todo.css";
+import "react-datepicker/dist/react-datepicker.css";
 
 const NewToDo = ({ onRequestClose, loadToDos, complete }) => {
     const [isOpen, setIsOpen] = useState(false)
-
+    const [startDate, setStartDate] = useState(new Date());
     const [formObject, setFormObject] = useState({
         title: "",
         body: "",
@@ -19,6 +21,12 @@ const NewToDo = ({ onRequestClose, loadToDos, complete }) => {
         console.log(isOpen)
     };
 
+    const pickDate = (date) => {
+        console.log(date)
+        setFormObject({ ...formObject, dueDate: date })
+        setStartDate(date)
+    }
+
     function handleNewSubmit(event) {
         event.preventDefault();
         // if (formObject.title) {
@@ -28,8 +36,8 @@ const NewToDo = ({ onRequestClose, loadToDos, complete }) => {
             body: formObject.body,
             complete: false
         }).then(res =>
-                handleOpen(),
-                loadToDos())
+            handleOpen(),
+            loadToDos())
             .catch(err => console.log(err));
         // }
     }
@@ -71,12 +79,14 @@ const NewToDo = ({ onRequestClose, loadToDos, complete }) => {
                                 value={formObject.title}
                                 placeholder="Title (required)"
                             />
-                            <Input
-                                onChange={(e) => setFormObject({ ...formObject, dueDate: e.target.value })}
-                                dueDate=""
+                            <DatePicker
+                                selected={startDate}
                                 label="Due date:"
+                                dueDate=""
+                                onChange={date => pickDate(date)}
                                 value={formObject.dueDate}
-                                placeholder="Due Date"
+                                isClearable
+                                placeholderText="No due date for this one!"
                             />
                             <TextArea
                                 onChange={(e) => setFormObject({ ...formObject, body: e.target.value })}
@@ -86,7 +96,7 @@ const NewToDo = ({ onRequestClose, loadToDos, complete }) => {
                                 placeholder="Task details"
                             />
                             <CompleteStatus complete={complete}>Status:</CompleteStatus>
-                            <CompleteSelect/>
+                            <CompleteSelect />
                             <FormBtn
                                 // disabled={!(formObject.title)}
                                 onClick={handleNewSubmit}

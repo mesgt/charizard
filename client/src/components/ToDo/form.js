@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export function Input(props) {
     return (
         <div className="form-group">
@@ -27,8 +26,9 @@ export function TextArea(props) {
 export function CompleteSelect(props) {
     return (
     <>
-        <p><input id="To Do" type="radio" name="option"></input><label for="To Do"></label>To Do</p>
-        <p><input id="Done" type="radio" name="option"></input><label for="Done"></label>Done</p>
+    <h6>Select task status:</h6>
+        <p><input id="To Do" type="radio" name="option"></input><label for="To Do"></label>Still working on it.</p>
+        <p><input id="Done" type="radio" name="option"></input><label for="Done"></label>Done!</p>
     </>
     )
 }
