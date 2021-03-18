@@ -17,29 +17,16 @@ function ToDos({}) {
     id: -1,
     title: "",
     body: "",
-    dueDate: "", // THIS NEEDS TO BE CHANGED TO CORRECT FORMAT.
-    complete: false,
-  });
-  const [editModalOpen, editToggleModal] = useState(false);
-  const [viewModalOpen, viewToggleModal] = useState(false);
-  const [newModalOpen, newToggleModal] = useState(false);
-
-  //Load all To Do tasks and store them with setToDos
-  useEffect(() => {
-    loadToDos();
-  }, []);
-
-  const [todos, setToDos] = useState([]);
-  const [formObject, setFormObject] = useState({
-    id: -1,
-    title: "",
-    body: "",
     dueDate: "",
     complete: false,
   });
   const [editModalOpen, editToggleModal] = useState(false);
   const [viewModalOpen, viewToggleModal] = useState(false);
   const [newModalOpen, newToggleModal] = useState(false);
+  //Load all To Do tasks and store them with setToDos
+  useEffect(() => {
+    loadToDos();
+  }, []);
 
   //Load and display all To Do tasks
   function loadToDos() {

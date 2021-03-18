@@ -25,33 +25,6 @@ function CreateAccount(props) {
     API.findByEmail(email)
       .then((res) => {
         if (res.data !== null) {
-          alert("you already created an account; please login");
-          // history.push("/dash");
-          // console.log("User exists!");
-          return response.profileObj;
-        } else {
-          API.createUser({
-            email: response.profileObj.email,
-            givenName: response.profileObj.givenName,
-            lastName: response.profileObj.familyName,
-            googleId: response.profileObj.googleId,
-          })
-            .then(() => {
-              history.push("/");
-            })
-            .catch((err) => console.log(err));
-        }
-      })
-      .catch((err) => console.log(err));
-    return response.profileObj;
-  };
-
-  const createUser = async (response) => {
-    let email = response.profileObj.email;
-    console.log(response);
-    API.findByEmail(email)
-      .then((res) => {
-        if (res.data !== null) {
           history.push("/dash");
           console.log("User exists!");
           console.log(res);
