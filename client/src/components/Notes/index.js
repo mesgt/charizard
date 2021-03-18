@@ -6,16 +6,21 @@ import API from "../../utils/API";
 import uuid from "react-uuid";
 
 function Notes() {
-    const [notes, setNotes] = useState(
-        localStorage.notes ? JSON.parse(localStorage.notes) : []);
+    const [notes, setNotes] = useState([]);
         console.log(notes);
 
     const [activeNote, setActiveNote] = useState(false);
 
     useEffect(() => {
-        localStorage.setItem("notes", JSON.stringify(notes));
-    }, [notes]);
+        loadNotes()
+    }, []);
 
+    function loadNotes() {
+        API.getNotes()
+            .then(res => setNotes(res.data))
+            .catch(error => console.log(error));
+    };
+    console.log(activeNote);
     const onAddNote = () => {
         const newNote = {
             id: uuid(),
@@ -23,18 +28,27 @@ function Notes() {
             body: "",
             lastModified: Date.now(),
         };
-
-        setNotes([newNote, ...notes]);
+        // setNotes([newNote, ...notes]);
         setActiveNote(newNote.id);
+        API.addNote(newNote)
+            .then(res => console.log(res.data), loadNotes())
+            .catch(error => console.log("on add note", error));
     };
 
     const onDeleteNote = (noteId) => {
-        setNotes(notes.filter(({ id }) => id !== noteId));
+        // setNotes(notes.filter(({ id }) => id !== noteId));
+        API.deleteNote(noteId)
+            .then(res => console.log(res), loadNotes())
+            .catch(error => console.log(error));
     };
 
+    // this is constanstly updating a note
     const onUpdateNote = (updatedNote) => {
         const updatedNotesArr = notes.map((note) => {
             if (note.id === updatedNote.id) {
+                API.saveNote(updatedNote.id, updatedNote)
+                    .then(res => console.log(updatedNote, res), loadNotes())
+                    .catch(err => console.log(err));
                 return updatedNote;
             }
 
