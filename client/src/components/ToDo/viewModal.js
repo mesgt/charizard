@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import ViewBtn from "../ViewBtn";
+import API from "../../utils/API";
 import "./todo.css";
 
 const ViewToDo = ({ onRequestClose, title, body, dueDate, complete }) => {

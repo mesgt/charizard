@@ -1,32 +1,38 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import NewBtn from "../NewBtn";
-import { Input, TextArea, FormBtn } from "./form";
-// import API from "../../utils/API";
+import { Input, TextArea, FormBtn, CompleteSelect } from "./form";
+import API from "../../utils/API";
 import "./todo.css";
 
-const NewToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, handleNewSubmit, formObject }) => {
+const NewToDo = ({ onRequestClose, loadToDos }) => {
     const [isOpen, setIsOpen] = useState(false)
-    // const [formObject, setFormObject] = useState({})
+
+    const [formObject, setFormObject] = useState({
+        title: "",
+        body: "",
+        dueDate: new Date(),
+    })
 
     const handleOpen = () => {
         setIsOpen(!isOpen)
         console.log(isOpen)
     };
 
-    // function handleSubmit(event) {
-    //     event.preventDefault();
-    //     if (event.title) {
-    //         API.saveToDo({
-    //             title: formObject.title,
-    //             dueDate: formObject.dueDate,
-    //             body: formObject.body,
-    //             complete: false
-    //         })
-    //             .then(res => console.log(res))
-    //             .catch(err => console.log(err));
-    //     }
-    // }
+    function handleNewSubmit(event) {
+        event.preventDefault();
+        // if (formObject.title) {
+        API.saveToDo({
+            title: formObject.title,
+            dueDate: formObject.dueDate,
+            body: formObject.body,
+            complete: false
+        }).then(res =>
+                handleOpen(),
+                loadToDos())
+            .catch(err => console.log(err));
+        // }
+    }
 
     //Modal style
     const customStyles = {
@@ -59,20 +65,27 @@ const NewToDo = ({ title, body, dueDate, onRequestClose, handleInputChange, hand
                     <div className="grid-x grid-margin-x small-up-5 ">
                         <form>
                             <Input
-                                onChange={handleInputChange}
-                                title="Title"
+                                onChange={(e) => setFormObject({ ...formObject, title: e.target.value })}
+                                title=""
+                                label="title"
+                                value={formObject.title}
                                 placeholder="Title (required)"
                             />
                             <Input
-                                onChange={handleInputChange}
-                                dueDate="dueDate"
-                                placeholder="Task due date"
+                                onChange={(e) => setFormObject({ ...formObject, dueDate: e.target.value })}
+                                dueDate=""
+                                label="dueDate"
+                                value={formObject.dueDate}
+                                placeholder="Due Date"
                             />
                             <TextArea
-                                onChange={handleInputChange}
-                                body="Body"
+                                onChange={(e) => setFormObject({ ...formObject, body: e.target.value })}
+                                body=""
+                                label="body"
+                                value={formObject.body}
                                 placeholder="Details"
                             />
+                            <CompleteSelect/>
                             <FormBtn
                                 // disabled={!(formObject.title)}
                                 onClick={handleNewSubmit}
