@@ -7,7 +7,7 @@ import UserContext from "./utils/UserContext"
 
 function App() {
   const [userState, setUserState] = useState({
-    firstName: "",
+    givenName: "",
     email: "",
     googleId: "",
     loggedin: false
@@ -15,7 +15,7 @@ function App() {
 
   const userInfo = (user) => {
     console.log(user)
-    setUserState({ ...userState, firstName: user.givenName, email: user.email, googleId: user.googleId, loggedin: true })
+    setUserState({ ...userState, givenName: user.givenName, email: user.email, googleId: user.googleId, loggedin: true })
   }
 
   // localStorage.setItem("user", JSON.stringify(user))

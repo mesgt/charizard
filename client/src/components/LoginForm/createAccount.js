@@ -36,7 +36,7 @@ function CreateAccount(props) {
                 } else {
                     API.createUser({
                         email: response.profileObj.email,
-                        firstName: response.profileObj.givenName,
+                        givenName: response.profileObj.givenName,
                         lastName: response.profileObj.familyName,
                         googleId: response.profileObj.googleId
                     })
