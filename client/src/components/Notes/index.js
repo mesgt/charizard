@@ -37,9 +37,8 @@ function Notes() {
 
     const onDeleteNote = (noteId) => {
         console.log(noteId);
-        setNotes(notes.filter(({ id }) => id !== noteId));
         API.deleteNote(noteId)
-            .then(res => console.log(res))
+            .then(res => console.log(res), loadNotes())
             .catch(error => console.log(error));
     };
 
