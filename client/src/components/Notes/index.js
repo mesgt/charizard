@@ -3,10 +3,13 @@ import "./notes.css";
 import Sidebar from "../NotesSidebar/sidebar";
 import NotesBody from "../NotesBody/notesBody";
 import API from "../../utils/API";
-import uuid from "react-uuid";
 
 function Notes() {
-    const [notes, setNotes] = useState([]);
+    const [notes, setNotes] = useState([{
+        id: "",
+        title: "",
+        body: ""
+    }]);
         console.log(notes);
 
     const [activeNote, setActiveNote] = useState(false);
@@ -23,22 +26,20 @@ function Notes() {
     console.log(activeNote);
     const onAddNote = () => {
         const newNote = {
-            id: uuid(),
             title: "Untitled Note",
             body: "",
-            lastModified: Date.now(),
         };
         // setNotes([newNote, ...notes]);
         setActiveNote(newNote.id);
         API.addNote(newNote)
-            .then(res => console.log(res.data), loadNotes())
+            .then(res => console.log(res.data))
             .catch(error => console.log("on add note", error));
     };
 
     const onDeleteNote = (noteId) => {
         // setNotes(notes.filter(({ id }) => id !== noteId));
         API.deleteNote(noteId)
-            .then(res => console.log(res), loadNotes())
+            .then(res => console.log(res))
             .catch(error => console.log(error));
     };
 
@@ -47,7 +48,7 @@ function Notes() {
         const updatedNotesArr = notes.map((note) => {
             if (note.id === updatedNote.id) {
                 API.saveNote(updatedNote.id, updatedNote)
-                    .then(res => console.log(updatedNote, res), loadNotes())
+                    .then(res => console.log(updatedNote, res))
                     .catch(err => console.log(err));
                 return updatedNote;
             }
