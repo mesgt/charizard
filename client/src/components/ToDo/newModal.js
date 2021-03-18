@@ -85,6 +85,7 @@ const NewToDo = ({ onRequestClose, loadToDos, complete }) => {
                                 dueDate=""
                                 onChange={date => pickDate(date)}
                                 value={formObject.dueDate}
+                                dateFormat="MMMM eeee d, yyyy"
                                 isClearable
                                 placeholderText="No due date for this one!"
                             />

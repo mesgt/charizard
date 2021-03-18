@@ -18,6 +18,7 @@ const EditToDo = ({ id, title, body, dueDate, complete, onRequestClose, loadToDo
         console.log(date)
         setFormObject({ ...formObject, dueDate: date })
         setStartDate(date)
+        
     }
 
     function handleEditSubmit(event) {
@@ -70,20 +71,13 @@ const EditToDo = ({ id, title, body, dueDate, complete, onRequestClose, loadToDo
                                 value={formObject.title}
                                 placeholder="Title (required)"
                             />
-                            {/* <Input
-                                onChange={(e) => setFormObject({ ...formObject, dueDate: e.target.value })}
-                                dueDate=""
-                                label="Due date:"
-                                value={formObject.dueDate}
-                                placeholder="Due Date"
-                            /> */}
-
                             <DatePicker
                                 selected={startDate}
                                 label="Due date:"
                                 dueDate=""
                                 onChange={date => pickDate(date)}
-                                value={formObject.dueDate}
+                                value={formObject.dueDate.slice(0, -14)}
+                                dateFormat="MMMM eeee d, yyyy"
                                 isClearable
                                 placeholderText="No due date for this one!"
                             />

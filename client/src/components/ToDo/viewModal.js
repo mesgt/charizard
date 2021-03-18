@@ -9,6 +9,8 @@ const ViewToDo = ({ onRequestClose, title, body, dueDate, complete }) => {
 
     const handleOpen = () => {setIsOpen(!isOpen)};
 
+    dueDate = dueDate.slice(0, -14)
+
     const completeStatus = () => {
         console.log(complete)
         if(complete===false) {
