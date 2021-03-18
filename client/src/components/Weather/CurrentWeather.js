@@ -55,7 +55,7 @@ export function CurrentWeather({ weather }) {
         style={{
           backgroundImage: `url(${currentPic})`,
 
-          marginTop: "5vh",
+          // marginTop: "5vh",
 
           alignItems: "center",
         }}
