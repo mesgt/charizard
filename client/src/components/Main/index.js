@@ -57,7 +57,7 @@ const Container = styled.div`
 
 function Main(props, { action }) {
 
- 
+
   // console.log(props);
   function changeTheme() {
     if (props.theme === "light") {
@@ -74,75 +74,83 @@ function Main(props, { action }) {
   console.log(user);
   return (
     <>
-
-      <Page
-        style={{
-          // overflowY: "auto",
-          // paddingBottom: "auto",
-        }}
-      >
-        <Container
+      <div class="grid-container fluid">
+  
+        <Page
+          className="grid-x grid-margin-y"
           style={{
             // overflowY: "auto",
-            // padding: "10vh 5vh 10vh 5vh",
-            paddingTop: "75vh",
+            // paddingTop: "20vh",
+            paddingBottom: "auto",
+            marginTop: "2%"
           }}
-        >
-          <div className="grid-x">
-            <div className="cell radius">
-              <Nav
-                theme={props.theme}
-                test={props.test}
-                fontTheme={props.fontTheme}
-                test1={props.test1}
-                colorThemeArray={props.colorThemeArray}
-                fontThemeArray={props.fontThemeArray}
+        > 
 
-              />
-              {/* <div className="cell radius"><Toggle onClick={changeTheme}>
-                {icon}
-              </Toggle></div> */}
+          <Container
+            className="grid-margin-y"
+            style={{
+              // overflowY: "auto",
+              // padding: "10vh 5vh 10vh 5vh",
+              // paddingTop: "75vh",
+            }}
+          >
+            <div className="grid-x grid-margin-y">
+              <div className="cell radius">
+                <Nav
+                  theme={props.theme}
+                  test={props.test}
+                  fontTheme={props.fontTheme}
+                  test1={props.test1}
+                  colorThemeArray={props.colorThemeArray}
+                  fontThemeArray={props.fontThemeArray}
+                />
+              </div>
             </div>
-          </div>
-          <div className="grid-x">
-            <div className="cell small-3">
-              <div className="grid-x radius">
+            <div className="grid-x grid-padding-x grid-margin-y">
+              <div className="cell small-3">
+                {/* <div className="grid-x radius"> */}
                 <StyledToDo />
+                {/* </div> */}
+                {/* <div
+                  className="grid-x radius "
+                  style={{
+                    justifyContent: "space-evenly",
+                  }}
+                >
+                </div> */}
               </div>
-              <div
-                className="grid-x radius "
-                style={{
-                  justifyContent: "space-evenly",
-                }}
-              >
-                <StyledWeather />
-              </div>
-            </div>
-            <div className="cell small-9">
-              <div
-                className="grid-x radius"
-                style={{
-                  justifyContent: "space-evenly",
-                  padding: "4vh",
-                  marginTop: "4vh",
-                }}
-              >
+              <div className="cell small-9">
                 <StyledCalendar />
               </div>
-              <div
-                className="grid-x radius"
-                style={{
-                  justifyContent: "space-evenly",
-                  padding: "4vh",
-                  border: "none",
-                }}
-              >
+            </div>
+            <div className="grid-x grid-padding-x grid-margin-y radius"
+            // style={{
+            //   justifyContent: "space-evenly",
+            //   padding: "4vh",
+            //   border: "none",
+            // }}
+            >
+              <div className="cell small-3">
+                <StyledWeather />
+              </div>
+              <div className="cell small-9">
                 <StyledNotes />
+
+                {/* <div
+                  className="grid-x radius"
+                  style={{
+                    justifyContent: "space-evenly",
+                    padding: "4vh",
+                    marginTop: "4vh",
+                  }}
+                > */}
+                {/* </div> */}
               </div>
             </div>
-          </div>
-        </Container>
-      </Page>
+            {/* </div> */}
+          </Container>
+        </Page>
+      </div>
     </>
   );
 }
