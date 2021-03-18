@@ -24,45 +24,37 @@ export function TextArea(props) {
 }
 
 export function CompleteSelect(props) { //change state  ...formObject, todo.complete:true
-
-    // class App extends Component {
-    //     constructor(props) {
-    //       super(props);
-    //       this.state = {
-    //         selectedOption: "option1"
-    //       };
-    //     }
-
     return (
-        <div className="form-check">
+        <>
             <h6>Select task status:</h6>
-            <label>
+            <p>
                 <input
                     className="form-check-input"
                     id="To Do"
                     type="radio"
                     name="option"
                     value="notDone"
-                    checked={this.state.selectedOption === "notDone"}
-                    onChange={this.handleOptionChange}>
+                    // checked={this.state.selectedOption === "notDone"}
+                    >
                 </input>
                 <label for="To Do"></label>
-        Still working on it.
-        </label>
+                    Still working on it.
+            </p>
 
-            <label>
+            <p>
                 <input
                     className="form-check-input"
                     id="Done"
                     type="radio"
                     name="option"
                     value="done"
-                    checked={this.state.selectedOption === "done"}>
+                    // checked={this.state.selectedOption === "done"}
+                    >
                 </input>
                 <label for="Done"></label>
-        Done!
-        </label>
-        </div>
+                    Done!
+            </p>
+        </>
     )
 }
 
