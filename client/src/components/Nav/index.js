@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./nav.css";
 import { GoogleLogout } from 'react-google-login';
 import { useHistory } from "react-router-dom";
-
+import API from "../../utils/API";
 import styled from "styled-components";
 import { CgSun } from "react-icons/cg";
 import { HiMailOpen, HiMoon } from "react-icons/hi";
@@ -49,16 +49,18 @@ const FontToggle = styled.button`
 `;
 
 function Nav(props) {
+  //access to userState
   const user = useContext(UserContext)
 
   const failedLogout = () => {
     alert("Something went wrong, try again.")
   }
 
+  //redirect to login page after logout
   const history = useHistory();
   const redirect = () => {
-    //set loggedin state to false or empty object 
     history.push("/")
+    //logout from google automatically sets the userState to empty and loggedin to false
   }
 
   function changeTheme() {
@@ -107,11 +109,35 @@ function Nav(props) {
 
   //const Blueicon = props.theme === "blue" ? <HiMoon size={40} /> : <CgSun size={40} />;
 
+  //today's date
+  const today = new Date()
+
+  //quote state
+  const [quote, setQuote] = useState({
+    quote: "",
+    author: ""
+  });
+
+  //axios call for insprirational quote
+  useEffect(() => {
+    API.quote().then((res) => {
+      const qod = res.data.contents.quotes[0].quote
+      const auth = res.data.contents.quotes[0].author
+      console.log(qod);
+      setQuote({...quote, quote: qod, author: auth})
+    }).catch((err) => {
+      console.error(err);
+    });
+  }, [])
 
   return (
     <div className="grid-x">
       <div className="header cell radius">
-        <h3 className="Username">Welcome, {user.firstName}!</h3>
+        <h1 className="Username">Hello {user.givenName}!</h1>
+        <p className="Username">{today.toDateString()}</p>
+        <br />
+        <p>"{quote.quote}"</p>
+        <p>- {quote.author}</p>
         <GoogleLogout
           clientId="49214406530-t4ofc8gge6vgfdchf8k6v3e28b883er9.apps.googleusercontent.com"
           buttonText="Logout"
@@ -119,9 +145,9 @@ function Nav(props) {
           onFailure={failedLogout}
           className="LogoutBTN"
         ></GoogleLogout>
-        <div class="dropdown">
+        <div className="dropdown">
           <span> Choose Your Theme</span>
-          <div class="dropdown-content">
+          <div className="dropdown-content">
             <Toggle onClick={changeTheme}>
               {icon}
             </Toggle>
