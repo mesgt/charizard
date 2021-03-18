@@ -5,14 +5,14 @@ import NotesBody from "../NotesBody/notesBody";
 import API from "../../utils/API";
 
 function Notes() {
-    const [notes, setNotes] = useState([{
-        id: "",
-        title: "",
-        body: ""
-    }]);
-        console.log(notes);
-
+    const [notes, setNotes] = useState([]);
+    const [userNewNote, setUserNewNote] = useState({})
     const [activeNote, setActiveNote] = useState(false);
+    const [id, setId] = useState("");
+    const [activeNoteData, setActiveNoteData] = useState({
+        title:"",
+        body:""
+    })
 
     useEffect(() => {
         loadNotes()
@@ -23,21 +23,29 @@ function Notes() {
             .then(res => setNotes(res.data))
             .catch(error => console.log(error));
     };
-    console.log(activeNote);
+
     const onAddNote = () => {
-        const newNote = {
-            title: "Untitled Note",
-            body: "",
-        };
+        // const newNote = {
+        //     title: "Untitled Note",
+        //     body: "",
+        // };
         // setNotes([newNote, ...notes]);
-        setActiveNote(newNote.id);
-        API.addNote(newNote)
+        // setActiveNote(true);
+        if(userNewNote.id){
+            API.updateOneNoteById(userNewNote.id, {title:userNewNote.title, body:userNewNote.body})
+            .then(res => console.log(res))
+        }else{
+            API.addNote(userNewNote)
             .then(res => console.log(res.data))
-            .catch(error => console.log("on add note", error));
+            .catch(error => console.log("on add note", error));    
+            // console.log(activeNote);
+        }
+        
     };
 
     const onDeleteNote = (noteId) => {
-        // setNotes(notes.filter(({ id }) => id !== noteId));
+        console.log(noteId);
+        setNotes(notes.filter(({ id }) => id !== noteId));
         API.deleteNote(noteId)
             .then(res => console.log(res))
             .catch(error => console.log(error));
@@ -45,22 +53,28 @@ function Notes() {
 
     // this is constanstly updating a note
     const onUpdateNote = (updatedNote) => {
-        const updatedNotesArr = notes.map((note) => {
-            if (note.id === updatedNote.id) {
-                API.saveNote(updatedNote.id, updatedNote)
-                    .then(res => console.log(updatedNote, res))
-                    .catch(err => console.log(err));
-                return updatedNote;
-            }
+        console.log(updatedNote);
+        setUserNewNote(updatedNote)
+        // const updatedNotesArr = notes.map((note) => {
+        //     // console.log(note);
+        //     if (note.id === updatedNote.id) {
+        //         API.saveNote(updatedNote.id, updatedNote)
+        //             .then(res => console.log(updatedNote, res), loadNotes())
+        //             .catch(err => console.log(err));
+        //         return updatedNote;
+        //     }
 
-            return note;
-        });
+        //     return note;
+        // });
 
-        setNotes(updatedNotesArr);
+        // setNotes(updatedNotesArr);
     };
 
-    const getActiveNote = () => {
-        return notes.find(({ id }) => id === activeNote);
+    const getActiveNote = (id) => {
+        // console.log(id);
+        API.getOneNoteById(id)
+        .then(res => setActiveNoteData(res.data))
+        // return notes.find(({ id }) => id === activeNote);
     };
     
 
@@ -72,8 +86,11 @@ function Notes() {
                     onDeleteNote={onDeleteNote}
                     activeNote={activeNote}
                     setActiveNote={setActiveNote}
+                    getActiveNote={getActiveNote}
                 />
-                <NotesBody activeNote={getActiveNote()} onUpdateNote={onUpdateNote} />
+                <NotesBody 
+                onUpdateNote={onUpdateNote} 
+                activeNoteData={activeNoteData}/>
         </div>
     )
 }
