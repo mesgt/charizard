@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import DatePicker from "react-datepicker";
 import Modal from "react-modal";
 import EditBtn from "../EditBtn";
-import { Input, TextArea, FormBtn, CompleteSelect } from "./form";
+import { Input, TextArea, FormBtn, CompleteStatus, CompleteSelect } from "./form";
 import API from "../../utils/API";
 import "./todo.css";
 
@@ -11,6 +12,14 @@ const EditToDo = ({ id, title, body, dueDate, complete, onRequestClose, loadToDo
         id, title, body, dueDate, complete
     })
     const handleOpen = () => { setIsOpen(!isOpen) };
+    const [startDate, setStartDate] = useState(new Date());
+
+    const pickDate = (date) => {
+        console.log(date)
+        setFormObject({ ...formObject, dueDate: date })
+        setStartDate(date)
+        
+    }
 
     function handleEditSubmit(event) {
         event.preventDefault();
@@ -58,25 +67,32 @@ const EditToDo = ({ id, title, body, dueDate, complete, onRequestClose, loadToDo
                             <Input
                                 onChange={(e) => setFormObject({ ...formObject, title: e.target.value })}
                                 title=""
-                                label="title"
+                                label="Title:"
                                 value={formObject.title}
                                 placeholder="Title (required)"
                             />
-                            <Input
-                                onChange={(e) => setFormObject({ ...formObject, dueDate: e.target.value })}
+                            <DatePicker
+                                selected={startDate}
+                                label="Due date:"
                                 dueDate=""
-                                label="dueDate"
-                                value={formObject.dueDate}
-                                placeholder="Due Date"
+                                onChange={date => pickDate(date)}
+                                value={formObject.dueDate.slice(0, -14)}
+                                dateFormat="MMMM eeee d, yyyy"
+                                isClearable
+                                placeholderText="No due date for this one!"
                             />
+
                             <TextArea
                                 onChange={(e) => setFormObject({ ...formObject, body: e.target.value })}
                                 body=""
-                                label="body"
+                                label="Details:"
                                 value={formObject.body}
                                 placeholder="Details"
                             />
-                            <CompleteSelect/>
+                            <CompleteStatus complete={complete}>
+                                Status:
+                            </CompleteStatus>
+                            <CompleteSelect />
                             <FormBtn
                                 // disabled={!(formObject.title)}
                                 onClick={handleEditSubmit}

@@ -12,7 +12,7 @@ mongoose.connect(
 const todoSeed = [
     {
         title: "bakery pickup",
-        dueDate: Date.now,
+        dueDate: "Mar 18, 2021",
         body: "Pick up birthday cake from bakery.",
         complete: false
     },

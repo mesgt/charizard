@@ -29,6 +29,18 @@ function ToDos({}) {
     loadToDos();
   }, []);
 
+  const [todos, setToDos] = useState([]);
+  const [formObject, setFormObject] = useState({
+    id: -1,
+    title: "",
+    body: "",
+    dueDate: "",
+    complete: false,
+  });
+  const [editModalOpen, editToggleModal] = useState(false);
+  const [viewModalOpen, viewToggleModal] = useState(false);
+  const [newModalOpen, newToggleModal] = useState(false);
+
   //Load and display all To Do tasks
   function loadToDos() {
     API.getToDos()
