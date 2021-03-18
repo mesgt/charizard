@@ -70,7 +70,7 @@ function MyCalendar(props) {
   // POPULATES CALENDAR WHEN USER LOGS IN \\
   useEffect(() => {
     user.events && setEvents(user.events);
-  }, []);
+  }, [user.events]);
 
   // DELETE EVENT FROM EVENTDELETE STATE \\
   const deleteEvent = () => {
