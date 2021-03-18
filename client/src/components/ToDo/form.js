@@ -25,22 +25,15 @@ export function TextArea(props) {
 }
 
 export function CompleteSelect(props) {
-    // if()
-
     return (
     <>
-        <p><input id="To Do" type="checkbox"></input><label for="To Do"></label>To Do</p>
-        <p><input id="Done" type="checkbox"></input><label for="Done"></label>Done</p>
+        <p><input id="To Do" type="radio" name="option"></input><label for="To Do"></label>To Do</p>
+        <p><input id="Done" type="radio" name="option"></input><label for="Done"></label>Done</p>
     </>
     )
 }
 
 export function CompleteStatus(props, complete) {
-    // if(complete) {
-    //     return (
-    //         <h6>{props.children}</h6>
-    //         )
-    // }
     if(complete===false) {
         return (
             <>
