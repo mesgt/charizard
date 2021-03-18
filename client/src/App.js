@@ -22,7 +22,7 @@ function App() {
     console.log(user);
     setUserState({
       ...userState,
-      firstName: user.givenName,
+      givenName: user.givenName,
       email: user.email,
       googleId: user.googleId,
       loggedin: true,

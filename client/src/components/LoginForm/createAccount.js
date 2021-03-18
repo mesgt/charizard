@@ -25,20 +25,20 @@ function CreateAccount(props) {
     API.findByEmail(email)
       .then((res) => {
         if (res.data !== null) {
-          history.push("/dash");
+          // history.push("/dash");
           console.log("User exists!");
           console.log(res);
           return res.data;
         } else {
           API.createUser({
             email: response.profileObj.email,
-            firstName: response.profileObj.givenName,
+            givenName: response.profileObj.givenName,
             lastName: response.profileObj.familyName,
             googleId: response.profileObj.googleId,
             events: [],
           })
             .then(() => {
-              history.push("/dash");
+              history.push("/");
             })
             .catch((err) => console.log(err));
         }
