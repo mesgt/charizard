@@ -19,7 +19,7 @@ function ToDos({
         id: -1,
         title: "",
         body: "",
-        dueDate: "", // THIS NEEDS TO BE CHANGED TO CORRECT FORMAT.
+        dueDate: "",
         complete: false
     })
     const [editModalOpen, editToggleModal] = useState(false);
