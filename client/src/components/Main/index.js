@@ -57,7 +57,7 @@ const Container = styled.div`
 
 function Main(props, { action }) {
 
-
+ 
   // console.log(props);
   function changeTheme() {
     if (props.theme === "light") {

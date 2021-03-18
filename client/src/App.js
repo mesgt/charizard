@@ -18,14 +18,20 @@ function App() {
     setUserState({ ...userState, givenName: user.givenName, email: user.email, googleId: user.googleId, loggedin: true })
   }
 
-  // localStorage.setItem("user", JSON.stringify(user))
+  useEffect(()=> {
+    const data = localStorage.getItem("currentUser");
+    if (data) {
+      setUserState(JSON.parse(data))
+    }
+  },[])
 
-   // useEffect(()=> {
-    //     const data = localStorage.getItem("user");
-    //     if (data) {
-    //       setUserState(JSON.parse(data))
-    //     }
-    //   },[])
+
+  useEffect(() => {
+    localStorage.setItem("currentUser", JSON.stringify(userState))
+  })
+  
+
+  
 
   
 
@@ -44,7 +50,9 @@ function App() {
           <Route exact path="/"
             render={() => <Login userInfo={userInfo} />}
           />
-          <Route exact path="/dash"component={Theme}/>
+          <Route exact path="/dash" 
+           render={() => <Theme userInfo={userInfo} />}
+           />
           {/* {DO NOT DELETE} */}
           {/* <PrivateRoute path="/dash" component={Theme} /> */}
         </UserContext.Provider>
