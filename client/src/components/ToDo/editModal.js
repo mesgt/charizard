@@ -1,48 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Modal from "react-modal";
 import EditBtn from "../EditBtn";
-import { Input, TextArea, FormBtn } from "./form";
+import { Input, TextArea, FormBtn, CompleteSelect } from "./form";
 import API from "../../utils/API";
 import "./todo.css";
 
 const EditToDo = ({ id, title, body, dueDate, complete, onRequestClose, loadToDos }) => {
     const [isOpen, setIsOpen] = useState(false)
-    // const [titleState, setTitle] = useState("")
-    // const [bodyState, setBody] = useState("")
-    // const [dueDateState, setDueDate] = useState("")
-
     const [formObject, setFormObject] = useState({
         id, title, body, dueDate, complete
     })
-
-    // useEffect(() => {
-        // setTitle(title)
-        // setBody(body)
-        // setDueDate(dueDate)
-        // console.log(titleState, bodyState, dueDateState)
-    // })
-    const handleOpen = () => {
-        setIsOpen(!isOpen)
-    };
-
-    // function editToDo(id) {
-    //     API.editToDo(id)
-    //         .then(res => console.log(res.data), loadToDos())
-
-    //         .catch(error => console.log(error));
-    // }
+    const handleOpen = () => { setIsOpen(!isOpen) };
 
     function handleEditSubmit(event) {
-        // console.log("CONSOLE THIS")
         event.preventDefault();
-        // setFormObject(formObject, {
-        //     title: event.target.title,
-        //     dueDate: event.target.dueDate,
-        //     body: event.target.body,
-        //     complete: event.target.complete
-        // })
-        // console.log(formObject)
-        // if (formObject.title) {
         API.editToDo(id, {
             title: formObject.title,
             dueDate: formObject.dueDate,
@@ -52,7 +23,6 @@ const EditToDo = ({ id, title, body, dueDate, complete, onRequestClose, loadToDo
             handleOpen(),
             loadToDos())
             .catch(err => console.log(err));
-        // }
     }
 
     //Modal style
@@ -106,9 +76,7 @@ const EditToDo = ({ id, title, body, dueDate, complete, onRequestClose, loadToDo
                                 value={formObject.body}
                                 placeholder="Details"
                             />
-
-                            {/* Add checkbox for if the task has been completed. reference it in todo index.js */}
-
+                            <CompleteSelect/>
                             <FormBtn
                                 // disabled={!(formObject.title)}
                                 onClick={handleEditSubmit}

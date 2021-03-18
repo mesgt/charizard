@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import NewBtn from "../NewBtn";
-import { Input, TextArea, FormBtn } from "./form";
+import { Input, TextArea, FormBtn, CompleteSelect } from "./form";
 import API from "../../utils/API";
 import "./todo.css";
 
 const NewToDo = ({ onRequestClose, loadToDos }) => {
     const [isOpen, setIsOpen] = useState(false)
-    // const [titleState, setTitle] = useState("")
-    // const [bodyState, setBody] = useState("")
-    // const [dueDateState, setDueDate] = useState("")
 
     const [formObject, setFormObject] = useState({
         title: "",
@@ -88,6 +85,7 @@ const NewToDo = ({ onRequestClose, loadToDos }) => {
                                 value={formObject.body}
                                 placeholder="Details"
                             />
+                            <CompleteSelect/>
                             <FormBtn
                                 // disabled={!(formObject.title)}
                                 onClick={handleNewSubmit}
