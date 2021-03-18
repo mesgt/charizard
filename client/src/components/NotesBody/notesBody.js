@@ -1,31 +1,48 @@
 import React, { Component } from "react";
 
-const NotesBody = ({ activeNote, onUpdateNote }) => {
-    const onEditField = (field, value) => {
-        onUpdateNote({
-            ...activeNote,
-            [field]: value,
-            lastModified: Date.now(),
-        });
-    };
+const NotesBody = ({ onUpdateNote, activeNoteData }) => {
+    const [title,setTitle] = React.useState("");
+    const [body,setBody] = React.useState("");
 
-    if (!activeNote) return <div className="no=active-note">No Active Note</div>;
+    const onEditField = (field, target) => {
+        console.log(target.id);
+        
+        if(field === "title"){
+            setTitle(target.value)
+        }else if(field === "body"){
+            setBody(target.value)
+        }
+        if(target.id === ""){
+             onUpdateNote({
+            title,
+            body
+        })
+        }else {
+            onUpdateNote({
+                title,
+                body,
+                id: target.id
+            })
+        }
+
+    };
 
     return (
         <div className="app-main">
             <div className="app-main-note-edit">
             <input
                 type="text"
-                id="title"
+                id={activeNoteData.id} //was _id but react didn't like it
                 placeholder="Note Title"
-                value={activeNote.title}
-                onChange={(e) => onEditField("title", e.target.value)}
+
+                value={title || activeNoteData.title}
+                onChange={(e) => onEditField("title", e.target)}
                 autoFocus
             />
             <textarea
                 id="body"
                 placeholder="Write your note here..."
-                value={activeNote.body}
+                value={activeNoteData.body}
                 onChange={(e) => onEditField("body", e.target.value)}
             />
             </div>
