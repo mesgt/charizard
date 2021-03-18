@@ -1,7 +1,6 @@
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import { set } from "mongoose";
 import "./calendar.css";
 import React, { useState, useContext, useEffect } from "react";
 import Modal from "react-modal";
@@ -11,49 +10,45 @@ Modal.setAppElement("#root");
 
 const localizer = momentLocalizer(moment);
 
+const customStyles1 = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    zIndex: 1001,
+    transform: "translate(-50%, -50%)",
+    maxHeight: "100vh",
+    overflowY: "auto",
+    background: "#fff",
+  },
+  overlay: {
+    zIndex: 1000,
+    backgroundColor: "rgb(72,72,72,.95)",
+  },
+};
+
+const customStyles2 = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    zIndex: 1001,
+    transform: "translate(-50%, -50%)",
+    maxHeight: "100vh",
+    overflowY: "auto",
+    background: "rgba(243, 32, 19,.8)",
+  },
+  overlay: {
+    zIndex: 1000,
+    backgroundColor: "rgb(72,72,72,.95)",
+  },
+};
+
 function MyCalendar(props) {
-  {
-    /* MODAL1 STYLES */
-  }
-  const customStyles1 = {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      zIndex: 1001,
-      transform: "translate(-50%, -50%)",
-      maxHeight: "100vh",
-      overflowY: "auto",
-      background: "#fff",
-    },
-    overlay: {
-      zIndex: 1000,
-      backgroundColor: "rgb(72,72,72,.95)",
-    },
-  };
-  {
-    /* MODAL2 STYLES */
-  }
-  const customStyles2 = {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      zIndex: 1001,
-      transform: "translate(-50%, -50%)",
-      maxHeight: "100vh",
-      overflowY: "auto",
-      background: "rgba(243, 32, 19,.8)",
-    },
-    overlay: {
-      zIndex: 1000,
-      backgroundColor: "rgb(72,72,72,.95)",
-    },
-  };
   const user = useContext(UserContext);
   console.log(user);
 

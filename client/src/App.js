@@ -1,6 +1,6 @@
 import Login from "./pages/Login";
 import Theme from "./components/Main/theme";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Redirect,

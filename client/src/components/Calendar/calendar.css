@@ -10,9 +10,9 @@
 } */
 
 /* CALENDAR CURRENT DAY DIGIT DISPLAY COLOR  */
-/* .rbc-now {
+.rbc-now {
   color: black;
-} */
+}
 
 /* MODAL OPEN/CLOSE ANIMATION  */
 .ReactModal__Overlay {

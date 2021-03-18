@@ -34,6 +34,7 @@ function CreateAccount(props) {
             firstName: response.profileObj.givenName,
             lastName: response.profileObj.familyName,
             googleId: response.profileObj.googleId,
+            events: [],
           })
             .then(() => {
               history.push("/dash");
@@ -61,7 +62,7 @@ function CreateAccount(props) {
               <div class="googleBtn">
                 <GoogleLogin
                   clientId="49214406530-t4ofc8gge6vgfdchf8k6v3e28b883er9.apps.googleusercontent.com"
-                  buttonText="Login"
+                  buttonText="Create Account"
                   onSuccess={redirect}
                   isSignedIn={false}
                   onFailure={failedLogin}
