@@ -15,24 +15,25 @@ const EditToDo = ({ id, title, body, dueDate, complete, onRequestClose, loadToDo
         id, title, body, dueDate, complete
     })
 
-    useEffect(() => {
+    // useEffect(() => {
         // setTitle(title)
         // setBody(body)
         // setDueDate(dueDate)
         // console.log(titleState, bodyState, dueDateState)
-    })
+    // })
     const handleOpen = () => {
         setIsOpen(!isOpen)
     };
 
-    function editToDo(id) {
-        API.editToDo(id)
-            .then(res => console.log(res.data), loadToDos())
+    // function editToDo(id) {
+    //     API.editToDo(id)
+    //         .then(res => console.log(res.data), loadToDos())
 
-            .catch(error => console.log(error));
-    }
+    //         .catch(error => console.log(error));
+    // }
 
     function handleEditSubmit(event) {
+        // console.log("CONSOLE THIS")
         event.preventDefault();
         // setFormObject(formObject, {
         //     title: event.target.title,
@@ -40,16 +41,18 @@ const EditToDo = ({ id, title, body, dueDate, complete, onRequestClose, loadToDo
         //     body: event.target.body,
         //     complete: event.target.complete
         // })
-        console.log(formObject)
-        if (formObject.title) {
-            API.editToDo(id, {
-                title: formObject.title,
-                dueDate: formObject.dueDate,
-                body: formObject.body,
-                complete: formObject.complete
-            }).then(res => console.log(res)
-            ).catch(err => console.log(err));
-        }
+        // console.log(formObject)
+        // if (formObject.title) {
+        API.editToDo(id, {
+            title: formObject.title,
+            dueDate: formObject.dueDate,
+            body: formObject.body,
+            complete: formObject.complete
+        }).then(res =>
+            handleOpen(),
+            loadToDos())
+            .catch(err => console.log(err));
+        // }
     }
 
     //Modal style
@@ -83,21 +86,21 @@ const EditToDo = ({ id, title, body, dueDate, complete, onRequestClose, loadToDo
                     <div className="grid-x grid-margin-x small-up-5 todoEdit">
                         <form>
                             <Input
-                                onChange={(e) => setFormObject({...formObject, title: e.target.value})}
+                                onChange={(e) => setFormObject({ ...formObject, title: e.target.value })}
                                 title=""
                                 label="title"
                                 value={formObject.title}
                                 placeholder="Title (required)"
                             />
                             <Input
-                                onChange={(e) => setFormObject({...formObject, dueDate: e.target.value})}
+                                onChange={(e) => setFormObject({ ...formObject, dueDate: e.target.value })}
                                 dueDate=""
                                 label="dueDate"
                                 value={formObject.dueDate}
                                 placeholder="Due Date"
                             />
                             <TextArea
-                                onChange={(e) => setFormObject({...formObject, body: e.target.value})}
+                                onChange={(e) => setFormObject({ ...formObject, body: e.target.value })}
                                 body=""
                                 label="body"
                                 value={formObject.body}
@@ -108,7 +111,7 @@ const EditToDo = ({ id, title, body, dueDate, complete, onRequestClose, loadToDo
 
                             <FormBtn
                                 // disabled={!(formObject.title)}
-                                handleEditSubmit={handleEditSubmit}
+                                onClick={handleEditSubmit}
                             >
                                 Save
                             </FormBtn>

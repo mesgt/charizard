@@ -174,6 +174,7 @@ function ToDos({
                                     body={todo.body}
                                     dueDate={todo.dueDate}
                                     complete={todo.complete}
+                                    loadToDos={loadToDos}
                                 // disabled={!(formObject.title)}
                                 >
                                 </EditToDo>

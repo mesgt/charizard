@@ -12,8 +12,8 @@ const NewToDo = ({ onRequestClose, loadToDos }) => {
     // const [dueDateState, setDueDate] = useState("")
 
     const [formObject, setFormObject] = useState({
-        title: "", 
-        body: "", 
+        title: "",
+        body: "",
         dueDate: new Date(),
     })
 
@@ -23,20 +23,18 @@ const NewToDo = ({ onRequestClose, loadToDos }) => {
     };
 
     function handleNewSubmit(event) {
-        console.log("creating new")
         event.preventDefault();
-        if (formObject.title) {
-            API.saveToDo({
-                title: formObject.title,
-                dueDate: formObject.dueDate,
-                body: formObject.body,
-                complete: false
-            })
-                .then(res => 
-                    handleOpen(),
-                    loadToDos())
-                .catch(err => console.log(err));
-        }
+        // if (formObject.title) {
+        API.saveToDo({
+            title: formObject.title,
+            dueDate: formObject.dueDate,
+            body: formObject.body,
+            complete: false
+        }).then(res =>
+                handleOpen(),
+                loadToDos())
+            .catch(err => console.log(err));
+        // }
     }
 
     //Modal style
@@ -70,21 +68,21 @@ const NewToDo = ({ onRequestClose, loadToDos }) => {
                     <div className="grid-x grid-margin-x small-up-5 ">
                         <form>
                             <Input
-                                onChange={(e)=> setFormObject({...formObject, title: e.target.value})}
+                                onChange={(e) => setFormObject({ ...formObject, title: e.target.value })}
                                 title=""
                                 label="title"
                                 value={formObject.title}
                                 placeholder="Title (required)"
                             />
                             <Input
-                                onChange={(e)=> setFormObject({...formObject, dueDate: e.target.value})}
+                                onChange={(e) => setFormObject({ ...formObject, dueDate: e.target.value })}
                                 dueDate=""
                                 label="dueDate"
                                 value={formObject.dueDate}
                                 placeholder="Due Date"
                             />
                             <TextArea
-                                onChange={(e)=> setFormObject({...formObject, body: e.target.value})}
+                                onChange={(e) => setFormObject({ ...formObject, body: e.target.value })}
                                 body=""
                                 label="body"
                                 value={formObject.body}
