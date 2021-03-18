@@ -8,7 +8,6 @@ function Notes() {
     const [notes, setNotes] = useState([]);
     const [userNewNote, setUserNewNote] = useState({})
     const [activeNote, setActiveNote] = useState(false);
-    const [id, setId] = useState("");
     const [activeNoteData, setActiveNoteData] = useState({
         title:"",
         body:""
@@ -25,20 +24,13 @@ function Notes() {
     };
 
     const onAddNote = () => {
-        // const newNote = {
-        //     title: "Untitled Note",
-        //     body: "",
-        // };
-        // setNotes([newNote, ...notes]);
-        // setActiveNote(true);
         if(userNewNote.id){
             API.updateOneNoteById(userNewNote.id, {title:userNewNote.title, body:userNewNote.body})
             .then(res => console.log(res))
         }else{
             API.addNote(userNewNote)
-            .then(res => console.log(res.data))
+            .then(res => console.log(res.data), loadNotes())
             .catch(error => console.log("on add note", error));    
-            // console.log(activeNote);
         }
         
     };
@@ -51,30 +43,14 @@ function Notes() {
             .catch(error => console.log(error));
     };
 
-    // this is constanstly updating a note
     const onUpdateNote = (updatedNote) => {
         console.log(updatedNote);
         setUserNewNote(updatedNote)
-        // const updatedNotesArr = notes.map((note) => {
-        //     // console.log(note);
-        //     if (note.id === updatedNote.id) {
-        //         API.saveNote(updatedNote.id, updatedNote)
-        //             .then(res => console.log(updatedNote, res), loadNotes())
-        //             .catch(err => console.log(err));
-        //         return updatedNote;
-        //     }
-
-        //     return note;
-        // });
-
-        // setNotes(updatedNotesArr);
     };
 
     const getActiveNote = (id) => {
-        // console.log(id);
         API.getOneNoteById(id)
         .then(res => setActiveNoteData(res.data))
-        // return notes.find(({ id }) => id === activeNote);
     };
     
 

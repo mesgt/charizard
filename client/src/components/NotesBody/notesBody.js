@@ -4,13 +4,6 @@ const NotesBody = ({ onUpdateNote, activeNoteData }) => {
     const [title,setTitle] = React.useState("");
     const [body,setBody] = React.useState("");
 
-//     React.useEffect(()=>{
-//         console.log(activeNoteData);
-//          setTitle(activeNoteData.title)
-// setBody(activeNoteData.body)
-//     },[])
-
-   
     const onEditField = (field, target) => {
         console.log(target.id);
         
@@ -19,7 +12,6 @@ const NotesBody = ({ onUpdateNote, activeNoteData }) => {
         }else if(field === "body"){
             setBody(target.value)
         }
-        // console.log(title,body);
         if(target.id === ""){
              onUpdateNote({
             title,
@@ -32,15 +24,8 @@ const NotesBody = ({ onUpdateNote, activeNoteData }) => {
                 id: target.id
             })
         }
-       
-        // onUpdateNote({
-        //     // ...activeNote,
-        //     [field]: value,
-        //     lastModified: Date.now(),
-        // });
-    };
 
-    // if (!activeNote) return <div className="no=active-note">No Active Note</div>;
+    };
 
     return (
         <div className="app-main">

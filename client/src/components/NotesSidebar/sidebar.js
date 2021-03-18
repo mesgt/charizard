@@ -5,13 +5,11 @@ const Sidebar = ({
     onAddNote,
     onDeleteNote,
     activeNote,
-    setActiveNote,
     getActiveNote
 }) => {
     const sortedNotes = notes.sort((a, b) => b.lastModified - a.lastModified);
 
     const currentNote = (id)  => {
-      // console.log(id);
       getActiveNote(id)
 
     }
