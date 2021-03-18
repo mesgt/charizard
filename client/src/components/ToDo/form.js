@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 
 export function Input(props) {
     return (
@@ -23,38 +23,71 @@ export function TextArea(props) {
     );
 }
 
-export function CompleteSelect(props) {
+export function CompleteSelect(props) { //change state  ...formObject, todo.complete:true
+
+    // class App extends Component {
+    //     constructor(props) {
+    //       super(props);
+    //       this.state = {
+    //         selectedOption: "option1"
+    //       };
+    //     }
+
     return (
-    <>
-    <h6>Select task status:</h6>
-        <p><input id="To Do" type="radio" name="option"></input><label for="To Do"></label>Still working on it.</p>
-        <p><input id="Done" type="radio" name="option"></input><label for="Done"></label>Done!</p>
-    </>
+        <div className="form-check">
+            <h6>Select task status:</h6>
+            <label>
+                <input
+                    className="form-check-input"
+                    id="To Do"
+                    type="radio"
+                    name="option"
+                    value="notDone"
+                    checked={this.state.selectedOption === "notDone"}
+                    onChange={this.handleOptionChange}>
+                </input>
+                <label for="To Do"></label>
+        Still working on it.
+        </label>
+
+            <label>
+                <input
+                    className="form-check-input"
+                    id="Done"
+                    type="radio"
+                    name="option"
+                    value="done"
+                    checked={this.state.selectedOption === "done"}>
+                </input>
+                <label for="Done"></label>
+        Done!
+        </label>
+        </div>
     )
 }
 
 export function CompleteStatus(props, complete) {
-    if(complete===false) {
+    if (complete === false) {
         return (
             <>
-            <h6>{props.children}</h6>
-            <p>{"Task is still on your To Do List"}</p>
+                <h6>{props.children}</h6>
+                <p>{"Task is still on your To Do List"}</p>
             </>
         )
-    } else if(complete===true) {
+    } else if (complete === true) {
         return (
             <>
-            <h6>{props.children}</h6>
-            <p>{"Task is done!"}</p>
+                <h6>{props.children}</h6>
+                <p>{"Task is done!"}</p>
             </>
-            )
+        )
     } else {
         return (
             <>
-            <h6>{props.children}</h6>
-            <p>{"Status is not available"}</p>
+                <h6>{props.children}</h6>
+                <p>{"Status is not available"}</p>
             </>
-            )
+        )
     }
 }
 
