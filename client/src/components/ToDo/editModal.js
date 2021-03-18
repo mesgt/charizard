@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import EditBtn from "../EditBtn";
-import { Input, TextArea, FormBtn, CompleteSelect } from "./form";
+import { Input, TextArea, FormBtn, CompleteStatus, CompleteSelect } from "./form";
 import API from "../../utils/API";
 import "./todo.css";
 
@@ -58,24 +58,27 @@ const EditToDo = ({ id, title, body, dueDate, complete, onRequestClose, loadToDo
                             <Input
                                 onChange={(e) => setFormObject({ ...formObject, title: e.target.value })}
                                 title=""
-                                label="title"
+                                label="Title:"
                                 value={formObject.title}
                                 placeholder="Title (required)"
                             />
                             <Input
                                 onChange={(e) => setFormObject({ ...formObject, dueDate: e.target.value })}
                                 dueDate=""
-                                label="dueDate"
+                                label="Due date:"
                                 value={formObject.dueDate}
                                 placeholder="Due Date"
                             />
                             <TextArea
                                 onChange={(e) => setFormObject({ ...formObject, body: e.target.value })}
                                 body=""
-                                label="body"
+                                label="Details:"
                                 value={formObject.body}
                                 placeholder="Details"
                             />
+                            <CompleteStatus complete={complete}>
+                                Status:
+                            </CompleteStatus>
                             <CompleteSelect/>
                             <FormBtn
                                 // disabled={!(formObject.title)}

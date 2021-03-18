@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import NewBtn from "../NewBtn";
-import { Input, TextArea, FormBtn, CompleteSelect } from "./form";
+import { Input, TextArea, FormBtn, CompleteStatus, CompleteSelect } from "./form";
 import API from "../../utils/API";
 import "./todo.css";
 
-const NewToDo = ({ onRequestClose, loadToDos }) => {
+const NewToDo = ({ onRequestClose, loadToDos, complete }) => {
     const [isOpen, setIsOpen] = useState(false)
 
     const [formObject, setFormObject] = useState({
         title: "",
         body: "",
-        dueDate: new Date(),
+        dueDate: new Date()
     })
 
     const handleOpen = () => {
@@ -67,24 +67,25 @@ const NewToDo = ({ onRequestClose, loadToDos }) => {
                             <Input
                                 onChange={(e) => setFormObject({ ...formObject, title: e.target.value })}
                                 title=""
-                                label="title"
+                                label="Title:"
                                 value={formObject.title}
                                 placeholder="Title (required)"
                             />
                             <Input
                                 onChange={(e) => setFormObject({ ...formObject, dueDate: e.target.value })}
                                 dueDate=""
-                                label="dueDate"
+                                label="Due date:"
                                 value={formObject.dueDate}
                                 placeholder="Due Date"
                             />
                             <TextArea
                                 onChange={(e) => setFormObject({ ...formObject, body: e.target.value })}
                                 body=""
-                                label="body"
+                                label="Details:"
                                 value={formObject.body}
-                                placeholder="Details"
+                                placeholder="Task details"
                             />
+                            <CompleteStatus complete={complete}>Status:</CompleteStatus>
                             <CompleteSelect/>
                             <FormBtn
                                 // disabled={!(formObject.title)}

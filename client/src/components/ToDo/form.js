@@ -18,19 +18,51 @@ export function TextArea(props) {
         <div className="form-group">
             <label>
                 {props.label}
-                <textarea value={props.value} onChange={props.onChange} className="form-control" rows="10" {...props} />
+                <textarea value={props.value} onChange={props.onChange} className="form-control" rows="5" {...props} />
             </label>
         </div>
     );
 }
 
 export function CompleteSelect(props) {
-    return(
+    // if()
+
+    return (
     <>
-        <span><input id="To Do" type="checkbox"></input><label for="To Do"></label>To Do</span>
-        <span><input id="Done" type="checkbox"></input><label for="Done"></label>Done</span>
+        <p><input id="To Do" type="checkbox"></input><label for="To Do"></label>To Do</p>
+        <p><input id="Done" type="checkbox"></input><label for="Done"></label>Done</p>
     </>
     )
+}
+
+export function CompleteStatus(props, complete) {
+    // if(complete) {
+    //     return (
+    //         <h6>{props.children}</h6>
+    //         )
+    // }
+    if(complete===false) {
+        return (
+            <>
+            <h6>{props.children}</h6>
+            <p>{"Task is still on your To Do List"}</p>
+            </>
+        )
+    } else if(complete===true) {
+        return (
+            <>
+            <h6>{props.children}</h6>
+            <p>{"Task is done!"}</p>
+            </>
+            )
+    } else {
+        return (
+            <>
+            <h6>{props.children}</h6>
+            <p>{"Status is not available"}</p>
+            </>
+            )
+    }
 }
 
 export function FormBtn(props) {

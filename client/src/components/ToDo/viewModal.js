@@ -7,10 +7,18 @@ import "./todo.css";
 const ViewToDo = ({ onRequestClose, title, body, dueDate, complete }) => {
     const [isOpen, setIsOpen] = useState(false)
 
-    const handleOpen = () => {
-        setIsOpen(!isOpen)
-    };
+    const handleOpen = () => {setIsOpen(!isOpen)};
 
+    const completeStatus = () => {
+        console.log(complete)
+        if(complete===false) {
+            return ("Task is still on your To Do List")
+        } else if(complete===true) {
+            return ("Task is done!")
+        } else {
+            return ("Status is not available")
+        }
+    }
     //Modal style
     const customStyles = {
         content: {
@@ -51,7 +59,7 @@ const ViewToDo = ({ onRequestClose, title, body, dueDate, complete }) => {
                                         <h5 className="text-capitalize cell">Title: {title}</h5>
                                         <p className="text-capitalize cell">Details: {body}</p>
                                         <p className="text-capitalize cell">Due: {dueDate}</p>
-                                        <p className="text-capitalize cell">Status: {complete}</p>
+                                        <p className="text-capitalize cell">Status: {completeStatus()}</p>
                                 </div>
                             </div>
                         </div>
