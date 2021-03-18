@@ -13,6 +13,15 @@ export default {
     return axios.get(cityURL);
   },
 
+  //========================
+  //Inspriational quote API
+  quote: function () {
+    const URL = "https://quotes.rest/qod?language=en";
+    return axios.get(URL)
+   
+  },
+  
+  
   //=========================
   //TO DO ROUTES
 

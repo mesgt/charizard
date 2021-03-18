@@ -7,7 +7,7 @@ import UserContext from "./utils/UserContext"
 
 function App() {
   const [userState, setUserState] = useState({
-    firstName: "",
+    givenName: "",
     email: "",
     googleId: "",
     loggedin: false
@@ -15,8 +15,25 @@ function App() {
 
   const userInfo = (user) => {
     console.log(user)
-    setUserState({ ...userState, firstName: user.givenName, email: user.email, googleId: user.googleId, loggedin: true })
+    setUserState({ ...userState, givenName: user.givenName, email: user.email, googleId: user.googleId, loggedin: true })
   }
+
+  useEffect(()=> {
+    const data = localStorage.getItem("currentUser");
+    if (data) {
+      setUserState(JSON.parse(data))
+    }
+  },[])
+
+
+  useEffect(() => {
+    localStorage.setItem("currentUser", JSON.stringify(userState))
+  })
+  
+
+  
+
+  
 
   //create a private route where user has to be logged in to access
   const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -33,7 +50,9 @@ function App() {
           <Route exact path="/"
             render={() => <Login userInfo={userInfo} />}
           />
-          <Route exact path="/dash"component={Theme}/>
+          <Route exact path="/dash" 
+           render={() => <Theme userInfo={userInfo} />}
+           />
           {/* {DO NOT DELETE} */}
           {/* <PrivateRoute path="/dash" component={Theme} /> */}
         </UserContext.Provider>
