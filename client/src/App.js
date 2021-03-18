@@ -16,6 +16,7 @@ function App() {
     googleId: "",
     loggedin: false,
     events: [],
+    todos: [],
   });
 
   const userInfo = (user) => {
@@ -27,6 +28,7 @@ function App() {
       googleId: user.googleId,
       loggedin: true,
       events: user.events,
+      todos: user.todos,
     });
   };
 

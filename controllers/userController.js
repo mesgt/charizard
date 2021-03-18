@@ -11,7 +11,7 @@ module.exports = {
   // },
   findByEmail: function (req, res) {
     db.User.findOne({ email: req.params.email })
-      .populate("events")
+      .populate("events", "todos")
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.json(err));
   },

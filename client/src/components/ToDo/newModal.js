@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import UserContext from "../../utils/UserContext";
 import DatePicker from "react-datepicker";
 import Modal from "react-modal";
 import NewBtn from "../NewBtn";
@@ -8,6 +9,7 @@ import "./todo.css";
 import "react-datepicker/dist/react-datepicker.css";
 
 const NewToDo = ({ onRequestClose, loadToDos, complete }) => {
+    const user = useContext(UserContext);
     const [isOpen, setIsOpen] = useState(false)
     const [startDate, setStartDate] = useState(new Date());
     const [formObject, setFormObject] = useState({
@@ -34,7 +36,8 @@ const NewToDo = ({ onRequestClose, loadToDos, complete }) => {
             title: formObject.title,
             dueDate: formObject.dueDate,
             body: formObject.body,
-            complete: false
+            complete: false,
+            googleId: user.googleId
         }).then(res =>
             handleOpen(),
             loadToDos())
@@ -96,8 +99,8 @@ const NewToDo = ({ onRequestClose, loadToDos, complete }) => {
                                 value={formObject.body}
                                 placeholder="Task details"
                             />
-                            <CompleteStatus complete={complete}>Status:</CompleteStatus>
-                            <CompleteSelect />
+                            {/* <CompleteStatus complete={complete}>Status:</CompleteStatus>
+                            <CompleteSelect /> */}
                             <FormBtn
                                 // disabled={!(formObject.title)}
                                 onClick={handleNewSubmit}

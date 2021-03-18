@@ -17,7 +17,18 @@ module.exports = {
     create: function (req, res) {
         db.ToDo
             .create(req.body)
-            .then(dbModel => res.json(dbModel))
+            .then(dbModel => {
+                console.log('dbModel', dbModel)
+
+                db.User.findOne({ googleId: req.body.googleId })
+                    .then(user => {
+                        console.log('todo user', user)
+                        user.todos.push(dbModel)
+                        console.log('user.todos', user.todos)
+                        user.save()
+                    })
+                res.json(dbModel)
+            })
             .catch(err => console.log(err));
     },
     update: function (req, res) {
