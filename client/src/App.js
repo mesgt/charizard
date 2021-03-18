@@ -18,6 +18,17 @@ function App() {
     setUserState({ ...userState, firstName: user.givenName, email: user.email, googleId: user.googleId, loggedin: true })
   }
 
+  // localStorage.setItem("user", JSON.stringify(user))
+
+   // useEffect(()=> {
+    //     const data = localStorage.getItem("user");
+    //     if (data) {
+    //       setUserState(JSON.parse(data))
+    //     }
+    //   },[])
+
+  
+
   //create a private route where user has to be logged in to access
   const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={(props) =>

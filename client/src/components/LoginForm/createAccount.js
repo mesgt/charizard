@@ -3,7 +3,7 @@ import "./login.css";
 import { useHistory } from "react-router-dom"
 import API from "../../utils/API"
 import React, { useState, useEffect } from "react";
-// import UserContext from "../../utils/UserContext"
+import UserContext from "../../utils/UserContext"
 
 function CreateAccount(props) {
     const history = useHistory();
@@ -16,8 +16,11 @@ function CreateAccount(props) {
         .then(user => {
             console.log(user);
             props.userInfo(user)
+            
         })
     }
+
+   
 
     const createUser = async (response) => {
         let email = response.profileObj.email
