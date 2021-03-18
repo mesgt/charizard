@@ -55,8 +55,6 @@ const Container = styled.div`
 `;
 
 function Main(props, { action }) {
-
-
   // console.log(props);
   function changeTheme() {
     if (props.theme === "light") {
@@ -74,24 +72,24 @@ function Main(props, { action }) {
   return (
     <>
       <div class="grid-container fluid">
-  
         <Page
           className="grid-x grid-margin-y"
           style={{
             // overflowY: "auto",
             // paddingTop: "20vh",
             paddingBottom: "auto",
-            marginTop: "3%"
+            marginTop: "3%",
           }}
-        > 
-
+        >
           <Container
             className="grid-margin-y"
-            style={{
-              // overflowY: "auto",
-              // padding: "10vh 5vh 10vh 5vh",
-              // paddingTop: "75vh",
-            }}
+            style={
+              {
+                // overflowY: "auto",
+                // padding: "10vh 5vh 10vh 5vh",
+                // paddingTop: "75vh",
+              }
+            }
           >
             <div className="grid-x grid-margin-y">
               <div className="cell radius">
@@ -119,15 +117,16 @@ function Main(props, { action }) {
                 </div> */}
               </div>
               <div className="cell small-9">
-                <StyledCalendar />
+                <StyledCalendar userInfo={props.userInfo} />
               </div>
             </div>
-            <div className="grid-x grid-padding-x grid-margin-y radius"
-            // style={{
-            //   justifyContent: "space-evenly",
-            //   padding: "4vh",
-            //   border: "none",
-            // }}
+            <div
+              className="grid-x grid-padding-x grid-margin-y radius"
+              // style={{
+              //   justifyContent: "space-evenly",
+              //   padding: "4vh",
+              //   border: "none",
+              // }}
             >
               <div className="cell small-3">
                 <StyledWeather />
