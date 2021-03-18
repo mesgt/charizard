@@ -57,7 +57,7 @@ function CreateAccount(props) {
         <div className="logincontainer">
           <div className="log-in-form radius bordered shadow">
             <div className="log-in-text">
-              <span className="text-center loginHeading">Welcome to</span>
+              <span className="text-center loginHeading">Welcome to your</span>
               <br></br>
               <span className="text-center loginHeadingName">Everything</span>
               <div className="googleBtn">
