@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import UserContext from "../../utils/UserContext";
 import DatePicker from "react-datepicker";
 import Modal from "react-modal";
 import EditBtn from "../EditBtn";
@@ -7,6 +8,7 @@ import API from "../../utils/API";
 import "./todo.css";
 
 const EditToDo = ({ id, title, body, dueDate, complete, onRequestClose, loadToDos }) => {
+    const user = useContext(UserContext);
     const [isOpen, setIsOpen] = useState(false)
     const [formObject, setFormObject] = useState({
         id, title, body, dueDate, complete
@@ -27,7 +29,8 @@ const EditToDo = ({ id, title, body, dueDate, complete, onRequestClose, loadToDo
             title: formObject.title,
             dueDate: formObject.dueDate,
             body: formObject.body,
-            complete: formObject.complete
+            complete: formObject.complete,
+            googleId: user.googleId
         }).then(res =>
             handleOpen(),
             loadToDos())
@@ -89,10 +92,10 @@ const EditToDo = ({ id, title, body, dueDate, complete, onRequestClose, loadToDo
                                 value={formObject.body}
                                 placeholder="Details"
                             />
-                            <CompleteStatus complete={complete}>
+                            {/* <CompleteStatus complete={complete}>
                                 Status:
                             </CompleteStatus>
-                            <CompleteSelect />
+                            <CompleteSelect /> */}
                             <FormBtn
                                 // disabled={!(formObject.title)}
                                 onClick={handleEditSubmit}

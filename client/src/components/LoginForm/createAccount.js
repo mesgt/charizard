@@ -36,6 +36,7 @@ function CreateAccount(props) {
             lastName: response.profileObj.familyName,
             googleId: response.profileObj.googleId,
             events: [],
+            todos: [],
           })
             .then(() => {
               history.push("/");
