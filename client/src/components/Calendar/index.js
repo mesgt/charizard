@@ -70,7 +70,6 @@ function MyCalendar(props) {
   // POPULATES CALENDAR WHEN USER LOGS IN \\
   useEffect(() => {
     setEvents(user.events);
-    props.userInfo({ ...user, events: user.events });
   }, [user.events]);
 
   // DELETE EVENT FROM EVENTDELETE STATE \\
@@ -100,7 +99,6 @@ function MyCalendar(props) {
     if (event.title) {
       API.addEvent({ ...event, googleId: user.googleId });
       setEvents([...events, event]);
-      props.userInfo({ ...user, events: user.events });
     }
 
     setEvent({});

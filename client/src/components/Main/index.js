@@ -117,7 +117,7 @@ function Main(props, { action }) {
                 </div> */}
               </div>
               <div className="cell small-9">
-                <StyledCalendar userInfo={props.userInfo} />
+                <StyledCalendar />
               </div>
             </div>
             <div
