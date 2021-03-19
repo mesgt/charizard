@@ -16,7 +16,7 @@
 .loginHeading {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: normal;
-  font-size: 45px;
+  font-size: 40px;
   color: #F7567C;
   padding: 2%;
 }
@@ -57,7 +57,7 @@
 }
 
 .googleBtn {
-  margin-left: 38%;
+  margin-left: 31%;
   width: 60%;
   padding-top: 5%;
 }  
