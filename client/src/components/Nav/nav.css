@@ -40,6 +40,8 @@
 
 .dropdown {
   position: relative;
+  bottom: 80%;
+  right: 4%;
   display: inline-block;
   background-color: grey;
 }
