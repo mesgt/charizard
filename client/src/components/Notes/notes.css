@@ -1,17 +1,14 @@
 #NoteHeader {
-    font-size: large;
-    color:red;
-    
+  font-size: large;
+  color: red;
 }
 
 .NoteBox {
-    min-height: 200px;
-    border: 2px rgb(234, 234, 234) solid;
-    min-width: 800px;
-    display:flex;
-
+  min-height: 200px;
+  border: 2px rgb(234, 234, 234) solid;
+  min-width: 800px;
+  display: flex;
 }
-
 
 button {
   background: none;
