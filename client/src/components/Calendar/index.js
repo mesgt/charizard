@@ -56,7 +56,7 @@ const customStyles2 = {
 
 function MyCalendar(props) {
   const user = useContext(UserContext);
-  console.log(user);
+  // console.log(user);
 
   // STATE FOR ADD EVENT MODAL OPEN/CLOSE \\
   const [modalIsOpen1, setModalIsOpen1] = useState(false);
@@ -75,7 +75,8 @@ function MyCalendar(props) {
   console.log(user.events);
   // POPULATES CALENDAR WHEN USER LOGS IN \\
   useEffect(() => {
-    setEvents(user.events);
+    user.events && setEvents(user.events);
+    console.log("calendar effect", user);
   }, [user.events]);
 
   // DELETE EVENT FROM EVENTDELETE STATE \\
@@ -101,10 +102,13 @@ function MyCalendar(props) {
   };
 
   // ADD VALUE INPUT FROM FORM AND ADD NEW EVENT TO EVENTS \\
-  const saveEvent = () => {
+  const saveEvent = async () => {
     if (event.title) {
-      API.addEvent({ ...event, googleId: user.googleId });
-      setEvents([...events, event]);
+      let newEvent = await API.addEvent({ ...event, googleId: user.googleId });
+      console.log(newEvent);
+      setEvents([...events, newEvent.data]);
+      console.log(newEvent.data);
+      props.userInfo({ ...user, events: [...events, newEvent.data] });
     }
 
     setEvent({});

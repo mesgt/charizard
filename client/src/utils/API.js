@@ -60,6 +60,12 @@ export default {
   addNote: function (noteData) {
     return axios.post("/api/note", noteData);
   },
+  getOneNoteById: function(id){
+    return axios.get("/api/note/"+id);
+  },
+  updateOneNoteById: function(id,noteData){
+    return axios.put("/api/note/"+id, noteData)
+  },
   // =======================
   //USER ROUTES
 

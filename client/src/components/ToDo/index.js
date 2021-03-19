@@ -29,10 +29,11 @@ function ToDos({}) {
   const [newModalOpen, newToggleModal] = useState(false);
   //Load all To Do tasks and store them with setToDos
   useEffect(() => {
-    user.events && loadToDos(user.events);
+    user.todos && loadToDos(user.todos);
   }, []);
 
   //Load and display all To Do tasks
+  //gets ALL todos, needs to be passed user id and find all todos by user
   function loadToDos() {
     API.getToDos()
       .then((res) => setToDos(res.data))
