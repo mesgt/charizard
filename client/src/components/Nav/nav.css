@@ -5,7 +5,7 @@
   width:100%;
   min-height: 100px;
   background-repeat: no-repeat;
-  background-image: linear-gradient(to right,rgba(21, 255, 0, 0.555) 0%,rgba(0, 26, 255, 0.76) 100%),url("../Nav/header-img/background4.jpg");
+  background-image: linear-gradient(to right,rgba(21, 255, 0, 0.555) 0%,rgba(0, 26, 255, 0.76) 100%),url("../Nav/header-img/background2.jpg");
   background-size: cover;
 }
 

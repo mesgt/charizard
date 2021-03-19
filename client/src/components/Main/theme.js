@@ -123,7 +123,7 @@ const fontThemeArray = [
 
 function Theme(props) {
   const [theme, setTheme] = useState(themes["dark"])
-  const [fontTheme, setFontTheme] = useState(fontThemes["chalk"]);
+  const [fontTheme, setFontTheme] = useState(fontThemes["long"]);
   const [overallTheme, setOverallTheme] = useState({ ...theme, ...fontTheme });
 
   function test(newTheme) {
