@@ -68,7 +68,11 @@ function MyCalendar(props) {
   const [events, setEvents] = useState([]);
 
   // STATE FOR NEW EVENT \\
-  const [event, setEvent] = useState({});
+  const [event, setEvent] = useState({
+    start: "",
+    end: "",
+    title: "",
+  });
 
   // STATE FOR DELETE EVENT \\
   const [eventDelete, setEventDelete] = useState([]);
@@ -99,21 +103,44 @@ function MyCalendar(props) {
   const handleSelect = ({ start, end }) => {
     setEvent({ ...event, start, end });
     setModalIsOpen1(true);
+    console.log(event);
   };
 
   // ADD VALUE INPUT FROM FORM AND ADD NEW EVENT TO EVENTS \\
   const saveEvent = async () => {
     if (event.title) {
       let newEvent = await API.addEvent({ ...event, googleId: user.googleId });
-      console.log(newEvent);
-      setEvents([...events, newEvent.data]);
-      console.log(newEvent.data);
-      props.userInfo({ ...user, events: [...events, newEvent.data] });
+
+      setEvents([...events, event], () => {
+        console.log(events);
+      });
+      // console.log(events);
+      // setEvents([
+      //   ...events,
+      //   {
+      //     end: newEvent.data.end,
+      //     start: newEvent.data.start,
+      //     title: newEvent.data.title,
+      //   },
+      // ]);
+      // console.log(newEvent.data);
+      // props.userInfo({
+      //   ...user,
+      //   events: [
+      //     ...events,
+      //     {
+      //       end: newEvent.data.end,
+      //       start: newEvent.data.start,
+      //       title: newEvent.data.title,
+      //     },
+      //   ],
+      // });
     }
 
     setEvent({});
     setModalIsOpen1(false);
   };
+
   return (
     <>
       <div className="padding-3">
