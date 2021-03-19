@@ -82,7 +82,7 @@ function ToDos({ }) {
         <>
             <div data-closable="fade-out" className="todo">
                 <div className="divider">
-                    <h4>To Do List</h4>
+                    <h3 id="todo-heading">To Do List</h3>
                 </div>
                 <div className="card todoTasks">
                     {!!todos && todos.length ? (

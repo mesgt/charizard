@@ -35,14 +35,14 @@ const Page = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100%;
+  height: auto;
+  width: auto;
   background-color: ${(props) => props.theme.pageBackground};
   transition: all 0.5s ease;
 `;
 
 const Container = styled.div`
-  // display: flex;
+
   flex-direction: column;
   align-items: center;
   min-width: 600px;
@@ -72,7 +72,6 @@ function Main(props, { action }) {
   const user = useContext(UserContext);
   console.log(user);
   return (
-    <>
       <div class="grid-container fluid">
   
         <Page
@@ -81,7 +80,8 @@ function Main(props, { action }) {
             // overflowY: "auto",
             // paddingTop: "20vh",
             paddingBottom: "auto",
-            marginTop: "3%"
+            margin: 0,
+            // marginTop: "3%"
           }}
         > 
 
@@ -91,10 +91,11 @@ function Main(props, { action }) {
               // overflowY: "auto",
               // padding: "10vh 5vh 10vh 5vh",
               // paddingTop: "75vh",
+              margin: 0,
             }}
           >
             <div className="grid-x grid-margin-y">
-              <div className="cell radius">
+              <div className="cell radius small-12">
                 <Nav
                   theme={props.theme}
                   test={props.test}
@@ -150,7 +151,6 @@ function Main(props, { action }) {
           </Container>
         </Page>
       </div>
-    </>
   );
 }
 

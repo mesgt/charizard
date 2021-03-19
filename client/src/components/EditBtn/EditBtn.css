@@ -5,11 +5,11 @@
 
 .fa-pencil-alt {
     position:absolute; 
-    margin-left: 50px;
+    margin-left: 35px;
     display: block;
     border-radius: 50%;
     font-size: 20px;
-    color: green;
+    color: rgb(29, 83, 29);
     transition: .5s;
 }
 

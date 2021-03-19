@@ -7,7 +7,7 @@
 .NoteBox {
     min-height: 200px;
     border: 2px rgb(234, 234, 234) solid;
-    min-width: 800px;
+    min-width: 100%;
     display:flex;
 
 }

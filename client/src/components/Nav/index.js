@@ -132,7 +132,7 @@ function Nav(props) {
 
   return (
     <div className="grid-x">
-      <div className="header cell radius">
+      <div id="myHeaderDiv" className="header cell radius">
         <h1 className="Username">Hello {user.givenName}!</h1>
         <p className="Username date">{today.toDateString()}</p>
         <br />

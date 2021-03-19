@@ -22,6 +22,10 @@ form {
   }
 
   .todoTasks {
+    background: inherit;
+    color: inherit;
+    /* background-color: 500%; */
+    /* background-blend-mode:color-dodge; */
     border-radius: 0;
     max-width: 300px;
     border: 1px rgba(0, 0, 0, 0.246) solid;
@@ -36,6 +40,10 @@ form {
   .top {
     border-bottom: 2px solid #cacaca;
 
+  }
+
+  #todo-heading {
+    margin-left: 30px;
   }
   
   .divider {
