@@ -136,8 +136,8 @@ function Nav(props) {
         <h1 className="Username">Hello {user.givenName}!</h1>
         <p className="Username">{today.toDateString()}</p>
         <br />
-        <p>"{quote.quote}"</p>
-        <p>- {quote.author}</p>
+        <p class="happyQuote">"{quote.quote}"</p>
+        <p class="happyQuote">- {quote.author}</p>
         <GoogleLogout
           clientId="49214406530-t4ofc8gge6vgfdchf8k6v3e28b883er9.apps.googleusercontent.com"
           buttonText="Logout"
