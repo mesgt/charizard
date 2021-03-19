@@ -1,7 +1,6 @@
 #NoteHeader {
-    font-size: large;
-    color:red;
-    
+  font-size: large;
+  color: red;
 }
 
 .NoteBox {
@@ -11,7 +10,6 @@
     display:flex;
 
 }
-
 
 button {
   background: none;

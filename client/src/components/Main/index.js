@@ -55,8 +55,6 @@ const Container = styled.div`
 `;
 
 function Main(props, { action }) {
-
-
   // console.log(props);
   function changeTheme() {
     if (props.theme === "light") {
@@ -73,7 +71,6 @@ function Main(props, { action }) {
   console.log(user);
   return (
       <div class="grid-container fluid">
-  
         <Page
           className="grid-x grid-margin-y"
           style={{
@@ -83,8 +80,7 @@ function Main(props, { action }) {
             margin: 0,
             // marginTop: "3%"
           }}
-        > 
-
+        >
           <Container
             className="grid-margin-y"
             style={{
@@ -123,12 +119,13 @@ function Main(props, { action }) {
                 <StyledCalendar userInfo={props.userInfo}/>
               </div>
             </div>
-            <div className="grid-x grid-padding-x grid-margin-y radius"
-            // style={{
-            //   justifyContent: "space-evenly",
-            //   padding: "4vh",
-            //   border: "none",
-            // }}
+            <div
+              className="grid-x grid-padding-x grid-margin-y radius"
+              // style={{
+              //   justifyContent: "space-evenly",
+              //   padding: "4vh",
+              //   border: "none",
+              // }}
             >
               <div className="cell small-3">
                 <StyledWeather />
