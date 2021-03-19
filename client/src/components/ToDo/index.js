@@ -5,16 +5,16 @@ import UserContext from "../../utils/UserContext";
 import NewToDo from "./newModal";
 import EditToDo from "./editModal";
 import ViewToDo from "./viewModal";
-import ViewBtn from "../ViewBtn";
+// import ViewBtn from "../ViewBtn";
 import { List, ListItem } from "./ToDoList";
 import DeleteBtn from "../DeleteBtn";
-import CheckBtn from "../CheckMark";
+// import CheckBtn from "../CheckMark";
 import API from "../../utils/API";
 import "./todo.css";
-import CompletedBtn from "../CompletedBtn";
+// import CompletedBtn from "../CompletedBtn";
 Modal.setAppElement("#root");
 
-function ToDos({}) {
+function ToDos({ }) {
   const user = useContext(UserContext);
   const [todos, setToDos] = useState([]);
   const [formObject, setFormObject] = useState({
@@ -67,38 +67,38 @@ function ToDos({}) {
     }
   };
 
-    // const customStyles = {
-    //     divider: {
-    //         textAlign: "center"
-    //     },
-    //     li: {
-    //     textAlign: "left",
-    //     border: "2px black"
-    //     }
-    // };
-
-    return (
-        <>
-            <div data-closable="fade-out" className="todo">
-                <div className="divider">
-                    <h3 id="todo-heading">To Do List</h3>
-                </div>
-                <div className="card todoTasks">
-                    {!!todos && todos.length ? (
-                        <List>
-                            {todos.map((todo) => (
-                                <ListItem key={todo._id}>
-                                    {/* Modal to display when click on view */}
-                                    <ViewToDo
-                                        action="viewBtn"
-                                        setModalIsOpen={checkModal}
-                                        viewModalOpen={viewModalOpen}
-                                        title={todo.title}
-                                        body={todo.body}
-                                        dueDate={todo.dueDate}
-                                        complete={todo.complete}
-                                    ></ViewToDo>
-                                    {/* <CheckBtn
+  // const customStyles = {
+  //     divider: {
+  //         textAlign: "center"
+  //     },
+  //     li: {
+  //     textAlign: "left",
+  //     border: "2px black"
+  //     }
+  // };
+  console.log(todos)
+  return (
+    <>
+      <div data-closable="fade-out" className="todo">
+        <div className="divider">
+          <h3 id="todo-heading">To Do List</h3>
+        </div>
+        <div className="card todoTasks">
+          {!!todos && todos.length ? (
+            <List>
+              {todos.map((todo) => (
+                <ListItem key={todo._id}>
+                  {/* Modal to display when click on view */}
+                  <ViewToDo
+                    action="viewBtn"
+                    setModalIsOpen={checkModal}
+                    viewModalOpen={viewModalOpen}
+                    title={todo.title}
+                    body={todo.body}
+                    dueDate={todo.dueDate}
+                    complete={todo.complete}
+                  ></ViewToDo>
+                  {/* <CheckBtn
                                         action="check"
                                         onClick={
                                             (e) => console.log(e)
@@ -117,9 +117,13 @@ function ToDos({}) {
                     dueDate={todo.dueDate}
                     complete={todo.complete}
                     loadToDos={loadToDos}
-                    // disabled={!(formObject.title)}
+                  // disabled={!(formObject.title)}
                   ></EditToDo>
                   <br />
+                  <span>
+                    {todo.title}
+                    {/* due {todo.dueDate.slice(0, -14)} Date format will be different in mongoDB Atlas. This works for local server. */}
+                  </span>
                   <DeleteBtn onClick={() => deleteToDo(todo._id)} />
                 </ListItem>
               ))}
@@ -136,7 +140,7 @@ function ToDos({}) {
           setModalIsOpen={checkModal}
           newModalOpen={newModalOpen}
           loadToDos={loadToDos}
-          // disabled={!(formObject.title)}
+        // disabled={!(formObject.title)}
         ></NewToDo>
         {/* <CompletedBtn /> */}
         {/* <DoneToDo> */}
