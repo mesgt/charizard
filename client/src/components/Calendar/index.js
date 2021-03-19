@@ -68,11 +68,7 @@ function MyCalendar(props) {
   const [events, setEvents] = useState([]);
 
   // STATE FOR NEW EVENT \\
-  const [event, setEvent] = useState({
-    start: "",
-    end: "",
-    title: "",
-  });
+  const [event, setEvent] = useState({});
 
   // STATE FOR DELETE EVENT \\
   const [eventDelete, setEventDelete] = useState([]);
