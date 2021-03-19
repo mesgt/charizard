@@ -5,16 +5,16 @@ import UserContext from "../../utils/UserContext";
 import NewToDo from "./newModal";
 import EditToDo from "./editModal";
 import ViewToDo from "./viewModal";
-import ViewBtn from "../ViewBtn";
+// import ViewBtn from "../ViewBtn";
 import { List, ListItem } from "./ToDoList";
 import DeleteBtn from "../DeleteBtn";
-import CheckBtn from "../CheckMark";
+// import CheckBtn from "../CheckMark";
 import API from "../../utils/API";
 import "./todo.css";
-import CompletedBtn from "../CompletedBtn";
+// import CompletedBtn from "../CompletedBtn";
 Modal.setAppElement("#root");
 
-function ToDos({}) {
+function ToDos({ }) {
   const user = useContext(UserContext);
   const [todos, setToDos] = useState([]);
   const [formObject, setFormObject] = useState({
@@ -32,7 +32,7 @@ function ToDos({}) {
     user.todos && loadToDos(user.todos);
   }, []);
 
-  //Load and display all To Do tasks
+
   //gets ALL todos, needs to be passed user id and find all todos by user
   function loadToDos() {
     API.getToDos()
@@ -67,13 +67,23 @@ function ToDos({}) {
     }
   };
 
+  // const customStyles = {
+  //     divider: {
+  //         textAlign: "center"
+  //     },
+  //     li: {
+  //     textAlign: "left",
+  //     border: "2px black"
+  //     }
+  // };
+  console.log(todos)
   return (
     <>
       <div data-closable="fade-out" className="todo">
         <div className="divider">
-          <h4>To Do List</h4>
+          <h3 id="todo-heading">To Do List</h3>
         </div>
-        <div className="section">
+        <div className="card todoTasks">
           {!!todos && todos.length ? (
             <List>
               {todos.map((todo) => (
@@ -88,10 +98,6 @@ function ToDos({}) {
                     dueDate={todo.dueDate}
                     complete={todo.complete}
                   ></ViewToDo>
-                  <span>
-                    {todo.title}
-                    {/* due {todo.dueDate.slice(0, -14)} Date format will be different in mongoDB Atlas. This works for local server. */}
-                  </span>
                   {/* <CheckBtn
                                         action="check"
                                         onClick={
@@ -111,9 +117,13 @@ function ToDos({}) {
                     dueDate={todo.dueDate}
                     complete={todo.complete}
                     loadToDos={loadToDos}
-                    // disabled={!(formObject.title)}
+                  // disabled={!(formObject.title)}
                   ></EditToDo>
                   <br />
+                  <span>
+                    {todo.title}
+                    {/* due {todo.dueDate.slice(0, -14)} Date format will be different in mongoDB Atlas. This works for local server. */}
+                  </span>
                   <DeleteBtn onClick={() => deleteToDo(todo._id)} />
                 </ListItem>
               ))}
@@ -130,7 +140,7 @@ function ToDos({}) {
           setModalIsOpen={checkModal}
           newModalOpen={newModalOpen}
           loadToDos={loadToDos}
-          // disabled={!(formObject.title)}
+        // disabled={!(formObject.title)}
         ></NewToDo>
         {/* <CompletedBtn /> */}
         {/* <DoneToDo> */}

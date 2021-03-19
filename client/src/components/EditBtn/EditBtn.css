@@ -1,5 +1,20 @@
 .fas {
     float: right;
-    color: green;
     cursor: pointer;
+}
+
+.fa-pencil-alt {
+    position:absolute; 
+    margin-left: 35px;
+    display: block;
+    border-radius: 50%;
+    font-size: 20px;
+    color: rgb(29, 83, 29);
+    transition: .5s;
+}
+
+.fa-pencil-alt:hover {
+    color: #ff10eb;
+    box-shadow: 0 0 15px #ffee10;
+    text-shadow: 0 0 15px #ffee10;
 }

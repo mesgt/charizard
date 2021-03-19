@@ -55,6 +55,8 @@ const NewToDo = ({ onRequestClose, loadToDos, complete }) => {
             marginRight: "-50%",
             zIndex: 1001,
             transform: "translate(-50%, -50%)",
+            // width: "40rem",
+            minHeight: "380px",
             maxHeight: "100vh",
             overflowY: "auto",
             backgroundImage: `url("https://cdn.pixabay.com/photo/2017/10/15/08/56/neutral-2852878_960_720.jpg")`,
@@ -72,8 +74,8 @@ const NewToDo = ({ onRequestClose, loadToDos, complete }) => {
                 onClick={() => handleOpen()}
             />
             <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={customStyles} closeTimeoutMS={500}>
-                <div className="flex-container">
-                    <div className="grid-x grid-margin-x small-up-5 ">
+                <div className="card-section flex-container grid-x">
+                    <div className="grid-x grid-margin-x small-up-7 ">
                         <form>
                             <Input
                                 onChange={(e) => setFormObject({ ...formObject, title: e.target.value })}
@@ -83,6 +85,7 @@ const NewToDo = ({ onRequestClose, loadToDos, complete }) => {
                                 placeholder="Title (required)"
                             />
                             <DatePicker
+                                id="formInput"
                                 selected={startDate}
                                 label="Due date:"
                                 dueDate=""
@@ -91,7 +94,7 @@ const NewToDo = ({ onRequestClose, loadToDos, complete }) => {
                                 dateFormat="MMMM eeee d, yyyy"
                                 isClearable
                                 placeholderText="No due date for this one!"
-                            />
+                            ></DatePicker>
                             <TextArea
                                 onChange={(e) => setFormObject({ ...formObject, body: e.target.value })}
                                 body=""

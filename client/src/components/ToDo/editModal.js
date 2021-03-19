@@ -75,6 +75,7 @@ const EditToDo = ({ id, title, body, dueDate, complete, onRequestClose, loadToDo
                                 placeholder="Title (required)"
                             />
                             <DatePicker
+                                id="formInput"
                                 selected={startDate}
                                 label="Due date:"
                                 dueDate=""

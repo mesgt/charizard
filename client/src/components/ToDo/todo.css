@@ -5,26 +5,53 @@
 }
 
 form {
-  width: 500px;
+  width: 300%;
   border: 1px black solid;
-  padding: 10px;
+  padding: 30px;
+  object-position: center;
+}
+
+#formInput {
+  width: 30rem;
 }
 
 .todo {
     border-radius: 0;
     max-width: 300px;
-    border: 2px black solid;
-    height: 55vh;
+    border: 1px rgba(0, 0, 0, 0.246) solid;
+    /* height: 50vh; */
     /* width: 55vh; */
-    max-height: 80vh;
+    max-height: 62vh;
+    margin: 0px 0px, 16px;
+    text-align: left;
+  }
+
+  .todoTasks {
+    background: inherit;
+    color: inherit;
+    /* background-color: 500%; */
+    /* background-blend-mode:color-dodge; */
+    border-radius: 0;
+    max-width: 300px;
+    border: 1px rgba(0, 0, 0, 0.246) solid;
+    /* height: 50vh; */
+    /* width: 55vh; */
+    max-height: 50vh;
     overflow-y: scroll;
     scrollbar-color: black, white;
-
+    margin: 0px 0px, 16px;
   }
 
   .top {
     border-bottom: 2px solid #cacaca;
+  }
 
+  .card-section {
+    object-position: center;
+  }
+
+  #todo-heading {
+    margin-left: 30px;
   }
   
   .divider {
@@ -32,15 +59,16 @@ form {
     background: inherit;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: flex;
+    display:-ms-grid;
     -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    padding-top: 10px;
   }
   
-  .divider {
+  /* .divider {
     margin-bottom: 0;
-  }
+  } */
   
   .todo-list-card .card-divider .close-button {
     position: inherit;
@@ -56,11 +84,11 @@ form {
     padding: 10px;
   }
   
-  .divider ul input[type="checkbox"] {
+  /* .divider ul input[type="checkbox"] {
     position: absolute;
     visibility: hidden;
     left: -99999px;
-  }
+  } */
   
   .todo-list-card ul input[type="checkbox"] ~ label {
     position: relative;

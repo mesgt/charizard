@@ -1,8 +1,12 @@
-.header {
+#myHeaderDiv {
   border: 2px black solid;
-  min-width: 100vh;
+  color: black;
+  font-weight:900;
+  width:100%;
   min-height: 100px;
-  /* margin-top: 25vh; */
+  background-repeat: no-repeat;
+  background-image: linear-gradient(to right,rgba(21, 255, 0, 0.555) 0%,rgba(0, 26, 255, 0.76) 100%),url("../Nav/header-img/background2.jpg");
+  background-size: cover;
 }
 
 .colorBTN {
@@ -17,33 +21,48 @@
 
 .Username {
   position: relative;
-  left: 40%;
+  /* left: 40%; */
   top: 10%;
   bottom: 10%;
-  right: 10%;
+  /* right: 10%; */
+  color: rgb(62, 64, 77);
+  /* font: 900 35vmin/50vh cookie, cursive; */
+  text-align: center;
+  mix-blend-mode: difference;
+  filter:hue-rotate(500)
 }
 
 .date {
   position: relative;
-  left: 46%;
+  /* left: 46%; */
   top: 10%;
   bottom: 10%;
-  right: 10%;
+  font-size: 1.5rem;
+  /* right: 10%; */
 }
 
 .LogoutBTN {
-  position: relative;
-  left: 93%;
+  float: right;
+  position: relative; 
+  object-position: top;
+  
+  /* display:flex;  */
+  /* justify-content:flex-start;  */
+  /* width:100%;  */
+  /* padding:0; */
+  /* left: 93%;
   bottom: 80%;
-  right: 5%;
+  right: 5%; */
+  /* margin-left: auto;  */
+  /* display: block; */
 }
 
 .dropdown {
   position: relative;
-  bottom: 80%;
-  right: 4%;
+  /* bottom: 80%;
+  right: 4%; */
   display: inline-block;
-  background-color: grey;
+  background-color: #1779ba;
 }
 
 .dropdown-content {
@@ -61,9 +80,11 @@
 }
 
 .happyQuote {
-  font-size: 15px;
+  font-size: 1.5rem;
   text-align: center;
   padding-top: 1rem;
   padding-left: 5rem;
   padding-right: 5rem;
+  color: rgb(241, 241, 205);
+
 }

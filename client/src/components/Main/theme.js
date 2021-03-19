@@ -1,7 +1,7 @@
 import Main from "./index";
 import React from "react";
-import {useState} from "react";
-import {ThemeProvider} from "styled-components";
+import { useState } from "react";
+import { ThemeProvider } from "styled-components";
 
 const LightTheme = {
   name: "light",
@@ -74,12 +74,12 @@ const JazzTheme = {
 
 const ImpactTheme = {
   name: "impact",
-  fontFamily: "Impact, fantasy"	
+  fontFamily: "Impact, fantasy"
 };
 
 const LongFormTheme = {
   name: "long",
-  fontFamily: "Nothing You Could Do, cursive"	
+  fontFamily: "Nothing You Could Do, cursive"
 };
 
 const themes = {
@@ -122,33 +122,33 @@ const fontThemeArray = [
 
 
 function Theme(props) {
-    const [theme, setTheme] = useState(themes["dark"])
-    const [fontTheme, setFontTheme] = useState(fontThemes["chalk"]);
-    const [overallTheme, setOverallTheme] = useState({...theme, ...fontTheme});
+  const [theme, setTheme] = useState(themes["dark"])
+  const [fontTheme, setFontTheme] = useState(fontThemes["long"]);
+  const [overallTheme, setOverallTheme] = useState({ ...theme, ...fontTheme });
 
-function test(newTheme){
+  function test(newTheme) {
     console.log(theme);
     setTheme(themes[newTheme])
-    setOverallTheme({...themes[newTheme], ...fontTheme});
-}
-function test1(newFontTheme){
-  console.log(theme);
-  setFontTheme(fontThemes[newFontTheme])
-  setOverallTheme({...theme, ...fontThemes[newFontTheme]});
-}
+    setOverallTheme({ ...themes[newTheme], ...fontTheme });
+  }
+  function test1(newFontTheme) {
+    console.log(theme);
+    setFontTheme(fontThemes[newFontTheme])
+    setOverallTheme({ ...theme, ...fontThemes[newFontTheme] });
+  }
 
-      return (
-        <ThemeProvider theme={overallTheme}>
-          <Main 
-          theme={theme.name} 
-          fontTheme={fontTheme.name}
-          test={test} 
-          test1={test1}
-          colorThemeArray={colorThemeArray} 
-          fontThemeArray={fontThemeArray}
-          userInfo={props.userInfo}/>
-         </ThemeProvider>
-      )
+  return (
+    <ThemeProvider theme={overallTheme}>
+      <Main
+        theme={theme.name}
+        fontTheme={fontTheme.name}
+        test={test}
+        test1={test1}
+        colorThemeArray={colorThemeArray}
+        fontThemeArray={fontThemeArray}
+        userInfo={props.userInfo} />
+    </ThemeProvider>
+  )
 }
 
 export default Theme;

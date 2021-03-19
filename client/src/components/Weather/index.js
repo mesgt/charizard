@@ -45,6 +45,7 @@ function Weather() {
         style={{
           border: "1px solid white",
           fontWeight: "bold",
+          backgroundColor: "#1779ba"
         }}
         onClick={() => setModalIsOpen(true)}
         class="button secondary"
