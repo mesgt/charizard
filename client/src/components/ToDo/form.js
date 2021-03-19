@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import "./todo.css";
 
 export function Input(props) {
     return (
         <div className="form-group">
             <label>
                 {props.label}
-                <input value={props.value} onChange={props.onChange} className="form-control" {...props} />
+                <input value={props.value} onChange={props.onChange} id="formInput" className="form-control" {...props} />
             </label>
 
         </div>
@@ -17,7 +18,8 @@ export function TextArea(props) {
         <div className="form-group">
             <label>
                 {props.label}
-                <textarea value={props.value} onChange={props.onChange} className="form-control" rows="5" {...props} />
+                <line/>
+                <textarea value={props.value} onChange={props.onChange} id="formInput" className="form-control" rows="5" {...props} />
             </label>
         </div>
     );
