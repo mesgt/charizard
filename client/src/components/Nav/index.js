@@ -138,14 +138,16 @@ function Nav(props) {
         <br />
         <p class="happyQuote">"{quote.quote}"</p>
         <p class="happyQuote author">- {quote.author}</p>
-        <GoogleLogout
+        <div className=" align-right">
+          <GoogleLogout
           clientId="49214406530-t4ofc8gge6vgfdchf8k6v3e28b883er9.apps.googleusercontent.com"
           buttonText="Logout"
           onLogoutSuccess={redirect}
           onFailure={failedLogout}
-          className="LogoutBTN"
+          className="LogoutBTN align-self-top small-4"
         ></GoogleLogout>
-        <div className="dropdown">
+        
+        <div className="dropdown button">
           <span> Choose Your Theme</span>
           <div className="dropdown-content">
             <Toggle onClick={changeTheme}>
@@ -159,7 +161,7 @@ function Nav(props) {
             </FontToggle>
           </div>
         </div>
-
+</div>
       </div>
     </div>
   )

@@ -4,6 +4,7 @@
     border-radius: .5rem;
     height: 200%;
     width: 100%;
+    background-color: rgb(231, 228, 222);
   }
 
 .log-in-text {
@@ -17,7 +18,7 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: normal;
   font-size: 40px;
-  color: #F7567C;
+  color: #2269a3;
   padding: 2%;
 }
 
@@ -26,7 +27,7 @@
   font-weight: bolder;
   font-style: italic;
   font-size: 70px;
-  color: #F7567C;
+  color: #2269a3;
   animation: fadeIn ease 5s;
   -webkit-animation: fadeIn ease 5s;
 }
