@@ -29,7 +29,7 @@ function ToDos({ }) {
     const [newModalOpen, newToggleModal] = useState(false);
     //Load all To Do tasks and store them with setToDos
     useEffect(() => {
-        user.events && loadToDos(user.events);
+        loadToDos();
     }, []);
 
     //Load and display all To Do tasks
@@ -72,7 +72,7 @@ function ToDos({ }) {
                 <div className="divider">
                     <h4>To Do List</h4>
                 </div>
-                <div className="section">
+                <div className="card">
                     {!!todos && todos.length ? (
                         <List>
                             {todos.map((todo) => (
