@@ -122,8 +122,8 @@ const fontThemeArray = [
 
 
 function Theme(props) {
-    const [theme, setTheme] = useState(themes["light"])
-    const [fontTheme, setFontTheme] = useState(fontThemes["impact"]);
+    const [theme, setTheme] = useState(themes["dark"])
+    const [fontTheme, setFontTheme] = useState(fontThemes["chalk"]);
     const [overallTheme, setOverallTheme] = useState({...theme, ...fontTheme});
 
 function test(newTheme){

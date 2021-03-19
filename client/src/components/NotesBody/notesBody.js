@@ -31,17 +31,16 @@ const NotesBody = ({ onUpdateNote, activeNoteData }) => {
       <div className="app-main-note-edit">
         <input
           type="text"
-          id={activeNoteData._id} //was _id but react didn't like it
+          id={activeNoteData.id} //was _id but react didn't like it
           placeholder="Note Title"
           value={title || activeNoteData.title}
           onChange={(e) => onEditField("title", e.target)}
           autoFocus
         />
         <textarea
-          id="body"
           placeholder="Write your note here..."
-          value={activeNoteData.body}
-          onChange={(e) => onEditField("body", e.target.value)}
+          value={body || activeNoteData.body}
+          onChange={(e) => onEditField("body", e.target)}
         />
       </div>
     </div>
