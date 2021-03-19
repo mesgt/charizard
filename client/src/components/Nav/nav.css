@@ -17,17 +17,29 @@
 
 .Username {
   position: relative;
-  left: 400px;
-  top: 30px;
+  left: 40%;
+  top: 10%;
+  bottom: 10%;
+  right: 10%;
 }
 
-/* .LogoutBTN {
+.date {
   position: relative;
-  top: 300px;
-} */
+  left: 46%;
+  top: 10%;
+  bottom: 10%;
+  right: 10%;
+}
+
+.LogoutBTN {
+  position: relative;
+  left: 93%;
+  bottom: 80%;
+  right: 5%;
+}
 
 .dropdown {
-  /* position: relative; */
+  position: relative;
   display: inline-block;
   background-color: grey;
 }
@@ -48,4 +60,8 @@
 
 .happyQuote {
   font-size: 15px;
+  text-align: center;
+  padding-top: 1rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
 }

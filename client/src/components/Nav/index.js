@@ -134,10 +134,10 @@ function Nav(props) {
     <div className="grid-x">
       <div className="header cell radius">
         <h1 className="Username">Hello {user.givenName}!</h1>
-        <p className="Username">{today.toDateString()}</p>
+        <p className="Username date">{today.toDateString()}</p>
         <br />
         <p class="happyQuote">"{quote.quote}"</p>
-        <p class="happyQuote">- {quote.author}</p>
+        <p class="happyQuote author">- {quote.author}</p>
         <GoogleLogout
           clientId="49214406530-t4ofc8gge6vgfdchf8k6v3e28b883er9.apps.googleusercontent.com"
           buttonText="Logout"
