@@ -14,7 +14,8 @@ form {
     border-radius: 0;
     max-width: 300px;
     border: 2px black solid;
-    height: 30vh;
+    height: 55vh;
+    /* width: 55vh; */
     max-height: 80vh;
     overflow-y: scroll;
     scrollbar-color: black, white;
