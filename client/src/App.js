@@ -22,7 +22,6 @@ function App() {
   const userInfo = (user) => {
     console.log(user);
     setUserState({
-      ...userState,
       givenName: user.givenName,
       email: user.email,
       googleId: user.googleId,
