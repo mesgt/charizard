@@ -32,7 +32,7 @@ function ToDos({ }) {
     user.todos && loadToDos(user.todos);
   }, []);
 
-  //Load and display all To Do tasks
+
   //gets ALL todos, needs to be passed user id and find all todos by user
   function loadToDos() {
     API.getToDos()
