@@ -27,7 +27,7 @@ form {
   }
 
   .todoTasks {
-    background: inherit;
+    background-color: inherit;
     color: inherit;
     /* background-color: 500%; */
     /* background-blend-mode:color-dodge; */
