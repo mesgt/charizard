@@ -43,7 +43,8 @@ function ToDos({ }) {
     //Delete To Do task using _id and reload list
     function deleteToDo(id) {
         API.deleteToDo(id)
-            .then((res) => loadToDos())
+            .then((res) => loadToDos(),
+            console.log("Are you sure you want to delete this task?"))
             .catch((error) => console.log(error));
     }
 
@@ -67,13 +68,23 @@ function ToDos({ }) {
         }
     };
 
+    // const customStyles = {
+    //     divider: {
+    //         textAlign: "center"
+    //     },
+    //     li: {
+    //     textAlign: "left",
+    //     border: "2px black"
+    //     }
+    // };
+
     return (
         <>
             <div data-closable="fade-out" className="todo">
                 <div className="divider">
                     <h4>To Do List</h4>
                 </div>
-                <div className="card">
+                <div className="card todoTasks">
                     {!!todos && todos.length ? (
                         <List>
                             {todos.map((todo) => (
@@ -88,10 +99,6 @@ function ToDos({ }) {
                                         dueDate={todo.dueDate}
                                         complete={todo.complete}
                                     ></ViewToDo>
-                                    <span>
-                                        {todo.title}
-                                        {/* due {todo.dueDate.slice(0, -14)} Date format will be different in mongoDB Atlas. This works for local server. */}
-                                    </span>
                                     {/* <CheckBtn
                                         action="check"
                                         onClick={
@@ -111,8 +118,12 @@ function ToDos({ }) {
                                         dueDate={todo.dueDate}
                                         complete={todo.complete}
                                         loadToDos={loadToDos}
-                                    // disabled={!(formObject.title)}
-                                    ></EditToDo>
+                                        // disabled={!(formObject.title)}
+                                        ></EditToDo>
+                                        <span>
+                                            {todo.title}
+                                            {/* due {todo.dueDate.slice(0, -14)} Date format will be different in mongoDB Atlas. This works for local server. */}
+                                        </span>
                                     <br />
                                     <DeleteBtn onClick={() => deleteToDo(todo._id)} />
                                 </ListItem>

@@ -1,5 +1,20 @@
 .far {
     float: right;
-    color: rgb(66, 0, 128);
     cursor: pointer;
+}
+
+.fa-eye {
+    position: relative; 
+    display: block;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 20px;
+    color: rgb(54, 54, 56);
+    transition: .5s;
+}
+
+.fa-eye:hover {
+    color: #10a7ff;
+    box-shadow: 0 0 15px #ffee10;
+    text-shadow: 0 0 15px #ffee10;
 }

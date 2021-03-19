@@ -13,10 +13,21 @@ form {
 .todo {
     border-radius: 0;
     max-width: 300px;
-    border: 2px black solid;
-    height: 55vh;
+    border: 1px rgba(0, 0, 0, 0.246) solid;
+    /* height: 50vh; */
     /* width: 55vh; */
-    max-height: 80vh;
+    max-height: 62vh;
+    margin: 0px 0px, 16px;
+    text-align: left;
+  }
+
+  .todoTasks {
+    border-radius: 0;
+    max-width: 300px;
+    border: 1px rgba(0, 0, 0, 0.246) solid;
+    /* height: 50vh; */
+    /* width: 55vh; */
+    max-height: 50vh;
     overflow-y: scroll;
     scrollbar-color: black, white;
     margin: 0px 0px, 16px;
@@ -32,15 +43,16 @@ form {
     background: inherit;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: flex;
+    display:-ms-grid;
     -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    padding-top: 10px;
   }
   
-  .divider {
+  /* .divider {
     margin-bottom: 0;
-  }
+  } */
   
   .todo-list-card .card-divider .close-button {
     position: inherit;
@@ -56,11 +68,11 @@ form {
     padding: 10px;
   }
   
-  .divider ul input[type="checkbox"] {
+  /* .divider ul input[type="checkbox"] {
     position: absolute;
     visibility: hidden;
     left: -99999px;
-  }
+  } */
   
   .todo-list-card ul input[type="checkbox"] ~ label {
     position: relative;

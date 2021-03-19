@@ -3,3 +3,20 @@
     color: #e74944;
     cursor: pointer;
 }
+
+.delete-btn {
+    position:relative; 
+    margin-right: 10px;
+    display: block;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #e74944;;
+    transition: .5s;
+}
+
+.delete-btn:hover {
+    font-weight: 900;
+    font-size: 25px;
+    box-shadow: 0 0 15px #ffee10;
+    text-shadow: 0 0 15px #ffee10;
+}

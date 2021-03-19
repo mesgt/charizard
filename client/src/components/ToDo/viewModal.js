@@ -58,9 +58,9 @@ const ViewToDo = ({ onRequestClose, title, body, dueDate, complete }) => {
                         <div className="cell">
                             <div className="card todoView" style={{ minHeight: "380px"}}>
                                 <div className="card-section flex-container grid-x">
-                                        <h5 className="text-capitalize cell">Title: {title}</h5>
-                                        <p className="text-capitalize cell">Details: {body}</p>
-                                        <p className="text-capitalize cell">Due: {dueDate}</p>
+                                        <h5 className="text-capitalize cell">Title:  {title}</h5>
+                                        <p className="text-capitalize cell">Details:  {body}</p>
+                                        <p className="text-capitalize cell">Due:  {dueDate}</p>
                                         {/* <p className="text-capitalize cell">Status: {completeStatus()}</p> */}
                                 </div>
                             </div>
