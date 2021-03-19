@@ -21,7 +21,10 @@ const customStyles1 = {
     transform: "translate(-50%, -50%)",
     maxHeight: "100vh",
     overflowY: "auto",
-    background: "#fff",
+    // background: "#fff",
+    backgroundImage: `url("https://images.pexels.com/photos/707676/pexels-photo-707676.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")`,
+    backgroundSize: "cover",
+    border: "solid black 1px",
   },
   overlay: {
     zIndex: 1000,
@@ -40,7 +43,10 @@ const customStyles2 = {
     transform: "translate(-50%, -50%)",
     maxHeight: "100vh",
     overflowY: "auto",
-    background: "rgba(243, 32, 19,.8)",
+    // background: "rgba(243, 32, 19,.8)",
+    backgroundImage: `url("https://images.pexels.com/photos/1128843/pexels-photo-1128843.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")`,
+    backgroundSize: "cover",
+    border: "solid black 1px",
   },
   overlay: {
     zIndex: 1000,
@@ -138,7 +144,11 @@ function MyCalendar(props) {
             >
               <div
                 className="card"
-                style={{ minHeight: "200px", width: "100%" }}
+                style={{
+                  minHeight: "200px",
+                  width: "100%",
+                  border: "solid black 1px",
+                }}
               >
                 <div className="card-section medium-8 cell">
                   <h4>Title Of Appointment</h4>
@@ -184,26 +194,36 @@ function MyCalendar(props) {
             >
               <div
                 className="card"
-                style={{ minHeight: "auto", width: "100%" }}
+                style={{
+                  minHeight: "auto",
+                  width: "100%",
+                  border: "solid black 1px",
+                }}
               >
                 <div className="card-section medium-8 cell">
-                  <h4>Confirm Delete</h4>
-                  <i
-                    onClick={() => deleteEvent()}
-                    className="fa fa-check-square"
-                    style={{
-                      fontSize: "5vh",
-                      color: "green",
-                    }}
-                  ></i>
-                  <i
-                    onClick={() => setModalIsOpen2(false)}
-                    className="fa fa-window-close "
-                    style={{
-                      fontSize: "5vh",
-                      color: "red",
-                    }}
-                  ></i>
+                  <h4 style={{ fontWeight: "bold" }}>CONFIRM DELETE!</h4>
+                  <span style={{ justifyContent: "space-between" }}>
+                    <i
+                      onClick={() => deleteEvent()}
+                      className="fa fa-check-square"
+                      style={{
+                        fontSize: "5vh",
+                        color: "green",
+                        marginLeft: "2rem",
+                        position: "relative",
+                      }}
+                    ></i>
+                    <i
+                      onClick={() => setModalIsOpen2(false)}
+                      className="fa fa-window-close "
+                      style={{
+                        fontSize: "5vh",
+                        color: "red",
+                        marginLeft: "4rem",
+                        position: "relative",
+                      }}
+                    ></i>
+                  </span>
                 </div>
               </div>
             </div>

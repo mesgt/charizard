@@ -1,35 +1,27 @@
 import React from "react";
 import Modal from "react-modal";
 
-const FiveDayWeather = ({ weather, open, onClose, onRequestClose }) => {
-  {
-    /* MODAL STYLES */
-  }
-  const customStyles = {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      zIndex: 1001,
-      transform: "translate(-50%, -50%)",
-      maxHeight: "100vh",
-      overflowY: "auto",
-      // background: "#fff",
-      backgroundImage: `url("https://images.pexels.com/photos/912364/pexels-photo-912364.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")`,
-    },
-    overlay: {
-      zIndex: 1000,
-      backgroundColor: "rgb(72,72,72,.95)",
-    },
-  };
+// MODAL STYLE \\
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    zIndex: 1001,
+    transform: "translate(-50%, -50%)",
+    maxHeight: "100vh",
+    overflowY: "auto",
+    backgroundImage: `url("https://images.pexels.com/photos/912364/pexels-photo-912364.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")`,
+  },
+  overlay: {
+    zIndex: 1000,
+    backgroundColor: "rgb(72,72,72,.95)",
+  },
+};
 
-  // CURRENT DAY DATE \\
-  const currentDay = new Date(
-    weather.daily?.[0].dt * 1000
-  ).toLocaleDateString();
-  // console.log(weather);
+const FiveDayWeather = ({ weather, open, onClose, onRequestClose }) => {
   return (
     <Modal
       isOpen={open}
