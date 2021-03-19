@@ -26,7 +26,7 @@ function Notes() {
     const onAddNote = () => {
         if(userNewNote.id){
             API.updateOneNoteById(userNewNote.id, {title:userNewNote.title, body:userNewNote.body})
-            .then(res => console.log(res))
+            .then(res => console.log(res), loadNotes())
         }else{
             API.addNote(userNewNote)
             .then(res => console.log(res.data), loadNotes())
