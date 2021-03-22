@@ -35,5 +35,13 @@
     "react-modal": "^3.12.1",
     "react-uuid": "^1.0.2",
     "styled-components": "^5.2.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yermasog/everything.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yermasog/everything/issues"
+  },
+  "homepage": "https://github.com/yermasog/everything#readme"
 }

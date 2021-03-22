@@ -54,25 +54,26 @@ const Container = styled.div`
   transition: all 0.5s ease;
 `;
 
-function Main(props, { action }) {
-  // console.log(props);
-  function changeTheme() {
-    if (props.theme === "light") {
-      props.test("dark");
-    } else {
-      props.test("light");
+function Dashboard(props, { action })  {
+
+    // console.log(props);
+    function changeTheme() {
+        if (props.theme === "light") {
+            props.test("dark");
+        } else {
+            props.test("light");
+        }
     }
-  }
 
-  // const icon = props.theme === "light" ? <HiMoon size={40} /> : <CgSun size={40} />;
+    // const icon = props.theme === "light" ? <HiMoon size={40} /> : <CgSun size={40} />;
 
-  // function Main(props) {
-  const user = useContext(UserContext);
-  console.log(user);
-  return (
-    <>
-      {/* <div class="grid-container fluid"> */}
-        {/* <Page
+    // function Main(props) {
+    const user = useContext(UserContext);
+    console.log(user);
+    return (
+        <>
+            {/* <div class="grid-container fluid"> */}
+            {/* <Page
           className="grid-x grid-margin-y"
           style={{
             // overflowY: "auto",
@@ -92,49 +93,49 @@ function Main(props, { action }) {
             }}
           > */}
             <div className="callout large primary">
-              <div className="row column text-center">
-                <Nav
-                  theme={props.theme}
-                  test={props.test}
-                  fontTheme={props.fontTheme}
-                  test1={props.test1}
-                  colorThemeArray={props.colorThemeArray}
-                  fontThemeArray={props.fontThemeArray}
-                />
-              </div>
+                <div className="row column text-center">
+                    <Nav
+                        theme={props.theme}
+                        test={props.test}
+                        fontTheme={props.fontTheme}
+                        test1={props.test1}
+                        colorThemeArray={props.colorThemeArray}
+                        fontThemeArray={props.fontThemeArray}
+                    />
+                </div>
             </div>
             <div className="grid-x grid-padding-x grid-margin-y">
-              <div className="cell small-3">
-                {/* <div className="grid-x radius"> */}
-                <StyledToDo />
-                {/* </div> */}
-                {/* <div
+                <div className="cell small-3">
+                    {/* <div className="grid-x radius"> */}
+                    <StyledToDo />
+                    {/* </div> */}
+                    {/* <div
                   className="grid-x radius "
                   style={{
                     justifyContent: "space-evenly",
                   }}
                 >
                 </div> */}
-              </div>
-              <div className="cell small-9">
-                <StyledCalendar userInfo={props.userInfo}/>
-              </div>
+                </div>
+                <div className="cell small-9">
+                    <StyledCalendar userInfo={props.userInfo} />
+                </div>
             </div>
             <div
-              className="grid-x grid-padding-x grid-margin-y radius"
-              // style={{
-              //   justifyContent: "space-evenly",
-              //   padding: "4vh",
-              //   border: "none",
-              // }}
+                className="grid-x grid-padding-x grid-margin-y radius"
+            // style={{
+            //   justifyContent: "space-evenly",
+            //   padding: "4vh",
+            //   border: "none",
+            // }}
             >
-              <div className="cell small-3">
-                <StyledWeather />
-              </div>
-              <div className="cell small-9">
-                <StyledNotes />
+                <div className="cell small-3">
+                    <StyledWeather />
+                </div>
+                <div className="cell small-9">
+                    <StyledNotes />
 
-                {/* <div
+                    {/* <div
                   className="grid-x radius"
                   style={{
                     justifyContent: "space-evenly",
@@ -142,15 +143,16 @@ function Main(props, { action }) {
                     marginTop: "4vh",
                   }}
                 > */}
-                {/* </div> */}
-              </div>
+                    {/* </div> */}
+                </div>
             </div>
             {/* </div> */}
-          {/* </Container> */}
-        {/* </Page> */}
-      {/* </div> */}
-      </>
-  );
+            {/* </Container> */}
+            {/* </Page> */}
+            {/* </div> */}
+        </>
+    );
 }
 
-export default Main;
+
+export default Dashboard;

@@ -61,9 +61,9 @@ function App() {
       <div>
         <UserContext.Provider value={userState}>
           <Route exact path="/" render={() => <Login userInfo={userInfo} />} />
+          
           <Route
-            exact
-            path="/dash"
+            exact path="/dash"
             render={() => <Theme userInfo={userInfo} />}
           />
           {/* {DO NOT DELETE} */}
