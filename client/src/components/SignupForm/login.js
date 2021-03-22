@@ -39,7 +39,7 @@ function Login(props) {
               <h4 class="text-center signupHeading">Login here</h4>
               <div class="sign-up-googleBtn">
                 <GoogleLogin
-                  clientId="49214406530-t4ofc8gge6vgfdchf8k6v3e28b883er9.apps.googleusercontent.com"
+                  clientId="277440639024-khmlcdp27npa3bdmj3fmd2i6r1ptq54v.apps.googleusercontent.com"
                   buttonText="Login"
                   onSuccess={checkUser}
                   isSignedIn={false}
