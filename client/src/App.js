@@ -1,4 +1,4 @@
-import Login from "./pages/Login";
+import Login from "./pages/LoginPage";
 import Theme from "./components/Main/theme";
 import React, { useEffect, useState } from "react";
 import {

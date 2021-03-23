@@ -1,0 +1,59 @@
+
+.columns {
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    object-position: center;
+}
+
+body {
+    background-color: cadetblue;
+}
+
+
+/* @media (max-width: 650px) {
+    #loginHere {
+        border: 1px solid #cacaca;
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+        width: 522px;
+        height: auto;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .sign-up-googleBtn {
+        padding: 0;
+        padding-top: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .sign-up-form {
+        padding: 0;
+        
+    }
+    .signupHeading {
+        margin: 0;
+        padding: 0;
+    }
+} */
+
+@media (max-width: 986px) {
+    #loginHere {
+        border: 1px solid #cacaca;
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+        width: 522px;
+        height: auto;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .sign-up-googleBtn {
+        padding: 0;
+        padding-top: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

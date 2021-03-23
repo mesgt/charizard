@@ -34,8 +34,8 @@ function Login(props) {
       <div class="grid-x">
         <div />
         <div class="signupcontainer">
-          <div class="sign-up-form radius bordered shadow">
-            <div class="sign-up-text">
+          <div id="loginHere" class="sign-up-form radius bordered shadow">
+            <span class="sign-up-text">
               <h4 class="text-center signupHeading">Login here</h4>
               <div class="sign-up-googleBtn">
                 <GoogleLogin
@@ -50,7 +50,7 @@ function Login(props) {
                   uxMode="redirect"
                 />
               </div>
-            </div>
+            </span>
           </div>
         </div>
       </div>

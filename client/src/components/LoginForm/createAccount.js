@@ -53,9 +53,9 @@ function CreateAccount(props) {
   };
   return (
     <>
-      <div className="grid-x">
-        <div className="logincontainer">
-          <div className="log-in-form radius bordered shadow">
+      {/* <div className="grid-x">
+        <div className="logincontainer"> */}
+          <div id="signupHere" className="log-in-form radius bordered shadow">
             <div className="log-in-text">
               <span className="text-center loginHeading">Welcome to your</span>
               <br></br>
@@ -72,8 +72,8 @@ function CreateAccount(props) {
                 />
               </div>
             </div>
-          </div>
-        </div>
+          {/* </div>
+        </div> */}
       </div>
     </>
   );
