@@ -92,7 +92,7 @@ function Main(props, { action }) {
             }}
           > */}
             <div className="callout large primary">
-              <div className="row column text-center">
+              <div className="column text-center">
                 <Nav
                   theme={props.theme}
                   test={props.test}
@@ -116,7 +116,7 @@ function Main(props, { action }) {
                 >
                 </div> */}
               </div>
-              <div className="cell small-9">
+              <div id="calendarStyle" className="cell small-9">
                 <StyledCalendar userInfo={props.userInfo}/>
               </div>
             </div>

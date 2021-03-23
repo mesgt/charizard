@@ -27,7 +27,8 @@ form {
   }
 
   .todoTasks {
-    background-color: inherit;
+    background-color: rgb(245, 236, 236, .5);
+    /* background-color: inherit; */
     color: inherit;
     /* background-color: 500%; */
     /* background-blend-mode:color-dodge; */
@@ -55,6 +56,7 @@ form {
   }
   
   .divider {
+    
     border-bottom: 1px solid #cacaca;
     background: inherit;
     display: -webkit-flex;
@@ -66,10 +68,11 @@ form {
     padding-top: 10px;
   }
   
-  /* .divider {
-    margin-bottom: 0;
-  } */
-  
+.myHeader {
+background-color: rgb(245, 236, 236, .75);
+/* background-color: red; */
+}
+
   .todo-list-card .card-divider .close-button {
     position: inherit;
   }

@@ -1,15 +1,22 @@
 #myHeaderDiv {
+  background-color: rgb(245, 236, 236, .5);
   /* border: 2px black solid; */
   color: black;
   font-weight:900;
   /* width:100%; */
   /* min-height: 100px; */
   background-repeat: no-repeat;
-  background-image: linear-gradient(to right,rgba(21, 255, 0, 0.555) 0%,rgba(0, 26, 255, 0.76) 100%),url("../Nav/header-img/background2.jpg");
+  /* background-image: linear-gradient(to right,rgba(21, 255, 0, 0.555) 0%,rgba(0, 26, 255, 0.76) 100%),url("../Nav/header-img/background2.jpg"); */
   background-size: cover;
+  margin: 0;
+
 }
 
-.colorBTN {
+.callout.large {
+  padding: 0;
+}
+
+/* .colorBTN {
   position: relative;
   left: 1050px;
 }
@@ -17,7 +24,7 @@
 .DarkBTN {
   position: relative;
   left: 1000px;
-}
+} */
 
 .Username {
   position: relative;
@@ -53,7 +60,7 @@
   /* left: 93%;
   bottom: 80%;
   right: 5%; */
-  /* margin-left: auto;  */
+  margin-right: 50px; 
   /* display: block; */
 }
 
@@ -85,6 +92,6 @@
   padding-top: 1rem;
   padding-left: 5rem;
   padding-right: 5rem;
-  color: rgb(241, 241, 205);
+  color: rgb(22, 25, 34);
 
 }

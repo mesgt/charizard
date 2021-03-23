@@ -141,6 +141,7 @@ function MyCalendar(props) {
     <>
       <div className="padding-3">
         <Calendar
+          
           popup
           selectable
           localizer={localizer}

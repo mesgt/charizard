@@ -80,7 +80,7 @@ function ToDos({ }) {
   return (
     <>
       <div data-closable="fade-out" className="todo">
-        <div className="divider">
+        <div className="divider myHeader">
           <h3 id="todo-heading">To Do List</h3>
         </div>
         <div className="card todoTasks">
