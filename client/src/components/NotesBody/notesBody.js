@@ -39,7 +39,7 @@ const NotesBody = ({ onUpdateNote, activeNoteData }) => {
           autoFocus
         />
         <textarea
-          id="noteText"
+          id={activeNoteData.body}
           placeholder="Write your note here..."
           value={body || activeNoteData.body}
           onChange={(e) => onEditField("body", e.target)}
