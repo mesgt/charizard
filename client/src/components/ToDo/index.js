@@ -29,8 +29,8 @@ function ToDos({ }) {
   const [newModalOpen, newToggleModal] = useState(false);
   //Load all To Do tasks and store them with setToDos
   useEffect(() => {
-    user.todos && loadToDos(user.todos);
-  }, []);
+    user.todos && loadToDos(user.todos); //change to settodos to change the state
+  }, [user.todos]); //added user.todos to make new todos appear without refresh
 
 
   //gets ALL todos, needs to be passed user id and find all todos by user
