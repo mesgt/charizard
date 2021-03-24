@@ -28,6 +28,7 @@ function CreateAccount(props) {
           // history.push("/dash");
           console.log("User exists!");
           console.log(res);
+          alert("You already created an account; please login.")
           return res.data;
         } else {
           API.createUser({
@@ -40,6 +41,7 @@ function CreateAccount(props) {
           })
             .then(() => {
               history.push("/");
+              alert("Thanks for creating an account! You can login now.")
             })
             .catch((err) => console.log(err));
         }
