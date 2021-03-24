@@ -87,3 +87,24 @@ background-color: rgb(245, 236, 236, .9);
     padding: 10px;
   }
   
+  @media (max-width: 639px) {
+    .todo {
+      width: 585px;
+      max-width: 600px;
+    };
+    .list-overflow-container {
+      width: 585px;
+    }
+    .todoTasks {
+      border: 1px solid #cacaca;
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+        width: auto;
+        height: auto;
+        margin-left: 0;
+        margin-right: 0;
+    };
+    #todoStyle {
+      object-position: center;
+    }
+  }

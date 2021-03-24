@@ -80,7 +80,7 @@ function Main(props, { action }) {
             </div>
           </div>
           <div className="grid-x grid-padding-x grid-margin-y">
-            <div className="cell small-12 medium-4 large-2">
+            <div id="todoStyle" className="cell small-12 medium-4 large-2">
               <StyledToDo />
             </div>
             <div id="calendarStyle" className="cell small-12 medium-8 large-10">

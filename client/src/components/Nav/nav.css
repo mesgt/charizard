@@ -7,7 +7,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0;
-  /* width: 100%; */
 }
 
 .callout.large {
@@ -26,6 +25,7 @@
 
 .Username {
   position: relative;
+  padding-top: 30px;
   top: 10%;
   bottom: 10%;
   color: rgb(62, 64, 77);
@@ -75,7 +75,6 @@
 .happyQuote {
   font-size: 1.5rem;
   text-align: center;
-  padding-top: 1rem;
   padding-left: 5rem;
   padding-right: 5rem;
   color: rgb(22, 25, 34);
@@ -91,20 +90,13 @@
     font-weight:700;
     background-repeat: no-repeat;
     background-size: cover;
-    /* width: 580px; */
     margin: 0;
     font-size: 50%;
   }
-  /* #headerBack {
-    max-width: 360px;
-    margin: 0 0 0 0;
-    padding: 0;
-  }
-   */
+
   .happyQuote {
   font-size: .75rem;
   text-align: center;
-  padding-top: .5rem;
   padding-left: 2rem;
   padding-right: 2rem;
   color: rgb(22, 25, 34);
