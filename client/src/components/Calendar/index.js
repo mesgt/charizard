@@ -19,11 +19,13 @@ const customStyles1 = {
     marginRight: "-50%",
     zIndex: 1001,
     transform: "translate(-50%, -50%)",
-    maxHeight: "100vh",
+    height: "400px",
+    // maxHeight: "100vh",
     overflowY: "auto",
+    backgroundColor: "#a8a8a5",
     // background: "#fff",
-    backgroundImage: `url("https://images.pexels.com/photos/707676/pexels-photo-707676.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")`,
-    backgroundSize: "cover",
+    // backgroundImage: `url("https://images.pexels.com/photos/707676/pexels-photo-707676.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")`,
+    backgroundSize: "auto",
     border: "solid black 1px",
   },
   overlay: {
@@ -41,12 +43,14 @@ const customStyles2 = {
     marginRight: "-50%",
     zIndex: 1001,
     transform: "translate(-50%, -50%)",
-    maxHeight: "100vh",
-    overflowY: "auto",
+    height: "400px",
+    // maxHeight: "100vh",
+    // overflowY: "auto",
     // background: "rgba(243, 32, 19,.8)",
-    backgroundImage: `url("https://images.pexels.com/photos/1128843/pexels-photo-1128843.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")`,
-    backgroundSize: "cover",
-    border: "solid black 1px",
+    backgroundColor: "#a8a8a5",
+    // backgroundImage: `url("https://images.pexels.com/photos/1128843/pexels-photo-1128843.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500")`,
+    backgroundSize: "auto",
+    // border: "solid black 1px",
   },
   overlay: {
     zIndex: 1000,
@@ -175,16 +179,16 @@ function MyCalendar(props) {
               className="cell"
               style={{
                 width: "100%",
-                padding: "10vh",
+                padding: "15px",
                 margin: "auto",
               }}
             >
               <div
                 className="card"
                 style={{
-                  minHeight: "200px",
-                  width: "100%",
-                  border: "solid black 1px",
+                  height: "250px",
+                  width: "400px",
+                  // border: "solid black 1px",
                 }}
               >
                 <div className="card-section medium-8 cell">
@@ -225,19 +229,26 @@ function MyCalendar(props) {
               className="cell"
               style={{
                 width: "100%",
-                padding: "10vh",
+                padding: "15px",
                 margin: "auto",
               }}
             >
               <div
                 className="card"
                 style={{
-                  minHeight: "auto",
-                  width: "100%",
+                  height: "250px",
+                  width: "400px",
                   border: "solid black 1px",
                 }}
               >
-                <div className="card-section medium-8 cell">
+                <div className="card-section medium-8 cell center"
+                style={{
+                  position: "relative",
+                  // top: "50%",
+                  // left: "50%",
+                    // -ms-transform: "translate(-50%, -50%)",
+                    // transform: "translate(-50%, -50%)",
+                }}>
                   <h4 style={{ fontWeight: "bold" }}>CONFIRM DELETE!</h4>
                   <span style={{ justifyContent: "space-between" }}>
                     <i

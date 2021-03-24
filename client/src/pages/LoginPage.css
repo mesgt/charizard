@@ -12,7 +12,7 @@ body {
     background-attachment: fixed;
     background-image: url("../components/FormContainer/login-img/background4.jpg");
     background-size: cover;
-    background-color: #442424;
+    background-color: #a8a8a5;
 }
 
 @media (max-width: 986px) {
