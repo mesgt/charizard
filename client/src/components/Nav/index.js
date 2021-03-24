@@ -60,7 +60,7 @@ function Nav(props) {
   const history = useHistory();
   const redirect = () => {
     history.push("/")
-    //logout from google automatically sets the userState to empty and loggedin to false
+    localStorage.clear() //clears local storage and resets user state to empty
   }
 
   function changeTheme() {
@@ -121,9 +121,10 @@ function Nav(props) {
   //axios call for insprirational quote
   useEffect(() => {
     API.quote().then((res) => {
-      const qod = res.data.contents.quotes[0].quote
-      const auth = res.data.contents.quotes[0].author
-      console.log(qod);
+    
+      const qod = res.data.content
+      const auth = res.data.author
+      // console.log(res);
       setQuote({...quote, quote: qod, author: auth})
     }).catch((err) => {
       console.error(err);
