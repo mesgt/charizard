@@ -36,13 +36,13 @@ const Sidebar = ({
             </div>
 
             <p>{body && body.substr(0, 100) + "..."}</p>
-            <small className="note-meta">
+            {/* <small className="note-meta">
               Last Modified{" "}
               {new Date(lastModified).toLocaleDateString("en-GB", {
                 hour: "2-digit",
                 minute: "2-digit",
               })}
-            </small>
+            </small> */}
           </div>
         ))}
       </div>
