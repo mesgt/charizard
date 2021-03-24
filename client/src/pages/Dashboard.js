@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
-import Calendar from "../Calendar";
-import Nav from "../Nav";
-import Notes from "../Notes";
-import ToDo from "../ToDo";
-import Weather from "../Weather/index";
+import Calendar from "../components/Calendar";
+import Nav from "../components/Nav";
+import Notes from "../components/Notes";
+import ToDo from "../components/ToDo";
+import Weather from "../components/Weather/index";
+import Footer from "../components/Footer";
 import styled from "styled-components";
 import { CgSun } from "react-icons/cg";
 import { HiMailOpen, HiMoon } from "react-icons/hi";
-import UserContext from "../../utils/UserContext";
+import UserContext from "../utils/UserContext";
 import "./Dashboard.css";
 
 
@@ -126,6 +127,9 @@ function Dashboard(props, { action })  {
                 > */}
                     {/* </div> */}
                 </div>
+            </div>
+            <div className="footer">
+              <Footer />
             </div>
             {/* </div> */}
             </Container>

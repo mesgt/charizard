@@ -41,6 +41,7 @@ function Weather() {
   return (
     <>
       <CurrentWeather weather={weather} />
+      <div className="center">
       <a
         style={{
           border: "1px solid white",
@@ -48,11 +49,12 @@ function Weather() {
           backgroundColor: "#1779ba"
         }}
         onClick={() => setModalIsOpen(true)}
-        class="button secondary"
+        className="button secondary"
         href="#/"
       >
         5 Day Forecast
       </a>
+      </div>
       <FiveDayWeather
         onRequestClose={() => setModalIsOpen(false)}
         open={modalIsOpen}

@@ -15,6 +15,18 @@ body {
   min-height: 250px;
 }
 
+.card {
+  margin-top: 15px;
+  height: 430px;
+  border: 1px rgb(100, 100, 100) solid;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .travel-feature-card-header {
   margin-top: 30px;
   background-color: #56524b;

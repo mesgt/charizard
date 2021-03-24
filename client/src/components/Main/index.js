@@ -4,6 +4,7 @@ import Nav from "../Nav";
 import Notes from "../Notes";
 import ToDo from "../ToDo";
 import Weather from "../Weather/index";
+import Footer from "../Footer";
 import styled from "styled-components";
 import { CgSun } from "react-icons/cg";
 import { HiMailOpen, HiMoon } from "react-icons/hi";
@@ -87,14 +88,17 @@ function Main(props, { action }) {
               <StyledCalendar userInfo={props.userInfo} />
             </div>
           </div>
-          <div className="grid-x grid-padding-x grid-margin-y radius">
-            <div className="cell small-3">
-              <StyledWeather />
-            </div>
-            <div className="cell small-9">
+          <div className="grid-x grid-padding-x grid-margin-y">
+            <div className="cell small-12 medium-8 large-10">
               <StyledNotes />
             </div>
+            <div className="container small-12 medium-4 large-2">
+              <StyledWeather />
+            </div>
           </div>
+          <div className="footer">
+              <Footer />
+            </div>
         </Container>
       </Page>
     </>

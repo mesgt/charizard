@@ -1,0 +1,32 @@
+footer {
+    width: 100%;
+    padding-top: 30px;
+    padding-left: 300px;
+    padding-right: 300px;
+    margin-top: 15px;
+    background-color: rgb(245, 236, 236, .7);
+    display: block;
+}
+
+@media (max-width: 1200px) {
+    footer {
+        padding: 20px;
+    }
+}
+
+footer a {
+    color: #1779ba;
+}
+
+#footerDetails {
+    text-align: center;
+}
+
+.name {
+    font-weight: 900;
+}
+
+#footerYer #footerMaria {
+    font-weight: 700;
+    display: block;
+}

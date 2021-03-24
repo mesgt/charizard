@@ -1,4 +1,5 @@
 import React from "react";
+import "../Notes/notes.css";
 
 const Sidebar = ({
   notes,
@@ -16,8 +17,12 @@ const Sidebar = ({
   return (
     <div className="app-sidebar">
       <div className="app-sidebar-header">
+        <div>
         <h1>Notes</h1>
+        </div>
+        <div>
         <button onClick={onAddNote}>Add</button>
+        </div>
       </div>
       <div className="app-sidebar-notes">
         {sortedNotes.map(({ _id, title, body, lastModified }, i) => (
