@@ -72,12 +72,12 @@ function Main(props, { action }) {
   return (
     <>
       {/* <div class="grid-container fluid"> */}
-        {/* <Page
+        <Page
           className="grid-x grid-margin-y"
           style={{
             // overflowY: "auto",
             // paddingTop: "20vh",
-            paddingBottom: "auto",
+            // paddingBottom: "auto",
             margin: 0,
             // marginTop: "3%"
           }}
@@ -90,7 +90,7 @@ function Main(props, { action }) {
               // paddingTop: "75vh",
               margin: 0,
             }}
-          > */}
+          >
             <div className="callout large primary">
               <div className="column text-center">
                 <Nav
@@ -146,8 +146,8 @@ function Main(props, { action }) {
               </div>
             </div>
             {/* </div> */}
-          {/* </Container> */}
-        {/* </Page> */}
+          </Container>
+        </Page>
       {/* </div> */}
       </>
   );

@@ -27,7 +27,7 @@ form {
   }
 
   .todoTasks {
-    background-color: rgb(245, 236, 236, .5);
+    background-color: rgb(245, 236, 236, .8);
     /* background-color: inherit; */
     color: inherit;
     /* background-color: 500%; */
@@ -56,7 +56,6 @@ form {
   }
   
   .divider {
-    
     border-bottom: 1px solid #cacaca;
     background: inherit;
     display: -webkit-flex;
@@ -69,7 +68,7 @@ form {
   }
   
 .myHeader {
-background-color: rgb(245, 236, 236, .75);
+background-color: rgb(245, 236, 236, .9);
 /* background-color: red; */
 }
 
@@ -86,42 +85,4 @@ background-color: rgb(245, 236, 236, .75);
     margin: 10px 0;
     padding: 10px;
   }
-  
-  /* .divider ul input[type="checkbox"] {
-    position: absolute;
-    visibility: hidden;
-    left: -99999px;
-  } */
-  
-  .todo-list-card ul input[type="checkbox"] ~ label {
-    position: relative;
-    margin-left: 2rem;
-  }
-  
-  .todo-list-card ul input[type="checkbox"] ~ label::after {
-    background: #fefefe;
-    border: 1px solid #e6e6e6;
-    content: '';
-    display: block;
-    height: 20px;
-    left: -2rem;
-    width: 20px;
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-80%);
-        -ms-transform: translateY(-80%);
-            transform: translateY(-80%);
-  }
-  
-  .todo-list-card ul input[type="checkbox"]:checked ~ label:after {
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: 18px;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    content: "\f00c";
-    color: #1779ba;
-    border: 1px solid #1779ba;
-  }
-  
   

@@ -8,6 +8,8 @@ import styled from "styled-components";
 import { CgSun } from "react-icons/cg";
 import { HiMailOpen, HiMoon } from "react-icons/hi";
 import UserContext from "../../utils/UserContext";
+import "./Dashboard.css";
+
 
 const StyledCalendar = styled(Calendar)``;
 const StyledNotes = styled(Notes)`
@@ -18,34 +20,21 @@ const StyledToDo = styled(ToDo)``;
 const StyledWeather = styled(Weather)``;
 const StyledNav = styled(Nav)``;
 
-// const Toggle = styled.button`
-//     cursor: pointer;
-//     height: 50px;
-//     border-radius: 50%;
-//     border: none;
-//     background-color: ${props => props.theme.titleColor};
-//     color: ${props => props.theme.pageBackground};
-//     &:focus {
-//         outline: none;
-//     }
-//     transition: all .5s ease;
-// `;
+const Toggle = styled.button`
+    background-color: ${props => props.theme.titleColor};
+    color: ${props => props.theme.pageBackground};
+    &:focus {
+        outline: none;
+    }
+    transition: all .5s ease;
+`;
 
 const Page = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: auto;
-  width: auto;
   background-color: ${(props) => props.theme.pageBackground};
   transition: all 0.5s ease;
 `;
 
 const Container = styled.div`
-
-  flex-direction: column;
-  align-items: center;
-  min-width: 600px;
   background-color: ${(props) => props.theme.pageBackground};
   color: ${(props) => props.theme.titleColor};
   border: ${(props) => props.theme.titleColor};
@@ -73,13 +62,13 @@ function Dashboard(props, { action })  {
     return (
         <>
             {/* <div class="grid-container fluid"> */}
-            {/* <Page
-          className="grid-x grid-margin-y"
+            <Page
+          className="grid-x"
           style={{
             // overflowY: "auto",
             // paddingTop: "20vh",
-            paddingBottom: "auto",
-            margin: 0,
+            // paddingBottom: "auto",
+            // margin: 0,
             // marginTop: "3%"
           }}
         >
@@ -89,9 +78,9 @@ function Dashboard(props, { action })  {
               // overflowY: "auto",
               // padding: "10vh 5vh 10vh 5vh",
               // paddingTop: "75vh",
-              margin: 0,
+              // margin: 0,
             }}
-          > */}
+          >
             <div className="callout large primary">
                 <div className="row column text-center">
                     <Nav
@@ -147,8 +136,8 @@ function Dashboard(props, { action })  {
                 </div>
             </div>
             {/* </div> */}
-            {/* </Container> */}
-            {/* </Page> */}
+            </Container>
+            </Page>
             {/* </div> */}
         </>
     );

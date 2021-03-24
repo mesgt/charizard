@@ -1,5 +1,7 @@
 #myHeaderDiv {
-  background-color: rgb(245, 236, 236, .5);
+  /* background-color: rgb(245, 236, 236, .9); */
+  box-shadow: inset 0 0 0 1000px rgba(230, 218, 218, 0.7);
+  background-image: url("../Nav/header-img/background1.jpg");
   /* border: 2px black solid; */
   color: black;
   font-weight:900;
@@ -52,23 +54,16 @@
   float: right;
   position: relative; 
   object-position: top;
-  
-  /* display:flex;  */
-  /* justify-content:flex-start;  */
-  /* width:100%;  */
-  /* padding:0; */
-  /* left: 93%;
-  bottom: 80%;
-  right: 5%; */
-  margin-right: 50px; 
-  /* display: block; */
+  margin-right: 30px; 
 }
 
 .dropdown {
-  position: relative;
-  /* bottom: 80%;
-  right: 4%; */
-  display: inline-block;
+  float: left;
+  position: relative; 
+  object-position: top;
+  margin-left: 30px; 
+
+
   background-color: #1779ba;
 }
 
