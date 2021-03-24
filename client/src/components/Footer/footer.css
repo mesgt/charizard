@@ -1,0 +1,28 @@
+footer {
+    /* height:200px; */
+    padding: 20px;
+    padding-left: 300px;
+    padding-right: 300px;
+    margin-top: 15px;
+    /* text-align: center; */
+    background-color: rgb(245, 236, 236, .7);
+    display: block;
+}
+
+footer a {
+    color: #1779ba;
+}
+
+#footerDetails {
+    text-align: center;
+
+}
+
+.name {
+    font-weight: 900;
+}
+
+#footerYer #footerMaria {
+    font-weight: 700;
+    display: block;
+}

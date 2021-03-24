@@ -79,8 +79,8 @@ function ToDos({ }) {
   console.log(todos)
   return (
     <>
-      <div data-closable="fade-out" className="todo">
-        <div className="divider myHeader">
+      {/* <div data-closable="fade-out" className="todo"> */}
+        <div id="myHeader" className="divider ">
           <h3 id="todo-heading">To Do List</h3>
           <NewToDo
           action="addBtn"
@@ -138,15 +138,7 @@ function ToDos({ }) {
             <h6>No tasks to display</h6>
           )}
         </div>
-      </div>
-      <div className="cell">
-        {/* Modal to display when click on Add */}
-        
-        {/* <CompletedBtn /> */}
-        {/* <DoneToDo> */}
-        {/* Add props to be pushed down to the modal. */}
-        {/* </DoneToDo> */}
-      </div>
+      {/* </div> */}
     </>
   );
 }

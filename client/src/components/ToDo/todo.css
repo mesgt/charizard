@@ -16,7 +16,6 @@ form {
 }
 
 .todo {
-  /* position:sticky; */
     border-radius: 0;
     max-width: 300px;
     border: 1px rgba(0, 0, 0, 0.246) solid;
@@ -34,14 +33,14 @@ form {
     /* background-color: 500%; */
     /* background-blend-mode:color-dodge; */
     border-radius: 0;
-    max-width: 300px;
+    /* max-width: 300px; */
     border: 1px rgba(0, 0, 0, 0.246) solid;
     /* height: 50vh; */
     /* width: 55vh; */
     max-height: 50vh;
     overflow-y: scroll;
     scrollbar-color: black, white;
-    margin: 0px 0px, 16px;
+    margin: 0px 0px, 0px;
   }
 
   .top {
@@ -56,8 +55,17 @@ form {
     margin-left: 30px;
   }
   
+#myHeader {
+  background-color: rgb(245, 236, 236, .9);
+}
+
+#todoStyle {
+
+}
+
   .divider {
     border-bottom: 1px solid #cacaca;
+    background-color: rgb(245, 236, 236, .9);
     background: inherit;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -68,11 +76,10 @@ form {
     padding-top: 10px;
   }
   
-.myHeader {
-background-color: rgb(245, 236, 236, .9);
-/* background-color: red; */
-}
-
+  /* .divider {
+    margin-bottom: 0;
+  } */
+  
   .todo-list-card .card-divider .close-button {
     position: inherit;
   }
@@ -87,24 +94,3 @@ background-color: rgb(245, 236, 236, .9);
     padding: 10px;
   }
   
-  @media (max-width: 639px) {
-    .todo {
-      width: 585px;
-      max-width: 600px;
-    };
-    .list-overflow-container {
-      width: 585px;
-    }
-    .todoTasks {
-      border: 1px solid #cacaca;
-        padding-bottom: 1rem;
-        padding-top: 1rem;
-        width: auto;
-        height: auto;
-        margin-left: 0;
-        margin-right: 0;
-    };
-    #todoStyle {
-      object-position: center;
-    }
-  }

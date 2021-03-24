@@ -8,7 +8,7 @@ function NewBtn(props) {
             <button
                 style={{ border: "1px solid white", fontWeight: "bold" }}
                 // onClick={() => handleOpen()}
-                class="button primary"
+                className="button round primary"
                 id="Add_btn"
                 // href="#/"
                 {...props}
