@@ -16,7 +16,7 @@ export default {
   //========================
   //Inspriational quote API
   quote: function () {
-    const URL = "https://quotes.rest/qod?language=en";
+    const URL = "https://api.quotable.io/random";
     return axios.get(URL)
    
   },

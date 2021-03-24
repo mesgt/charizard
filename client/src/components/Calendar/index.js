@@ -74,11 +74,14 @@ function MyCalendar(props) {
   const [eventDelete, setEventDelete] = useState([]);
   console.log(user.events);
   // POPULATES CALENDAR WHEN USER LOGS IN \\
+
   useEffect(() => {
+    
     user.events && setEvents(user.events);
     console.log("calendar effect", user);
   }, [user.events]);
 
+  
   // DELETE EVENT FROM EVENTDELETE STATE \\
   const deleteEvent = () => {
     const allEvents = [...events];
@@ -97,6 +100,7 @@ function MyCalendar(props) {
 
   // START ADD/DISPLAY NEW CALENDAR EVENT \\
   const handleSelect = ({ start, end }) => {
+    console.log(typeof start, end);
     setEvent({ ...event, start, end });
     setModalIsOpen1(true);
     console.log(event);
@@ -105,32 +109,37 @@ function MyCalendar(props) {
   // ADD VALUE INPUT FROM FORM AND ADD NEW EVENT TO EVENTS \\
   const saveEvent = async () => {
     if (event.title) {
-      let newEvent = await API.addEvent({ ...event, googleId: user.googleId });
-
-      setEvents([...events, event], () => {
-        console.log(events);
+      let newEvent = await API.addEvent({ ...event, 
+        googleId: user.googleId,
+        start: new Date(event.start),
+        end: new Date(event.end),
+        title: event.title
       });
+
+      // setEvents([...events, event]);
       // console.log(events);
-      // setEvents([
-      //   ...events,
-      //   {
-      //     end: newEvent.data.end,
-      //     start: newEvent.data.start,
-      //     title: newEvent.data.title,
-      //   },
-      // ]);
-      // console.log(newEvent.data);
-      // props.userInfo({
-      //   ...user,
-      //   events: [
-      //     ...events,
-      //     {
-      //       end: newEvent.data.end,
-      //       start: newEvent.data.start,
-      //       title: newEvent.data.title,
-      //     },
-      //   ],
-      // });
+      setEvents([
+        ...events,
+        {
+          end: new Date(newEvent.data.end),
+          start: new Date(newEvent.data.start),
+          title: newEvent.data.title,
+          id: newEvent.data._id
+        },
+      ]);
+      console.log(newEvent.data);
+      props.userInfo({
+        ...user,
+        events: [
+          ...events,
+          {
+            end:  new Date(newEvent.data.end),
+            start: new Date(newEvent.data.start),
+            title: newEvent.data.title,
+            id: newEvent.data._id
+          },
+        ],
+      });
     }
 
     setEvent({});
