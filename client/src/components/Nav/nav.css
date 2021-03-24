@@ -1,15 +1,19 @@
 #myHeaderDiv {
-  border: 2px black solid;
+  /* background-color: rgb(245, 236, 236, .9); */
+  box-shadow: inset 0 0 0 1000px rgba(230, 218, 218, 0.7);
+  background-image: url("../Nav/header-img/background1.jpg");
   color: black;
   font-weight:900;
-  width:100%;
-  min-height: 100px;
   background-repeat: no-repeat;
-  background-image: linear-gradient(to right,rgba(21, 255, 0, 0.555) 0%,rgba(0, 26, 255, 0.76) 100%),url("../Nav/header-img/background2.jpg");
   background-size: cover;
+  margin: 0;
 }
 
-.colorBTN {
+.callout.large {
+  padding: 0;
+}
+
+/* .colorBTN {
   position: relative;
   left: 1050px;
 }
@@ -17,51 +21,40 @@
 .DarkBTN {
   position: relative;
   left: 1000px;
-}
+} */
 
 .Username {
   position: relative;
-  /* left: 40%; */
+  padding-top: 30px;
   top: 10%;
   bottom: 10%;
-  /* right: 10%; */
   color: rgb(62, 64, 77);
-  /* font: 900 35vmin/50vh cookie, cursive; */
   text-align: center;
-  mix-blend-mode: difference;
-  filter:hue-rotate(500)
+  /* mix-blend-mode: difference; */
+  /* filter:hue-rotate(500) */
 }
 
 .date {
   position: relative;
-  /* left: 46%; */
   top: 10%;
   bottom: 10%;
   font-size: 1.5rem;
-  /* right: 10%; */
 }
 
 .LogoutBTN {
   float: right;
   position: relative; 
   object-position: top;
-  
-  /* display:flex;  */
-  /* justify-content:flex-start;  */
-  /* width:100%;  */
-  /* padding:0; */
-  /* left: 93%;
-  bottom: 80%;
-  right: 5%; */
-  /* margin-left: auto;  */
-  /* display: block; */
+  margin-right: 30px; 
 }
 
 .dropdown {
-  position: relative;
-  /* bottom: 80%;
-  right: 4%; */
-  display: inline-block;
+  float: left;
+  position: relative; 
+  object-position: top;
+  margin-left: 30px; 
+
+
   background-color: #1779ba;
 }
 
@@ -82,9 +75,44 @@
 .happyQuote {
   font-size: 1.5rem;
   text-align: center;
-  padding-top: 1rem;
   padding-left: 5rem;
   padding-right: 5rem;
-  color: rgb(241, 241, 205);
+  color: rgb(22, 25, 34);
+}
 
+@media (max-width: 986px) {
+  #myHeaderDiv {
+    /* background-color: rgb(245, 236, 236, .9); */
+    position: relative;
+    box-shadow: inset 0 0 0 1000px rgba(230, 218, 218, 0.7);
+    /* background-image: url("../Nav/header-img/background1.jpg"); */
+    color: black;
+    font-weight:700;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    font-size: 50%;
+  }
+
+  .happyQuote {
+  font-size: .75rem;
+  text-align: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  color: rgb(22, 25, 34);
+};
+.Username {
+  position: relative;
+  top: 5%;
+  bottom: 10%;
+  color: rgb(62, 64, 77);
+  text-align: center;
+  font-size: 1rem;
+};
+  .date {
+  position: relative;
+  top: 5%;
+  bottom: 10%;
+  font-size: .75rem;
+};
 }

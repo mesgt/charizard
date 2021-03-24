@@ -16,6 +16,7 @@ form {
 }
 
 .todo {
+  /* position:sticky; */
     border-radius: 0;
     max-width: 300px;
     border: 1px rgba(0, 0, 0, 0.246) solid;
@@ -27,7 +28,8 @@ form {
   }
 
   .todoTasks {
-    background-color: inherit;
+    background-color: rgb(245, 236, 236, .8);
+    /* background-color: inherit; */
     color: inherit;
     /* background-color: 500%; */
     /* background-blend-mode:color-dodge; */
@@ -66,10 +68,11 @@ form {
     padding-top: 10px;
   }
   
-  /* .divider {
-    margin-bottom: 0;
-  } */
-  
+.myHeader {
+background-color: rgb(245, 236, 236, .9);
+/* background-color: red; */
+}
+
   .todo-list-card .card-divider .close-button {
     position: inherit;
   }
@@ -84,41 +87,24 @@ form {
     padding: 10px;
   }
   
-  /* .divider ul input[type="checkbox"] {
-    position: absolute;
-    visibility: hidden;
-    left: -99999px;
-  } */
-  
-  .todo-list-card ul input[type="checkbox"] ~ label {
-    position: relative;
-    margin-left: 2rem;
+  @media (max-width: 639px) {
+    .todo {
+      width: 585px;
+      max-width: 600px;
+    };
+    .list-overflow-container {
+      width: 585px;
+    }
+    .todoTasks {
+      border: 1px solid #cacaca;
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+        width: auto;
+        height: auto;
+        margin-left: 0;
+        margin-right: 0;
+    };
+    #todoStyle {
+      object-position: center;
+    }
   }
-  
-  .todo-list-card ul input[type="checkbox"] ~ label::after {
-    background: #fefefe;
-    border: 1px solid #e6e6e6;
-    content: '';
-    display: block;
-    height: 20px;
-    left: -2rem;
-    width: 20px;
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-80%);
-        -ms-transform: translateY(-80%);
-            transform: translateY(-80%);
-  }
-  
-  .todo-list-card ul input[type="checkbox"]:checked ~ label:after {
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: 18px;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    content: "\f00c";
-    color: #1779ba;
-    border: 1px solid #1779ba;
-  }
-  
-  

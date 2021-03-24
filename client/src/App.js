@@ -1,4 +1,4 @@
-import Login from "./pages/Login";
+import Login from "./pages/LoginPage";
 import Theme from "./components/Main/theme";
 import React, { useEffect, useState } from "react";
 import {
@@ -61,9 +61,9 @@ function App() {
       <div>
         <UserContext.Provider value={userState}>
           <Route exact path="/" render={() => <Login userInfo={userInfo} />} />
+          
           <Route
-            exact
-            path="/dash"
+            exact path="/dash"
             render={() => <Theme userInfo={userInfo} />}
           />
           {/* {DO NOT DELETE} */}

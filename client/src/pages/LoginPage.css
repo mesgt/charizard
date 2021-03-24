@@ -1,0 +1,35 @@
+.columns {
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    object-position: center;
+}
+
+body {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-image: url("../components/FormContainer/login-img/background4.jpg");
+    background-size: cover;
+    background-color: #464646;
+}
+
+@media (max-width: 986px) {
+    #loginHere {
+        border: 1px solid #cacaca;
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+        width: 522px;
+        height: auto;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .sign-up-googleBtn {
+        padding: 0;
+        padding-top: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

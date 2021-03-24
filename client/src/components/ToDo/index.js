@@ -80,8 +80,14 @@ function ToDos({ }) {
   return (
     <>
       <div data-closable="fade-out" className="todo">
-        <div className="divider">
+        <div className="divider myHeader">
           <h3 id="todo-heading">To Do List</h3>
+          <NewToDo
+          action="addBtn"
+          setModalIsOpen={checkModal}
+          newModalOpen={newModalOpen}
+          loadToDos={loadToDos}
+        ></NewToDo>
         </div>
         <div className="card todoTasks">
           {!!todos && todos.length ? (
@@ -99,12 +105,12 @@ function ToDos({ }) {
                     complete={todo.complete}
                   ></ViewToDo>
                   {/* <CheckBtn
-                                        action="check"
-                                        onClick={
-                                            (e) => console.log(e)
-                                            // setFormObject({ ...formObject, complete: !e.target.value })
-                                        }
-                                    /> */}
+                    action="check"
+                    onClick={
+                    (e) => console.log(e)
+                    // setFormObject({ ...formObject, complete: !e.target.value })
+                    }
+                    /> */}
                   <br />
                   {/* Modal to display when click on edit */}
                   <EditToDo
@@ -135,13 +141,7 @@ function ToDos({ }) {
       </div>
       <div className="cell">
         {/* Modal to display when click on Add */}
-        <NewToDo
-          action="addBtn"
-          setModalIsOpen={checkModal}
-          newModalOpen={newModalOpen}
-          loadToDos={loadToDos}
-        // disabled={!(formObject.title)}
-        ></NewToDo>
+        
         {/* <CompletedBtn /> */}
         {/* <DoneToDo> */}
         {/* Add props to be pushed down to the modal. */}

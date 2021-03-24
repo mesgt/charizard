@@ -4,6 +4,7 @@
 }
 
 .NoteBox {
+    background-color: rgb(245, 236, 236, .5);
     min-height: 200px;
     border: 2px rgb(234, 234, 234) solid;
     min-width: 100%;
@@ -38,6 +39,7 @@ button:hover {
 }
 
 .app-sidebar-header {
+  background-color: rgb(245, 236, 236, .75);
   display: flex;
   justify-content: space-between;
   padding: 25px;
@@ -47,6 +49,7 @@ button:hover {
 }
 
 .app-sidebar-notes {
+  background-color: rgb(245, 236, 236, .75);
   height: 393px;
   overflow-y: scroll;
 }

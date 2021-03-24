@@ -13,8 +13,8 @@ const LightTheme = {
 const DarkTheme = {
   name: "dark",
   pageBackground: "#282c36",
-  titleColor: "white",
-  tagLineColor: "white",
+  // titleColor: "white",
+  // tagLineColor: "white",
 }
 
 const BlueTheme = {
