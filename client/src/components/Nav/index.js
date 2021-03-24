@@ -60,7 +60,7 @@ function Nav(props) {
   const history = useHistory();
   const redirect = () => {
     history.push("/")
-    //logout from google automatically sets the userState to empty and loggedin to false
+    localStorage.clear() //clears local storage and resets user state to empty
   }
 
   function changeTheme() {
