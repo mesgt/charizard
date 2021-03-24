@@ -32,11 +32,6 @@ const StyledNav = styled(Nav)``;
 // `;
 
 const Page = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: auto;
-  width: auto;
   background-color: ${(props) => props.theme.pageBackground};
   transition: all 0.5s ease;
 `;
@@ -71,85 +66,39 @@ function Main(props, { action }) {
   console.log(user);
   return (
     <>
-      {/* <div class="grid-container fluid"> */}
-        <Page
-          className="grid-x grid-margin-y"
-          style={{
-            // overflowY: "auto",
-            // paddingTop: "20vh",
-            // paddingBottom: "auto",
-            margin: 0,
-            // marginTop: "3%"
-          }}
-        >
-          <Container
-            className="grid-margin-y"
-            style={{
-              // overflowY: "auto",
-              // padding: "10vh 5vh 10vh 5vh",
-              // paddingTop: "75vh",
-              margin: 0,
-            }}
-          >
-            <div className="callout large primary">
-              <div className="column text-center">
-                <Nav
-                  theme={props.theme}
-                  test={props.test}
-                  fontTheme={props.fontTheme}
-                  test1={props.test1}
-                  colorThemeArray={props.colorThemeArray}
-                  fontThemeArray={props.fontThemeArray}
-                />
-              </div>
+      <Page>
+        <Container>
+          <div className="callout large primary">
+            <div className="column text-center">
+              <Nav
+                theme={props.theme}
+                test={props.test}
+                fontTheme={props.fontTheme}
+                test1={props.test1}
+                colorThemeArray={props.colorThemeArray}
+                fontThemeArray={props.fontThemeArray}
+              />
             </div>
-            <div className="grid-x grid-padding-x grid-margin-y">
-              <div className="cell small-3">
-                {/* <div className="grid-x radius"> */}
-                <StyledToDo />
-                {/* </div> */}
-                {/* <div
-                  className="grid-x radius "
-                  style={{
-                    justifyContent: "space-evenly",
-                  }}
-                >
-                </div> */}
-              </div>
-              <div id="calendarStyle" className="cell small-9">
-                <StyledCalendar userInfo={props.userInfo}/>
-              </div>
+          </div>
+          <div className="grid-x grid-padding-x grid-margin-y">
+            <div className="cell small-12 medium-4 large-2">
+              <StyledToDo />
             </div>
-            <div
-              className="grid-x grid-padding-x grid-margin-y radius"
-              // style={{
-              //   justifyContent: "space-evenly",
-              //   padding: "4vh",
-              //   border: "none",
-              // }}
-            >
-              <div className="cell small-3">
-                <StyledWeather />
-              </div>
-              <div className="cell small-9">
-                <StyledNotes />
-
-                {/* <div
-                  className="grid-x radius"
-                  style={{
-                    justifyContent: "space-evenly",
-                    padding: "4vh",
-                    marginTop: "4vh",
-                  }}
-                > */}
-                {/* </div> */}
-              </div>
+            <div id="calendarStyle" className="cell small-12 medium-8 large-10">
+              <StyledCalendar userInfo={props.userInfo} />
             </div>
-            {/* </div> */}
-          </Container>
-        </Page>
-      {/* </div> */}
-      </>
+          </div>
+          <div className="grid-x grid-padding-x grid-margin-y radius">
+            <div className="cell small-3">
+              <StyledWeather />
+            </div>
+            <div className="cell small-9">
+              <StyledNotes />
+            </div>
+          </div>
+        </Container>
+      </Page>
+    </>
   );
 }
 

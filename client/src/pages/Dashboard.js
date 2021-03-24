@@ -72,15 +72,7 @@ function Dashboard(props, { action })  {
             // marginTop: "3%"
           }}
         >
-          <Container
-            className="grid-margin-y"
-            style={{
-              // overflowY: "auto",
-              // padding: "10vh 5vh 10vh 5vh",
-              // paddingTop: "75vh",
-              // margin: 0,
-            }}
-          >
+          <Container className="grid-margin-y">
             <div className="callout large primary">
                 <div className="row column text-center">
                     <Nav
@@ -93,8 +85,8 @@ function Dashboard(props, { action })  {
                     />
                 </div>
             </div>
-            <div className="grid-x grid-padding-x grid-margin-y">
-                <div className="cell small-3">
+            <div className="row column text-center">
+                <div className="cell small-12 medium-4 large-4">
                     {/* <div className="grid-x radius"> */}
                     <StyledToDo />
                     {/* </div> */}
@@ -106,7 +98,7 @@ function Dashboard(props, { action })  {
                 >
                 </div> */}
                 </div>
-                <div className="cell small-9">
+                <div className="cell small-12 medium-8 large-8">
                     <StyledCalendar userInfo={props.userInfo} />
                 </div>
             </div>
