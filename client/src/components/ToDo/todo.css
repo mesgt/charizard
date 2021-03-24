@@ -16,6 +16,7 @@ form {
 }
 
 .todo {
+  /* position:sticky; */
     border-radius: 0;
     max-width: 300px;
     border: 1px rgba(0, 0, 0, 0.246) solid;

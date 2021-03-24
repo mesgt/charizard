@@ -31,6 +31,7 @@ const StyledNav = styled(Nav)``;
 //     transition: all .5s ease;
 // `;
 
+
 const Page = styled.div`
   background-color: ${(props) => props.theme.pageBackground};
   transition: all 0.5s ease;
@@ -38,9 +39,7 @@ const Page = styled.div`
 
 const Container = styled.div`
 
-  flex-direction: column;
-  align-items: center;
-  min-width: 600px;
+
   background-color: ${(props) => props.theme.pageBackground};
   color: ${(props) => props.theme.titleColor};
   border: ${(props) => props.theme.titleColor};
@@ -69,7 +68,7 @@ function Main(props, { action }) {
       <Page>
         <Container>
           <div className="callout large primary">
-            <div className="column text-center">
+            <div id="headerBack" className="text-center">
               <Nav
                 theme={props.theme}
                 test={props.test}

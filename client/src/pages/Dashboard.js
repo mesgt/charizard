@@ -74,7 +74,7 @@ function Dashboard(props, { action })  {
         >
           <Container className="grid-margin-y">
             <div className="callout large primary">
-                <div className="row column text-center">
+                <div className="row column text-center small-12">
                     <Nav
                         theme={props.theme}
                         test={props.test}
