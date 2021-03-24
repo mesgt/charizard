@@ -5,7 +5,7 @@ import { ThemeProvider } from "styled-components";
 
 const LightTheme = {
   name: "light",
-  pageBackground: "white",
+  pageBackground: "#d8d3d3",
   titleColor: "black",
   tagLineColor: "black"
 };
@@ -13,8 +13,8 @@ const LightTheme = {
 const DarkTheme = {
   name: "dark",
   pageBackground: "#282c36",
-  // titleColor: "white",
-  // tagLineColor: "white",
+  titleColor: "black",
+  tagLineColor: "black",
 }
 
 const BlueTheme = {
@@ -48,6 +48,20 @@ const OrangeTheme = {
 const MaroonTheme = {
   name: "maroon",
   pageBackground: "#800000",
+  titleColor: "black",
+  tagLineColor: "black"
+};
+
+const TealTheme = {
+  name: "teal",
+  pageBackground: "#07948d",
+  titleColor: "black",
+  tagLineColor: "black"
+};
+
+const BrownTheme = {
+  name: "brown",
+  pageBackground: "#442424",
   titleColor: "black",
   tagLineColor: "black"
 };
@@ -90,7 +104,9 @@ const themes = {
   green: GreenTheme,
   orange: OrangeTheme,
   maroon: MaroonTheme,
-  long: LongFormTheme
+  teal: TealTheme,
+  brown: BrownTheme,
+  // long: LongFormTheme
 }
 
 const fontThemes = {
@@ -107,7 +123,9 @@ const colorThemeArray = [
   "pink",
   "green",
   "orange",
-  "maroon"
+  "maroon",
+  "teal",
+  "brown"
 ]
 
 const fontThemeArray = [
