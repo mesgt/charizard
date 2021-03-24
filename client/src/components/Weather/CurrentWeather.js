@@ -46,9 +46,9 @@ export function CurrentWeather({ weather }) {
       : nightSky;
   return (
     <div
-      style={{
-        width: "100%",
-      }}
+      // style={{
+      //   width: "100%",
+      // }}
     >
       <div
         className="card"

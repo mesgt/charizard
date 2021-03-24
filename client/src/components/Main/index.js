@@ -92,12 +92,12 @@ function Main(props, { action }) {
             <div className="cell small-12 medium-8 large-10">
               <StyledNotes />
             </div>
-            <div className="cell small-12 medium-4 large-2">
+            <div className="container small-12 medium-4 large-2">
               <StyledWeather />
             </div>
           </div>
           <div className="footer">
-              {/* <Footer /> */}
+              <Footer />
             </div>
         </Container>
       </Page>

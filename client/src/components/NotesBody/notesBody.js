@@ -1,4 +1,5 @@
 import React from "react";
+import "../Notes/notes.css";
 
 const NotesBody = ({ onUpdateNote, activeNoteData }) => {
   const [title, setTitle] = React.useState("");
@@ -38,6 +39,7 @@ const NotesBody = ({ onUpdateNote, activeNoteData }) => {
           autoFocus
         />
         <textarea
+          id="noteText"
           placeholder="Write your note here..."
           value={body || activeNoteData.body}
           onChange={(e) => onEditField("body", e.target)}

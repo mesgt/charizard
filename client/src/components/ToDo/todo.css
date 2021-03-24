@@ -28,19 +28,12 @@ form {
 
   .todoTasks {
     background-color: rgb(245, 236, 236, .8);
-    /* background-color: inherit; */
     color: inherit;
-    /* background-color: 500%; */
-    /* background-blend-mode:color-dodge; */
-    border-radius: 0;
-    /* max-width: 300px; */
-    border: 1px rgba(0, 0, 0, 0.246) solid;
-    /* height: 50vh; */
-    /* width: 55vh; */
     max-height: 50vh;
     overflow-y: scroll;
     scrollbar-color: black, white;
-    margin: 0px 0px, 0px;
+    margin-top: 15px;
+    margin-bottom: 0;
   }
 
   .top {
@@ -60,7 +53,8 @@ form {
 }
 
 #todoStyle {
-
+height: 550px;
+border: 1px rgba(116, 114, 114, 0.246) solid;
 }
 
   .divider {

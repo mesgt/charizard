@@ -54,7 +54,8 @@ function Notes() {
     
 
     return (
-        <div className="grid-container fluid NoteBox">
+        <div className="grid-x grid-padding-x grid-margin-y">
+            <div className="cell small-12 medium-4 large-4"> 
                 <Sidebar
                     notes={notes}
                     onAddNote={onAddNote}
@@ -63,9 +64,12 @@ function Notes() {
                     setActiveNote={setActiveNote}
                     getActiveNote={getActiveNote}
                 />
+            </div>
+            <div id="NoteBox" className="cell small-12 medium-8 large-8">
                 <NotesBody 
                 onUpdateNote={onUpdateNote} 
                 activeNoteData={activeNoteData}/>
+            </div>
         </div>
     )
 }

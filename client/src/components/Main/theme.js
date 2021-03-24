@@ -34,8 +34,8 @@ const PinkTheme = {
 const GreenTheme = {
   name: "green",
   pageBackground: "#228B22",
-  titleColor: "white",
-  tagLineColor: "white",
+  titleColor: "black",
+  tagLineColor: "black",
 }
 
 const OrangeTheme = {
@@ -48,8 +48,8 @@ const OrangeTheme = {
 const MaroonTheme = {
   name: "maroon",
   pageBackground: "#800000",
-  titleColor: "white",
-  tagLineColor: "gold"
+  titleColor: "black",
+  tagLineColor: "black"
 };
 
 const CursiveTheme = {
