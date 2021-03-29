@@ -30,13 +30,18 @@ Published site: https://still-gorge-28098.herokuapp.com/
 
 ## Usage
 
+  <img src="client\public\images\login.PNG" width="350" title="login page">
+  <img src="client/public/images/cal.png" width="350" alt="main page 1">
+  <img src="client/public/images/cal2.png" width="350" alt="main page 2">
+
+
 ![login page](client/public/images/login.png)
 <br/>
 <br/>
-![login page](client/public/images/cal.png)
+![main page1](client/public/images/cal.png)
 <br/>
 <br/>
-![login page](client/public/images/cal2.png)
+![main page2](client/public/images/cal2.png)
 
 ## Credits
 <li>Yer Masog- Project Leader</li>
