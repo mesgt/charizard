@@ -1,23 +1,33 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # The Everything App
 
-## Description 
 One place to track calendar events, organize your list of tasks, store notes and even see the local weather to help you plan for the weekend.
 
-## Links 
+## Deployed Link
+
 Published site: https://still-gorge-28098.herokuapp.com/ 
 
-## Table of Contents
 
-* [Description](#Description) 
-* [Links](#Links)
-* [Technologies](#Technologies)
-* [Usage](#Usage)
-* [Credits](#Credits)
-* [License](#License)
-* [Badges](#Badges)
+# Application Details
+
+## Purpose
+This app was built to mimic the bullet journaling experience. Multiple themes allow for the user to express their personality while taking advantage of the app's simple organization and focus on productivity. 
+
+
+## Description
+
+This app uses React and multiple React components to allow for seemless transition between various functions. The goal was to build a comprehensive and aesthetically pleasing experience for the user where they can reach a balance between expressing their personality and utilizing productivity and time-management tools such as note-taking, to-do tasks, tracking calendar events and being ready for whatever mother nature may bring their way. We wanted to empower the user to make it through the day by including an inspirational quote every time the app is refreshed. 
+
+  <img src="client\public\images\login.PNG" width="350" title="login page">
+  <br/>
+  <img src="client\public\images\cal.PNG" width="350" alt="main page 1">
+  <br/>
+  <img src="client\public\images\cal2.PNG" width="350" alt="main page 2">
 
 
 ## Technologies
+
 <li>React</li>
 <li>React-google-login</li>
 <li>React-modal</li>
@@ -28,26 +38,36 @@ Published site: https://still-gorge-28098.herokuapp.com/
 <li>Axios</li>
 <li>Foundation</li>
 
-## Usage
 
-  <img src="client\public\images\login.PNG" width="350" title="login page">
-  <br/>
-  <img src="client\public\images\cal.PNG" width="350" alt="main page 1">
-  <br/>
-  <img src="client\public\images\cal2.PNG" width="350" alt="main page 2">
+# Future Development
+Ideas for future development include:
+  1. Responsiveness
+  2. Integrating Google Calendar
+  3. Theme persistence 
+  4. To-do integration with the calendar to generate a reminder function
+  5. More user friendly theme change display with additional options to include more masculine colors
 
-## Credits
-<li>Yer Masog- Project Leader</li>
-<li>Maria Sargent</li>
-<li>Chad Clark</li>
-<li>Justin Vang</li>
-<li>Aly May</li>
 
 ## License
 MIT License
 
-## Badges
-N/A
+
+## GitHub and Contributors
+
+https://github.com/mesgt/charizard
+
+<br>
+
+[Yer Masog- Project Leader](https://github.com/yermasog)
+
+[Maria Sargent](https://github.com/mesgt)
+
+[Chad Clark](https://github.com/chadclark1234)
+
+[Justin Vang](https://github.com/justinkvang)
+
+[Aly May](https://github.com/amay1421)
+
 
 ## Contributing
 
